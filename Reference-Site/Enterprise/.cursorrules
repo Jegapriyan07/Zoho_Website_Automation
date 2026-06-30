@@ -1,0 +1,77 @@
+
+
+# .cursorrules
+
+1. Do **not** create any `.html` files. Use the logic defined in the `TemplateCreator` class.
+   - Reference: `zohoanalyticsclient/src/js/clientlibraries/TemplateCreator.js`
+   - Also refer: `zohoanalyticsclient/src/js/clientlibraries/TemplateObject.js`
+
+2. When constructing HTML elements, strictly follow the patterns used in existing **View** files.
+   - Reference folder: `zohoanalyticsclient/src/js/jsTemplates/view`
+   - Thoroughly review existing files to understand structure, naming, and element hierarchy.
+   - Do **not invent any new logic or structure** — reuse the exact patterns and structure as already implemented.
+
+3. All core UI logic must be placed inside **Controller** files.
+   - Reference folder: `zohoanalyticsclient/src/js/jsTemplates/controller`
+   - Review and follow existing controller logic closely when writing new ones.
+
+4. Use the **Model** pattern if data structure or logic abstraction is required.
+   - Reference folder: `zohoanalyticsclient/src/js/jsTemplates/model`
+   - Analyze the model files thoroughly and replicate their design and structure exactly.
+
+5. For dynamic views (e.g., using `for`, `if`, data binding), refer to existing usage in:
+   - `zohoanalyticsclient/src/js/jsTemplates/view`
+
+6. Use existing custom components — **do not recreate or invent new versions**:
+   - **Search**: `zohoanalyticsclient/src/js/component/search/ZASearchComponent.js`
+   - **Checkbox**: `zohoanalyticsclient/src/js/jsTemplates/controller/ZACheckbox.js`
+   - **Radio Button**: `zohoanalyticsclient/src/js/jsTemplates/controller/ZARadioButton.js`
+   - **Toggle Button**: `zohoanalyticsclient/src/js/jsTemplates/controller/ZAToggleButton.js`
+
+7. Component construction should follow internal patterns.  
+   **Do not use Web Components** — no `customElements`, Shadow DOM, or `<template>` usage.
+
+8. Reuse logic and patterns from:
+   - `zohoanalyticsclient/src/js/jsTemplates/controller`
+
+9. All styling must be written in:
+   - `zohoanalyticsclient/src/scss`
+   - Always analyze and follow the naming, structure, and grouping used in existing SCSS files.
+
+10. Follow strict naming conventions for `class`, `id`, and `elName` attributes:
+    - Refer to: `zohoanalyticsclient/src/js/jsTemplates/view`
+    - Match the naming format used
+    - Always use the `elName` attribute and match the pattern exactly.
+
+11. **Strictly use semantic HTML tags** like `<section>`, `<article>`, `<nav>`, `<header>`, `<main>`, `<footer>`, `<button>`, etc.  
+    **Do not use `<div>` or `<span>` unnecessarily.** Semantic structure is mandatory.
+
+12. Ensure accessibility is fully supported:
+    - Tab navigation, focus management, ARIA roles/labels, screen reader support
+
+13. Inline styles and inline event handlers (e.g., `onclick`, `onchange`) are strictly prohibited.
+    - Styles ➜ SCSS only
+    - Events ➜ JavaScript/controller logic only
+
+14. All JavaScript code must conform to the ESLint rules defined in:
+    - `zohoanalyticsclient/.eslintrc.js`
+    - Make sure linting is run before committing code.
+    - Use consistent indentation, spacing, naming, and patterns defined in the ESLint configuration.
+
+15. When helper functions or reusable utilities are needed:
+    - Use the utility methods already present in various files under:  
+      `zohoanalyticsclient/src/js/clientlibraries`
+    - For usage references, check how these utils are used in controller files:  
+      `zohoanalyticsclient/src/js/jsTemplates/controller`
+    - Avoid duplicating logic — reuse and centralize in util files if necessary.
+
+16. 🔍 For **thorough understanding** of how model data flows through controller to view:
+    - You **must analyze** at least **20 to 30 files** each from the following folders:
+      - `zohoanalyticsclient/src/js/jsTemplates/view`
+      - `zohoanalyticsclient/src/js/jsTemplates/controller`
+      - `zohoanalyticsclient/src/js/jsTemplates/model`
+    - This is to ensure consistency and understanding of how data binding and UI rendering are handled.
+    - You are encouraged to go beyond 30 files for deeper understanding.
+    - When loading a module, use the method:
+      - `preloadMVCFilesForModule(...)` to ensure proper View-Model-Controller dependency resolution.
+

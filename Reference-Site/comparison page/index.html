@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="zohocustom.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Banner section -->
+    <section class="banner-section">
+        <div class="content-wrap">
+            <div class="left-wrapper">
+                <span class="comparison-title">Zoho Analytics vs Power BI</span>
+                <h1>Break free from Power BI's price trap! Choose Zoho Analytics, the smarter choice.</h1>
+                <p>From platform capabilities to pricing, learn how Zoho Analytics can help you go beyond Power BI's
+                    limitations.</p>
+                <a href="/analytics/signup.html" class="act-btn cta-btn" target="_blank">Sign up for free</a>
+            </div>
+            <div class="right-wrapper">
+                <picture>
+                    <source media="" srcset="/sites/zweb/images/analytics/comparison-za-vs-powerbi.webp">
+                    <img width="100%" height="" src="/sites/zweb/images/analytics/comparison-za-vs-powerbi.png"
+                        alt="Visual comparison between Zoho Analytics and Power BI interfaces" class="bimg">
+                </picture>
+            </div>
+        </div>
+    </section>
+    <div class="za-brandsCounts">
+        <div class="brand-wrapper">
+            <!-- trusted brands section -->
+            <section class="marquee-wrapper">
+                <div class="trusted-icon-wrap">
+                    <div class="trust-icon">
+                        <span data-lazy class="ae-icon tb-icon1">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon2">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon3">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon4">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon5">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon6">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon7">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon8">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon1">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon2">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon3">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon4">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon5">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon6">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon7">&nbsp;</span>
+                        <span data-lazy class="ae-icon tb-icon8">&nbsp;</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- customers and users counts section -->
+            <section class="za-counts-section">
+                <div class="za-cust-counts" data-onscroll>
+                    <ul>
+                        <li>
+                            <span><span class="counts" za-thousand-customers>16</span>K</span>
+                            <p>Customers</p>
+                        </li>
+                        <li>
+                            <span><span class="counts" za-million-users>3</span>M</span>
+                            <p>Users</p>
+                        </li>
+                        <!-- <li>
+            <span><span class="counts" za-million-reports>75</span>M</span>
+            <p>Reports</p>
+        </li> -->
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+
+    <section class="pricing-calculator">
+        <div class="content-wrap">
+            <h2>Pricing Comparison: Zoho Analytics vs Power BI</h2>
+            <div class="slider-container">
+                <label for="user-slider">Number of users: <span id="user-count">250</span></label>
+                <div class="slider-col">
+                    <span>50</span>
+                    <input type="range" id="user-slider" min="50" max="500" value="250" step="50"
+                        aria-label="Adjust number of users">
+                    <span>500</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart">
+                    <div class="line-20"></div>
+                    <div class="line-40"></div>
+                    <div class="line-60"></div>
+                    <div class="bar" id="zoho-bar" style="height: 29.03px;">
+                        <span id="zoho-text" style="height: 44px;">$13,824</span>
+                    </div>
+                    <div class="bar" id="powerbi-bar-pro" style="height: 140px;">
+                        <span id="powerbi-text-pro" style="height: 155px;">$116,640</span>
+                    </div>
+                    <div class="bar" id="powerbi-bar-premium" style="height: 240px;">
+                        <span id="powerbi-text-premium" style="height: 255px;">$116,640</span>
+                    </div>
+                </div>
+                <div class="lable-wrapper">
+                    <span class="zohoBarLabel label">Zoho Analytics</span>
+                    <span class="powerbiProBarLabel label">Power BI Pro</span>
+                    <span class="powerbiPremiumBarLabel label">Power BI Premium</span>
+                </div>
+            </div>
+            <div class="sampleLabel">*Assuming the below split of <span id="roles">300</span> user licenses:</div>
+            <div class="pricing-table">
+                <div class="table-row-container">
+                    <div class="Zoho-Analytics column">
+                        <div class="pricing-table-row table-header"><span>Zoho Analytics</span></div>
+                        <div class="pricing-table-row row">
+                            <div class="table-view">
+                                <p><span id="zUser" class="costing-price">60</span> Users/Creators</p>
+                            </div>
+                            <span id="zoho-users-cost">$4,608</span>
+                        </div>
+                        <div class="pricing-table-row row">
+                            <div class="table-view">
+                                <p><span id="zViewer" class="costing-price">240</span> Viewers</p>
+                            </div>
+                            <span id="zoho-viewers-cost">$9,216</span>
+                        </div>
+                        <div class="pricing-table-row zoho-total-cost row">
+                            <div class="table-view">
+                                <span class="total-text">Total cost per year</span>
+                            </div>
+                            <span id="zoho-total">$13,824</span>
+                        </div>
+                    </div>
+                    <div class="powerbiPro column">
+                        <div class="pricing-table-row table-header"><span>Power BI Pro</span></div>
+                        <div class="pricing-table-row row">
+                            <div class="table-view">
+                                <p><span id="powerbipro" class="costing-price">60</span> Users/Creators</p>
+                            </div>
+                            <span id="powerbi-creator-cost">$54,000</span>
+                        </div>
+                        <div class="pricing-table-row powerbi-total-cost row hidden">
+                        </div>
+                        <div class="pricing-table-row powerbi-total-cost row">
+                            <div class="table-view">
+                                <span>Total cost per year</span>
+                            </div>
+                            <span id="powerbiPro-total">$84,240</span>
+                        </div>
+                    </div>
+                    <div class="powerbiPremium column">
+                        <div class="pricing-table-row table-header"><span>Power BI Premium</span></div>
+                        <div class="pricing-table-row row">
+                            <div class="table-view">
+                                <p><span id="powerbipremium" class="costing-price">60</span> Users/Creators</p>
+                            </div>
+                            <span id="powerbi-explorer-cost">$30,240</span>
+                        </div>
+                        <div class="pricing-table-row powerbi-total-cost row hidden">
+                        </div>
+                        <div class="pricing-table-row powerbi-total-cost row">
+                            <div class="table-view">
+                                <span>Total cost per year</span>
+                            </div>
+                            <span id="powerbiPremium-total">$84,240</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="savings-info powerbi-premium-not" id="getNotePowebi">
+                <p>
+                    <span>Note:</span> Taking into account the site-wide licensing option of $4,995 per month for Power
+                    BI Premium
+                </p>
+            </div>
+            <div class="savings-info">
+                <p><span>Power BI Pro:</span> With Zoho Analytics, you save <span
+                        id="powerbBiPro-savings-amount">$70,416</span> or up to <span
+                        id="powerbBiPro-savings-percent">83.57%</span> in savings.</p>
+                <p><span>Power BI Premium:</span> With Zoho Analytics, you save <span
+                        id="powerbBiPremium-savings-amount">$70,416</span> or up to <span
+                        id="powerbBiPremium-savings-percent">83.57%</span> in savings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DSML Section -->
+    <section class="icon-border-section dark" data-onscroll="">
+        <div class="content-wrap">
+            <h2>Priced for Value. Limitless Possibilities.</h2>
+            <p class="header-descriptions">Starts at <span>$8 per user</span> per month</p>
+            <div class="content-main">
+                <div class="card card1">
+                    <h3>Maximized ROI</h3>
+                    <p>Transparent pricing that delivers exceptional value</p>
+                </div>
+                <div class="card card2">
+                    <h3>Affordable for All</h3>
+                    <p>Flexible plans tailored to businesses of every size and stage</p>
+                </div>
+                <div class="card card3">
+                    <h3>Designed for Growth</h3>
+                    <p>Scalable solution that adapt as your business expands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="za-generative-ai-wrappper" data-onscroll="">
+        <div class="content-wrap">
+            <h2>Generative AI for BI and Data Analytics</h2>
+            <div class="box-wrapper">
+                <div class="left-wrapper">
+                    <div class="box-item box1">
+                        <h3>Ask Zia - Copilot for Data & Insights</h3>
+                        <ul>
+                            <li>Ask questions in natural language to Zia and get insights as response</li>
+                            <li>Get Ask Zia assistance for setting up models, metrics and actions</li>
+                            <li>Zia can converse in multiple languages</li>
+                        </ul>
+                        <div class="image-wrapper">
+                            <img src="/sites/zweb/images/analytics/za-zia-insights-illustartion.png" width=""
+                                alt="Illustration showing Ask Zia AI assistant interface">
+                        </div>
+                    </div>
+                    <div class="box-item box2">
+                        <h3>Diagnostic Analysis to know the 'Why'</h3>
+                        <ul>
+                            <li>Perform root cause analysis to know the 'Why' behind any fact</li>
+                            <li>Diagnosis offered contextually as you analyze any data</li>
+                            <li>Highly customizable model to suit your needs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-wrapper">
+                    <div class="box-item box3">
+                        <h3>Automated Narrative Insights</h3>
+                        <ul>
+                            <li>Generate top insights to act, on any report or dashboard you view</li>
+                            <li>Insights narrated in easy digestable textual or visual format</li>
+                            <li>15+ AI models to customize for your needs</li>
+                        </ul>
+                    </div>
+
+                    <div class="box-item box4">
+                        <h3>Predictive AI for Advanced Analytics</h3>
+                        <ul>
+                            <li>Perform forecasting, trend & what-if analysis to predict future outcomes</li>
+                            <li>Spot Anomalies/Outliers in your data and business metrics</li>
+                            <li>Setup automated alerts on anomalies</li>
+                        </ul>
+                        <div class="image-wrapper">
+                            <img src="/sites/zweb/images/analytics/feature/multivariate-forecasting.png" width="450px"
+                                alt="Screenshot showing multivariate forecasting capabilities">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="za-inner-testimonials">
+                <img src="/sites/zweb/images/analytics/za-double-quotes-yellow.png" alt="Decorative double quotes"
+                    class="double-quotes">
+                <p>"The Ask Zia and Zia Insights features are so cool. I can ask for a specific agent name for their
+                    quarterly or monthly performance and get to see if their sales numbers are trending up or down, and
+                    from which geographic areas their sales are coming from. I can also dive into why they can't close
+                    deals in other areas and try to replicate the successful ones."</p>
+                <img src="/sites/zweb/images/analytics/john-sheldon.jpeg" alt="Portrait photo of John Sheldon"
+                    width="56" height="56">
+                <span class="name">John Sheldon</span>
+                <span class="designation">Business Intelligence Manager, Renu Energy Solutions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DSML Section -->
+    <section class="icon-border-section blue" data-onscroll="">
+        <div class="content-wrap">
+            <h2>DSML Studio</h2>
+            <div class="content-main">
+                <div class="card card1">
+                    <!-- <h3>Business reports</h3> -->
+                    <p>Build custom machine learning models easily</p>
+                </div>
+                <div class="card card2">
+                    <!-- <h3>Presentations</h3> -->
+                    <p>Automated Machine Learning for low-code model building</p>
+                </div>
+                <div class="card card3">
+                    <!-- <h3>Infographics</h3> -->
+                    <p>Python code studio for creating custom data transformation and models</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+
+    <section class="comparison-table-section">
+        <div class="content-wrap">
+            <div class="content-wrapper">
+                <h2>Key Differentiators</h2>
+                <!-- <p>Take a look at how Zoho Analytics stacks up against other line chart makers.</p> -->
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th class="analytics-light">
+                                <div>Zoho Analytics</div>
+                            </th>
+                            <th>Power BI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data integration</td>
+                            <td class="analytics-dark">Seamless integration with 500+ native data connectors</td>
+                            <td>Powerful Microsoft integration but require manual setup for others</td>
+                        </tr>
+                        <tr>
+                            <td>Data visualization</td>
+                            <td class="analytics-light">Create reports with over 50 visualization options with the
+                                intuitive drag-and-drop interface</td>
+                            <td>Requires a separate desktop app to create reports</td>
+                        </tr>
+                        <tr>
+                            <td>Native data preparation</td>
+                            <td class="analytics-dark">Built-in data prep and easy for non-technical users</td>
+                            <td>Requires Power Query and is more complex</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic data blending</td>
+                            <td class="analytics-light">Automatic blending across sources</td>
+                            <td>Manual setup for complex datasets</td>
+                        </tr>
+                        <tr>
+                            <td>Generative AI</td>
+                            <td class="analytics-dark">Zia AI for automated insights, NLP queries, anomaly detection
+                            </td>
+                            <td>Power BI AI, but with limited automation</td>
+                        </tr>
+                        <tr>
+                            <td>DSML studio</td>
+                            <td class="analytics-light">Built-in DSML tools for predictive analytics and anomaly
+                                detection - no code needed</td>
+                            <td>Requires Azure ML, Python for advanced ML capabilities</td>
+                        </tr>
+                        <tr>
+                            <td>Automation and reporting</td>
+                            <td class="analytics-dark">Automated data workflows and data reporting</td>
+                            <td>Limited without paid licenses</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment flexibility</td>
+                            <td class="analytics-light">Flexible cloud and on-premises options are available</td>
+                            <td>Mostly cloud, on-premises requires Power BI Server</td>
+                        </tr>
+                        <tr>
+                            <td>Scalability</td>
+                            <td class="analytics-dark">Scales easily and supports data growth without any extra cost
+                            </td>
+                            <td>Requires Premium for large datasets</td>
+                        </tr>
+                        <tr>
+                            <td>Customization</td>
+                            <td class="analytics-light">Users can tailor the platform to their business needs</td>
+                            <td>Customization is possible but is more technical</td>
+                        </tr>
+                        <tr>
+                            <td>Collaboration</td>
+                            <td class="analytics-dark">Real-time collaboration and easy sharing, which enables easy
+                                teamwork</td>
+                            <td>Requires Pro or Premium version for collaboration</td>
+                        </tr>
+                        <tr>
+                            <td>Global presence and compliance</td>
+                            <td class="analytics-light">Global data centers ensuring compliance with regional data
+                                protection. Strong global presence, multilingual support</td>
+                            <td>Strong compliance, but within the Microsoft ecosystem. Access to specific tools often
+                                requires additional services</td>
+                        </tr>
+                        <tr>
+                            <td>Security and governance</td>
+                            <td class="analytics-dark bottom">ISO/IEC 27001, 27017,27018, SOC 2 Type 2, GDPR, HIPAA</td>
+                            <td>ISO 27001, 27018, GDPR, HIPAA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre banner section -->
+
+    <section class="pre-banner-section">
+        <div class="content-wrap">
+            <div class="content-wrapper">
+                <h2>Experience the difference with Zoho Analytics</h2>
+                <a href="/analytics/signup.html" class="act-btn" aria-label="Sign up for free trial" target="_blank">Get
+                    a
+                    personalized Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services we offer -->
+    <section class="za-services-offer dark" data-onscroll="">
+        <div class="content-wrap">
+            <h2>Why is Zoho Analytics your go-to solution if you're searching for a Power BI alternative?</h2>
+            <div class="services-grid">
+                <div class="services-card card1">
+                    <div class="services-item">
+                        <img src="/sites/zweb/images/analytics/za-smarter-decisions-version2.png"
+                            alt="Illustration representing AI-powered insights" width="">
+                        <h3>AI-powered insights</h3>
+                    </div>
+                </div>
+                <div class="services-card card2">
+                    <div class="services-item">
+                        <img src="/sites/zweb/images/analytics/za-scalability-without-complexity.png"
+                            alt="Illustration showing scalability features" width="">
+                        <h3>Scalability without complexity</h3>
+                    </div>
+                </div>
+                <div class="services-card card3">
+                    <div class="services-item">
+                        <img src="/sites/zweb/images/analytics/za-pocket-friendly-pricing.png"
+                            alt="Illustration representing affordable pricing" width="">
+                        <h3>Pocket-friendly pricing</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie chart section -->
+
+    <section class="dashboard-wrapper" data-onscroll="">
+        <div class="content-wrap">
+            <div class="header-content">
+                <h2>Why customers choose Zoho Analytics over Power BI?</h2>
+            </div>
+
+            <!-- dashboard1 -->
+            <div class="main-wrapper right-content" data-onscroll="">
+                <div class="image-wrapper">
+                    <img width="100%" height=""
+                        src="/sites/zweb/images/analytics/feature/drag-and-drop-visualization.jpg"
+                        alt="Screenshot demonstrating drag-and-drop interface" class="bimg dashboard-image">
+                </div>
+                <div class="content-wrapper">
+                    <h3>Ease of use</h3>
+                    <ul>
+                        <li><span class="check"></span> Intuitive drag-and-drop interface</li>
+                        <li><span class="check"></span> Create visualizations under a minute</li>
+                        <li><span class="check"></span> Single unified interface for data to insights and actions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- dashboard2 -->
+            <div class="main-wrapper left-content" data-onscroll="">
+                <div class="content-wrapper">
+                    <h3>Data pipeline and preparation tool</h3>
+                    <ul>
+                        <li><span class="check"></span> Effortlessly set up pipelines for smooth data integration</li>
+                        <li><span class="check"></span> Clean, transform, enrich, and model data—no coding required
+                        </li>
+                        <li><span class="check"></span> Centralized metrics management to define and oversee all
+                            business KPIs</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper">
+                    <img width="100%" height="" src="/sites/zweb/images/analytics/visual-dataprep-pipeline.webp"
+                        alt="Visual representation of data preparation pipeline" class="bimg dashboard-image">
+                </div>
+            </div>
+
+            <!-- dashboard -->
+            <div class="main-wrapper right-content" data-onscroll="">
+                <div class="image-wrapper">
+                    <img width="100%" height="" src="/sites/zweb/images/analytics/feature/smart-data-blending.jpeg"
+                        alt="Screenshot showing unified business analytics interface" class="bimg dashboard-image">
+                </div>
+                <div class="content-wrapper">
+                    <h3>Unified Business Analytics</h3>
+                    <ul>
+                        <li><span class="check"></span> Out of the box integrations to 500+ business apps</li>
+                        <li><span class="check"></span> Prebuilt metrics, reports and dashboards for each domain</li>
+                        <li><span class="check"></span> Automatic blending across business apps for 360° insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Alternative to Power BI -->
+
+    <section class="sticky-section">
+        <div class="content-wrap">
+            <div class="content-main">
+                <h2>More reasons why Zoho Analytics is the best alternative to Power BI</h2>
+            </div>
+
+            <div class="section-wrapper">
+                <div class="each-box-fort">
+                    <div class="scroll-card card1">
+                        <div class="left-wrapper">
+                            <h3>Data visualization</h3>
+                            <ul>
+                                <li>Robust data visualization</li>
+                                <li>Variety of charts, pivot tables, geo visualization</li>
+                                <li>Intuitive drag-and-drop interface</li>
+                                <li>Clear and actionable insights</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrapper"><img
+                                src="/sites/zweb/images/analytics/feature/50-plus-visualization.png" width="100%"
+                                height="" alt="Screenshot showing various data visualization options"></div>
+                    </div>
+                    <div class="scroll-card card2">
+                        <div class="left-wrapper">
+                            <h3>Data storytelling</h3>
+                            <ul>
+                                <li>Increases data literacy across the organization</li>
+                                <li>Boosts audience engagement and communication</li>
+                                <li>Helps identify why and how something happened</li>
+                                <li>Communicates insights effectively to all types of audiences</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrapper"><img src="/sites/zweb/images/analytics/feature/slideshows.png"
+                                width="585px" height="" alt="Example of data storytelling presentation"></div>
+                    </div>
+                    <div class="scroll-card card3">
+                        <div class="left-wrapper">
+                            <h3>Collaborative analytics</h3>
+                            <ul>
+                                <li>Share reports and dashboards with your team and collaborate</li>
+                                <li>Gain complete control over who has access to what based on role</li>
+                                <li>Make reports accessible to users with or without login</li>
+                                <li>Have real-time collaboration with contextual comment threads</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrapper"><img
+                                src="/sites/zweb/images/analytics/feature/zaf-fine-grained-access-control-version2.webp"
+                                width="100%" height="" alt="Interface showing collaborative analytics features"></div>
+                    </div>
+                    <div class="scroll-card card4">
+                        <div class="left-wrapper">
+                            <h3>Embedded analytics</h3>
+                            <ul>
+                                <li>A full-featured BI & analytics service, hosted on the Zoho cloud</li>
+                                <li>Analyze your data by installing Zoho Analytics on your own servers</li>
+                                <li>Deploy Zoho Analytics on public/private clouds like Amazon AWS and more</li>
+                                <li>A full-fledged analytics apps under your own brand</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrapper"><img src="/sites/zweb/images/analytics/feature/embedded.jpeg"
+                                width="100%" height="" alt="Example of embedded analytics implementation"></div>
+                    </div>
+                    <div class="scroll-card card5">
+                        <div class="left-wrapper">
+                            <h3>Security and governmance</h3>
+                            <ul>
+                                <li>Enterprise-grade security features and governance framework</li>
+                                <li>Clear demarcation on who can do what </li>
+                                <li>Your data stored in Zoho Analytics cloud version is backed up every day</li>
+                                <li>All user activity is logged within the app to ensure safety</li>
+                            </ul>
+                        </div>
+                        <div class="right-wrapper"><img src="/sites/zweb/images/analytics/feature/logging.png"
+                                width="100%" height="" alt="Security and governance features interface"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysts quotes section -->
+    <section class="reported-section">
+        <div class="content-wrap">
+            <div class="report-slider">
+                <!-- Gartner quotes -->
+                <div class="aem-report report3">
+                    <h3>2024 Gartner Magic Quadrant for Analytics and Business Intelligence Platforms</h3>
+                    <p>Zoho Analytics has been recognized in 2024 Gartner Magic Quadrant™ for ABI Platforms.</p>
+                    <a href="/analytics/2024-gartner-mq-report.html" target="_blank" class="read-more-link nonlang"
+                        aria-label="Read more about Gartner Magic Quadrant recognition">Read
+                        more</a>
+                </div>
+                <!-- Barc quotes -->
+                <div class="aem-report report1">
+                    <h3>BARC - The BI & Analytics Survey 24</h3>
+                    <p>91% of surveyed users recommend Zoho Analytics. Leader in Business Value, Advanced & Predictive
+                        Analytics and Ease of Use category in Analysis Focus peer group</p>
+                    <a href="/analytics/bi-analytics-survey-2024.html" target="_blank" class="read-more-link nonlang"
+                        aria-label="Read more about BARC BI & Analytics Survey">Read
+                        more</a>
+                </div>
+                <!-- Dresner Quotes -->
+                <div class="aem-report report1">
+                    <h3>Dresner Advisory's Wisdom of Crowds® Business Intelligence Market Study</h3>
+                    <p>Zoho yet again rated as a Leader for both customer experience and vendor credibility by Dresner
+                        Advisory</p>
+                    <a href="/analytics/dresner-report-2024.html" target="_blank" class="read-more-link nonlang">Read
+                        more</a>
+                </div>
+            </div>
+            <!-- Ratings sections -->
+            <div class="trust-section rated-section">
+                <div class="rating-table"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services we offer -->
+    <section class="za-services-offer" data-onscroll="">
+        <div class="content-wrap">
+            <h2>Services we offer</h2>
+            <div class="services-grid">
+                <div class="services-card card1">
+                    <a href="/analytics/help/overview.html" target="_blank">
+                        <div class="services-item">
+                            <img src="/sites/zweb/images/analytics/za-customer-support-illustartion.png"
+                                alt="24/7 customer support" width="340px">
+                            <h3>24/7 customer support</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="services-card card2">
+                    <a href="/analytics/webinars.html" target="_blank">
+                        <div class="services-item">
+                            <img src="/sites/zweb/images/analytics/za-webinars-illustration.png"
+                                alt="Webinars to get you started" width="344px">
+                            <h3>Webinars to get you started</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="services-card card3">
+                    <a href="/analytics/training.html" target="_blank">
+                        <div class="services-item">
+                            <img src="/sites/zweb/images/analytics/za-virtual-training-illustration.png"
+                                alt="Virtual classroom training" width="290px">
+                            <h3>Virtual classroom training</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="services-card card4">
+                    <a href="/analytics/jumpstart-professional-services.html" target="_blank">
+                        <div class="services-item">
+                            <img src="/sites/zweb/images/analytics/za-jumpstart-illustration.png"
+                                alt="Virtual classroom training" width="290px">
+                            <h3>Jumpstart / Professional Services Program</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="content-wrap">
+            <h2>Analytics made easier with Zoho Analytics - The best alternative to PowerBI</h2>
+            <div class="zwc-nav-scroll-section">
+                <div class="">
+                    <div class="zwc-nav-box-wrap">
+                        <div class="zwc-nav-box" data-scroll-section="1">
+                            <div class="profile-wrappper">
+                                <div><img src="/sites/zweb/images/analytics/simone.png" alt="Simone Drera" width="58px"
+                                        height="58px"></div>
+                                <div>
+                                    <h6>Simone Drera</h6><span class="designation">VP-Business Development, Flexxaire
+                                        Inc.</span>
+                                </div>
+                            </div>
+                            <div class="descriptions-wrapper">
+                                <p>“We wanted a simple BI solution to analyze our sales, project, and quality data. The
+                                    tool also needed to be capable of integrating multiple tables, creating models to
+                                    create charts that could be shared seamlessly across teams."</p>
+                            </div>
+                        </div>
+                        <div class="zwc-nav-box" data-scroll-section="2">
+                            <div class="profile-wrappper">
+                                <div><img src="/sites/zweb/images/analytics/moises.jpeg" alt="Moises Ochoa" width="58px"
+                                        height="58px"></div>
+                                <div>
+                                    <h6>Moises Ochoa</h6><span class="designation">Application Engineer, Cementos
+                                        Progreso</span>
+                                </div>
+                            </div>
+                            <div class="descriptions-wrapper">
+                                <p>"With Zoho Analytics, the time spent in creating charts, reports and dashboards went
+                                    down by 50%. More importantly, our software expenses were reduced by 30%!"</p>
+                            </div>
+                        </div>
+                        <div class="zwc-nav-box" data-scroll-section="3">
+                            <div class="profile-wrappper">
+                                <div><img src="/sites/zweb/images/analytics/feature/profile-testimonials.png"
+                                        alt="Marc Andrew" width="58px" height="58px"></div>
+                                <div>
+                                    <h6>Marc Andrew</h6><span class="designation">Senior Developer, Rental Car Manager
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="descriptions-wrapper">
+                                <p>"Our main alternate would have been Power BI, but we quickly found that the pricing
+                                    and user-friendliness wouldn't quite work for a lot of our customers."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Pre banner section -->
+
+    <section class="pre-banner-section light">
+        <div class="content-wrap">
+            <div class="content-wrapper">
+                <h2>Make the switch now and migrate from Power BI to Zoho Analytics</h2>
+                <a href="/analytics/signup.html" class="cta-btn act-btn" aria-label="" target="_blank">Sign up for
+                    free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Section -->
+    <section class="article-section">
+        <div class="content-wrap">
+            <div class="article-wrapper">
+                <div class="left">
+                    <h2>Top 5 Power BI alternatives in 2025</h2> <a
+                        href="/analytics/insightshq/top-5-power-bi-alternatives.html" class="" target="_blank">Checkout
+                        the
+                        article<span class="arrow"></span></a>
+                </div>
+                <div class="right"> <img
+                        src="/sites/zweb/images/analytics/comparison-between-powerbi-zoho-analytics.png" width=""
+                        height=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ section -->
+    <section class="faq-section">
+        <div class="content-wrap">
+            <h2>Frequently asked questions</h2>
+            <div class="z-accordian">
+                <div class="z-accordianBox">
+                    <h4 class="active">Why is Zoho Analytics the best Power BI alternative in 2025?</h4>
+                    <ul>
+                        <li>With Zoho Analytic’s user-friendly interface, integration with more than 500+ connectors,
+                            and pocket friendly pricing, it stands out as the best Power BI alternative in 2024. The
+                            advanced analytical capabilities, flexible deployment options, and advanced security make it
+                            a top choice for businesses looking for an easy, scalable, and customizable BI solution.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="z-accordianBox">
+                    <h4>Is there a free alternative to Power BI?</h4>
+
+                    <ul>
+                        <li>Zoho Analytics has a free plan that includes basic data analysis and reporting features,
+                            making it an excellent alternative to Power BI for users seeking an analytical tool with no
+                            cost. This option is perfect for individuals and small teams interested in exploring BI
+                            capabilities without an initial financial commitment.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="z-accordianBox">
+                    <h4>How does Zoho Analytics compare to Power BI in terms of pricing?</h4>
+
+                    <ul>
+                        <li>Compared to Power BI, Zoho Analytics offers a more budget-friendly pricing plan. The recent
+                            increase in Power BI’s pricing - from $10 to $14 for Power BI Pro and from $20 to $24 for
+                            Power BI Premium Per User - has prompted many users to seek a more affordable yet equally
+                            powerful analytical tool.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="z-accordianBox">
+                    <h4>How do Power BI’s integration options compare with Zoho Analytics?</h4>
+
+                    <ul>
+                        <li>Both Power BI and Zoho Analytics integrate with a wide range of business applications.
+                            However, Zoho Analytics has an advantage for users in the Zoho ecosystem, providing 500+
+                            native data connectors to Zoho apps along with several third-party integrations.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- banner form section -->
+    <!-- <div class="freeze_layer">&nbsp;</div>
+<div class="formSec">
+    <div class="formInner">
+        <span class="form-close"></span>
+        <h4> Start your 15-day free trial.</h4>
+        <span>No credit card required</span>
+        <div class="signup-box">
+            <div id="czone-home"></div>
+        </div>
+    </div>
+</div> -->
+
+    <div class="modal" id="adsModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="left">
+                <h2>Switch and Save with Zoho Analytics now!</h2>
+                <a href="/analytics/signup.html" class="act-btn cta-btn">Sign up for free</a>
+            </div>
+            <div class="right">
+                <div class="formInner">
+                    <span class="form-close"></span>
+                    <div class="signup-box">
+                        <div id="czone-home"></div>
+                    </div>
+                </div>
+                <img src="/sites/zweb/images/analytics/popup-alternative-powerbi.png" alt="Zoho Analytics Demo Banner"
+                    width="100%" height="">
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+
+        const userSlider = document.getElementById("user-slider");
+        const userCountDisplay = document.getElementById("user-count");
+        const powerbiBarPro = document.getElementById("powerbi-bar-pro");
+        const powerbiBarPremium = document.getElementById("powerbi-bar-premium");
+        const zohoBar = document.getElementById("zoho-bar");
+        const powerbiTextPro = document.getElementById("powerbi-text-pro");
+        const powerbiTextPremium = document.getElementById("powerbi-text-premium");
+        const zohoText = document.getElementById("zoho-text");
+        const roles = document.getElementById("roles");
+        const powerbipro = document.getElementById("powerbipro");
+        const powerbipremium = document.getElementById("powerbipremium");
+        const zUser = document.getElementById("zUser");
+        const zViewer = document.getElementById("zViewer");
+        const powerbi_creator_cost = document.getElementById("powerbi-creator-cost");
+        const powerbi_explorer_cost = document.getElementById("powerbi-explorer-cost");
+        const zoho_users_cost = document.getElementById("zoho-users-cost");
+        const zoho_viewers_cost = document.getElementById("zoho-viewers-cost");
+        const powerbiProTotalDisplay = document.getElementById("powerbiPro-total");
+        const powerbiPremiumTotalDisplay = document.getElementById("powerbiPremium-total");
+        const zohoTotalDisplay = document.getElementById("zoho-total");
+        const PowerBiProsavingsAmountDisplay = document.getElementById("powerbBiPro-savings-amount");
+        const PowerBiPremiumsavingsAmountDisplay = document.getElementById("powerbBiPremium-savings-amount");
+        const powerbBiProsavingsPercentDisplay = document.getElementById("powerbBiPro-savings-percent");
+        const powerbBiPremiumsavingsPercentDisplay = document.getElementById("powerbBiPremium-savings-percent");
+
+        function updateCosts(e) {
+            const zohoUserCost = 6.4;
+            const zohoViewerCost = 3.2;
+            const powerBiProCost = 14;
+            const powerBiPremiumCost = 24;
+
+            const proUsers = Math.floor(e);
+            const premiumUsers = Math.floor(e);
+            const zohoUsers = Math.floor(e * 0.2);
+            const zohoViewers = Math.floor(e * 0.8);
+
+            let powerBiProTotal = powerBiProCost * proUsers * 12;
+            let powerBiPremiumTotal = powerBiPremiumCost * premiumUsers * 12;
+
+            // Cap Power BI Premium total cost at $59,940 if users are 250 or more
+            if (premiumUsers >= 250) {
+                powerBiPremiumTotal = 59940;
+            }
+            if (proUsers >= 250) {
+                powerBiProTotal = 59940;
+            }
+
+            const zohoUsersTotal = zohoUserCost * zohoUsers * 12;
+            const zohoViewersTotal = zohoViewerCost * zohoViewers * 12;
+            const zohoTotal = zohoUsersTotal + zohoViewersTotal;
+
+            const PowerbiProSavings = powerBiProTotal - zohoTotal;
+            const PowerbiPremiumSavings = powerBiPremiumTotal - zohoTotal;
+            const PowerBiProsavingsPercent = ((PowerbiProSavings / powerBiProTotal) * 100).toFixed(2);
+            const PowerBiPremiumsavingsPercent = ((PowerbiPremiumSavings / powerBiPremiumTotal) * 100).toFixed(2);
+
+            // Update UI
+
+            userCountDisplay.innerText = e;
+            roles.innerHTML = e;
+            powerbipro.innerHTML = proUsers;
+            powerbipremium.innerHTML = premiumUsers;
+            zUser.innerHTML = zohoUsers;
+            zViewer.innerHTML = zohoViewers;
+
+            powerbi_creator_cost.innerHTML = formatCurrency(powerBiProTotal);
+            powerbi_explorer_cost.innerHTML = formatCurrency(powerBiPremiumTotal);
+            zoho_users_cost.innerHTML = formatCurrency(zohoUsersTotal);
+            zoho_viewers_cost.innerHTML = formatCurrency(zohoViewersTotal);
+
+            powerbiProTotalDisplay.innerHTML = formatCurrency(powerBiProTotal);
+            powerbiPremiumTotalDisplay.innerHTML = formatCurrency(powerBiPremiumTotal);
+            zohoTotalDisplay.innerHTML = formatCurrency(zohoTotal);
+            PowerBiProsavingsAmountDisplay.innerText = formatCurrency(PowerbiProSavings);
+            PowerBiPremiumsavingsAmountDisplay.innerText = formatCurrency(PowerbiPremiumSavings);
+            powerbBiProsavingsPercentDisplay.innerText = `${PowerBiProsavingsPercent}%`;
+            powerbBiPremiumsavingsPercentDisplay.innerText = `${PowerBiPremiumsavingsPercent}%`;
+
+            // Adjust Bar Heights
+            const maxHeight = 300;
+            powerbiBarPro.style.height = `${(powerBiProTotal / 59940) * maxHeight}px`;
+            powerbiBarPremium.style.height = `${(powerBiPremiumTotal / 59940) * maxHeight}px`;
+            zohoBar.style.height = `${(zohoTotal / 150000) * (maxHeight * 4)}px`;
+
+            // Adjust Text Heights
+            powerbiTextPro.style.height = `${parseInt(powerbiBarPro.style.height) + 15}px`;
+            powerbiTextPremium.style.height = `${parseInt(powerbiBarPremium.style.height) + 15}px`;
+            zohoText.style.height = `${parseInt(zohoBar.style.height) + 15}px`;
+
+            // Update Bar Text
+            powerbiTextPro.innerHTML = `${formatCurrency(powerBiProTotal)} <span class="year">(per year)</span>`;
+            powerbiTextPremium.innerHTML = `${formatCurrency(powerBiPremiumTotal)} <span class="year">(per year)</span>`;
+            zohoText.innerHTML = `${formatCurrency(zohoTotal)} <span class="year">(per year)</span>`;
+        }
+
+        function formatCurrency(value) {
+            return Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        userSlider.addEventListener("input", () => {
+            const e = userSlider.value;
+            userCountDisplay.innerText = e;
+            var noteElement = document.getElementById("getNotePowebi");
+            updateCosts(e);
+
+            // Show note if users are 250 or more
+            if (e >= 250) {
+                noteElement.style.display = "block";
+            } else {
+                noteElement.style.display = "none";
+            }
+        });
+
+        // Initialize the costs
+        updateCosts(userSlider.value);
+
+        // banner signup form
+        $(document).ready(function () {
+            $(".dwnload-btn").on("click", function (t) {
+                t.preventDefault();
+                $(".formSec").addClass("active zbiframe").css("transition", "all ease 0.75s");
+                $("#czone-home").show();
+                $(".freeze_layer").fadeIn(400);
+                $("body").addClass("fixed-pos");
+                $(".zsiq_theme1.zsiq_floatmain").hide()
+            });
+            $(".form-close,.freeze_layer").on("click", function () {
+                $(".formSec").removeClass("active zbiframe");
+                $(".freeze_layer").fadeOut(100);
+                $("body").removeClass("fixed-pos");
+                $(".zsiq_theme1.zsiq_floatmain").show()
+            });
+        });
+
+        $(document).ready(function () {
+            var s = $(".sticky-section .each-box-fort");
+            var i = "#9AC7FF";
+            var r = s.find(".scroll-card");
+            var n = r.length;
+            var m = [];
+            r.each(function (s) {
+                var i = (s + 1) * 18 + 100;
+                $(this).css("top", i + "px");
+                m.push($(this).offset().top)
+            });
+            function h(s, i) {
+                s != n ? scaleVal = 1 - (n - s) * i : scaleVal = 1;
+                $(r).eq(s - 1).css("transform", "scale(" + scaleVal + ",1)")
+            }
+            $(window).scroll(function () {
+                var s = $(window).scrollTop();
+                for (var i = 0; i < n; i++) {
+                    var e = m[i] - s;
+                    var t = r.eq(i).find(".bs-shad");
+                    var a = r.eq(i).outerHeight();
+                    var g = a;
+                    var o = 7e-4;
+                    if (n > 6) {
+                        o = 2e-4
+                    }
+                    while (e < g) {
+                        h(i + 1, o);
+                        g -= 50;
+                        if (n > 6) {
+                            o += 2e-4
+                        } else {
+                            o += 7e-4
+                        }
+                    }
+                    if (e > a + 50) {
+                        r.eq(i).css("transform", "scale(1,1)")
+                    }
+                }
+            })
+        });
+        // trusted icons
+        inTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/hdfc.svg',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/mahindra.svg',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/larsen-toubro.png',
+                _imgWidth: 170
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/nippon-paint.png',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/tata-communications.svg',
+                _imgWidth: 220
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/weikfield.png',
+                _imgWidth: 100
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/casagrand.png',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/zomato.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/vedantu.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kotak.png',
+                _imgWidth: 130
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/coromandel.png',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/infosys-knowledge-institute.svg',
+                _imgWidth: 180
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/wipro-foundation.png',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sun-pharma.png',
+                _imgWidth: 40
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/thermax-global.svg',
+                _imgWidth: 40
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/wns.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/mckinsey.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cisco.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/saint-gobain.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/spykar.png',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/bennett-coleman.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/viacom18.png',
+                _imgWidth: 110
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/tnpl.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/supreme-industries.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/freight-tiger.png',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sun-jewels.svg',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/lixil.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/printo.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/disys.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/minda-corporation.png',
+                _imgWidth: 120
+            }
+        ];
+
+        const laTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/gdm-seeds.svg',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/eficacia.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/grupo-promax.png',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/holcim.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/wisynco.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/pilgrims.png',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/uol.svg',
+                _imgWidth: 90
+            }
+        ];
+
+        const afTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/smollan.svg',
+                _imgWidth: 130
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/glencore.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/pg-group.png',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/avelabs.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/magrabi.svg',
+                _imgWidth: 100
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/nahdet-misr.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kwal.png',
+                _imgWidth: 55
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/juta.svg',
+                _imgWidth: 90
+            }
+        ];
+
+        const ukTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/nhs.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kantar.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/globalstar.png',
+                _imgWidth: 110
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/jcb.svg',
+                _imgWidth: 85
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/shell.svg',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/foyle.svg',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/iris.png',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/vectura.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/alight-llc.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cadent-gas.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/inchcape.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/rgis.png',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/evo.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/dps-group.png',
+                _imgWidth: 200
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/emr.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/das-house.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/inchcape.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kelly-group.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/oliver.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kingspan.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/exertis.png',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/itransition.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/knights.png',
+            }
+        ];
+
+        const euTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/loreal.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/jlr.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/saint-gobain.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/capgemini.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/acer.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/securitas-direct.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/plastipak.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/jas.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/neonet.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/grupo-premo.png',
+                _imgWidth: 130
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/suez.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kingspan.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/pierre-fabre.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/coloplast.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/groupe-beaumanoir.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kelly.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/hormann.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/tsg.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/concern.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/oetiker.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/agro-merchants.png',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/paccor.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/globalvia.png',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/bama.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sygnity.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/innovecs.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/alira-health.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/thieme.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sintef.svg',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kompan.svg',
+            }
+        ];
+
+        const usTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/dennys.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kaiser-permanente.svg',
+                _imgWidth: 110
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/db-schenker.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/caterpillar.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/mitsubishi-heavy-industries.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/leggett-platt.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/yamaha-financial-services.png',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/johnson-controls.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cummins.svg',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/capgemini.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/ima-group.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/flex.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/oaktree-capital.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/labcorp.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cbre.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/creme-de-la.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/aveanna.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/amplity-health.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sun-chemical.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/coach.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/capital-express.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/dole.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/heb.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/encora-digital.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/the-planet-group.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/eide-bailly.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/roadrunner-logistics.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/kerry-logistics.png',
+            }
+        ];
+
+
+        const jpTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/fujifilm.svg',
+                _imgWidth: 110
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/honda.svg',
+                _imgWidth: 135
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/saraya.png',
+                _imgWidth: 150
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/inpex-corporation.svg',
+                _imgWidth: 140
+            }
+        ];
+
+        const caTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/go-auto.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/physiotec.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/bakers-delight.png',
+                _imgWidth: 130
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/vancouver-coastal-health.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cima.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/laura.svg',
+            }
+        ];
+
+        const cnTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/season-group.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/tianjin-wanda-tyre.png',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/trane-technologies.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/high-fashion.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/com-lan.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cloudwise.svg',
+                _imgWidth: 160
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/peninsula-dot-com.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/scania.svg',
+            }
+        ];
+
+        const trTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/db-schenker.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/media-verse.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/verifact.png',
+                _imgWidth: 110
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/tg-global.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/als-global.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/rio-tinto.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/toll-logo.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/alliance.png',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/phd.png',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/cfl.png',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/brian-hilton.png',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/bendigo-health.png',
+                _imgWidth: 80
+            }
+        ];
+
+        const apacTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/emapta.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/outsourced-doers.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/meibanpng.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/agoda.svg',
+                _imgWidth: 80
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/nexen.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/ito.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sri-trang.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/central-retail.png',
+                _imgWidth: 160
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/vinh-hoan.png',
+                _imgWidth: 65
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/interplex.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/genesys.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/shiji.svg',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/amk-technology.png',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/pba-robotics.png',
+                _imgWidth: 60
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/aurionpro-inc.svg',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/assa-rent.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/airtac.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/sc-asset.svg',
+            }
+        ];
+
+        const meTrustIconList = [
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/emaar.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/iffco.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/gemseducation.svg',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/masafi.svg',
+                _imgWidth: 90
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/americana-food.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/nvidia.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/premierinn.svg',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/manzilhealth.png',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/emirates-leisure-retail.png',
+                _imgWidth: 120
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/qcs.png',
+                _imgWidth: 140
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/leminar.png',
+                _imgWidth: 70
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/orpak.png',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/al-dawaa.png',
+                _imgWidth: 50
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/magrabi.svg',
+            },
+            {
+                _imgPath: '/sites/zweb/images/otherbrandlogos/livenation.svg',
+            }
+        ];
+
+
+        function addCountryData(countryList) {
+            $('.trust-icon').addClass('zwc-trust-' + CountryCode.toLowerCase());
+            $('.trust-icon').html('');
+            countryList.forEach(element => {
+                $('.trust-icon').append(`<span class="ae-icon"><img width="${element._imgWidth ? element._imgWidth : 100}" src="${element._imgPath}"></span>`);
+            });
+        }
+
+        let _cusApacList = ['SG', 'MY', 'TH', 'VI', 'ID', 'PH'];
+
+        if (CountryCode == 'US') {
+            addCountryData(usTrustIconList);
+        } else if (CountryCode == 'JP') {
+            addCountryData(jpTrustIconList);
+        } else if (CountryCode == 'CA') {
+            addCountryData(caTrustIconList);
+        } else if (CountryCode == 'CN') {
+            addCountryData(cnTrustIconList);
+        } else if (CountryCode == 'GB') {
+            addCountryData(ukTrustIconList);
+        } else if (customvar.lAmerica.indexOf(CountryCode) > -1) {
+            $('.trust-icon').addClass('zwc-trust-lamerica');
+            addCountryData(laTrustIconList);
+        } else if (customvar.meaList.indexOf(CountryCode) > -1) {
+            $('.trust-icon').addClass('zwc-trust-mealist');
+            addCountryData(meTrustIconList);
+        } else if (customvar.africaList.indexOf(CountryCode) > -1) {
+            $('.trust-icon').addClass('zwc-trust-africa');
+            addCountryData(afTrustIconList);
+        } else if (customvar.countryEu.indexOf(CountryCode) > -1 && CountryCode != 'GB') {
+            $('.trust-icon').addClass('zwc-trust-eulist');
+            addCountryData(euTrustIconList);
+        } else if (customvar.countryTranstasman.indexOf(CountryCode) > -1) {
+            $('.trust-icon').addClass('zwc-trust-transtasman');
+            addCountryData(trTrustIconList);
+        } else if (_cusApacList.indexOf(CountryCode) > -1) {
+            $('.trust-icon').addClass('zwc-trust-apac');
+            addCountryData(apacTrustIconList);
+        } else {
+            addCountryData(inTrustIconList);
+        }
+
+        let trustSlideSetting = {
+            slidesToScroll: 1,
+            autoplay: true,
+            arrows: false,
+            centerMode: true,
+            variableWidth: true,
+            autoplaySpeed: 0,
+            speed: 3000,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+            infinite: true,
+            // lazyLoad: 'ondemand',
+            cssEase: 'linear'
+        }
+
+        var trustSlickInitialized = false;
+
+        function trustSlideFun() {
+            if ($('body').hasClass('i18n-en')) {
+                if ($(window).scrollTop() + ($(window).height()) >= $('.trusted-icon-wrap').offset().top) {
+                    $('.trust-icon').slick(trustSlideSetting);
+                    trustSlickInitialized = true;
+                }
+            } else {
+                if ($(window).scrollTop() + ($(window).height() * .9) >= $('.trusted-icon-wrap').offset().top) {
+                    if (CountryCode != 'JP') {
+                        $('.trust-icon').slick(trustSlideSetting);
+                    }
+                    trustSlickInitialized = true;
+                }
+            }
+
+        }
+
+        trustSlideFun();
+
+        $(window).scroll(function () {
+            if (!trustSlickInitialized) {
+                trustSlideFun();
+            }
+        });
+
+        let _winWidth = $(window).width();
+
+        $(window).on('resize', function () {
+            if (_winWidth != $(window).width()) {
+                if ($('.trust-icon').hasClass('slick-initialized')) {
+                    $('.trust-icon').slick('unslick').slick(trustSlideSetting);
+                }
+            }
+        });
+
+        $(".report-slider").slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerPadding: '60px',
+            speed: 1000,
+            autoplay: true,
+            dots: true,
+            arrows: false,
+            speed: 1000,
+            fade: true,
+            adaptiveHeight: true,
+        });
+
+        var getZCount = customvar.numberOfUsers;
+        $('.zc-count').text(getZCount);
+        $('.z-accordianBox').find('h4.active').next().slideDown();
+        $('.z-accordianBox').find('h4').on('click', function () {
+            var _that = $(this);
+            if (_that.next().is(':visible')) {
+                _that.removeClass('active');
+                _that.next().hide('slow');
+            } else {
+                $('.z-accordianBox').find('h4').removeClass('active');
+                _that.addClass('active');
+                $('.z-accordianBox > ul').hide('slow');
+                _that.next().slideDown();
+            }
+        });
+
+        function numberAnimate() {
+            $('.za-promo-section .zwe-ob .counts').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        }
+
+        let countVal = 0;
+        $(window).on("scroll", function () {
+            if (countVal == 0 && $(".za-promo-section .zwe-ob .counts").length > 0) {
+                countVal++;
+                numberAnimate();
+            }
+            zTtip();
+        });
+
+        function zTtip() {
+            let wW = $(window).outerWidth();
+            if (wW > 990) {
+                let winTop = $(window).scrollTop();
+                let elmFix = $('.zdb-tooltip');
+                if (winTop > 100) {
+                    elmFix.addClass('active');
+                }
+            }
+        }
+    </script>
+</body>
+
+
+</html>

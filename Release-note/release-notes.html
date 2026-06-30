@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="release-notes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="release-notes.js"></script>
+</head>
+
+<body>
+    <div class="main-wrapper zcp_lazy_bg bg_lazy_loaded">
+        <!-- <span class="download-btn" onclick="generatePdf();">Download</span> -->
+        <div class="zwf_success_alert">
+            <div class="zwf_scs_pop_inr zwf_animate"> <span class="zwf_scs_txt">Form submitted successfully!</span>
+                <span class="zwf_close_icn">X</span></div>
+        </div>
+        <section class="banner-section">
+            <h1>What's New in <span class="no-brk">Zoho Analytics</span></h1>
+            <p class="ban-txt">Learn about new features and improved functionalities.</p>
+            <div class="search-section">
+                <div class="search-box">
+                    <label style="display: none">What are you looking for?</label>
+                    <input id="search_text" name="search" aria-label="What are you looking for?"
+                        placeholder="What are you looking for?" type="text">
+                    <span class="search-btn"></span>
+                </div>
+                <div class="subscribe-btn" onclick="newsPopup();">Subscribe<span class="tab-hide">&nbsp;to the
+                        newsletter</span> <span class="subscribe-icon"></span></div>
+            </div>
+        </section>
+        <!--
+            <section class="news-popup">
+                <div class="news-overlay" onclick="formClose();"></div>
+                <div class="news-container">
+                    <div class="newspop-lft">
+                        <picture>
+                            <source class="webp" type="image/webp" data-srcset="/sites/zweb/images/crm/releasenotes-pop-up-banner-2x.webp 2x, /sites/zweb/images/crm/releasenotes-pop-up-banner-1x.webp 1x">
+                            <source class="other_format" type="image/jpeg" data-srcset="/sites/zweb/images/crm/releasenotes-pop-up-banner-2x.png 2x">
+                            <img width="457" height="658" class="zcp_lazy zcp_loading" src="/sites/zweb/images/crm/releasenotes-pop-up-banner-2kb.png" data-src="/sites/zweb/images/crm/releasenotes-pop-up-banner-1x.png" alt="release-notes-popup-banner">
+                        </picture>
+                    </div>
+                    <div class="newspop-rgt">
+                        <div class="newspop-rgt-container">
+                            <p class="form-title"><span>Subscribe to Zoho CRM’s</span> Monthly Newsletter</p>
+                            <p class="form-dsc">Keep up with the latest product updates, upcoming events, inspiring customer stories, and expert insights—delivered right to your inbox.</p>
+                            <span class="form-close-btn" onclick="formClose();"></span>
+                            <div class="newsletter-form-sec">
+                                <div class="form-wrapper">
+                                    <form id="webform4538240002510466347" class="zwf_webform" name="WebToCases4538240002510466347" method="POST" enctype="multipart/form-data" action="https://crm.zoho.com/crm/WebToCaseForm" onsubmit="event.preventDefault();" accept-charset="UTF-8">	
+                                        <input class="zwf_xnQsjsdp" type="text" style="display:none;" name="xnQsjsdp" value="414fad2d219cdd7191b58473aeaf2597a9159aa2c1f7c8b8be8cbf5ceab54e98">
+                                        <input class="zwf_gad" type="hidden" name="zc_gad" id="zc_gad" value="">
+                                        <input class="zwf_xmIwtLD" type="text" style="display:none;" name="xmIwtLD" value="e56335e38c97f5015019136977340dbb54eea7052495920b931b539e38b9a0e11ddffe8db1f6f3dfd104ca0b2b8719e3">
+                                        <input class="zwf_actiontype" type="text" style="display:none;" name="actionType" value="Q2FzZXM=">
+                                        <input class="zwf_returnurl" type="text" style="display:none;" name="returnURL" value="http://www.zoho.com">
+                                        <input class="zwf_subject" type="text" style="display:none;" name="Subject" value="salesforce-contract-buyout">
+                                        <input class="zwf_case_orgin" type="text" style="display:none;" name="Case Origin" value="Web">
+                                        <input class="zwf_status" type="text" style="display:none;" name="Status" value="Not Contacted">
+                                        <input class="zwf_zoho_service" type="text" style="display:none;" name="CASECF14" value="CRM">
+                                        <input class="zwf_marketing_lead_source" type="text" style="display:none;" name="CASECF12" value="">
+                                        <input class="zwf_marketing_source" type="text" style="display:none;" name="CASECF4" value="">
+                                        <input class="zwf_marketing_last_source" type="text" style="display:none;" name="CASECF11" value="">
+                                        <input class="zwf_marketing_referal_url" type="text" style="display:none;" name="CASECF6" value="">
+                                        <input class="zwf_signup_url" type="text" style="display:none;" name="CASECF10" value="">
+                                        <input class="zwf_eo" type="hidden" name="eo" value="14f4ec16431e0686150daa43f3210513">
+                                        <input class="zwf_te" type="hidden" name="te" value="true">
+                                        <img id="tr_img" src="https://crm.zoho.com/crm/WebFormAnalyticsServlet?rid=dcbe8ecbdabe526a6fd3a62f60179822cc263829f7f4f94c79c6b864e2fda64cgid3cc500101abee16b424d67860b5473bb33cd8ab0fd31519fb0e76a930012c594gida378f81585080d3b6fb1acbec6638b71gid0f1ed4ba8756dc25eecc4dbdce853c31gid14f4ec16431e0686150daa43f3210513" style="display: none;">
+                                        <input name="captchapop" style="display:none;" type="text" value="fromcaptchapop">
+                                        <div class="zwf_formgroup formgroup">
+                                            <input class="zwf_formcontrol zwf_not_required zwf_reported_by" type="text" name="Reported By" aria-label="name" placeholder="Full Name">
+                                            <span class="zwf_error error">
+                                                Please enter Full Name
+                                            </span>
+                                        </div>
+                                        <div class="zwf_formgroup formgroup">	
+                                            <input class="zwf_formcontrol input_validate zwf_email" type="email" name="Email" aria-label="email" placeholder="*Email Address">
+                                            <span class="zwf_error error">
+                                                Please enter a valid mail
+                                            </span>
+                                        </div>
+                                        <div class="zwf_formgroup formgroup country">
+                                            <div class="zgdprform-countrylist-container">
+    
+                                            </div>
+                                        </div>
+                                        <div class="zwfp_formgroup formgroup">	
+                                            <div class="zgdprform-opt-container">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="zwfp_formgroup formgroup">	
+                                            <input data-zcqa="wbf-submit" type="submit" class="submit-btn" value="Subscribe">
+                                        </div>
+                                    </form>
+                                    <iframe name="captchaFrame" style="display:none;">
+    
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    -->
+        <section class="main-notes-section">
+            <div class="filters-wrapper">
+                <div class="filters-title">
+                    <span class="fill-titl-txt"><span class="fitrs-icon"></span> Filters</span> <span
+                        class="fillter-clr-btn" onclick="clearAll();">Clear all <span class="close-icon"></span></span>
+                </div>
+                <div class="filters-section">
+                    <!-- <div class="fill-sec eco-fill-sec">
+                        <span class="fill-titl-txt active" onclick="showFill(this)"><span class="fitrs-icon"></span>
+                            <span class="has-tooltip">Zoho CRM</span> <span class="fillter-tooltip-sec">Select the
+                                Ecosystem
+                                to narrow down your search</span></span>
+                        <ul class="fillter-list">
+                            <li class="active" data-opt="eco-all" data-eco="all" onclick="ecoChange(this)">All</li>
+                            <li class="other-eco" data-opt="CRMforEveryone" data-eco="CRM for Everyone"
+                                onclick="ecoChange(this)">CRM for Everyone</li>
+                            <li class="other-eco" data-opt="Web" data-eco="Web" onclick="ecoChange(this)">Web</li>
+                            <li class="other-eco" data-opt="DeveloperPlatform" data-eco="Developer Platform"
+                                onclick="ecoChange(this)">Developer Platform</li>
+                            <li class="other-eco" data-opt="Marketplace" data-eco="Marketplace"
+                                onclick="ecoChange(this)">
+                                Marketplace</li>
+                            <li class="other-eco" data-opt="iOSMobileApp" data-eco="iOS Mobile App"
+                                onclick="ecoChange(this)">Mobile - iOS</li>
+                            <li class="other-eco" data-opt="AndroidMobileApp" data-eco="Android Mobile App"
+                                onclick="ecoChange(this)">Mobile - Android</li>
+                        </ul>
+                    </div> -->
+                    <div class="fill-sec year-fill-sec">
+                        <span class="fill-titl-txt active" onclick="showFill(this)"><span class="fitrs-icon"></span>
+                            <span class="has-tooltip">Year and Month</span> <span class="fillter-tooltip-sec">Select
+                                months to
+                                view applicable entries. Use the left/ right arrow keys to change the year</span></span>
+                        <div>
+                            <div class="clear-add-btn"><span class="year-clr-btn"
+                                    onclick="clearYear()">Clear</span><span class="year-add-btn"
+                                    onclick="addAllYear()">Check All</span></div>
+
+                            <div class="year-clk-box">
+                                <span class="year-arw year-lft-arw" data-side="lft" onclick="yearChange(this)"></span>
+                                <p class="year-list">2024</p>
+                                <span class="year-arw year-rgt-arw" data-side="rgt" onclick="yearChange(this)"></span>
+                            </div>
+                            <span class="year-fill-error" style="display: none">Only data from the selected year is
+                                shown.</span>
+                            <ul class="three-clm month-list-sec fillter-list">
+                                <li class="month-list jan-mnth" data-mnth="Jan" onclick="monthChange(this)">Jan</li>
+                                <li class="month-list feb-mnth" data-mnth="Feb" onclick="monthChange(this)">Feb</li>
+                                <li class="month-list mar-mnth" data-mnth="Mar" onclick="monthChange(this)">Mar</li>
+                                <li class="month-list apr-mnth" data-mnth="Apr" onclick="monthChange(this)">Apr</li>
+                                <li class="month-list may-mnth" data-mnth="May" onclick="monthChange(this)">May</li>
+                                <li class="month-list jun-mnth" data-mnth="Jun" onclick="monthChange(this)">Jun</li>
+                                <li class="month-list jul-mnth" data-mnth="Jul" onclick="monthChange(this)">Jul</li>
+                                <li class="month-list aug-mnth" data-mnth="Aug" onclick="monthChange(this)">Aug</li>
+                                <li class="month-list sep-mnth" data-mnth="Sep" onclick="monthChange(this)">Sep</li>
+                                <li class="month-list oct-mnth" data-mnth="Oct" onclick="monthChange(this)">Oct</li>
+                                <li class="month-list nov-mnth" data-mnth="Nov" onclick="monthChange(this)">Nov</li>
+                                <li class="month-list dec-mnth" data-mnth="Dec" onclick="monthChange(this)">Dec</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="previous-wrap">
+                        <a href="/analytics/whats-new/release-notes.html" target="_blank">Previous Years <span
+                                class="arrow"></span></a>
+                    </div>
+                    <div class="sub-fillters">
+                        <div class="fill-sec topics-fill-sec">
+                            <span class="fill-titl-txt active" onclick="showFill(this)"><span class="fitrs-icon"></span>
+                                <span class="has-tooltip">Function</span> <span class="fillter-tooltip-sec">Select
+                                    topic(s)
+                                    to view entries belonging to the function.</span></span>
+                            <ul class="fillter-list">
+                                <li class="active" data-opt="top-all" data-function="all"
+                                    onclick="functionChange(this)">All
+                                </li>
+                                <li class="other-top" data-opt="DataSources" data-function="Data Sources"
+                                    onclick="functionChange(this)">Data Sources</li>
+                                <li class="other-top" data-opt="BusinessApplication" data-function="Business Application"
+                                    onclick="functionChange(this)">Business Application</li>
+                                <li class="other-top" data-opt="DataPreparation" data-function="Data Preparation"
+                                    onclick="functionChange(this)">Data Preparation</li>
+                                <li class="other-top" data-opt="Visualization" data-function="Visualization"
+                                    onclick="functionChange(this)">Visualization</li>
+                                <li class="other-top" data-opt="SharingandCollaboration" data-function="Sharing and Collaboration"
+                                    onclick="functionChange(this)">Sharing and Collaboration</li>
+                                <li class="other-top" data-opt="SecurityandPrivacy" data-function="Security and Privacy"
+                                    onclick="functionChange(this)">Security and Privacy</li>
+                                <li class="other-top" data-opt="AskZia" data-function="Ask Zia"
+                                    onclick="functionChange(this)">Ask Zia</li>
+                                <li class="other-top" data-opt="WhiteLabel" data-function="White Label"
+                                    onclick="functionChange(this)">White Label</li>
+                                <li class="other-top" data-opt="API" data-function="API"
+                                    onclick="functionChange(this)">API</li>
+                                <li class="other-top" data-opt="MobileApp" data-function="Mobile App"
+                                    onclick="functionChange(this)">Mobile App</li>
+                                <li class="other-top" data-opt="DataManagement" data-function="Data Management"
+                                    onclick="functionChange(this)">Data Management</li>
+                            </ul>
+                        </div>
+                        <!-- <div class="fill-sec dc-fill-sec">
+                            <span class="fill-titl-txt active" onclick="showFill(this)"><span
+                                    class="fitrs-icon"></span>Data
+                                Center</span>
+                            <ul class="three-clm fillter-list">
+                                <li class="active" data-opt="dc-all" data-DC="all" onclick="dcChange(this)">All</li>
+                                <li class="other-dc" data-opt="EU" data-DC="EU" onclick="dcChange(this)">EU</li>
+                                <li class="other-dc" data-opt="AP" data-DC="AP" onclick="dcChange(this)">JP</li>
+                                <li class="other-dc" data-opt="CN" data-DC="CN" onclick="dcChange(this)">CN</li>
+                                <li class="other-dc" data-opt="IN" data-DC="IN" onclick="dcChange(this)">IN</li>
+                                <li class="other-dc" data-opt="CA" data-DC="CA" onclick="dcChange(this)">CA</li>
+                                <li class="other-dc" data-opt="AU" data-DC="AU" onclick="dcChange(this)">AU</li>
+                                <li class="other-dc" data-opt="US" data-DC="US" onclick="dcChange(this)">US</li>
+                                <li class="other-dc" data-opt="SA" data-DC="SA" onclick="dcChange(this)">SA</li>
+                            </ul>
+                        </div>
+                        <div class="fill-sec edition-fill-sec">
+                            <span class="fill-titl-txt active" onclick="showFill(this)"><span
+                                    class="fitrs-icon"></span>Edition</span>
+                            <ul class="fillter-list">
+                                <li class="active" data-opt="edition-all" data-edition="all"
+                                    onclick="editionChange(this)">
+                                    All</li>
+                                <li class="other-edition" data-opt="Free" data-edition="Free"
+                                    onclick="editionChange(this)">
+                                    Free</li>
+                                <li class="other-edition" data-opt="Standard" data-edition="Standard"
+                                    onclick="editionChange(this)">Standard</li>
+                                <li class="other-edition" data-opt="Professional" data-edition="Professional"
+                                    onclick="editionChange(this)">Professional</li>
+                                <li class="other-edition" data-opt="Enterprise" data-edition="Enterprise"
+                                    onclick="editionChange(this)">Enterprise</li>
+                                <li class="other-edition" data-opt="Ultimate" data-edition="Ultimate"
+                                    onclick="editionChange(this)">Ultimate</li>
+                                <li class="other-edition" data-opt="CRMPlus" data-edition="CRM Plus"
+                                    onclick="editionChange(this)">CRM Plus</li>
+                                <li class="other-edition" data-opt="ZohoOne" data-edition="Zoho One"
+                                    onclick="editionChange(this)">Zoho One</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="movetop-btn-wrap" onclick="movePageTop(this)">
+                    <span class="movetop-txt">BACK TO TOP</span>
+                    <span class="movetop-btn"></span>
+                </div>
+            </div>
+            <div class="notes-wrapper">
+                <div class="selected-fillters">
+                    <div class="selected-fillters-list-wrap">
+                        <ul class="selected-fillters-list"></ul>
+                    </div>
+                    <div class="sort-fillter">
+                        <p class="sort-title">Sort by:</p>
+                        <div class="sort-fillter-wrap">
+                            <label style="display: none">selectOption</label>
+                            <select name="" onchange="slectType(this)" id="selectOption"
+                                aria-label="select view option">
+                                <option value="new" aria-label="Latest First">Latest First</option>
+                                <option value="old" aria-label="Oldest first">Oldest first</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes-inner-box-sec"></div>
+                <div class="cs_pagination_Sec">
+                    <div class="cs_pagination">
+                        <span class="pgi_prev" onclick="pg_Nxt('pre', this);" data-attr="pre">Previous</span>
+                        <ul class="pgi_numberSec"></ul>
+                        <span class="pgi_nxt active" onclick="pg_Nxt('next', this);" data-attr="next">Next</span>
+                    </div>
+                    <span class="cs_viewall active" data-attr="all" onclick="viewAll()">View all</span>
+                    <span class="cs_viewless" data-attr="all" onclick="viewLess()">View less</span>
+                </div>
+            </div>
+        </section>
+        <div class="fillter-overlay" onclick="applyAll();"></div>
+        <section class="mob-fillter-sec">
+            <div class="mob-fill-opt-select">
+                <span data-choice="year" data-select="open" onclick="fillChoice(this);" class="year-fill">Year and
+                    Month</span>
+                <span data-choice="fill" data-select="open" onclick="fillChoice(this);" class="other-fill">Filter and
+                    sort</span>
+            </div>
+            <div class="mob-fillter-wrapper">
+                <div class="drag-section" onclick="applyAll();"></div>
+                <div class="mob-fill-opt-tab">
+                    <div class="year-fill" data-choice="year" data-select="open" onclick="fillChoice(this);">Year and
+                        Month
+                    </div>
+                    <div class="other-fill" data-choice="fill" data-select="open" onclick="fillChoice(this);">Filter and
+                        sort <span class="fill-count">0</span></div>
+                </div>
+                <div class="mob-fill-main-cont">
+                    <div class="mob-year-select">
+
+                    </div>
+                    <div class="mob-other-fillters">
+
+                    </div>
+                </div>
+                <div class="mob-fill-foot-btns">
+                    <span onclick="clearAll();">Clear All</span>
+                    <span onclick="applyAll();">Apply</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

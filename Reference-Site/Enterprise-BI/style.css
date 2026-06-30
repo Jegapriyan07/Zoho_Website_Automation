@@ -1,0 +1,1098 @@
+/* ============================================
+   PAGE CONTAINER - Base Styles
+   ============================================ */
+
+.page-container {
+    background-color: #150e26;
+    color: #ffffff;
+}
+
+.page-container h2 {
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 24px;
+    width: 100%;
+}
+
+/* 
+.page-container h2 span {
+    background: linear-gradient(97deg, #CC6FF8 21%, #AAF5D5 45.18%, #6999FC 75.1%, #1ED7FE 97.74%);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+} 
+*/
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0px;
+}
+
+.p-50 {
+    padding: 50px 0px;
+}
+
+.title-desc {
+    font-size: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.p-t-0 {
+    padding-top: 0px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.act-btn.cta-btn {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.cta-btn.cal-btn-secondary {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    margin-inline-start: 8px;
+}
+
+.cal-btn-secondary {
+    text-transform: uppercase;
+}
+
+/* ============================================
+   BANNER SECTION
+   ============================================ */
+
+.banner {
+    padding: 120px 0px;
+    margin-top: -68px;
+    text-align: center;
+    background-image: linear-gradient(140deg, #443c56, #150e26);
+    line-height: 0;
+    color: #ffffff;
+    padding-bottom: 0px;
+}
+
+.banner-image {
+    background-color: rgb(255 255 255 / 20%);
+    padding: 10px;
+    border-radius: 10px;
+    border: .5px solid #fff;
+    margin-top: 40px;
+    position: relative;
+}
+
+.banner-image::before {
+    content: '';
+    position: absolute;
+    top: -43%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/sites/zweb/images/analytics/purple-blue-gradient-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner-image img {
+    z-index: 1;
+    position: relative;
+}
+
+/* ============================================
+   TRUSTED BRANDS & CUSTOMER COUNTS SECTION
+   ============================================ */
+
+.za-brandsCounts {
+    position: relative;
+    z-index: 1;
+}
+
+.brand-wrapper {
+    background-color: #e6e9ea;
+    border-radius: 0 0 100px 100px;
+    position: relative;
+    padding: 50px 0
+}
+
+/* Trust icon styles */
+.trust-icon-wrap {
+    overflow: hidden;
+    display: flex
+}
+
+.trust-icon .ae-icon {
+    margin: 0 150px 0 0;
+    font-size: 0;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+    min-height: 100px;
+    vertical-align: top
+}
+
+/* Customer counts styles */
+.za-cust-counts ul {
+    display: flex;
+    max-width: 450px;
+    margin: 15px auto 0;
+    text-align: center;
+    justify-content: center;
+    background-color: #ffffff96;
+    border-radius: 20px;
+    padding: 30px 20px 20px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #a18afb;
+    box-shadow: 0 4px 22px 0 #00000017
+}
+
+.za-cust-counts ul>li {
+    width: 40%;
+    position: relative
+}
+
+.za-cust-counts ul>li p {
+    margin: 0;
+    font-size: 20px;
+    color: #000
+}
+
+.za-cust-counts ul>li>span {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: var(--zf-primary-semibold);
+    color: #000
+}
+
+.za-cust-counts ul>li>span:after {
+    content: '+';
+    font-family: var(--zf-primary-extralight)
+}
+
+.za-cust-counts ul>li>span span {
+    color: #000
+}
+
+.za-cust-counts ul>li:not(:first-child):before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 50%;
+    background: #601d1c;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    opacity: .2
+}
+
+/* ============================================
+   QUESTION SECTION
+   ============================================ */
+
+.question-section .question-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    border: 1.5px solid #ffddb23d;
+    box-shadow: inset 0 0 55.5px #443c56;
+    border-radius: 18px;
+    padding: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(34px);
+    background-color: #ffffff0a;
+    padding-bottom: 0px;
+}
+
+.question-section .left,
+.question-section .right {
+    flex: 1;
+}
+
+/* ============================================
+   KEY FEATURES SECTION (Common Challenges)
+   ============================================ */
+
+.key-features .main-wrapper {
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.key-features .main-wrapper .item {
+    width: calc(25% - 16px);
+    text-align: center;
+    padding: 12px;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out
+}
+
+.key-features .main-wrapper .keyfeatures {
+    background-image: url(/sites/zweb/images/analytics/enterprise-bi-sprite.png);
+    background-size: 345px auto;
+    width: 72px;
+    height: 70px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.key-features .main-wrapper .keyfeatures.easeIntegration {
+    background-position: -7px -7px;
+}
+
+.key-features .main-wrapper .keyfeatures.automatic {
+    background-position: -94px -7px;
+}
+
+.key-features .main-wrapper .keyfeatures.unlimited {
+    background-position: -185px -7px;
+}
+
+.key-features .main-wrapper .keyfeatures.aiPowered {
+    background-position: -270px -7px;
+}
+
+.key-features .main-wrapper .item {
+    transform: translateY(0)
+}
+
+.key-features .main-wrapper .item:nth-child(2) {
+    transition-delay: .2s
+}
+
+.key-features .main-wrapper .item:nth-child(3) {
+    transition-delay: .2s
+}
+
+.key-features .main-wrapper .item:nth-child(4) {
+    transition-delay: .2s
+}
+
+.key-features .main-wrapper .item:nth-child(5) {
+    transition-delay: .2s
+}
+
+.key-features .main-wrapper .item:nth-child(6) {
+    transition-delay: .2s
+}
+
+/* ============================================
+   CIRCLE WRAPPER SECTION (Strategic Role)
+   ============================================ */
+
+.circle-wrapper .cirlce-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.circle-wrapper .cirlce-main .image-container {
+    background-color: #493e5a;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 50px;
+    width: calc(35% - 8px);
+    z-index: 1
+}
+
+.circle-wrapper .cirlce-main ul {
+    width: calc(40% - 8px)
+}
+
+.circle-wrapper .cirlce-main .circle {
+    padding: 24px 16px;
+    box-sizing: border-box;
+    width: 150%;
+    margin-top: 15px;
+    position: relative;
+    border-radius: 8px;
+    /* transform: translateY(50px); */
+    transition: transform 1s ease-out;
+    border: 1.5px solid #ffddb23d;
+    box-shadow: inset 0 0 55.5px #443c56;
+}
+
+.circle-wrapper .cirlce-main .circle p {
+    width: 65%;
+    margin: 0
+}
+
+.circle-wrapper .cirlce-main .circle.circle4 p,
+.circle-wrapper .cirlce-main .circle.circle5 p {
+    margin: 0 auto
+}
+
+.circle-wrapper .cirlce-main .circle.circle4,
+.circle-wrapper .cirlce-main .circle.circle5 {
+    width: 115%;
+    left: -70px;
+    margin: 15px auto
+}
+
+.circle-wrapper .cirlce-main .cirlce2 {
+    transition-delay: .2s
+}
+
+.circle-wrapper .cirlce-main .cirlce3 {
+    transition-delay: .4s
+}
+
+.circle-wrapper .cirlce-main .circle.circle4 {
+    transition-delay: .6s
+}
+
+.circle-wrapper .cirlce-main .circle.circle5 {
+    transition-delay: .8s
+}
+
+/* ============================================
+   KEY FINANCE SECTION (Background)
+   ============================================ */
+
+.key-finance-section {
+    background-image: url(/sites/zweb/images/analytics/blue-shadow-with-texture.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto
+}
+
+.key-finance-dashboard {
+    line-height: 0;
+    margin-top: 60px
+}
+
+.key-finance-dashboard img {
+    border: 8px solid #101828;
+    border-bottom: 0;
+    border-radius: 12px 12px 0 0
+}
+
+/* ============================================
+   STICKY CARD SECTION (Key Capabilities)
+   ============================================ */
+
+.sticky-card-section {
+    position: relative;
+}
+
+.sticky-section .scroll-card {
+    margin: 50px 20px 0;
+    box-sizing: border-box;
+    position: sticky;
+    padding: 50px 40px 0;
+    transition: transform .3s ease;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 221, 178, .3);
+    background: #160e26;
+    box-shadow: 0 0 14px 0 rgba(255, 255, 255, .2) inset, 0 0 55.5px 0 rgba(197, 185, 246, .15) inset;
+    backdrop-filter: blur(17px)
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    line-height: 0
+}
+
+.sticky-section .scroll-card .right-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(254 163 180 / 20%) 11%, transparent 68%);
+    z-index: 1
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    position: relative;
+    z-index: 2;
+    border-radius: 12px;
+    width: 80%
+}
+
+.sticky-section .scroll-card:nth-child(1) .right-wrapper img {
+    width: 34%;
+}
+
+.sticky-section .scroll-card:nth-child(4) .right-wrapper img {
+    width: 50%;
+}
+
+.sticky-section .scroll-card.card1 {
+    top: 80px;
+    z-index: 1
+}
+
+.sticky-section .scroll-card.card2 {
+    top: 90px;
+    z-index: 2
+}
+
+.sticky-section .scroll-card.card3 {
+    top: 100px;
+    z-index: 3
+}
+
+.sticky-section .scroll-card.card4 {
+    top: 110px;
+    z-index: 4
+}
+
+.sticky-section .scroll-card.card5 {
+    top: 120px;
+    z-index: 5
+}
+
+/* ============================================
+   DASHBOARD WRAPPER SECTION (Use Cases)
+   ============================================ */
+
+.dashboard-wrapper {
+    background: #ffffff;
+    color: #000;
+}
+
+.dashboard-wrapper .main-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 0
+}
+
+.dashboard-wrapper .main-wrapper.right-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 570px;
+    z-index: 0;
+    aspect-ratio: 1;
+    background: #f8f9fc;
+    --p: 116px;
+    border-radius: 30px;
+    right: 0;
+}
+
+.dashboard-wrapper .main-wrapper.left-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 570px;
+    z-index: 0;
+    aspect-ratio: 1;
+    background: #f8f9fc;
+    --p: 116px;
+    border-radius: 30px;
+    left: 0;
+    transform: rotate(180deg)
+}
+
+.dashboard-wrapper .main-wrapper .image-wrapper {
+    width: 55%;
+    transition: 1s ease-in-out;
+    z-index: 1;
+}
+
+/* .dashboard-wrapper .main-wrapper.right-content .image-wrapper {
+    transform: translateX(30px)
+} */
+
+.dashboard-wrapper .main-wrapper.left-content .image-wrapper {
+    transform: translateX(-30px)
+}
+
+.dashboard-wrapper .main-wrapper.left-content.zwe-om .image-wrapper,
+.dashboard-wrapper .main-wrapper.right-content.zwe-om .image-wrapper {
+    transform: translateX(0)
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper {
+    width: 45%;
+    padding: 0 30px;
+    transform: translateY(20px);
+    transition: 1s ease-in-out
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper p {
+    margin-bottom: 10px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul {
+    list-style: disc;
+    padding-inline-start: 16px;
+}
+
+.dashboard-wrapper .main-wrapper.zwe-om .content-wrapper {
+    transform: translateY(0)
+}
+
+.dashboard-wrapper .main-wrapper .dashboard-image {
+    border: 5px solid #000;
+    border-radius: 20px
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper h3 {
+    color: #1644b3;
+    margin: 0 0 20px
+}
+
+.pie-chart-section {
+    padding: 20px 0 100px
+}
+
+.visualization-h2 {
+    text-align: center
+}
+
+/* ============================================
+   TAB SECTION (Why Choose Zoho Analytics)
+   ============================================ */
+
+.tabsection>.content-wrap {
+    display: table;
+    table-layout: fixed;
+    padding: 0 40px;
+    box-sizing: border-box
+}
+
+.tabsection>.content-wrap>div {
+    display: table-cell;
+    vertical-align: top;
+    text-align: left;
+    padding: 70px 0 0;
+    position: relative
+}
+
+.left-tab {
+    width: 270px
+}
+
+.tabs {
+    margin: 0 auto;
+    padding: 0;
+    width: 270px;
+    position: relative;
+    transition: all .3s ease 0s
+}
+
+.tabs li {
+    border-bottom: 1px solid #dddddd2b;
+    cursor: pointer;
+    position: relative
+}
+
+.tabs li a {
+    color: #ffffff;
+    padding: 12px 15px;
+    display: block;
+    position: relative;
+    font-family: var(--primaryfont-regular)
+}
+
+.tabs li a.active {
+    color: #fff;
+    background: #382f48;
+    font-family: var(--primaryfont-semibold)
+}
+
+.tabs li a.active:after {
+    content: '';
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid #382f48;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: -7px;
+    margin: 0;
+    transform: translateY(-50%);
+    transition: all .3s ease 0s
+}
+
+.tabsection span.selected {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #03994f;
+    min-height: 57px;
+    display: none
+}
+
+.tabs li>p {
+    margin: 0
+}
+
+.cont-sec h3 {
+    font-size: 22px
+}
+
+.cont-sec {
+    margin: 0 0 25px 70px;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: #382f48;
+    border-radius: 10px;
+}
+
+.cont-sec img {
+    margin-bottom: 15px
+}
+
+.tabs.fixed {
+    position: sticky;
+    top: 100px;
+    width: 270px;
+    left: auto;
+    transition: all .3s ease 0s;
+}
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+
+.testimonials-section {
+    padding-bottom: 90px;
+}
+
+.za-inner-testimonials {
+    text-align: center;
+    width: 80%;
+    margin: 0px auto 0;
+    position: relative
+}
+
+.za-inner-testimonials p {
+    font: 20px/1.6 Zoho_Puvi_SemiBold;
+    margin-bottom: 30px
+}
+
+.za-inner-testimonials .double-quotes {
+    width: 87px;
+    height: 87px;
+    position: absolute;
+    left: -70px;
+    top: -48px;
+    z-index: 0;
+    content: ""
+}
+
+.za-inner-testimonials img:not(.double-quotes) {
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    background: #000
+}
+
+.za-inner-testimonials .name {
+    display: block;
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold)
+}
+
+.za-inner-testimonials .designation {
+    display: block;
+    font-size: 18px
+}
+
+/* ============================================
+   PRE-BANNER SECTION (CTA Section)
+   ============================================ */
+
+.pre-banner {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile Styles - Max Width 576px */
+@media only screen and (max-width:576px) {
+    .za-cust-counts ul>li p {
+        font-size: 15px
+    }
+
+    .za-cust-counts ul>li>span {
+        font-size: 30px;
+        line-height: 28px
+    }
+
+    .za-brandsCounts {
+        z-index: 0
+    }
+
+    .za-cust-counts ul {
+        max-width: 343px
+    }
+    
+    .brand-wrapper{
+        padding: 30px 0px;
+    }
+    
+    .p-90 {
+        padding: 50px 0;
+    }
+    
+    .title-desc{
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .key-features .main-wrapper .item {
+        width: 100%
+    }
+    
+    .key-features .main-wrapper{
+        row-gap: 0px;
+    }
+}
+
+/* Mobile Styles - Max Width 567px */
+@media (max-width:567px) {
+    .sticky-section .scroll-card .left-wrapper h3 {
+        font-size: 20px;
+        margin-bottom: 10px
+    }
+
+    .sticky-section .scroll-card {
+        margin: 30px 0 0
+    }
+}
+
+/* Mobile Styles - Max Width 565px */
+@media only screen and (max-width:565px) {
+    .circle-wrapper .heading-main h2 {
+        font-size: 25px;
+        line-height: 1.2
+    }
+
+    .circle-wrapper .cirlce-main {
+        margin-top: 40px
+    }
+
+    .za-inner-testimonials p {
+        font-size: 16px
+    }
+
+    .za-inner-testimonials .designation {
+        font-size: 15px
+    }
+    
+    .za-inner-testimonials{
+        width: 100%;
+    }
+    
+    .za-inner-testimonials .double-quotes{
+        display: none;
+    }
+}
+
+/* Tablet Styles - Max Width 767px */
+@media (max-width: 767px) {
+    .question-section .question-wrapper{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .key-finance-dashboard {
+        margin-top: 24px
+    }
+
+    .sticky-section .scroll-card {
+        position: unset;
+        padding: 25px 24px 0
+    }
+
+    .sticky-section .scroll-card .right-wrapper {
+        margin-top: 20px
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        gap: 0
+    }
+
+    .sticky-section .scroll-card .right-wrapper img {
+        width: 100%
+    }
+
+    .za-inner-testimonials p,
+    .za-inner-testimonials .name,
+    .za-inner-testimonials .designation{
+        font: 15px / 1.6 Zoho_Puvi_SemiBold;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        padding: 0
+    }
+
+    .pie-chart-section {
+        padding: 20px 0 60px
+    }
+
+    .tabs {
+        display: none
+    }
+
+    .tabsection>.content-wrap>div {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-top: 30px;
+    }
+
+    .tabsection>.content-wrap {
+        padding: 0
+    }
+
+    .tabsection {
+        padding: 40px 0
+    }
+}
+
+/* Tablet Styles - Max Width 768px */
+@media only screen and (max-width:768px) {
+    .key-features {
+        padding: 50px 0
+    }
+}
+
+/* Tablet Styles - Max Width 991px */
+@media screen and (max-width:991px) {
+    .title-desc {
+        font-size: 17px;
+        width: 85%
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3 {
+        font-size: 24px
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        flex-direction: column;
+        text-align: center
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3,
+    .sticky-section .scroll-card .left-wrapper p {
+        width: 100%
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper,
+    .dashboard-wrapper .main-wrapper .image-wrapper {
+        width: 100%
+    }
+
+    .dashboard-wrapper .main-wrapper .image-wrapper {
+        order: 1
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        order: 2
+    }
+
+    .dashboard-wrapper .main-wrapper {
+        gap: 50px;
+        padding: 20px 20px 20px;
+        flex-direction: column;
+        background-color: #f8f9fc;
+        margin-top: 20px;
+        border-radius: 12px
+    }
+
+    .dashboard-wrapper .header-content {
+        margin-bottom: 40px
+    }
+
+    .dashboard-wrapper .main-wrapper.left-content::before,
+    .dashboard-wrapper .main-wrapper.right-content::before {
+        display: none
+    }
+
+    .left-tab {
+        width: 0
+    }
+
+    .tabs {
+        max-width: 210px
+    }
+
+    .tabs li {
+        border-bottom: 1px solid #ddd;
+        padding: 15px
+    }
+
+    .tabsection>.content-wrap>div.left-content {
+        display: none
+    }
+
+    .cont-sec {
+        margin-left: 0;
+    }
+
+    .circle-wrapper .cirlce-main ul {
+        order: 2;
+        width: calc(100% - 8px)
+    }
+
+    .circle-wrapper .cirlce-main .image-container {
+        width: 100%
+    }
+
+    .key-features .main-wrapper .item {
+        width: 47%
+    }
+}
+
+/* Desktop Styles - Max Width 1080px */
+@media (max-width:1080px) {
+    .tabsection>.content-wrap>div {
+        padding: 30px 0 0
+    }
+
+    .circle-wrapper .heading-main h2 {
+        width: 100%
+    }
+
+    .circle-wrapper {
+        text-align: center
+    }
+}
+
+/* Desktop Styles - Max Width 1200px */
+@media (max-width:1200px) {
+    .circle-wrapper .cirlce-main .circle.circle4,
+    .circle-wrapper .cirlce-main .circle.circle5 {
+        width: 100%
+    }
+
+    .circle-wrapper .cirlce-main .circle p,
+    .circle-wrapper .cirlce-main .circle.cirlce3 p,
+    .circle-wrapper .heading-main h2 {
+        width: 100%
+    }
+
+    .circle-wrapper .cirlce-main .circle {
+        width: 100%;
+        left: unset
+    }
+
+    .circle-wrapper .cirlce-main ul {
+        order: 2;
+        width: calc(80% - 8px)
+    }
+
+    .circle-wrapper .cirlce-main {
+        flex-direction: column
+    }
+
+    .circle-wrapper .cirlce-main .circle.circle4,
+    .circle-wrapper .cirlce-main .circle.circle5 {
+        left: unset
+    }
+
+    .circle-wrapper .cirlce-main .image-container {
+        border-radius: 8px
+    }
+}
+
+/* Desktop Styles - Max Width 1400px */
+@media (max-width:1400px) {
+    .key-features .main-wrapper .item {
+        width: 30%
+    }
+}
+
+/* Desktop Styles - Max Width 1600px */
+@media (max-width:1600px) {
+    .tabsection {
+        background-image: unset
+    }
+}

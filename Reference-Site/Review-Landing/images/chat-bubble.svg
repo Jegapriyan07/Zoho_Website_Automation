@@ -1,0 +1,31 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 133.556 66.5817" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Background">
+<foreignObject x="-42" y="-42" width="217.556" height="150.582"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(21px);clip-path:url(#bgblur_0_10380_13943_clip_path);height:100%;width:100%"></div></foreignObject><path id="Rectangle 48" data-figma-bg-blur-radius="42" d="M120.556 0.5L120.879 0.503906C127.633 0.67484 133.056 6.20419 133.056 13V48C133.056 54.9036 127.46 60.5 120.556 60.5H25.6776C23.9813 60.5 22.2921 60.7212 20.6532 61.1582L2.38851 66.0293C1.26309 66.3291 0.240393 65.287 0.560382 64.167L5.05648 48.4307V13C5.05648 6.09644 10.6529 0.5 17.5565 0.5H120.556Z" fill="url(#paint0_linear_10380_13943)" fill-opacity="0.5" stroke="url(#paint1_radial_10380_13943)"/>
+<rect id="Rectangle 3470874" x="13.5565" y="17" width="106" height="4" rx="2" fill="url(#paint2_linear_10380_13943)"/>
+<rect id="Rectangle 3470876" x="13.5565" y="41" width="106" height="4" rx="2" fill="url(#paint3_linear_10380_13943)"/>
+<rect id="Rectangle 3470875" x="13.5565" y="29" width="75" height="4" rx="2" fill="url(#paint4_linear_10380_13943)"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_10380_13943_clip_path" transform="translate(42 42)"><path d="M120.556 0.5L120.879 0.503906C127.633 0.67484 133.056 6.20419 133.056 13V48C133.056 54.9036 127.46 60.5 120.556 60.5H25.6776C23.9813 60.5 22.2921 60.7212 20.6532 61.1582L2.38851 66.0293C1.26309 66.3291 0.240393 65.287 0.560382 64.167L5.05648 48.4307V13C5.05648 6.09644 10.6529 0.5 17.5565 0.5H120.556Z"/>
+</clipPath><linearGradient id="paint0_linear_10380_13943" x1="-88.197" y1="-10.3893" x2="14.5956" y2="122.652" gradientUnits="userSpaceOnUse">
+<stop offset="0.0001" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white" stop-opacity="0.39"/>
+</linearGradient>
+<radialGradient id="paint1_radial_10380_13943" cx="0" cy="0" r="1" gradientTransform="matrix(-104 82.5 19.8477 -128.157 78.5565 -21.5)" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint2_linear_10380_13943" x1="13.5565" y1="19" x2="119.556" y2="19" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.4"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_10380_13943" x1="13.5565" y1="43" x2="119.556" y2="43" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.4"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear_10380_13943" x1="110.965" y1="31" x2="6.2394" y2="31" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.5"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

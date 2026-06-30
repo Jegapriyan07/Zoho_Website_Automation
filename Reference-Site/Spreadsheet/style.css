@@ -1,0 +1,1400 @@
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+:root {
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #fff;
+    --primary-btn-color: #e42527;
+    --primary-bg: #F5F3FF;
+    --secondary-bg: #EEF4FF;
+    --teritary-bg: #F8F9FC;
+    --fourth-bg: #F0F9FF;
+}
+
+.page-container h2 {
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 24px;
+    width: 100%;
+}
+
+.title-desc {
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0px;
+}
+
+.p-50 {
+    padding: 50px 0px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.p-t-0 {
+    padding-top: 0px;
+}
+
+/* ============================================
+   BANNER SECTION
+   ============================================ */
+
+.banner-section {
+    background: url('/sites/zweb/images/analytics/za-comparison-bg.png') no-repeat;
+    margin-top: -70px;
+    padding: 120px 0px 75px;
+    background-size: cover;
+}
+
+.banner-section .content-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    flex-wrap: wrap;
+}
+
+.banner-section .left-wrapper {
+    flex: 1;
+}
+
+.banner-section .right-wrapper {
+    flex: 1;
+}
+
+.banner-section .left-wrapper span.comparison-title {
+    font: 24px Zoho_Puvi_Bold;
+    color: #CF4334;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.banner-section .left-wrapper p {
+    font-size: 20px;
+}
+
+.banner-section .cal-btn-secondary {
+    border: 1px solid #000;
+    color: #000;
+    background-color: transparent;
+    margin-inline-start: 10px;
+    display: inline-block;
+}
+
+/* ============================================
+   BUTTONS & FORM STYLES
+   ============================================ */
+
+body.umain .cta-btn {
+    display: inline-block;
+}
+
+.act-btn.cta-btn {
+    display: none;
+}
+
+.cta-btn {
+    display: none;
+    line-height: 1.6;
+}
+
+.act-btn {
+    margin-top: 20px;
+}
+
+body.umain .dwnload-btn {
+    display: none
+}
+
+.dwnload-btn {
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-size: 17px;
+}
+
+/* ============================================
+   FORM MODAL SECTION
+   ============================================ */
+
+.formSec {
+    width: 100%;
+    overflow: auto;
+    max-width: 480px;
+    position: fixed;
+    transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+    right: 0;
+    top: 0;
+    z-index: 0;
+    -webkit-box-shadow: -7px 0 28px 0 rgba(0, 0, 0, 0.46);
+    -moz-box-shadow: -7px 0 28px 0 rgba(0, 0, 0, 0.46);
+    box-shadow: -7px 0 28px 0 rgba(0, 0, 0, 0.46);
+    height: 100%;
+    background: #fff;
+    opacity: 0
+}
+
+.formSec.active {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    z-index: 9999999999999;
+    opacity: 1
+}
+
+.freeze_layer {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    display: none
+}
+
+.active_freaze {
+    display: block
+}
+
+.zoverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    display: none
+}
+
+.formInner {
+    border-left: 1px solid #ddd;
+    padding: 35px 20px;
+    background: #fff;
+    box-sizing: border-box;
+    height: auto;
+    text-align: left
+}
+
+.formInner h4 {
+    margin-bottom: 5px
+}
+
+.formInner span {
+    margin-bottom: 15px;
+    display: inline-block
+}
+
+.form-close {
+    background: url(/sites/zweb/images/close-icon.png) no-repeat;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    background-size: 17px;
+    opacity: .6
+}
+
+.formSec .signup-box {
+    max-width: 100%
+}
+
+/* ============================================
+   TRUSTED BRANDS & CUSTOMER COUNTS SECTION
+   ============================================ */
+
+.brand-wrapper {
+    padding-bottom: 70px;
+}
+
+/* Trust icon styles */
+.trust-icon-wrap {
+    overflow: hidden;
+    display: flex;
+}
+
+.trust-icon .ae-icon {
+    margin: 0 150px 0 0;
+    font-size: 0;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+    min-height: 100px;
+    vertical-align: top;
+}
+
+/* Customer counts styles */
+.za-cust-counts ul {
+    display: flex;
+    max-width: 532px;
+    margin: 15px auto 0px;
+    text-align: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 117px;
+    padding: 30px 20px 20px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 22px 0 #00000017;
+}
+
+.za-cust-counts ul>li {
+    width: 40%;
+    position: relative;
+}
+
+.za-cust-counts ul>li p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.za-cust-counts ul>li>span {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.za-cust-counts ul>li>span:after {
+    content: '+';
+    font-family: var(--zf-primary-extralight);
+}
+
+.za-cust-counts ul>li:not(:first-child):before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 50%;
+    background: #601d1c;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    opacity: .2;
+}
+
+
+/* ============================================
+   COMPARISON TABLE SECTION
+   ============================================ */
+
+.comparison-table {
+    margin-top: 70px;
+    overflow-x: auto
+}
+
+.comparison-table table {
+    width: 100%;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.comparison-table table tbody td,
+.comparison-table table thead th {
+    padding: 18px;
+    text-align: left
+}
+
+.comparison-table table thead th {
+    font-size: 24px;
+    font-family: var(--zf-primary-semibold)
+}
+
+.comparison-table table tr td:nth-child(1) {
+    font-family: var(--zf-primary-semibold)
+}
+
+.comparison-table table tbody tr:nth-child(odd) {
+    background-color: #f8f9fc
+}
+
+.comparison-table table .analytics-dark {
+    background-color: #fff6e2
+}
+
+.comparison-table table .analytics-light {
+    background-color: #fffbf3
+}
+
+.comparison-table table tr td:nth-child(2) {
+    border-left: 2px solid #eca91c;
+    border-right: 2px solid #eca91c
+}
+
+.comparison-table table thead th.analytics-light {
+    border-left: 2px solid #eca91c;
+    border-right: 2px solid #eca91c;
+    border-top: 2px solid #eca91c;
+    border-radius: 10px 10px 0 0
+}
+
+.comparison-table table tr td:nth-child(2).analytics-light.bottom,
+.comparison-table table tr td:nth-child(2).analytics-dark.bottom {
+    border-bottom: 2px solid #eca91c;
+    border-radius: 0 0 10px 10px
+}
+
+/* ============================================
+   EXCEL MIGRATION SECTION
+   ============================================ */
+
+.excel-migration-section {
+    background-color: #F8F9FC;
+}
+
+.excel-migration-section .migration-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.excel-migration-section .migration-wrapper.left-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 674px;
+    z-index: -1;
+    aspect-ratio: 1;
+    clip-path: polygon(0 var(--p), 100% 0, 100% 100%, 0 78%);
+    background: #FEF8EB;
+    --p: 116px;
+    border-radius: 30px;
+    left: 0;
+    top: -42px;
+    transform: rotate(180deg);
+}
+
+.excel-migration-section .migration-wrapper .image-wrapper {
+    width: 50%;
+    transition: 1s ease-in-out;
+}
+
+.excel-migration-section .migration-wrapper.zwe-om .image-wrapper {
+    transform: translateX(0px);
+}
+
+.excel-migration-section .migration-wrapper .content-wrapper {
+    width: 50%;
+    padding: 0 30px;
+    transform: translateY(20px);
+    transition: 1s ease-in-out;
+}
+
+.excel-migration-section .migration-wrapper.zwe-om .content-wrapper {
+    transform: translateY(0px);
+}
+
+.excel-migration-section .migration-wrapper .migration-image {
+    border: 5px solid #00000014;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.excel-migration-section .migration-wrapper .content-wrapper h2 {
+    color: #1644b3;
+    text-align: left;
+}
+
+.excel-migration-section .migration-wrapper .content-wrapper .migration-subtitle {
+    font-size: 22px;
+    color: var(--primary-font-color);
+    font-family: var(--primaryfont-semibold);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+
+.excel-migration-section .migration-steps {
+    margin: 35px 0;
+}
+
+.excel-migration-section .migration-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.excel-migration-section .migration-step .step-icon {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #008EF5 0%, #9914FF 100%);
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.excel-migration-section .migration-step .step-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 10px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.excel-migration-section .migration-step .step-content h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.excel-migration-section .migration-closing {
+    font-size: 20px;
+    margin-top: 30px;
+    font-family: var(--primaryfont-semibold);
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(0, 142, 245, 0.08) 0%, rgba(153, 20, 255, 0.08) 100%);
+    border-radius: 12px;
+    border-left: 4px solid #008EF5;
+}
+
+/* ============================================
+   DASHBOARD WRAPPER SECTION (Why customers choose)
+   ============================================ */
+
+.dashboard-wrapper .header-content {
+    text-align: center;
+}
+
+.dashboard-wrapper .main-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 0;
+}
+
+.dashboard-wrapper .main-wrapper.right-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 570px;
+    background: #FEF8EB;
+    z-index: -1;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    right: 0;
+}
+
+.dashboard-wrapper .main-wrapper.left-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 570px;
+    z-index: -1;
+    aspect-ratio: 1;
+    background: #FEF8EB;
+    border-radius: 30px;
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.dashboard-wrapper .main-wrapper .image-wrapper {
+    width: 55%;
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper.right-content .image-wrapper {
+    transform: translateX(30px);
+}
+
+.dashboard-wrapper .main-wrapper.left-content .image-wrapper {
+    transform: translateX(-30px);
+}
+
+.dashboard-wrapper .main-wrapper.right-content.zwe-om .image-wrapper,
+.dashboard-wrapper .main-wrapper.left-content.zwe-om .image-wrapper {
+    transform: translateX(0px);
+}
+
+.dashboard-wrapper .main-wrapper.zwe-om .content-wrapper {
+    transform: translateY(0px);
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper {
+    width: 45%;
+    padding: 0 30px;
+    transform: translateY(20px);
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul + p{
+    margin-top: 10px;
+}
+
+.dashboard-wrapper .main-wrapper .dashboard-image {
+    border: 5px solid #000;
+    border-radius: 20px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper h3 {
+    color: #1644b3;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul li .check {
+    height: 16px;
+    width: 8px;
+    border-bottom: 3px solid #1644b3;
+    border-right: 3px solid #1644b3;
+    transform: rotate(45deg);
+    margin-right: 13px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul li {
+    padding: 3px 0;
+    display: flex;
+}
+
+/* ============================================
+   LIMITS SECTION (Traditional Spreadsheets)
+   ============================================ */
+
+.limits-section {
+    background-color: #F8F9FC;
+}
+
+.limits-section .limits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.limits-section .limit-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.limits-section .limit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.limits-section .limit-item p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--primary-font-color);
+    font-family: var(--primaryfont-regular);
+}
+
+.limits-section .limits-closing {
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--primary-font-color);
+    font-family: var(--primaryfont-semibold);
+}
+
+/* ============================================
+   PRE-BANNER SECTION
+   ============================================ */
+
+.pre-banner-section {
+    padding: 90px 0;
+    text-align: center
+}
+
+.pre-banner-section.light {
+    background-image: linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%);
+}
+
+.pre-banner-section.light .content-wrapper h2 {
+    color: #000
+}
+
+.pre-banner-section .content-wrapper h2 {
+    font-family: var(--primaryfont-bold);
+    margin: 0 0 20px
+}
+
+/* ============================================
+   REPORTED SECTION (Analysts Quotes)
+   ============================================ */
+
+.reported-section {
+    padding: 80px 0px;
+}
+
+.reported-section .content-wrap {
+    display: flex;
+    gap: 20px;
+}
+
+.reported-section .report-slider {
+    background-color: var(--primary-font-color);
+    color: var(--secondary-font-color);
+    padding: 40px 50px;
+    width: 55%;
+    margin: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reported-section .content-wrap .trust-section {
+    width: 40%;
+    height: 690px;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.read-more-link {
+    display: block;
+    max-width: max-content;
+    position: relative;
+    color: var(--secondary-font-color);
+    font-family: var(--zf-secondary-medium);
+    padding-right: 35px;
+    text-decoration: underline;
+}
+
+.report-section .slick-dots {
+    text-align: left;
+    padding-top: 30px
+}
+
+.report-section .slick-dots li {
+    background: #e0e0e0
+}
+
+.slick-dots li.slick-active:before {
+    background: #f70011 !important;
+}
+
+@keyframes progresswidth {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+.slick-dots li {
+    width: 20px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    height: 8px;
+    border: 0;
+    position: relative
+}
+
+.slick-dots li.slick-active {
+    width: 35px;
+    height: 8px;
+    border: 0;
+    background: #e0e0e0
+}
+
+.report-slider .slick-dots {
+    text-align: left;
+}
+
+.slick-dots li.slick-active:before {
+    animation: progresswidth 6s linear forwards;
+    content: "";
+    width: 40px;
+    left: 0;
+    position: absolute;
+    background: #000;
+    opacity: 1;
+    height: 8px;
+    border-radius: 5px
+}
+
+.report-slider .aem-report h5 {
+    font-size: 35px;
+    font-family: var(--primaryfont-semibold);
+    line-height: 45px;
+}
+
+.report-slider .aem-report p {
+    font-size: 17px;
+    line-height: 27px;
+    font-family: var(--primaryfont-regular);
+}
+
+.rating-sec {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.rating-table {
+    margin: 0px auto 0;
+    border: unset;
+    padding: 0px 10px;
+}
+
+.rating-sec:nth-child(1),
+.rating-sec:nth-child(2),
+.rating-sec:nth-child(3),
+.rating-sec:nth-child(4),
+.rating-sec:nth-child(5),
+.rating-sec:nth-child(6),
+.rating-sec:nth-child(7),
+.rating-sec:nth-child(8),
+.rating-sec:nth-child(9) {
+    border: unset;
+    box-shadow: 1px 1px 11px 0px #174aa81c;
+    margin-bottom: 10px;
+    border-radius: 9px;
+}
+
+.rating-txt span {
+    font-size: 24px;
+}
+
+.reported-section .content-wrap.animated .anim-star.svg-sprites.four_half1 {
+    width: 90%;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+
+.common-section.faq-section {
+    padding-top: 0;
+}
+
+.faq-section {
+    padding: 80px 0px 80px;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 70px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4:before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active:before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox>ul {
+    padding: 0 40px 25px 0;
+    display: none;
+}
+
+.z-accordianBox>ul>li {
+    position: relative;
+}
+
+.z-accordianBox>ul>li b {
+    font-family: 'Zoho_Puvi_SemiBold';
+}
+
+.market-list li {
+    list-style: disc;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+/* ============================================
+   LANGUAGE-SPECIFIC STYLES
+   ============================================ */
+
+.other-lang .report-slider {
+    display: none;
+}
+
+.other-lang .trust-section.rated-section {
+    margin: 0 auto;
+}
+
+.other-lang .banner-section .cal-btn-secondary {
+    margin-inline-start: 0;
+}
+
+
+.progress-section .table-wrap {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 64px
+}
+
+.progress-section .table-wrap .column.left {
+    width: 43%
+}
+
+.progress-section .table-wrap .column.right {
+    width: 57%
+}
+
+.progress-section .acc-wrap {
+    padding: 15px 0 0 40px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30px;
+    opacity: .5;
+    transition: all .3s ease
+}
+
+.progress-section .acc-wrap.current {
+    opacity: 1
+}
+
+.progress-section .acc-wrap:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e9ecf0;
+    height: 100%;
+    width: 2px;
+    transition: all .3s ease
+}
+
+.progress-section .acc-wrap.current:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #008ef5;
+    height: 0;
+    width: 2px;
+    animation: progressHeight 8s linear forwards;
+    z-index: 2
+}
+
+.progress-section .acc-wrap .acc-img {
+    display: none
+}
+
+.progress-section .acc-wrap ul {
+    max-height: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    list-style: disc;
+    padding-inline-start: 16px;
+}
+
+.progress-section .acc-wrap.current ul {
+    max-height: 125px;
+    opacity: 1
+}
+
+.progress-section .acc-wrap.current ul li:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+.progress-section .image-part {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #868dd7;
+    border-radius: 18px
+}
+
+.progress-section .image-part img {
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    height: auto;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    transform: translate(-50%, -50%)
+}
+
+.progress-section .image-part img.active {
+    display: block;
+    opacity: 1
+}
+
+.progress-section .image-part img:nth-child(1) {
+    width: 80%
+}
+
+.progress-section .image-part img:nth-child(2) {
+    width: 80%
+}
+
+.progress-section .image-part img:nth-child(3) {
+    width: 70%
+}
+
+@keyframes progressHeight {
+    0% {
+        height: 0
+    }
+
+    100% {
+        height: 100%
+    }
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Desktop Styles - Max Width 1600px */
+@media (max-width: 1600px) {
+
+}
+
+/* Desktop Styles - Max Width 1366px */
+@media only screen and (max-width: 1366px) {
+    .za-cust-counts ul>li>span {
+        font-size: 42px;
+        line-height: 42px;
+    }
+}
+
+/* Desktop Styles - Max Width 1200px */
+@media (max-width: 1200px) {
+}
+
+/* Desktop Styles - Max Width 1110px */
+@media (max-width: 1110px) {
+    .banner-section {
+        padding-top: 120px;
+    }
+
+    .banner-section .left-wrapper,
+    .banner-section .right-wrapper {
+        flex: auto;
+    }
+
+    .banner-section .left-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .banner-section .right-wrapper,
+    .banner-section .right-wrapper {
+        padding-top: 45px;
+        text-align: center;
+    }
+
+    .banner-section .right-wrapper img {
+        width: 50%;
+    }
+
+    .banner-section .left-wrapper h1 {
+        font-size: 34px;
+    }
+
+    .banner-section .left-wrapper span.comparison-title {
+        font: 20px Zoho_Puvi_Bold;
+        margin-bottom: 10px;
+    }
+
+    .banner-section .left-wrapper p {
+        font-size: 17px;
+    }
+
+}
+
+/* Desktop Styles - Max Width 1080px */
+@media(max-width: 1080px) {}
+
+/* Tablet Styles - Max Width 991px */
+@media screen and (max-width: 991px) {
+    .limits-section .limits-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .limits-section .limit-item {
+        padding: 20px;
+    }
+
+    .limits-section .limit-item p {
+        font-size: 17px;
+    }
+
+    .limits-section .limits-closing {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper,
+    .dashboard-wrapper .main-wrapper .image-wrapper,
+    .reported-section .report-slider,
+    .reported-section .content-wrap .trust-section {
+        width: 100%;
+    }
+
+    .dashboard-wrapper .main-wrapper .image-wrapper {
+        order: 1;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        order: 2;
+    }
+
+    .dashboard-wrapper .main-wrapper {
+        gap: 30px;
+        padding: 40px 20px 40px;
+        flex-direction: column;
+        background-color: #f8f9fc;
+        margin-top: 20px;
+        border-radius: 12px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper,
+    .excel-migration-section .migration-wrapper .image-wrapper {
+        width: 100%;
+    }
+
+    .excel-migration-section .migration-wrapper .image-wrapper {
+        order: 1;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper {
+        order: 2;
+    }
+
+    .excel-migration-section .migration-wrapper {
+        gap: 30px;
+        padding: 40px 20px 40px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .excel-migration-section .migration-wrapper.left-content::before {
+        display: none;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper h2 {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper .migration-subtitle {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper .migration-description {
+        text-align: center;
+        font-size: 17px;
+    }
+
+    .dashboard-wrapper .header-content {
+        margin-bottom: 40px;
+    }
+
+    .dashboard-wrapper .main-wrapper.left-content::before,
+    .dashboard-wrapper .main-wrapper.right-content::before {
+        display: none;
+    }
+
+
+    .reported-section .content-wrap {
+        flex-wrap: wrap;
+    }
+
+    .rating-table {
+        max-width: 100%;
+    }
+}
+
+/* Mobile Styles - Max Width 767px */
+@media screen and (max-width: 767px) {
+    .banner-section .left-wrapper p {
+        font-size: 19px;
+    }
+
+    .za-cust-counts ul>li>span {
+        font-size: 38px;
+        line-height: 38px;
+    }
+
+    .za-cust-counts ul>li p {
+        font-size: 17px;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        padding: 0;
+    }
+
+    .powerbi-premium-not {
+        text-align: center
+    }
+
+    .read-more-link {
+        margin-left: 0
+    }
+
+    .comparison-table table thead th {
+        font-size: 20px;
+    }
+
+    .brand-wrapper {
+        padding-bottom: 50px;
+        border-radius: 0 0 50px 50px;
+    }
+
+    .limits-section .limits-grid {
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .limits-section .limit-item {
+        padding: 18px;
+    }
+
+    .limits-section .limit-item p {
+        font-size: 16px;
+    }
+
+    .limits-section .limits-closing {
+        font-size: 17px;
+        margin-top: 30px;
+    }
+
+    .progress-section .table-wrap .column.left {
+        width: 100%
+    }
+
+    .progress-section .acc-wrap.current:after,
+    .progress-section .acc-wrap:before,
+    .progress-section .table-wrap .column.right {
+        display: none
+    }
+
+    .progress-section .acc-wrap ul {
+        opacity: 1;
+        max-height: 100%
+    }
+
+    .p-90{
+        padding: 50px 0;
+    }
+
+    .progress-section .acc-wrap {
+        padding: 15px 0 0 0;
+        opacity: 1
+    }
+
+    .progress-section .table-wrap {
+        margin-top: 25px
+    }
+
+    .progress-section .acc-wrap .acc-img {
+        display: block;
+        margin-top: 20px
+    }
+
+    .title-desc{
+        font-size: 17px;
+    }
+}
+
+/* Mobile Styles - Max Width 565px */
+@media only screen and (max-width: 565px) {
+    .za-cust-counts ul>li>span {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .za-cust-counts ul>li p {
+        font-size: 14px;
+    }
+
+    .za-cust-counts ul {
+        margin: 14px auto 45px;
+    }
+
+    .reported-section .report-slider {
+        padding: 30px 20px;
+    }
+
+    .scroll-wrapper {
+        margin: 20px auto 0
+    }
+
+    .banner-section .left-wrapper h1 {
+        font-size: 27px;
+    }
+
+    .banner-section .left-wrapper p {
+        font-size: 17px;
+    }
+
+    .banner-section .right-wrapper img {
+        width: 90%;
+    }
+
+    .za-counts-section {
+        padding: 0px 15px;
+    }
+
+    .z-accordianBox h4 {
+        font-size: 16px;
+    }
+
+    .z-accordianBox h4:before {
+        right: -39px;
+    }
+
+    .banner-section .cal-btn-secondary {
+        margin-inline-start: 0;
+        margin-top: 10px;
+    }
+
+    .limits-section .limit-item p {
+        font-size: 15px;
+    }
+
+    .limits-section .limits-closing {
+        font-size: 16px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper {
+        padding: 0;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper h2 {
+        font-size: 24px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper .migration-subtitle {
+        font-size: 18px;
+    }
+
+    .excel-migration-section .migration-wrapper .content-wrapper .migration-description {
+        font-size: 16px;
+    }
+
+    .excel-migration-section .migration-step {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .excel-migration-section .migration-step .step-content h4 {
+        font-size: 16px;
+    }
+
+    .excel-migration-section .migration-closing {
+        font-size: 17px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,1659 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-30T05:27:22.239Z",
+  "total_sites": 43,
+  "sites": [
+    {
+      "site_name": "AgenticAI",
+      "reference_path": "AgenticAI",
+      "reference_origin": "legacy",
+      "page_topic": "AI agent for BI and Analytics",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "testimonials",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel"
+      ],
+      "primary_color": "#121029",
+      "dark_sections": true,
+      "section_count": 7,
+      "complexity": "moderate",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "agenticai",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "testimonials",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "BI Finance",
+      "reference_path": "BI Finance",
+      "reference_origin": "legacy",
+      "page_topic": "Free Business Intelligence for Finance",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "features",
+        "carousel",
+        "recognition",
+        "testimonials",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid",
+        "zigzag",
+        "accordion",
+        "centered-fullwidth",
+        "full-bleed"
+      ],
+      "primary_color": "#9A5EF0",
+      "dark_sections": true,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "finance",
+        "hero",
+        "trust",
+        "features",
+        "carousel",
+        "recognition",
+        "testimonials",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "BI-Marketing",
+      "reference_path": "BI-Marketing",
+      "reference_origin": "legacy",
+      "page_topic": "Business Intelligence for Marketing - Zoho Analytics",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "recognition",
+        "testimonials",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#e0e0e0",
+      "dark_sections": true,
+      "section_count": 14,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "marketing",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "recognition",
+        "testimonials",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Business-Intelligence",
+      "reference_path": "Business-Intelligence",
+      "reference_origin": "legacy",
+      "page_topic": "What is Business Intelligence?",
+      "page_type": "product-page",
+      "product_focus": "Zoho Analytics BI Finance",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "cta",
+        "comparison",
+        "features",
+        "testimonials",
+        "tabs"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "icon-grid"
+      ],
+      "primary_color": "#ffffff",
+      "dark_sections": false,
+      "section_count": 15,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "business",
+        "intelligence",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "cta",
+        "comparison",
+        "features",
+        "testimonials",
+        "tabs"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "case-study",
+      "reference_path": "case-study",
+      "reference_origin": "legacy",
+      "page_topic": "Your trust in Zoho Analytics means a lot to us",
+      "page_type": "case-study",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "professional",
+      "sections": [
+        "hero"
+      ],
+      "layout_variety": [],
+      "primary_color": "#252c3e",
+      "dark_sections": false,
+      "section_count": 4,
+      "complexity": "simple",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "case",
+        "study",
+        "hero"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "collaborative-bi",
+      "reference_path": "collaborative-bi",
+      "reference_origin": "legacy",
+      "page_topic": "Collaborative BI Tools: The Future of Team-Based Data Analytics",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "tabs",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "zigzag",
+        "accordion"
+      ],
+      "primary_color": "#eff1f5",
+      "dark_sections": false,
+      "section_count": 4,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "collaborative",
+        "hero",
+        "tabs",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "comparison page",
+      "reference_path": "comparison page",
+      "reference_origin": "legacy",
+      "page_topic": "Break free from Power BI's price trap! Choose Zoho Analytics, the smarter choice.",
+      "page_type": "comparison-page",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "pricing",
+        "comparison",
+        "cta",
+        "content-blocks",
+        "recognition",
+        "testimonials",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "zigzag",
+        "accordion",
+        "centered-fullwidth",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 18,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "comparison",
+        "page",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "pricing",
+        "cta",
+        "content-blocks",
+        "recognition",
+        "testimonials",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Coupon page",
+      "reference_path": "Coupon page",
+      "reference_origin": "legacy",
+      "page_topic": "There's more in your helpdesk data than Zoho Desk can show you",
+      "page_type": "integration-campaign",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "conversational",
+      "sections": [
+        "hero",
+        "comparison",
+        "carousel",
+        "steps",
+        "features",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "3-step-timeline",
+        "icon-grid",
+        "zigzag",
+        "tabbed-steps",
+        "accordion",
+        "centered-fullwidth",
+        "3col-grid",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 10,
+      "complexity": "moderate",
+      "has_js": false,
+      "css_file": "styles.css",
+      "keywords": [
+        "coupon",
+        "page",
+        "hero",
+        "comparison",
+        "carousel",
+        "steps",
+        "features",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Create-Dashboard",
+      "reference_path": "Create-Dashboard",
+      "reference_origin": "legacy",
+      "page_topic": "How to Create a Dashboard in six easy steps",
+      "page_type": "tool-page",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "tabs",
+        "carousel",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "zigzag",
+        "full-bleed"
+      ],
+      "primary_color": "#eff1f5",
+      "dark_sections": true,
+      "section_count": 4,
+      "complexity": "simple",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "create",
+        "dashboard",
+        "hero",
+        "tabs",
+        "carousel",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "CSV to Dashboard Tools",
+      "reference_path": "CSV to Dashboard Tools",
+      "reference_origin": "legacy",
+      "page_topic": "Free Dashboard Generator",
+      "page_type": "tool-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "stats",
+        "carousel",
+        "trust",
+        "testimonials",
+        "cta",
+        "faq",
+        "form"
+      ],
+      "layout_variety": [
+        "carousel",
+        "icon-grid",
+        "accordion",
+        "full-bleed"
+      ],
+      "primary_color": "#ffffff",
+      "dark_sections": true,
+      "section_count": 7,
+      "complexity": "moderate",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "csv",
+        "dashboard",
+        "tools",
+        "stats",
+        "carousel",
+        "trust",
+        "testimonials",
+        "cta",
+        "faq",
+        "form"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "data visualization software",
+      "reference_path": "data visualization software",
+      "reference_origin": "legacy",
+      "page_topic": "Understand your data better with data visualization software",
+      "page_type": "product-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "features",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid",
+        "accordion",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 11,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "data",
+        "visualization",
+        "software",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "features",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "data-preparations",
+      "reference_path": "data-preparations",
+      "reference_origin": "legacy",
+      "page_topic": "AI-powered data preparation directly within Zoho Analytics",
+      "page_type": "product-page",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "comparison",
+        "recognition",
+        "testimonials",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "zigzag",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 11,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "data",
+        "preparations",
+        "hero",
+        "carousel",
+        "trust",
+        "comparison",
+        "recognition",
+        "testimonials",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Demo-Popup",
+      "reference_path": "Demo-Popup",
+      "reference_origin": "legacy",
+      "page_topic": "Book Your Free Demo - Popup",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics",
+      "tone": "professional",
+      "sections": [],
+      "layout_variety": [],
+      "primary_color": "#ffffff",
+      "dark_sections": false,
+      "section_count": 0,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "demo",
+        "popup"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Embedded Analytics",
+      "reference_path": "Embedded Analytics",
+      "reference_origin": "legacy",
+      "page_topic": "Embedded Analytics, Built Into Your Platform",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "professional",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "comparison",
+        "steps",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "3-step-timeline",
+        "icon-grid",
+        "tabbed-steps",
+        "accordion",
+        "3col-grid",
+        "full-bleed"
+      ],
+      "primary_color": "#FE95B0",
+      "dark_sections": true,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "embedded",
+        "analytics",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "comparison",
+        "steps",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Enterprise",
+      "reference_path": "Enterprise",
+      "reference_origin": "legacy",
+      "page_topic": "Enterprise-Ready Analytics: Scalable, AI-Powered, and Secure",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "features",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#F8F9FC",
+      "dark_sections": false,
+      "section_count": 13,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "enterprise",
+        "hero",
+        "trust",
+        "features",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Enterprise-BI",
+      "reference_path": "Enterprise-BI",
+      "reference_origin": "legacy",
+      "page_topic": "Enterprise Business Intelligence",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "content-blocks",
+        "tabs",
+        "testimonials",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "zigzag"
+      ],
+      "primary_color": "#ffffff",
+      "dark_sections": false,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "enterprise",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "content-blocks",
+        "tabs",
+        "testimonials",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "event-review",
+      "reference_path": "event-review",
+      "reference_origin": "legacy",
+      "page_topic": "Penny for your thoughts?",
+      "page_type": "integration-campaign",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "conversational",
+      "sections": [
+        "hero",
+        "features",
+        "tabs"
+      ],
+      "layout_variety": [
+        "split"
+      ],
+      "primary_color": "#1988d6",
+      "dark_sections": true,
+      "section_count": 5,
+      "complexity": "simple",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "event",
+        "review",
+        "hero",
+        "features",
+        "tabs"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Executive-Dashboards",
+      "reference_path": "Executive-Dashboards",
+      "reference_origin": "legacy",
+      "page_topic": "Executive dashboard software that shows your whole business in one view",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "comparison",
+        "features",
+        "steps",
+        "content-blocks",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid",
+        "zigzag",
+        "tabbed-steps",
+        "accordion",
+        "centered-fullwidth",
+        "3col-grid"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "executive",
+        "dashboards",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "comparison",
+        "features",
+        "steps",
+        "content-blocks",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Free Data visualization",
+      "reference_path": "Free Data visualization",
+      "reference_origin": "legacy",
+      "page_topic": "Transform your data into stunning visuals with free data visualization software",
+      "page_type": "product-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "testimonials",
+        "recognition",
+        "faq"
+      ],
+      "layout_variety": [
+        "carousel",
+        "accordion"
+      ],
+      "primary_color": "#03242D",
+      "dark_sections": true,
+      "section_count": 11,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "free",
+        "data",
+        "visualization",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "features",
+        "testimonials",
+        "recognition",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Generative-ai",
+      "reference_path": "Generative-ai",
+      "reference_origin": "legacy",
+      "page_topic": "Generative AI for BI and Data Analytics",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "testimonials",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 7,
+      "complexity": "moderate",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "generative",
+        "hero",
+        "carousel",
+        "trust",
+        "testimonials",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Glossary - Embedded Analytics",
+      "reference_path": "Glossary - Embedded Analytics",
+      "reference_origin": "legacy",
+      "page_topic": "Embedding AI-Powered Analytics",
+      "page_type": "glossary",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "features",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "icon-grid"
+      ],
+      "primary_color": "#262626",
+      "dark_sections": true,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "glossary",
+        "embedded",
+        "analytics",
+        "hero",
+        "features",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Glossary - Embedded API",
+      "reference_path": "Glossary - Embedded API",
+      "reference_origin": "legacy",
+      "page_topic": "Embedded Analytics Architecture: A Technical Guide for SaaS and Enterprise Teams",
+      "page_type": "glossary",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "faq",
+        "cta"
+      ],
+      "layout_variety": [
+        "split"
+      ],
+      "primary_color": "#3956FF",
+      "dark_sections": true,
+      "section_count": 11,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "glossary",
+        "embedded",
+        "api",
+        "hero",
+        "faq",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Glossary - Embedded BI",
+      "reference_path": "Glossary - Embedded BI",
+      "reference_origin": "legacy",
+      "page_topic": "Embedded BI",
+      "page_type": "glossary",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "features",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "icon-grid",
+        "accordion"
+      ],
+      "primary_color": "#262626",
+      "dark_sections": true,
+      "section_count": 13,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "glossary",
+        "embedded",
+        "hero",
+        "features",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Help-page",
+      "reference_path": "Help-page",
+      "reference_origin": "legacy",
+      "page_topic": "Zia Insights",
+      "page_type": "integration-campaign",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "conversational",
+      "sections": [],
+      "layout_variety": [],
+      "primary_color": "#0062D9",
+      "dark_sections": false,
+      "section_count": 0,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "help",
+        "page"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Homepage",
+      "reference_path": "Homepage",
+      "reference_origin": "legacy",
+      "page_topic": "Agentic AI-Powered Self-Service BI and Analytics Platform Go from data to insights and action in minutes",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "steps",
+        "media",
+        "recognition"
+      ],
+      "layout_variety": [
+        "split"
+      ],
+      "primary_color": "#0CB24B",
+      "dark_sections": false,
+      "section_count": 10,
+      "complexity": "moderate",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "homepage",
+        "hero",
+        "steps",
+        "media",
+        "recognition"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Homepage-2026",
+      "reference_path": "Homepage-2026",
+      "reference_origin": "legacy",
+      "page_topic": "Go from data to insights and action in minutes",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "steps",
+        "media",
+        "recognition"
+      ],
+      "layout_variety": [
+        "split"
+      ],
+      "primary_color": "#0CB24B",
+      "dark_sections": false,
+      "section_count": 11,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "homepage",
+        "2026",
+        "steps",
+        "media",
+        "recognition"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Inventory-decision",
+      "reference_path": "Inventory-decision",
+      "reference_origin": "legacy",
+      "page_topic": "Make every inventory decision with complete confidence",
+      "page_type": "integration-campaign",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "conversational",
+      "sections": [
+        "hero",
+        "carousel",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "zigzag",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 5,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "inventory",
+        "decision",
+        "hero",
+        "carousel",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "IPL Dashboard - 2025",
+      "reference_path": "IPL Dashboard - 2025",
+      "reference_origin": "legacy",
+      "page_topic": "IPL 2025 insights at your fingertips",
+      "page_type": "event",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "professional",
+      "sections": [
+        "hero",
+        "content-blocks",
+        "cta"
+      ],
+      "layout_variety": [
+        "carousel",
+        "zigzag"
+      ],
+      "primary_color": "#1D3D8D",
+      "dark_sections": false,
+      "section_count": 5,
+      "complexity": "simple",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "ipl",
+        "dashboard",
+        "2025",
+        "hero",
+        "content-blocks",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Main feature",
+      "reference_path": "Main feature",
+      "reference_origin": "legacy",
+      "page_topic": "Every feature you need for effective business analytics",
+      "page_type": "product-page",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "formal",
+      "sections": [
+        "hero"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 33,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "main",
+        "feature",
+        "hero"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Marketing-Agencies",
+      "reference_path": "Marketing-Agencies",
+      "reference_origin": "legacy",
+      "page_topic": "Branded Analytics for Marketing Agencies",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "technical",
+      "sections": [
+        "hero",
+        "trust",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "accordion",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#262626",
+      "dark_sections": true,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "marketing",
+        "agencies",
+        "hero",
+        "trust",
+        "testimonials",
+        "recognition",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "OrganizationAnalytics",
+      "reference_path": "OrganizationAnalytics",
+      "reference_origin": "legacy",
+      "page_topic": "AI-Powered, Self-Service Business Intelligence for all",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats"
+      ],
+      "layout_variety": [],
+      "primary_color": "#ffffff",
+      "dark_sections": false,
+      "section_count": 12,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "styles.css",
+      "keywords": [
+        "organizationanalytics",
+        "hero",
+        "trust",
+        "carousel",
+        "stats"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "page-revamp",
+      "reference_path": "page-revamp",
+      "reference_origin": "legacy",
+      "page_topic": "Embedding AI-Powered Analytics",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics + CRM",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "tabs",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "zigzag",
+        "accordion"
+      ],
+      "primary_color": "#1a3c6e",
+      "dark_sections": true,
+      "section_count": 7,
+      "complexity": "moderate",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "page",
+        "revamp",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "tabs",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "pie-chart",
+      "reference_path": "pie-chart",
+      "reference_origin": "legacy",
+      "page_topic": "The ultimate pie chart maker - create dynamic, interactive charts that tell a story",
+      "page_type": "tool-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "features",
+        "content-blocks",
+        "cta",
+        "comparison",
+        "testimonials",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "icon-grid",
+        "zigzag",
+        "accordion",
+        "centered-fullwidth",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 13,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "pie",
+        "chart",
+        "hero",
+        "carousel",
+        "trust",
+        "features",
+        "content-blocks",
+        "cta",
+        "comparison",
+        "testimonials",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Pie-chart-maker",
+      "reference_path": "Pie-chart-maker",
+      "reference_origin": "legacy",
+      "page_topic": "The ultimate pie chart maker - create dynamic, interactive charts that tell a story",
+      "page_type": "tool-page",
+      "product_focus": "Zoho Analytics",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "features",
+        "tabs"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel"
+      ],
+      "primary_color": "#262626",
+      "dark_sections": true,
+      "section_count": 4,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "pie",
+        "chart",
+        "maker",
+        "hero",
+        "features",
+        "tabs"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "PowerBI New",
+      "reference_path": "PowerBI New",
+      "reference_origin": "legacy",
+      "page_topic": "Power BI Alternative: Zoho Analytics",
+      "page_type": "comparison-page",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "formal",
+      "sections": [
+        "comparison",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "pricing",
+        "cta",
+        "recognition",
+        "testimonials",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "accordion",
+        "centered-fullwidth",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 23,
+      "complexity": "complex",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "powerbi",
+        "new",
+        "comparison",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "pricing",
+        "cta",
+        "recognition",
+        "testimonials",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Pricing page",
+      "reference_path": "Pricing page",
+      "reference_origin": "legacy",
+      "page_topic": "Get actionable insights from your business data",
+      "page_type": "pricing",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "pricing",
+        "comparison",
+        "testimonials",
+        "faq",
+        "cta"
+      ],
+      "layout_variety": [],
+      "primary_color": "#f0483e",
+      "dark_sections": false,
+      "section_count": 13,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "pricing",
+        "page",
+        "comparison",
+        "testimonials",
+        "faq",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "RealTime-BI",
+      "reference_path": "RealTime-BI",
+      "reference_origin": "legacy",
+      "page_topic": "Get Instant Insights for Smarter Actions with Real-Time BI Platform",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "testimonials",
+        "cta",
+        "features",
+        "recognition",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "accordion",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#000000",
+      "dark_sections": true,
+      "section_count": 14,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "realtime",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "testimonials",
+        "cta",
+        "features",
+        "recognition",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Review-Landing",
+      "reference_path": "Review-Landing",
+      "reference_origin": "legacy",
+      "page_topic": "Penny for your thoughts?",
+      "page_type": "integration-campaign",
+      "product_focus": "Zoho Analytics + Zoho Books",
+      "tone": "formal",
+      "sections": [
+        "hero"
+      ],
+      "layout_variety": [
+        "split"
+      ],
+      "primary_color": "#121621",
+      "dark_sections": true,
+      "section_count": 2,
+      "complexity": "simple",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "review",
+        "landing",
+        "hero"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Solution-template",
+      "reference_path": "Solution-template",
+      "reference_origin": "legacy",
+      "page_topic": "Manufacturing analytics: From shop floor data to boardroom decisions",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "content-blocks",
+        "testimonials",
+        "recognition",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "icon-grid"
+      ],
+      "primary_color": "#ffffff",
+      "dark_sections": true,
+      "section_count": 15,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "solution",
+        "template",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "content-blocks",
+        "testimonials",
+        "recognition",
+        "cta"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Spreadsheet",
+      "reference_path": "Spreadsheet",
+      "reference_origin": "legacy",
+      "page_topic": "Replace Excel Reporting with Zoho Analytics",
+      "page_type": "feature-page",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "content-blocks",
+        "comparison",
+        "cta",
+        "recognition",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "carousel",
+        "zigzag",
+        "accordion",
+        "centered-fullwidth",
+        "full-bleed"
+      ],
+      "primary_color": "#008EF5",
+      "dark_sections": true,
+      "section_count": 13,
+      "complexity": "complex",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "spreadsheet",
+        "hero",
+        "carousel",
+        "trust",
+        "stats",
+        "content-blocks",
+        "comparison",
+        "cta",
+        "recognition",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Training",
+      "reference_path": "Training",
+      "reference_origin": "legacy",
+      "page_topic": "Zoho Analytics Virtual Classroom training",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "technical",
+      "sections": [
+        "testimonials"
+      ],
+      "layout_variety": [
+        "carousel"
+      ],
+      "primary_color": "#c6ced9",
+      "dark_sections": false,
+      "section_count": 1,
+      "complexity": "simple",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "training",
+        "testimonials"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Webinar-redirection",
+      "reference_path": "Webinar-redirection",
+      "reference_origin": "legacy",
+      "page_topic": "The countdown starts now: claim your free demo today!",
+      "page_type": "event",
+      "product_focus": "Zoho Analytics Dashboards",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "steps",
+        "features",
+        "tabs",
+        "stats",
+        "carousel",
+        "trust",
+        "testimonials"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "3-step-timeline",
+        "tabbed-steps"
+      ],
+      "primary_color": "#F8F9FC",
+      "dark_sections": true,
+      "section_count": 9,
+      "complexity": "moderate",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "webinar",
+        "redirection",
+        "hero",
+        "steps",
+        "features",
+        "tabs",
+        "stats",
+        "carousel",
+        "trust",
+        "testimonials"
+      ],
+      "last_audited": "2026-06-30"
+    },
+    {
+      "site_name": "Whitelabel - Glossary",
+      "reference_path": "Whitelabel - Glossary",
+      "reference_origin": "legacy",
+      "page_topic": "What is White Label BI",
+      "page_type": "glossary",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "features",
+        "comparison",
+        "testimonials",
+        "cta",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "2col-comparison",
+        "icon-grid",
+        "accordion",
+        "full-bleed"
+      ],
+      "primary_color": "#eca91c",
+      "dark_sections": true,
+      "section_count": 10,
+      "complexity": "moderate",
+      "has_js": false,
+      "css_file": "style.css",
+      "keywords": [
+        "whitelabel",
+        "glossary",
+        "hero",
+        "features",
+        "comparison",
+        "testimonials",
+        "cta",
+        "faq"
+      ],
+      "last_audited": "2026-06-30"
+    }
+  ]
+}

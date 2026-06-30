@@ -1,0 +1,80 @@
+---
+description: Structure-first pipeline for Zoho Web Page Builder workflow builds
+alwaysApply: true
+---
+
+# Structure-First Pipeline (Web Page Builder)
+
+When building pages via `z_workflow/cursor-build-workflow.md`, **compose structure from section patterns** — do not clone a whole reference page.
+
+**Gold-standard output:** `output/sales-dashboard-examples/` — correct BEM, section patterns, brief-driven copy, dev handoff placeholders.
+
+## What this means
+
+| Do | Do not |
+|----|--------|
+| Build only sections the writer's doc requires | Copy an entire reference `index.html` and swap copy |
+| Pull **per-section** HTML skeleton from `section-index.json` + top matches | Copy a reference site's full `style.css` or `script.js` |
+| Repeat section blocks as many times as the brief needs (e.g. 8 zigzag rows) | Keep reference sections the brief does not mention |
+| Extract CSS **only for classes used** on this page | Ship unused reference CSS |
+| Include JS **only for behaviors present** (accordion, slick, tabs, sticky) | Copy ads, modals, or unrelated reference JS |
+| Use `placehold.co` + `<!-- TODO -->` for dev handoff | Treat output as production-final |
+
+Each new writer doc → new page composition. Similarity matching picks **section sources**, not a page to duplicate wholesale.
+
+## Phase 0 gate
+
+1. Run `node z_workflow/scripts/match-sites.mjs` and record results in `z_workflow/state.json`.
+2. Set `similarity.primary_source` to the top-scoring reference folder for **tokens and flavour** — not for blind full-page copy.
+3. Build `similarity.source_map`: one entry per **brief section** → reference folder → BEM class → layout style.
+4. Use `section-index.json` alternates when the top site lacks a required section type.
+5. Set `similarity.structure_mode: "compose"` in `state.json` (not `clone_mode`).
+
+Synthesis is allowed for individual sections with no reference match — use `team-dna.json` + section-index alternates.
+
+## Build steps (mandatory order)
+
+1. **Parse brief** → `sections_required` drives page length and order. Writer doc is the only content source.
+2. **Compose `index.html`** section by section:
+   - Read the reference section's HTML skeleton (class names, nesting, component shape).
+   - Instantiate the pattern once per brief item (hero ×1, FAQ items ×N, zigzag blocks ×N, cards ×N).
+   - Inject copy from `z_workflow/briefs/{slug}.txt` only — no invented sections or headings.
+3. **Write `style.css`** from scratch for this page:
+   - Global typography block at top (per Rulesbook / web-pages-frontend).
+   - `:root` tokens from Phase 1 design tokens.
+   - Copy **only** the CSS rules needed for classes on this page — from the mapped reference section(s), not the whole reference file.
+4. **Write `script.js`** with only behaviors this page uses — copy patterns from reference, trim everything else.
+5. **Link** `../../source/zohocustom.css` and `../../source/product.css`. Use `placehold.co` for all images.
+6. **Nav/footer** — comment placeholders only; team inserts templates separately.
+
+## Section gate (before moving on)
+
+For each section, confirm:
+
+- BEM/classes match the mapped reference section pattern
+- Copy comes only from the brief
+- Block count matches brief (not reference page count)
+- Responsive breakpoints present (1240 · 1080 · 991 · 767 · 565 · 480 · 350)
+- `<!-- TODO: replace with final asset -->` on every placeholder image
+
+## Dev handoff intent
+
+Output is a **structured scaffold** for the dev team:
+
+- Semantic HTML + team BEM patterns in place
+- Placeholder images and TODO comments flagged
+- Nav/footer slots empty
+- Devs swap assets, wire nav/footer templates, and polish — structure is already correct
+
+## Before approve
+
+Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). Open `index.html` in the browser. Update `z_workflow/state.json` → `phase_6.revise_rounds` on rebuilds.
+
+## Anti-patterns
+
+- ❌ Copying entire `style.css` / `script.js` from a reference folder
+- ❌ Keeping reference sections not in the writer's doc
+- ❌ Cloning `output/*` pages as templates (use `section-index.json` + reference site folders)
+- ❌ Inventing section class names when `section-index.json` already has a pattern
+- ❌ Building nav or footer code
+- ❌ Skipping JS for accordion / slick / tabs when those sections are present

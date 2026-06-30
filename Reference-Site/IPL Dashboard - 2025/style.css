@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.page-container h1 {
+    font-family: var(--zf-primary-bold);
+    text-align: center;
+    margin: 0 auto 20px;
+    font-size: 54px;
+}
+
+.page-container h2 {
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--zf-primary-bold);
+}
+
+.page-container h3 {
+    font-size: 28px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.hd-description {
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.spriteIcons {
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/ipl-25-sprite-images.png);
+    background-size: 1085px auto;
+}
+
+.zw-product-header {
+    z-index: 1;
+    position: relative;
+}
+
+/* Banner section */
+.banner {
+    background-image: linear-gradient(45deg, #1D3D8D, #0C1838);
+    padding: 120px 0 0;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin-top: -68px;
+    z-index: 0;
+}
+
+.banner::after,
+.pre-banner::before {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/triangle-texture.png);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-size: cover;
+    left: 0;
+    opacity: 0.5;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/stadium-texture.png);
+    width: 100%;
+    height: 100%;
+    top: 13%;
+    left: 0;
+    opacity: 0.15;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.cta-btn {
+    font-size: 17px;
+    padding: 13px 30px;
+    border-radius: 4px;
+    display: inline-block;
+    font-family: var(--zf-primary-semibold);
+    margin-top: 30px;
+}
+
+.banner .banner-image {
+    margin: 50px 0 0;
+    position: relative;
+    line-height: 0;
+}
+
+.banner h1 span {
+    color: #FDC612;
+}
+
+.banner .banner-image::after {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/ipl-25-sprite-images.png);
+    background-size: 1085px auto;
+    width: 263px;
+    height: 167px;
+    background-position: 0 -115px;
+    right: 7%;
+    top: 25%;
+    animation: bounceMinus 5s ease infinite;
+}
+
+.banner .banner-image::before {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/ipl-25-sprite-images.png);
+    background-size: 1085px auto;
+    width: 257px;
+    height: 167px;
+    background-position: -293px -115px;
+    left: 10%;
+    top: 12%;
+    animation: bouncePlus 5s ease infinite;
+}
+
+.banner .banner-image img {
+    width: 75%;
+}
+
+@keyframes bouncePlus {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    50% {
+        -webkit-transform: translate(0, 12px);
+        transform: translate(0, 12px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes bounceMinus {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    50% {
+        -webkit-transform: translate(0, -12px);
+        transform: translate(0, -12px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.dashboard-content {
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/ipl-stadium-bg.png);
+    padding: 50px 0 120px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dashboard-wrapper {
+    padding-top: 100px;
+    background-color: #001036;
+}
+
+.iframe {
+    border-radius: 8px;
+    height: 810px;
+    background: #fff;
+    border: 5px solid #000;
+}
+
+.dashboard-wrapper .dashboard-body .bats {
+    width: 117px;
+    height: 243px;
+    position: relative;
+    display: inline-block;
+    background-position: 0 -299px;
+    top: -75px;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease-in-out;
+}
+
+.dashboard-wrapper .dashboard-body .stumps {
+    width: 117px;
+    height: 243px;
+    position: relative;
+    display: inline-block;
+    background-position: -157px -299px;
+    top: -74px;
+    right: 12px;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease-in-out;
+}
+
+.dashboard-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-wrapper .dashboard-header h2 {
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard-wrapper .dashboard-header h2::after {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/ipl-25-sprite-images.png);
+    background-size: 950px auto;
+    width: 950px;
+    height: 99px;
+    left: 13%;
+    top: -17px;
+    z-index: -1;
+}
+
+.access-dashboard h2,
+.access-dashboard .hd-description {
+    color: #000;
+}
+
+.access-dashboard {
+    padding: 80px 0;
+    position: relative;
+}
+
+.access-dashboard::after {
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/stadium-texture.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.access-dashboard .image-wrapper {
+    margin-top: 60px;
+    position: relative;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+
+.access-dashboard .image-wrapper img {
+    border: 5px solid #000;
+    border-radius: 8px;
+    filter: blur(2.1px);
+}
+
+.access-dashboard .image-wrapper .cta-btn {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 50%);
+}
+
+.pre-banner {
+    padding: 80px 0;
+    text-align: center;
+    background-image: linear-gradient(45deg, #1D3D8D, #0C1838);
+    position: relative;
+}
+
+.dashboard-wrapper.zwe-om .dashboard-body .bats,
+.dashboard-wrapper.zwe-om .dashboard-body .stumps,
+.access-dashboard.zwe-om .image-wrapper {
+    transform: translateY(0);
+    opacity: 1;
+}

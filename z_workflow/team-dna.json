@@ -1,0 +1,77 @@
+{
+  "last_updated": "2026-06-30",
+  "synthesis_threshold": 6,
+  "synthesis_note": "When top site scores below synthesis_threshold, synthesise from team_dna + section-index alternates.",
+  "design_tokens": {
+    "color_primary": "#008EF5",
+    "color_accent": "#e42527",
+    "color_dark_bg": "#262626",
+    "color_light_bg": "#f8f9fc",
+    "font_display": "var(--zf-primary-bold)",
+    "font_body": "var(--zf-primary-regular)",
+    "font_semibold": "var(--zf-primary-semibold)",
+    "spacing_section_v": "90px",
+    "border_radius_btn": "4px",
+    "border_radius_card": "12px",
+    "transition_base": "all .5s ease"
+  },
+  "team_flavour": "Split heroes with .content-wrap, BEM section classes, Puvi via CSS variables, 7 max-width breakpoints, jQuery + Slick for carousels, .z-accordian FAQ pattern, .pre-banner-section CTAs.",
+  "dominant_colors": [
+    {
+      "hex": "#008EF5",
+      "count": 11
+    },
+    {
+      "hex": "#ffffff",
+      "count": 6
+    },
+    {
+      "hex": "#262626",
+      "count": 4
+    },
+    {
+      "hex": "#eff1f5",
+      "count": 2
+    },
+    {
+      "hex": "#F8F9FC",
+      "count": 2
+    }
+  ],
+  "common_layouts": [
+    {
+      "style": "split",
+      "count": 34
+    },
+    {
+      "style": "carousel",
+      "count": 27
+    },
+    {
+      "style": "accordion",
+      "count": 17
+    },
+    {
+      "style": "icon-grid",
+      "count": 14
+    },
+    {
+      "style": "centered-fullwidth",
+      "count": 14
+    },
+    {
+      "style": "zigzag",
+      "count": 13
+    },
+    {
+      "style": "full-bleed",
+      "count": 11
+    },
+    {
+      "style": "2col-comparison",
+      "count": 8
+    }
+  ],
+  "reference_css": "../../source/zohocustom.css",
+  "reference_product_css": "../../source/product.css"
+}

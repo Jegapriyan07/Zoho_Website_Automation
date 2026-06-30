@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-06-29T06:01:06.008Z",
+  "total": 10,
+  "correct": 10,
+  "accuracy_pct": 100,
+  "pass": true,
+  "results": [
+    {
+      "id": "integration-credit",
+      "label": "Integration + credit offer (Books)",
+      "expected": "Coupon page",
+      "got": "Coupon page",
+      "score": 6.4,
+      "match": true,
+      "top3": [
+        "Coupon page (6.4)",
+        "Executive-Dashboards (5.4)",
+        "Embedded Analytics (5)"
+      ]
+    },
+    {
+      "id": "dashboard-examples",
+      "label": "Dashboard examples landing",
+      "expected": "Executive-Dashboards",
+      "got": "Executive-Dashboards",
+      "score": 9.3,
+      "match": true,
+      "top3": [
+        "Executive-Dashboards (9.3)",
+        "collaborative-bi (5.2)",
+        "Generative-ai (4.9)"
+      ]
+    },
+    {
+      "id": "finance-vertical",
+      "label": "Finance vertical BI",
+      "expected": "BI Finance",
+      "got": "BI Finance",
+      "score": 8.3,
+      "match": true,
+      "top3": [
+        "BI Finance (8.3)",
+        "Business-Intelligence (8.3)",
+        "BI-Marketing (5.9)"
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary page",
+      "expected": "Glossary - Embedded BI",
+      "got": "Glossary - Embedded BI",
+      "score": 8,
+      "match": true,
+      "top3": [
+        "Glossary - Embedded BI (8)",
+        "Glossary - Embedded API (7)",
+        "Whitelabel - Glossary (7)"
+      ]
+    },
+    {
+      "id": "comparison",
+      "label": "Product comparison",
+      "expected": "comparison page",
+      "got": "comparison page",
+      "score": 9.3,
+      "match": true,
+      "top3": [
+        "comparison page (9.3)",
+        "PowerBI New (6)",
+        "Coupon page (5)"
+      ]
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing page",
+      "expected": "Pricing page",
+      "got": "Pricing page",
+      "score": 6.1,
+      "match": true,
+      "top3": [
+        "Pricing page (6.1)",
+        "PowerBI New (3.5)",
+        "comparison page (3.5)"
+      ]
+    },
+    {
+      "id": "csv-tool",
+      "label": "CSV dashboard tool",
+      "expected": "CSV to Dashboard Tools",
+      "got": "CSV to Dashboard Tools",
+      "score": 9.5,
+      "match": true,
+      "top3": [
+        "CSV to Dashboard Tools (9.5)",
+        "Create-Dashboard (7.9)",
+        "Executive-Dashboards (6.9)"
+      ]
+    },
+    {
+      "id": "embedded-analytics",
+      "label": "Embedded analytics feature",
+      "expected": "Embedded Analytics",
+      "got": "Embedded Analytics",
+      "score": 8.3,
+      "match": true,
+      "top3": [
+        "Embedded Analytics (8.3)",
+        "Glossary - Embedded Analytics (7.3)",
+        "Glossary - Embedded BI (6)"
+      ]
+    },
+    {
+      "id": "case-study",
+      "label": "Case study",
+      "expected": "case-study",
+      "got": "case-study",
+      "score": 8.3,
+      "match": true,
+      "top3": [
+        "case-study (8.3)",
+        "pie-chart (3.5)",
+        "Enterprise-BI (3.2)"
+      ]
+    },
+    {
+      "id": "marketing-bi",
+      "label": "BI for Marketing",
+      "expected": "BI-Marketing",
+      "got": "BI-Marketing",
+      "score": 9.3,
+      "match": true,
+      "top3": [
+        "BI-Marketing (9.3)",
+        "Marketing-Agencies (7)",
+        "Embedded Analytics (6.1)"
+      ]
+    }
+  ]
+}

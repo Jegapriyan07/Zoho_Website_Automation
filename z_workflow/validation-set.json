@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "description": "Validation briefs for match-sites.mjs --validate. Pass criteria: ≥90% primary match.",
+  "cases": [
+    {
+      "id": "integration-credit",
+      "label": "Integration + credit offer (Books)",
+      "page_type": "integration-campaign",
+      "product_name": "Zoho Analytics",
+      "keywords": ["zoho books", "integration", "financial", "$100", "credit", "reports"],
+      "sections_required": ["hero", "comparison", "carousel", "steps", "features", "cta", "faq"],
+      "expected_primary": "Coupon page"
+    },
+    {
+      "id": "dashboard-examples",
+      "label": "Dashboard examples landing",
+      "page_type": "feature-page",
+      "product_name": "Zoho Analytics",
+      "keywords": ["executive dashboards", "sales dashboard", "examples", "templates", "pipeline", "revenue"],
+      "sections_required": ["hero", "content-blocks", "steps", "features", "cta", "faq"],
+      "expected_primary": "Executive-Dashboards"
+    },
+    {
+      "id": "finance-vertical",
+      "label": "Finance vertical BI",
+      "page_type": "feature-page",
+      "product_name": "Zoho Analytics",
+      "keywords": ["bi finance", "finance", "financial", "business intelligence"],
+      "sections_required": ["hero", "features", "stats", "cta"],
+      "expected_primary": "BI Finance"
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary page",
+      "page_type": "glossary",
+      "product_name": "Zoho Analytics",
+      "keywords": ["glossary embedded bi", "glossary", "embedded bi", "definition"],
+      "sections_required": ["hero", "content-blocks", "faq"],
+      "expected_primary": "Glossary - Embedded BI"
+    },
+    {
+      "id": "comparison",
+      "label": "Product comparison",
+      "page_type": "comparison-page",
+      "product_name": "Zoho Analytics",
+      "keywords": ["comparison page", "comparison", "vs", "alternative"],
+      "sections_required": ["hero", "comparison", "features", "cta", "faq"],
+      "expected_primary": "comparison page"
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing page",
+      "page_type": "pricing",
+      "product_name": "Zoho Analytics",
+      "keywords": ["pricing", "plans", "subscription"],
+      "sections_required": ["hero", "pricing", "faq", "cta"],
+      "expected_primary": "Pricing page"
+    },
+    {
+      "id": "csv-tool",
+      "label": "CSV dashboard tool",
+      "page_type": "tool-page",
+      "product_name": "Zoho Analytics",
+      "keywords": ["csv to dashboard tools", "csv", "dashboard", "generator", "free tool"],
+      "sections_required": ["hero", "features", "faq", "cta"],
+      "expected_primary": "CSV to Dashboard Tools"
+    },
+    {
+      "id": "embedded-analytics",
+      "label": "Embedded analytics feature",
+      "page_type": "feature-page",
+      "product_name": "Zoho Analytics Embedded",
+      "keywords": ["embedded analytics", "embedded", "white label", "api"],
+      "sections_required": ["hero", "features", "cta"],
+      "expected_primary": "Embedded Analytics"
+    },
+    {
+      "id": "case-study",
+      "label": "Case study",
+      "page_type": "case-study",
+      "product_name": "Zoho Analytics",
+      "keywords": ["case study", "customer", "success story"],
+      "sections_required": ["hero", "content-blocks", "testimonials"],
+      "expected_primary": "case-study"
+    },
+    {
+      "id": "marketing-bi",
+      "label": "BI for Marketing",
+      "page_type": "feature-page",
+      "product_name": "Zoho Analytics",
+      "keywords": ["bi marketing", "marketing", "campaign", "analytics"],
+      "sections_required": ["hero", "features", "testimonials", "cta"],
+      "expected_primary": "BI-Marketing"
+    }
+  ]
+}

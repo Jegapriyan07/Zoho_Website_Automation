@@ -1,0 +1,897 @@
+.page-container h2 {
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 24px;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0px;
+}
+
+.title-desc {
+    font-size: 20px;
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.sprite-icon {
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/enterprise-re-sprite-icon.png);
+    background-size: 232px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.linear-gradient-text {
+    background-image: linear-gradient(45deg, #FF6F00, #FFC2A9);
+    background-clip: text;
+    color: transparent;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+/* Banner Section */
+
+.banner {
+    background-color: #F8F9FC;
+}
+
+.banner-main {
+    background-color: #201B18;
+    color: #fff;
+    border-radius: 0px 0px 100px 100px;
+    overflow: hidden;
+    margin-top: -68px;
+    padding-top: 130px;
+}
+
+.banner .image-wrapper {
+    position: relative;
+    background-color: rgb(255 255 255 / 20%);
+    padding: 10px;
+    bottom: -64px;
+    border-radius: 10px;
+    border: 0.5px solid #fff;
+}
+
+.banner .image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -33%;
+    left: -19%;
+    width: 135%;
+    height: 133%;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/multicolor-banner-bg.png);
+    z-index: 0;
+}
+
+.banner .image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 37%;
+    background-image: linear-gradient(360deg, black, transparent);
+    z-index: 1;
+}
+
+.banner .image-wrapper img {
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+}
+
+.cta-btn {
+    padding: 13px 30px;
+    border-radius: 4px;
+}
+
+/* Trusted brands Section */
+
+.trust-icon-wrap {
+    overflow: hidden;
+    display: flex
+}
+
+.trust-icon .ae-icon {
+    margin: 0 150px 0 0;
+    font-size: 0;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+    min-height: 100px;
+    vertical-align: top
+}
+
+.za-cust-counts ul {
+    display: flex;
+    max-width: 450px;
+    margin: 15px auto 0;
+    text-align: center;
+    justify-content: center;
+    background-color: #ffffff96;
+    border-radius: 20px;
+    padding: 30px 20px 20px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #A18AFB;
+    box-shadow: 0 4px 22px 0 #00000017;
+}
+
+.za-cust-counts ul>li {
+    width: 40%;
+    position: relative
+}
+
+.za-cust-counts ul>li p {
+    margin: 0;
+    font-size: 20px;
+    color: #000;
+}
+
+.za-cust-counts ul>li>span {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: var(--zf-primary-semibold);
+    color: #000;
+}
+
+.za-cust-counts ul>li>span:after {
+    content: '+';
+    font-family: var(--zf-primary-extralight)
+}
+
+.za-cust-counts ul>li>span span {
+    color: #000;
+}
+
+.za-cust-counts ul>li:not(:first-child):before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 50%;
+    background: #601d1c;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    opacity: .2
+}
+
+.za-brandsCounts {
+    position: relative;
+    z-index: 1;
+}
+
+.brand-wrapper {
+    background-color: #F8F9FC;
+    position: relative;
+    padding: 0px 0px 50px;
+}
+
+/* Separator Section */
+
+.separator.left {
+    height: 130px;
+    background-image: linear-gradient(183deg, #f8f9fc 50%, #fff 50%);
+}
+
+.separator.right {
+    height: 130px;
+    background-image: linear-gradient(177deg, #f8f9fc 50%, #fff 50%);
+}
+
+/* Key Enterprise Section */
+
+.key-enterprise {
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/purple-blue-gradient-bg.png);
+    background-position: center;
+}
+
+.key-enterprise img {
+    width: 50%;
+    animation: scale-up 5s ease infinite;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.key-enterprise .image-wrapper {
+    margin-top: 40px;
+    position: relative;
+}
+
+.key-enterprise .image-wrapper .card {
+    width: fit-content;
+    background-image: linear-gradient(210deg, rgb(69, 97, 255) 9%, rgba(255, 255, 255) 57% 68%);
+    box-shadow: rgba(89, 48, 255, 0.07) 0px 4px 9px 0px;
+    border-radius: 16px;
+    padding: 1px;
+    position: absolute;
+    transform: scale(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.key-enterprise .image-wrapper .card .card-content {
+    height: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: inherit;
+    padding: 20px;
+}
+
+.key-enterprise .image-wrapper .card .sprite-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.key-enterprise .image-wrapper .card h3 {
+    text-align: left;
+}
+
+.key-enterprise .image-wrapper .card.card-1 {
+    top: 12%;
+    left: 12%;
+}
+
+.key-enterprise .image-wrapper .card.card-2 {
+    bottom: 10%;
+    left: 10%;
+}
+
+.key-enterprise .image-wrapper .card.card-3 {
+    top: 10%;
+    right: 10%;
+    width: 367px;
+}
+
+.key-enterprise .image-wrapper .card.card-4 {
+    bottom: 10%;
+    right: 17%;
+}
+
+.key-enterprise .image-wrapper .card.card-2 .sprite-icon {
+    background-position: -54px 0px;
+}
+
+.key-enterprise .image-wrapper .card.card-3 .sprite-icon {
+    background-position: -103px 0px;
+}
+
+.key-enterprise .image-wrapper .card.card-4 .sprite-icon {
+    background-position: -160px 0px;
+}
+
+/* Sticky Section */
+
+.sticky-section .scroll-card {
+    margin: 70px 20px 0;
+    box-sizing: border-box;
+    border-radius: 32px;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9e77ed;
+    background-color: #fcfaff;
+    padding: 30px 40px;
+    box-shadow: 0 0 35px 0 #7f56d91f;
+    transition: transform .3s ease;
+    gap: 35px;
+    overflow: hidden;
+}
+
+.sticky-section .scroll-card h3 span {
+    background-image: linear-gradient(45deg, #008EF5, #9914FF);
+    background-clip: text;
+    color: transparent;
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    width: 50%
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.sticky-section .scroll-card .right-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(254 163 180 / 20%) 11%, transparent 68%);
+    z-index: 1;
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    position: relative;
+    z-index: 2;
+}
+
+.sticky-section .scroll-card.card1 {
+    top: 80px;
+    z-index: 1
+}
+
+.sticky-section .scroll-card.card2 {
+    top: 90px;
+    z-index: 2;
+}
+
+.sticky-section .scroll-card.card3 {
+    top: 100px;
+    z-index: 3
+}
+
+.sticky-section .scroll-card.card4 {
+    top: 110px;
+    z-index: 4;
+}
+
+
+.sticky-section .scroll-card.card5 {
+    top: 120px;
+    z-index: 5
+}
+
+.sticky-section .each-box-fort {
+    margin-top: 55px
+}
+
+/* Image box section */
+
+.image-box-section {
+    background-color: #201B18;
+    color: #fff;
+    position: relative;
+}
+
+.image-box-section::before {
+    content: '';
+    position: absolute;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/multicolor-section-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.image-box-section .image-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.image-box-section .image-wrapper .image-box {
+    flex: 1;
+    position: relative;
+    border-radius: 18.422px;
+    background: rgba(32, 27, 24, 0.80);
+    box-shadow: 0px 0px 55.5px 0px rgba(197, 185, 246, 0.15) inset;
+    backdrop-filter: blur(17px);
+    padding: 24px;
+    text-align: center;
+    border-width: 1.5px 1.5px 0px 1.5px;
+    border-style: solid;
+    border-color: rgb(255 221 178 / 30%);
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.image-box-section .image-wrapper .image-box.box-2 img {
+    width: 63%;
+}
+
+.image-box-section .image-wrapper .image-box.box-3 img {
+    width: 78%;
+}
+
+.image-box-section .image-wrapper .image-box .image-box-content h3,
+.image-box-section .image-wrapper .image-box .image-box-content p {
+    text-align: left;
+}
+
+.image-box-section .image-wrapper .image-box::before {
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(#feac894f 0, transparent 71%);
+    width: 100%;
+    height: 58%;
+}
+
+.image-box-section .image-wrapper .image-box.box-1::before {
+    bottom: -38%;
+    left: -28%
+}
+
+.image-box-section .image-wrapper .image-box.box-2::before {
+    right: -38%;
+    top: -30%
+}
+
+.image-box-section .image-wrapper .image-box.box-3::before {
+    bottom: -38%;
+    right: -28%
+}
+
+.image-box-section .image-wrapper .image-box .image-box-content {
+    margin-top: 20px;
+}
+
+.image-box-section .image-wrapper .image-box::after {
+    content: "";
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/circle-texture.png);
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    top: -45%;
+    left: 0px;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Icon box section */
+
+.icon-box-section {
+    background-color: #F8F9FC;
+}
+
+.icon-box-section .icon-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.icon-box-section .icon-wrapper .icon-box {
+    flex: 1;
+    position: relative;
+}
+
+.icon-box-section .icon-wrapper .icon-box .sprite-icon {
+    width: 73px;
+    height: 72px;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.icon-box-section .icon-wrapper .icon-box:nth-child(1) .sprite-icon {
+    background-position: -3px -73px;
+}
+
+.icon-box-section .icon-wrapper .icon-box:nth-child(2) .sprite-icon {
+    background-position: -82px -73px;
+}
+
+.icon-box-section .icon-wrapper .icon-box:nth-child(3) .sprite-icon {
+    background-position: -157px -73px;
+}
+
+.icon-box-section .icon-wrapper .icon-box h3 {
+    background-image: linear-gradient(45deg, #008EF5, #9914FF);
+    background-clip: text;
+    color: transparent;
+}
+
+/* Pentagon section */
+
+.pentagon-section {
+    background-color: #231D1A;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.pentagon-section::before {
+    content: '';
+    position: absolute;
+    background-image: radial-gradient(#feac894f 0, transparent 71%);
+    width: 73%;
+    height: 73%;
+    top: -24%;
+    left: -24%;
+}
+
+.pentagon-section::after {
+    content: '';
+    position: absolute;
+    background-image: radial-gradient(#feac894f 0, transparent 71%);
+    width: 73%;
+    height: 73%;
+    bottom: -24%;
+    right: -24%;
+}
+
+.pentagon-section .pentagon-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.pentagon-section .pentagon-wrapper .pentagon-box {
+    position: relative;
+    border-radius: 18.422px;
+    background: rgba(32, 27, 24, 0.80);
+    box-shadow: 0px 0px 55.5px 0px rgba(197, 185, 246, 0.15) inset;
+    backdrop-filter: blur(17px);
+    padding: 24px;
+    border: 1px solid #ffffff1a;
+    overflow: hidden;
+    text-align: center;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.pentagon-section .pentagon-wrapper .pentagon-box .pentagon-box-content {
+    text-align: left;
+}
+
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(1){
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(1) img,
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(1) .pentagon-box-content{
+    width: 50%;
+}
+
+
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(2),
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(5) {
+    flex: 58%;
+}
+
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(3),
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(4) {
+    flex: 39%;
+}
+
+
+.pentagon-section .pentagon-wrapper .pentagon-box:nth-child(2) img {
+    width: 50%;
+}
+
+.pentagon-section .pentagon-wrapper .pentagon-box ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Alternate section */
+
+.alternate-section {
+    padding-top: 200px;
+}
+
+.alternate-section .alternate-wrapper {
+    display: flex;
+}
+
+.alternate-section .alternate-wrapper .left-wrapper,
+.alternate-section .alternate-wrapper .right-wrapper {
+    flex: 1;
+}
+
+.alternate-section .alternate-wrapper .left-wrapper img {
+    border-radius: 70px;
+    position: relative;
+    z-index: 1;
+}
+
+.alternate-section .alternate-wrapper .right-wrapper {
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: #048AF5;
+    border-radius: 70px;
+    padding: 50px 50px 50px 120px;
+    position: relative;
+    top: -100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    left: -70px;
+    z-index: 0;
+    box-shadow: 0px 4px 11.2px 0px rgba(89, 48, 255, 0.10);
+}
+
+/* Global partner section */
+
+.global-partner-section {
+    text-align: center;
+    background-color: #F8F9FC;
+}
+
+.global-partner-section a {
+    font-family: Zoho_Puvi_SemiBold;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.global-partner-section a .arrow {
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    border-color: #03a9f5;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 3px;
+}
+
+.global-partner-section .global-partner-wrapper {
+    margin-top: 60px;
+}
+
+/* Onscroll */
+
+.key-enterprise.zwe-ot .image-wrapper .card {
+    transform: scale(1);
+}
+
+.image-box-section.zwe-ot .image-wrapper .image-box {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image-box-section.zwe-ot .image-wrapper .image-box:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.image-box-section.zwe-ot .image-wrapper .image-box:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+@media (max-width:991px) {
+
+    .key-enterprise img,
+    .separator.left,
+    .separator.right {
+        display: none;
+    }
+
+    .key-enterprise .image-wrapper .card {
+        position: unset;
+        width: 48%;
+    }
+
+    .key-enterprise .image-wrapper .card h3,
+    .image-box-section .image-wrapper .image-box .image-box-content h3,
+    .image-box-section .image-wrapper .image-box .image-box-content p {
+        text-align: center;
+    }
+
+    .key-enterprise .image-wrapper .card .sprite-icon {
+        margin-inline: auto;
+    }
+
+    .key-enterprise .image-wrapper {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .key-enterprise .image-wrapper .card.card-3 {
+        width: 48%;
+    }
+
+    .title-desc {
+        width: 100%;
+    }
+
+    .image-box-section .image-wrapper {
+        flex-direction: column;
+    }
+
+    .image-box-section .image-wrapper img {
+        width: 60%;
+    }
+}
+
+@media (max-width:767px) {
+    .page-container h3 {
+        font-size: 21px;
+    }
+
+    .title-desc {
+        font-size: 17px;
+    }
+
+    .icon-box-section .icon-wrapper,
+    .pentagon-section .pentagon-wrapper,
+    .alternate-section .alternate-wrapper {
+        flex-direction: column;
+    }
+
+    .sticky-section .scroll-card {
+        position: unset;
+        margin-top: 24px;
+        flex-direction: column;
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sticky-section .scroll-card .right-wrapper {
+        width: 60%;
+    }
+
+    .pentagon-section .pentagon-wrapper .pentagon-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box img {
+        order: 1;
+        width: 60%;
+        margin-bottom: 25px;
+    }
+
+    .pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box .pentagon-box-content {
+        order: 2;
+    }
+
+    .pentagon-section .pentagon-wrapper .pentagon-box .pentagon-box-content {
+        text-align: center;
+    }
+
+    .pentagon-section .pentagon-wrapper .pentagon-box .pentagon-box-content .m-b-30 {
+        margin-bottom: 0;
+    }
+
+    .alternate-section .alternate-wrapper .right-wrapper {
+        top: 0;
+        padding: 30px;
+        left: 0;
+        border-radius: 12px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .alternate-section .alternate-wrapper .right-wrapper .t-center {
+        text-align: center;
+    }
+
+    .alternate-section {
+        padding-top: 50px;
+    }
+
+    .p-90 {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width:575px) {
+
+    .key-enterprise .image-wrapper .card,
+    .key-enterprise .image-wrapper .card.card-3 {
+        width: 100%;
+    }
+
+    .sticky-section .scroll-card .right-wrapper,
+    .image-box-section .image-wrapper img,
+    .pentagon-section.zwe-ot .pentagon-wrapper .pentagon-box img {
+        width: 90%;
+    }
+
+    .banner .image-wrapper {
+        margin-top: 32px;
+        bottom: -9px;
+    }
+
+    .sticky-section .scroll-card {
+        padding: 30px 24px;
+    }
+    .za-cust-counts ul>li>span{
+        font-size: 30px;
+    }
+    .za-cust-counts ul{
+        padding: 20px 20px 20px;
+        max-width: 333px;
+    }
+    .za-cust-counts ul>li{
+        width: 50%;
+    }
+    .za-cust-counts ul>li p{
+        font-size: 15px;
+    }
+}

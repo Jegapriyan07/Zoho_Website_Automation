@@ -1,0 +1,490 @@
+---
+description: Frontend and Figma-to-code standards for Zoho Analytics Web-pages (HTML, CSS, JS)
+globs:
+  - "**/*.html"
+  - "**/style.css"
+  - "**/styles.css"
+  - "**/*.js"
+---
+
+# Web-pages frontend rules
+
+Apply when creating or editing any page in this repo. See README.md for full workflow and execution modes.
+
+---
+
+## When developing a new page — apply all instructions
+
+When developing any **new page**, you **must apply every section** of this instruction file. Do not skip or assume any rule. Use this as a run-through:
+
+1. **Execution context** — Use Figma as sole source of truth (or content-docs when provided); build from the design/reference.
+2. **When no directory exists** — Follow README (choose case, run setup); link to `../source/zohocustom.css` and `../source/product.css`; never copy or edit `source/`.
+3. **File naming** — Entry file is always `index.html`; stylesheet is always `style.css`; JS is always `script.js`. No scratch, backup, or test files in page directories.
+4. **Images and SVGs — ALWAYS use placeholders** — Never embed real image URLs or local asset files during development. Every `<img>` and every CSS `background-image` must use a placeholder. No `assets/` folder should be created or populated during development.
+5. **HTML** — Semantic elements; `.page-container` > `<section>` > `.content-wrap`; `.act-btn` on all CTAs; no inline styles or handlers; one H1, correct heading order; `alt` on images, `<label>` for inputs.
+6. **CSS** — Only `style.css`; check `zohocustom.css` for font/title/p/a styles; do not set styles for `.content-wrap` or `.act-btn`; desktop first with all six breakpoints; prefer `var(--...)` tokens; apply the global typography and spacing system.
+7. **Spacing system** — Use the standard spacing values for section padding, card padding, and grid gaps. Do not invent arbitrary values.
+8. **JavaScript** — Add `script.js` only if the design has interactivity; `DOMContentLoaded` or jQuery; short page-specific init may be inline at the bottom of `<body>`.
+9. **Accessibility & responsiveness** — Keyboard focus, visible focus states, no horizontal scroll, responsive images.
+10. **Validation checklist** — Before considering the page complete, run through the full checklist.
+11. **Post-development** — Open the page in a browser tab so the user can verify the result.
+
+If any instruction is unclear, refer to the detailed section below. **All instructions in this file apply to every page.**
+
+---
+
+## Execution context
+
+- **Figma → Code (primary):** When a Figma design exists, treat the Figma file as the **sole source of truth** for layout, sections, spacing, and visuals. Do not rely on prior session decisions; inspect the design and build from it.
+- **Content-docs / Revamp:** When content reference docs (e.g. in `docs/` or a brief) are provided instead of or alongside Figma, use the docs as the **content source** — structure copy, headings, and lists from the reference. Match layout to project patterns (`.page-container` > `<section>` > `.content-wrap`) and existing style; add sections only where the content requires them. Flag missing critical content (e.g. no hero headline, no CTA text) before inventing copy.
+
+---
+
+## When no directory exists
+
+- Use the **Common Cases — When No Directory Exists** section in README: choose Product/feature, Marketing, Glossary, Pricing, or Standalone.
+- Run the one-time setup commands from README. **Do not copy** from `source/`; pages that need Zoho chrome **link** to `../source/zohocustom.css` and `../source/product.css` in HTML. Never edit files in `source/`.
+
+---
+
+## File naming and directory conventions
+
+- **Entry file:** Always `index.html`. No alternative entry filenames.
+- **Stylesheet:** Always `style.css` (not `styles.css`, not `main.css`). One stylesheet per page. If a page requires additional CSS modules (e.g. a self-contained component), name them clearly after their purpose (e.g. `pricing.css`) and document why a second file is needed.
+- **JavaScript:** Always `script.js` as the primary file. For complex pages requiring a separate module, name it after its purpose (e.g. `pricing.js`). Never use generic or editor-generated filenames.
+- **Assets:** All images and SVGs go in an `assets/` subdirectory within the page folder. Reference them as `./assets/filename.ext`. Never place asset files loose in the page root.
+- **Directory names:** Use kebab-case (e.g. `glossary-embedded-api`). Avoid spaces and special characters in folder names.
+- **No scratch or temporary files:** Never commit `Untitled-*`, `*.backup`, `test*.html`, or any file with shell metacharacters in its name. Use version control for history — backup files are not a substitute.
+
+---
+
+## Images and SVGs — always use placeholders during development
+
+> **This is a hard rule. It applies to every page, every section, every component.**
+
+During UI development, **never use real image URLs, CDN links, or local asset files**. All images and SVGs must be represented by placeholder services or inline placeholder elements until the user supplies the final assets.
+
+### Why
+- Real URLs break when the CDN path changes or the asset is not yet available.
+- Creating an `assets/` folder with dummy files pollutes the directory and gets committed by mistake.
+- Placeholders keep the layout honest — they show exact dimensions without hiding missing assets.
+
+### Three asset types — handle each differently
+
+#### 1. Content images (`<img>` tags)
+Use `https://placehold.co/{width}x{height}` with dimensions from the Figma design. Always include `width`, `height`, a descriptive `alt`, and a `<!-- TODO -->` comment. Never use a real CDN URL or local file path.
+
+```html
+<!-- TODO: replace with final asset -->
+<img
+  src="https://placehold.co/1200x600/E8F2FF/667085?text=Dashboard+Screenshot"
+  alt="Dashboard showing sales pipeline analytics"
+  width="1200"
+  height="600">
+```
+
+Optionally add a label or custom colours to the placeholder URL for context:
+```
+https://placehold.co/800x450                              → grey box
+https://placehold.co/400x400/E2E8F0/667085?text=Icon     → custom colour + label
+```
+
+#### 2. CSS decorative backgrounds (`background-image: url(...)`)
+Remove the `url()` value entirely. Hold the space with `background-color` and leave a `/* TODO */` comment. Never leave a broken CDN URL in a CSS property.
+
+```css
+.banner::after {
+    /* TODO: replace with final background asset */
+    background-color: transparent;
+    /* background-image: url(...) — add when asset is supplied */
+    background-size: cover;
+    background-position: center;
+}
+```
+
+#### 3. UI control icons (close button, arrows, small decorative icons)
+Do not use an image file. Use a `background-color` block as a size-holder and add a `/* TODO */` comment. The icon's dimensions and position stay intact so the layout is accurate.
+
+```css
+.icon-close {
+    /* TODO: replace with final icon asset */
+    background-color: #667085;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    opacity: 0.6;
+}
+```
+
+#### 4. Inline SVG illustrations
+Use a minimal grey rectangle as a stand-in. Do not copy SVG markup from other projects or external sources.
+
+```html
+<!-- TODO: replace with final illustration -->
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="40" height="40" rx="8" fill="#CBD5E1"/>
+</svg>
+```
+
+### Additional rules
+- **No `assets/` folder during development.** Do not create or populate an `assets/` directory. When the user provides final assets, place them in `assets/` and replace all placeholders at that point.
+- **Dimensions must match the design.** Use the Figma-specified width and height so the layout is accurate — never use a generic 100×100 when the design shows a 1200×600 hero image.
+- **`linear-gradient` is not an asset.** CSS gradients used for backgrounds or text fills are design tokens, not images — leave them as-is.
+
+---
+
+## HTML
+
+- Semantic elements: `<section>`, `<nav>`, `<header>`, `<footer>`, `<main>`, `<article>`, `<button>` — not generic `<div>` for those roles.
+- Structure: `.page-container` > `<section class="section-name">` > `.content-wrap`.
+- **CTAs:** Use `.act-btn` as the base class on every call-to-action. Add page- or section-specific classes alongside `.act-btn` when overrides are needed in `style.css`. Example:
+  ```html
+  <a href="..." class="act-btn">Get started</a>
+  <a href="..." class="act-btn call-btn">Call me back</a>
+  ```
+- No inline styles (`style="..."`). No inline event handlers (`onclick`, `onchange`). Use classes and JS files or an inline `<script>` block at the bottom of `<body>`.
+- Every `<input>` has an associated `<label>`. All `<img>` have descriptive `alt` text.
+- Heading hierarchy: one H1 per page; H2 → H3 in order with no skips.
+- Text alignment: section `h2` is **centered by default**. Apply `.t-left` or a section-scoped rule when the section has left-aligned body copy flowing directly beneath the heading.
+
+---
+
+## CSS
+
+- Page-specific styles only in `style.css`. Never modify `zohocustom.css` or `product.css`; override in `style.css` if needed.
+- **Source files:** Never copy `zohocustom.css` or `product.css` into a page directory. Pages that need Zoho chrome must link to `../source/zohocustom.css` in HTML. Copied files fall out of sync with the source and cause style drift.
+- **Font and typography:** Before writing any typography rule (font-size, font-family, line-height, letter-spacing) for h1–h6, `p`, or `a`, check `zohocustom.css` and align with what is defined there. Use `:root` font variables (`--zf-primary-regular`, `--zf-primary-semibold`, `--zf-primary-bold`) and the global body font. Do not introduce arbitrary font values; only override when the design explicitly requires it.
+- **`.content-wrap`:** Fully defined in `zohocustom.css`. Do not write any CSS for `.content-wrap` in page styles.
+- **`.act-btn`:** Base CTA styles are defined globally. Do not redefine base padding, border-radius, or font on `.act-btn`; only add variant classes (e.g. `.call-btn`, `.book-btn`) in `style.css` for colour or border overrides.
+- Single-class selectors preferred; BEM-like naming (`.section-name`, `.section-name__element`). Avoid `!important` unless overriding third-party or base styles.
+- Use design tokens / CSS variables where available. Prefer `var(--...)` over hardcoded hex values when tokens exist.
+
+---
+
+## Responsive breakpoints
+
+Use all six breakpoints in every page. Desktop-first — apply base styles at full width, then progressively reduce with each breakpoint.
+
+| Breakpoint | Purpose |
+|---|---|
+| `max-width: 1200px` | Hide sticky nav and sidebar; expand left content to full width |
+| `max-width: 1024px` | Stack multi-column layouts (grids and side-by-side cards go to single column); stack feature tabs vertically |
+| `max-width: 991px` | Scale typography down (see type scale below); shrink buttons; reduce intro text size |
+| `max-width: 768px` | Tighten card and panel padding; stack step lists; reduce number panel widths |
+| `max-width: 567px` | Reduce section `padding-top` to 40px; tighten card padding further |
+| `max-width: 435px` | Wrap stacked CTA buttons; adjust inline-start margins |
+
+---
+
+## Global typography and utilities (apply to every page)
+
+Include the following block at the **top of every page's `style.css`**, before any page-specific styles. Do not invent different values per page.
+
+```css
+/* Global typography and utilities — consistent across all pages */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0;
+}
+
+.p-50 {
+    padding: 50px 0;
+}
+
+.title-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.p-t-0 {
+    padding-top: 0;
+}
+```
+
+### Responsive typography scale
+
+Apply these overrides inside your responsive breakpoints — do not set different base values per page:
+
+```css
+@media (max-width: 991px) {
+    .page-container h2 { font-size: 26px; }
+    .page-container h3 { font-size: 18px; }
+    .page-container p,
+    .page-container li  { font-size: 15px; }
+    .f-20, .title-desc  { font-size: 17px; }
+}
+
+@media (max-width: 768px) {
+    .page-container h2 { font-size: 22px; }
+    .page-container h3 { font-size: 17px; }
+}
+```
+
+### Usage rules
+- **`h2` / `h3`:** Never override font-size in page-specific CSS unless the design explicitly requires it. Use `.t-left` to left-align a section heading; do not write a new selector for `text-align` alone.
+- **`.title-desc` and `.f-20`:** Use only for the lead paragraph that directly follows an `h2`. Do not apply to every `<p>` or general body text.
+- **Utility classes:** Use the classes above for layout and spacing instead of writing new single-property rules.
+
+---
+
+## Spacing system
+
+Use these values consistently across all sections and components. Do not introduce arbitrary padding, margin, or gap values.
+
+| Property | Desktop | ≤ 768px | ≤ 567px |
+|---|---|---|---|
+| Section `padding-top` | `65px` | `65px` | `40px` |
+| Card / panel padding | `24px` | `20px` | `16px` |
+| Grid / flex `gap` | `20px` | `16px` | `16px` |
+| Margin before a grid or list | `28px – 30px` | same | same |
+| Step list item `padding` | `20px 0` | `16px 0` | `16px 0` |
+
+---
+
+## UI component patterns
+
+Use these standard patterns for recurring components. Do not build alternative structures for the same component type.
+
+### Vertical tab (feature tabs)
+
+```html
+<div class="features-tabs">
+  <div class="features-tab-list">
+    <button class="features-tab-btn active" data-tab="0">Label</button>
+    <button class="features-tab-btn" data-tab="1">Label</button>
+  </div>
+  <div class="features-tab-panels">
+    <div class="features-tab-panel active" data-panel="0">
+      <h3>Title</h3>
+      <p>Content</p>
+    </div>
+    <div class="features-tab-panel" data-panel="1">
+      <h3>Title</h3>
+      <p>Content</p>
+    </div>
+  </div>
+</div>
+```
+
+Tab switching JS (add to `script.js` or inline `<script>`):
+```js
+document.querySelectorAll('.features-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('.features-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.features-tab-panel').forEach(function (p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.querySelector('.features-tab-panel[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
+    });
+});
+```
+
+### FAQ accordion
+
+```html
+<div class="faq-list">
+  <div class="faq-item">
+    <button class="faq-question">Question text</button>
+    <div class="faq-answer"><p>Answer text</p></div>
+  </div>
+</div>
+```
+
+Accordion JS:
+```js
+document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.querySelector('.faq-question').addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if (!isOpen) {
+            item.classList.add('open');
+            item.querySelector('.faq-answer').style.maxHeight = item.querySelector('.faq-answer').scrollHeight + 'px';
+        }
+    });
+});
+```
+
+### Numbered single-row cards
+
+Use CSS counters — do not add number markup in HTML:
+
+```css
+.cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    counter-reset: card-counter;
+}
+
+.card-item {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    grid-template-rows: auto auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F8F9FC;
+    counter-increment: card-counter;
+}
+
+.card-item::before {
+    content: "0" counter(card-counter);
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #64748B;
+    color: #fff;
+    font-size: 28px;
+    font-family: var(--zf-primary-bold);
+}
+
+.card-item h3 { grid-column: 2; grid-row: 1; padding: 24px 24px 6px; margin: 0; }
+.card-item p  { grid-column: 2; grid-row: 2; padding: 0 24px 24px; margin: 0; }
+```
+
+---
+
+## JavaScript
+
+- Add `script.js` when the page has interactivity (tabs, accordions, carousels, modals).
+- Short, page-specific initialisation (under ~30 lines) may be placed in an inline `<script>` block at the bottom of `<body>`. Larger or reusable logic must go in `script.js`.
+- Never use inline event handlers (`onclick`, `onchange`, `onsubmit`). Always use `addEventListener`.
+- Use `const`/`let`; never `var`. Load `script.js` at the end of `<body>`.
+- Wrap jQuery-dependent code in `$(document).ready()`. Wrap vanilla JS init in `DOMContentLoaded`.
+
+---
+
+## Accessibility & responsiveness
+
+- All interactive controls (buttons, tabs, accordion triggers) must be keyboard-focusable with a visible focus state.
+- WCAG AA contrast for all text. Touch targets ≥ 44×44px on mobile.
+- No horizontal scroll at any viewport width.
+- All images: `max-width: 100%; height: auto;`. All `<img>` have descriptive `alt` text.
+
+---
+
+## Validation checklist (self-check before considering a page complete)
+
+### File and directory
+- [ ] Entry file is `index.html`; stylesheet is `style.css`; JS (if any) is `script.js`.
+- [ ] No copied `zohocustom.css` or `product.css` inside the page directory — these must be linked from `../source/`.
+- [ ] No scratch, temporary, or backup files (`Untitled-*`, `*.backup`, `test*.html`) in the directory.
+- [ ] No `assets/` folder has been created or populated during development — placeholders are used for all images and SVGs.
+
+### Images and placeholders
+- [ ] Every `<img>` uses a `placehold.co` URL — no real CDN paths, no local file paths.
+- [ ] Every `<img>` placeholder has `width` and `height` matching the Figma design, and a descriptive `alt`.
+- [ ] Every `<img>` placeholder is marked with `<!-- TODO: replace with final asset -->` in HTML.
+- [ ] Every CSS `background-image: url(...)` referencing an asset file is replaced with `background-color` and a `/* TODO */` comment.
+- [ ] Every UI control icon (close, arrow, decorative) that used an image URL is replaced with a `background-color` size-holder and a `/* TODO */` comment.
+- [ ] No SVG files copied from other projects — inline grey-rectangle `<rect>` placeholders used instead.
+- [ ] No `assets/` folder created or populated during development.
+- [ ] CSS `linear-gradient` values are left untouched — they are design tokens, not asset references.
+
+### Output and structure
+- [ ] `.page-container` > `<section class="...">` > `.content-wrap` pattern used throughout.
+- [ ] Heading hierarchy is correct (H1 → H2 → H3, no skips); one H1 per page.
+- [ ] All classes are semantic and BEM-like; no inline styles in HTML.
+
+### Markup
+- [ ] No inline event handlers; all behaviour is in `script.js` or an inline `<script>` block at the bottom of `<body>`.
+
+### CSS and typography
+- [ ] Global typography and utilities block is at the top of `style.css`.
+- [ ] All `h2` are `32px`; all `h3` across components are `20px` — no arbitrary overrides.
+- [ ] All `p` and `li` have `font-size: 16px` and `line-height: 1.75` — not left unset.
+- [ ] Card and panel padding is `24px` desktop — not a mix of values.
+- [ ] Grid and flex `gap` is `20px` — not a mix of values.
+- [ ] All six responsive breakpoints are present and follow the standard type scale.
+- [ ] No `zohocustom.css` or `product.css` styles overridden without a design reason.
+
+### Source of truth
+- [ ] **Figma → Code:** Build matches the provided Figma at key breakpoints; no inventing layout or copy not in the design.
+- [ ] **Content-docs / Revamp:** All copy and structure come from the reference docs; gaps are flagged before the page is considered complete.
+
+---
+
+## Post-development: browser verification
+
+Once code for a page is developed or updated, **automatically open the page in a browser tab** so the user can verify the result. Open `index.html` directly or via a local server as the final step after generating or editing the page.

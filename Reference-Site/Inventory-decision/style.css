@@ -1,0 +1,593 @@
+:root {
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #fff;
+    --primary-btn-color: #e42527;
+    --primary-bg: #F5F3FF;
+    --secondary-bg: #EEF4FF;
+    --teritary-bg: #F8F9FC;
+    --fourth-bg: #F0F9FF;
+}
+
+.page-container h2 {
+    font-family: var(--secondaryfont-bold);
+    font-size: 40px;
+}
+
+.page-container h3 {
+    font-family: var(--primaryfont-semibold);
+    font-size: 21px;
+}
+
+.page-container h4 {
+    font-family: var(--primaryfont-semibold);
+    font-size: 20px;
+}
+
+.zw-product-header {
+    min-height: 68px;
+    z-index: 11;
+    position: relative;
+}
+
+/* Banner section styles */
+.limited-time-text {
+    font-family: var(--primaryfont-semibold);
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #FCD8CD;
+    border: 1px solid #FCC3B1;
+    padding-inline: 16px;
+    border-radius: 27px;
+    font-size: 16px;
+}
+
+.banner-section .container {
+    padding: 140px 0 100px;
+    margin-top: -70px;
+    overflow: hidden;
+    border-radius: 0 0 115px 115px;
+    background: radial-gradient(61.72% 61.71% at 44.84% 39.89%, #FFF 1.92%, #FAE6D8 100%);
+}
+
+
+
+.banner-section {
+    position: relative;
+    background-color: #262626;
+}
+
+.banner-section .content-wrap {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+}
+
+.banner-section .content-wrap .banner-text{
+    width: 50%;
+}
+
+.banner-section .content-wrap .banner-imageWrapper{
+    width: 50%;
+}
+
+.banner-section .content-wrap .banner-imageWrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner-section .content-wrap .banner-text h1{
+    margin-bottom: 20px;
+}
+
+.banner-section::after {
+    content: '';
+    position: absolute;
+    background: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/square-texture-bg.png') no-repeat top center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: 1720px auto;
+    opacity: 0.7;
+}
+
+.dwnload-btn {
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 16px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: var(--primaryfont-semibold);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+@keyframes bouncePlus {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+
+    50% {
+        -webkit-transform: translate(0, 20px);
+        transform: translate(0, 20px)
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+}
+
+@keyframes bounceMinus {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+
+    50% {
+        -webkit-transform: translate(0, -20px);
+        transform: translate(0, -20px)
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+}
+
+.banner-section h1 {
+    margin-bottom: 20px;
+}
+
+.banner-section h1 span {
+    color: #AC2C33;
+}
+
+/* Sample Dashboard styles */
+
+.sampleDashboard-section {
+    padding: 80px 0px;
+    text-align: center;
+    background-color: #262626;
+    color: #fff;
+}
+
+.sampleDashboard-section p {
+    margin: 0;
+}
+
+.sampleDashboard-section .sampleDashboard-image {
+    margin-top: 58px;
+}
+
+.sampleDashboard-section .btn-wrapper {
+    margin-top: 48px;
+}
+
+.sampleDashboard-section .btn-wrapper a {
+    font-family: var(--zf-primary-semibold);
+    color: #fff;
+}
+
+.sampleDashboard-section .btn-wrapper a .arrow {
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    border-color: #fff;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 10px;
+}
+
+.sampleDashboard-image .slick-slide img {
+    border-radius: 17px;
+    border: 5px solid #ffffff67;
+}
+
+.sampleDashboard-image .slick-slide {
+    /* transform: scale(0.8); */
+    transition: all 0.4s ease-in-out;
+    padding: 40px 0;
+}
+
+
+.sampleDashboard-image .slick-slide img {
+    max-width: 72%;
+    transition: all 0.4s ease-in-out;
+}
+
+.sampleDashboard-image .slick-center {
+    transform: scale(1.14);
+    opacity: 1;
+}
+
+.sampleDashboard-image .slick-prev {
+    left: 10%;
+}
+
+.sampleDashboard-image .slick-next {
+    right: 10%;
+}
+
+.sampleDashboard-image .slick-next:after,
+.sampleDashboard-image .slick-next:before,
+.sampleDashboard-image .slick-prev:after,
+.sampleDashboard-image .slick-prev:before {
+    width: 4px;
+    background: #ffffff;
+}
+
+/* Why Connect Section */
+
+.whyConnect-section {
+    padding: 90px 0;
+    text-align: center;
+}
+
+.whyConnect-section h2 {
+    margin-bottom: 60px;
+}
+
+.whyConnect-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 32px;
+    justify-content: center;
+}
+
+.whyConnect-item {
+    flex: 1 0 320px;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.whyConnect-item .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/inventory-campaingn-sprite.png');
+    background-size: 317px auto;
+}
+
+.whyConnect-item:nth-child(1) .feature-icon {
+    background-position: 0px 0px;
+}
+
+.whyConnect-item:nth-child(2) .feature-icon {
+    background-position: -53px 0px;
+}
+
+.whyConnect-item:nth-child(3) .feature-icon {
+    background-position: -108px 0px;
+}
+
+.whyConnect-item:nth-child(4) .feature-icon {
+    background-position: -160px 0px;
+}
+
+.whyConnect-item:nth-child(5) .feature-icon {
+    background-position: -214px 0px;
+}
+
+.whyConnect-item:nth-child(6) .feature-icon {
+    background-position: -267px 0px;
+}
+
+.whyConnect-item h3 {
+    margin: 0;
+}
+
+.whyConnect-item p {
+    margin: 0;
+}
+
+/* Real Stories Section */
+
+.stories-section {
+    background-color: #f8f9fc;
+    padding: 64px 0 80px;
+}
+
+.stories-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.stories-grid {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.story-card {
+    background: #fff;
+    border: 1px solid #cbd3d9;
+    border-radius: 8px;
+    padding: 24px;
+    flex: 1;
+    max-width: 619px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 4px 22.5px 0px rgba(0, 0, 0, 0.05);
+}
+
+.story-profile {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.story-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #eee;
+}
+
+.story-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.story-info h4 {
+    margin: 0;
+}
+
+.story-info span {
+    font-family: var(--primaryfont-regular);
+    color: #000;
+}
+
+.story-quote p {
+    margin: 0;
+}
+
+/* CTA Banner Section */
+
+.cta-banner-section {
+    background-color: #fae6d8;
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner-section::before {
+    content: '';
+    position: absolute;
+    background-image: url(https://prezohoweb.zoho.com/sites/zweb/images/analytics/noise-bg.png);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+}
+
+.cta-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-banner-content h2 {
+    margin: 0;
+}
+
+.cta-banner-content .dwnload-btn {
+    margin-bottom: 12px;
+}
+
+.cta-subtext {
+    color: #262626;
+}
+
+.cta-banner-decor {
+    position: absolute;
+    width: 198px;
+    height: 311px;
+    z-index: 0;
+}
+
+.cta-banner-decor.left-decor {
+    left: 64px;
+    bottom: 0;
+}
+
+.cta-banner-decor.right-decor {
+    right: 64px;
+    top: 0;
+    transform: rotate(180deg);
+}
+
+@media (max-width:1200px) {
+
+    .page-container h2 {
+        font-size: 34px;
+    }
+
+    .banner-section .content-wrap::before {
+        width: 150px;
+        height: 150px;
+        left: 2%;
+    }
+
+    .banner-section .content-wrap::after {
+        width: 150px;
+        height: 150px;
+        right: 0%;
+    }
+}
+
+@media (max-width:1080px) {
+
+    .page-container p {
+        font-size: 16px;
+    }
+
+    .sampleDashboard-section .sampleDashboard-image {
+        margin-top: 0;
+    }
+
+    .sampleDashboard-image .slick-center {
+        transform: scale(0.8);
+    }
+
+    .sampleDashboard-section {
+        padding: 80px 15px;
+    }
+
+    .banner-section .content-wrap::before,
+    .banner-section .content-wrap::after {
+        width: 70px;
+        height: 70px;
+    }
+
+    .whyConnect-item {
+        min-width: 280px;
+    }
+
+    .stories-grid {
+        gap: 16px;
+    }
+
+    .story-card {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width:991px) {
+
+    .page-container h2 {
+        font-size: 28px;
+    }
+
+    .banner-section .container {
+        padding: 120px 0 80px;
+        border-radius: 0 0 80px 80px;
+    }
+
+    .banner-section .content-wrap {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-section .content-wrap .banner-text,
+    .banner-section .content-wrap .banner-imageWrapper {
+        width: 100%;
+    }
+
+    .banner-section .content-wrap .banner-imageWrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .stories-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .story-card {
+        max-width: 619px;
+        width: 100%;
+    }
+
+    .cta-banner-decor {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:565px) {
+
+    .page-container h2 {
+        font-size: 25px;
+    }
+
+    .page-container h3,
+    .page-container h4 {
+        font-size: 18px;
+    }
+
+    .page-container p {
+        font-size: 15px;
+    }
+
+    .banner-section .container {
+        padding: 100px 0 60px;
+        border-radius: 0 0 50px 50px;
+    }
+
+    .banner-section .content-wrap {
+        gap: 24px;
+    }
+
+    .banner-section .content-wrap .banner-imageWrapper {
+        max-width: 300px;
+    }
+
+    .limited-time-text {
+        font-size: 14px;
+    }
+
+    .sampleDashboard-section .btn-wrapper {
+        margin-top: 0px;
+    }
+
+    .banner-section .content-wrap::before,
+    .banner-section .content-wrap::after {
+        display: none;
+    }
+
+    .whyConnect-section {
+        padding: 60px 0;
+    }
+
+    .whyConnect-section h2 {
+        margin-bottom: 40px;
+    }
+
+    .whyConnect-grid {
+        gap: 40px 20px;
+    }
+
+    .whyConnect-item {
+        min-width: 100%;
+    }
+
+    .stories-section {
+        padding: 50px 0 60px;
+    }
+
+    .stories-section h2 {
+        margin-bottom: 30px;
+    }
+
+    .cta-banner-section {
+        padding: 60px 0;
+    }
+
+    .cta-banner-decor {
+        display: none;
+    }
+}

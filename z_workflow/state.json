@@ -1,0 +1,111 @@
+{
+  "run_id": "cloud-analytics-tools-2026-06-29",
+  "timestamp": "2026-06-29T22:00:00.000Z",
+  "page_slug": "cloud-analytics-tools",
+
+  "writer_brief": {
+    "source_url": "https://writer.zoho.in/writer/open/qbqks8f7615f6d1694c04990470ffa8a8cc44",
+    "raw_content": "Extracted via Chrome MCP editor.doc — 25,107 chars. Saved: z_workflow/briefs/cloud-analytics-tools.txt",
+    "extraction_method": "chrome-mcp-editor-doc",
+    "extraction_status": "complete",
+    "raw_content_file": "z_workflow/briefs/cloud-analytics-tools.txt",
+    "page_title": "Cloud Analytics Tools Guide for 2026: Comparison Matrix",
+    "page_type": "comparison-page",
+    "product_name": "Zoho Analytics",
+    "target_audience": "Business teams evaluating cloud BI and analytics platforms",
+    "tone": "professional",
+    "sections_required": [
+      "hero",
+      "features",
+      "content-blocks",
+      "cta",
+      "comparison",
+      "steps",
+      "testimonials",
+      "faq"
+    ],
+    "key_messages": [
+      "Compare top 5 cloud analytics tools in 2026",
+      "Zoho Analytics at $8/user with 500+ connectors and Zia AI",
+      "5-step framework to choose the right tool",
+      "Feature comparison matrix for connectivity, AI, security, embedding",
+      "6 FAQs on cloud analytics"
+    ],
+    "keywords": [
+      "cloud analytics",
+      "comparison",
+      "Zoho Analytics",
+      "Looker",
+      "Microsoft Fabric",
+      "Domo",
+      "ThoughtSpot",
+      "BI tools"
+    ]
+  },
+
+  "site_scan": {
+    "status": "complete",
+    "source": "site-catalog.json",
+    "total_sites": 43,
+    "catalog_generated_at": "2026-06-29T06:01:05.875Z"
+  },
+
+  "similarity": {
+    "status": "complete",
+    "scored_sites": [
+      { "site_name": "page-revamp", "score": 5 },
+      { "site_name": "collaborative-bi", "score": 4.9 },
+      { "site_name": "BI Finance", "score": 4.5 }
+    ],
+    "primary_source": "comparison page",
+    "secondary_source": "PowerBI New",
+    "structure_mode": "compose",
+    "synthesis_note": "Top auto-match score 5/10 — below synthesis_threshold 6; composed from section-index + team DNA",
+    "source_map": [
+      { "section": "hero", "site": "sales-dashboard-examples", "class": "banner-section", "layout": "split" },
+      { "section": "key-takeaways", "site": "sales-dashboard-examples", "class": "box-icon-section", "layout": "3col-grid" },
+      { "section": "intro-blocks", "site": "SYNTHESISED", "class": "intro-content-section", "layout": "centered" },
+      { "section": "cta", "site": "Executive-Dashboards", "class": "pre-banner-section", "layout": "centered-fullwidth" },
+      { "section": "at-a-glance-table", "site": "PowerBI New", "class": "comparison-table-section", "layout": "full-bleed" },
+      { "section": "tool-reviews", "site": "Executive-Dashboards", "class": "dashboard-wrapper", "layout": "zigzag" },
+      { "section": "how-to-choose", "site": "Executive-Dashboards", "class": "steps-section", "layout": "tabbed-steps" },
+      { "section": "features-table", "site": "PowerBI New", "class": "comparison-table-section", "layout": "2col-comparison" },
+      { "section": "faq", "site": "Executive-Dashboards", "class": "faq-section", "layout": "accordion" }
+    ]
+  },
+
+  "phase_1": {
+    "status": "complete",
+    "design_tokens": {
+      "color_primary": "#008EF5",
+      "color_accent": "#e42527",
+      "color_dark_bg": "#010101",
+      "color_light_bg": "#f8f9fc",
+      "color_text_primary": "#262626",
+      "font_display": "var(--zf-primary-bold)",
+      "font_body": "var(--zf-primary-regular)",
+      "spacing_section_v": "90px"
+    },
+    "team_flavour": "Split hero, box-icon key takeaways, zigzag tool reviews, tabbed steps, comparison tables, pre-banner CTAs, z-accordian FAQ."
+  },
+
+  "phase_2": {
+    "status": "complete",
+    "webpage_blueprint": {
+      "page_title": "Cloud Analytics Tools Guide for 2026: Comparison Matrix | Zoho Analytics",
+      "page_slug": "cloud-analytics-tools",
+      "meta_description": "Compare the top cloud analytics tools in 2026. See how Zoho Analytics, Looker, Microsoft Fabric, Domo, and ThoughtSpot stack up on pricing, AI, connectors, and deployment.",
+      "output_path": "output/cloud-analytics-tools/",
+      "section_count": 16
+    }
+  },
+
+  "phase_6": {
+    "status": "complete",
+    "output_path": "output/cloud-analytics-tools/",
+    "files_written": ["index.html", "style.css", "script.js"],
+    "approved": true,
+    "revise_rounds": 1,
+    "rebuild_note": "Layout pass — Zoho detail panel split, zigzag rows fixed, CTA/pre-banner/table/card grid styling"
+  }
+}

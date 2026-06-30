@@ -1,0 +1,13 @@
+{
+  "name": "zoho-web-pages-workflow",
+  "private": true,
+  "description": "Maintenance scripts for the Zoho Web Page Builder workflow",
+  "scripts": {
+    "commands": "node z_workflow/scripts/list-commands.mjs",
+    "audit": "node z_workflow/scripts/site-audit.mjs",
+    "match": "node z_workflow/scripts/match-sites.mjs",
+    "match:validate": "node z_workflow/scripts/match-sites.mjs --validate",
+    "promote": "node z_workflow/scripts/promote-output.mjs",
+    "organize": "node z_workflow/scripts/organize-reference-sites.mjs"
+  }
+}

@@ -1,0 +1,1246 @@
+.page-container h2 {
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 24px;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0px;
+}
+
+.p-50 {
+    padding: 50px 0px;
+}
+
+.title-desc {
+    font-size: 20px;
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.sprite-icon {
+    background-image: url(/sites/zweb/images/analytics/enterprise-re-sprite-icon.png);
+    background-size: 232px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.linear-gradient-text {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(90deg, #008EF5 0%, #9914FF 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.act-btn.watch-btn {
+    border: 1.5px solid #000;
+    background: transparent;
+    color: #000;
+    font-family: 'Zoho_Puvi_SemiBold';
+    margin-inline-start: 10px;
+    padding: 13px 30px;
+    border-radius: 4px;
+    display: inline;
+}
+
+.cta-btn.act-btn {
+    display: unset !important;
+}
+
+.zw-product-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* Banner Section */
+
+.banner {
+    background-color: #F8F9FC;
+}
+
+.banner .banner-bg {
+    margin-top: -68px;
+    position: relative;
+    position: relative;
+    margin-inline: 40px;
+    border-radius: 0px 0px 100px 100px;
+    background-image: url(automated-real-time-reporting.png);
+}
+
+
+.banner-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/sites/zweb/images/analytics/noise-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px 100px 100px;
+    opacity: 0.1;
+}
+
+.banner .left-wrapper {
+    width: 40%;
+}
+
+.banner .left-wrapper p {
+    margin-bottom: 45px;
+}
+
+.banner .right-wrapper {
+    width: 60%;
+    text-align: end;
+    padding-top: 120px;
+}
+
+.banner .banner-main {
+    line-height: 0;
+    gap: 50px;
+}
+
+/* Brands Section */
+
+/* Trusted brands Section */
+
+.trust-icon-wrap {
+    overflow: hidden;
+    display: flex
+}
+
+.trust-icon .ae-icon {
+    margin: 0 150px 0 0;
+    font-size: 0;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+    min-height: 100px;
+    vertical-align: top
+}
+
+.za-cust-counts ul {
+    display: flex;
+    max-width: 450px;
+    margin: 15px auto 0;
+    text-align: center;
+    justify-content: center;
+    background-color: #ffffff96;
+    border-radius: 20px;
+    padding: 30px 20px 20px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #A18AFB;
+    box-shadow: 0 4px 22px 0 #00000017;
+}
+
+.za-cust-counts ul>li {
+    width: 40%;
+    position: relative
+}
+
+.za-cust-counts ul>li p {
+    margin: 0;
+    font-size: 20px;
+    color: #000;
+}
+
+.za-cust-counts ul>li>span {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: var(--zf-primary-semibold);
+    color: #000;
+}
+
+.za-cust-counts ul>li>span:after {
+    content: '+';
+    font-family: var(--zf-primary-extralight)
+}
+
+.za-cust-counts ul>li>span span {
+    color: #000;
+}
+
+.za-cust-counts ul>li:not(:first-child):before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 50%;
+    background: #601d1c;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    opacity: .2
+}
+
+.za-brandsCounts {
+    position: relative;
+    z-index: 1;
+}
+
+.brand-wrapper {
+    background-color: #F8F9FC;
+    position: relative;
+    padding: 0px 0px 50px;
+}
+
+/* Key Finance Section */
+
+.key-finance-section {
+    background-image: url(/sites/zweb/images/analytics/blue-shadow-with-texture.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+
+.key-finance-dashboard {
+    line-height: 0;
+    margin-top: 60px;
+}
+
+.key-finance-dashboard img {
+    border: 8px solid #101828;
+    border-bottom: 0;
+    border-radius: 12px 12px 0px 0px;
+}
+
+/* Sticky Card Section */
+
+.sticky-card-section {
+    background-image: radial-gradient(#2A365D, #171C2C);
+    color: #fff;
+}
+
+.sticky-section .scroll-card {
+    margin: 50px 20px 0;
+    box-sizing: border-box;
+    position: sticky;
+    padding: 50px 40px 0px;
+    transition: transform .3s ease;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 221, 178, 0.30);
+    background: #2a3250;
+    box-shadow: 0px 0px 14px 0px rgba(255, 255, 255, 0.20) inset, 0px 0px 55.5px 0px rgba(197, 185, 246, 0.15) inset;
+    backdrop-filter: blur(17px);
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sticky-section .scroll-card .left-wrapper h3 {
+    width: 40%;
+    font-size: 35px;
+}
+
+.sticky-section .scroll-card .left-wrapper p {
+    width: 60%;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    line-height: 0;
+}
+
+.sticky-section .scroll-card .right-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(254 163 180 / 20%) 11%, transparent 68%);
+    z-index: 1;
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    position: relative;
+    z-index: 2;
+    border-radius: 12px;
+    width: 80%;
+}
+
+.sticky-section .scroll-card.card1 {
+    top: 80px;
+    z-index: 1
+}
+
+.sticky-section .scroll-card.card2 {
+    top: 90px;
+    z-index: 2;
+}
+
+.sticky-section .scroll-card.card3 {
+    top: 100px;
+    z-index: 3
+}
+
+.sticky-section .scroll-card.card4 {
+    top: 110px;
+    z-index: 4;
+}
+
+
+.sticky-section .scroll-card.card5 {
+    top: 120px;
+    z-index: 5
+}
+
+/* Box Icon Section */
+
+.box-icon-section {
+    text-align: center
+}
+
+.box-icon-section .content-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    column-gap: 32px;
+    row-gap: 40px
+}
+
+.box-icon-section .content-main .card {
+    width: calc(32% - 8px);
+    transition: transform 1s ease;
+    transform: translateY(50px)
+}
+
+.box-icon-section .content-main .card .za-icon-wrapper {
+    background-image: url('/sites/zweb/images/analytics/finance-bi-sprite-icon.png');
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: 343px auto;
+    margin-bottom: 10px
+}
+
+.box-icon-section .content-main .card:nth-child(2) .za-icon-wrapper {
+    background-position: -44px -4px;
+}
+
+.box-icon-section .content-main .card:nth-child(3) .za-icon-wrapper {
+    background-position: -97px -2px;
+}
+
+.box-icon-section .content-main .card:nth-child(4) .za-icon-wrapper {
+    background-position: -143px -2px;
+}
+
+.box-icon-section .content-main .card:nth-child(5) .za-icon-wrapper {
+    background-position: -199px -4px;
+}
+
+.box-icon-section .content-main .card:nth-child(6) .za-icon-wrapper {
+    background-position: -249px -4px;
+}
+
+.box-icon-section.zwe-om .content-main .card {
+    transform: translateY(0);
+    opacity: 1
+}
+
+.box-icon-section .content-main .card:nth-child(2),
+.box-icon-section .content-main .card:nth-child(5) {
+    transition-delay: .2s
+}
+
+.box-icon-section .content-main .card:nth-child(3),
+.box-icon-section .content-main .card:nth-child(6) {
+    transition-delay: .4s
+}
+
+/* Circle Section */
+
+.circle-section {
+    position: relative;
+}
+
+.circle-section::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 59%;
+    height: 100%;
+    background-image: radial-gradient(#CBD6FF 0%, transparent 69%);
+}
+
+.circle-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -6%;
+    width: 59%;
+    height: 100%;
+    background-image: radial-gradient(#D9D0FF 0%, transparent 69%);
+    z-index: 1;
+}
+
+.circle-section .circle-section-bg {
+    position: absolute;
+    top: 4%;
+    left: 35%;
+    width: 59%;
+    height: 80%;
+    z-index: 1;
+    background-image: radial-gradient(#FFF4D4 0%, transparent 69%);
+}
+
+.circle-section .circle-wrapper {
+    position: relative;
+    margin-top: 200px;
+    z-index: 11;
+}
+
+.circle-section .circle-wrapper .zia-circle-icons {
+    transform: scale(1.1);
+}
+
+.circle-section .circle-wrapper .ask-zia-logo {
+    width: 15%;
+    position: absolute;
+    left: 42%;
+    top: 22%;
+}
+
+.circle-section .circle-wrapper .circle-content {
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 26%;
+    padding: 1px;
+    box-shadow: 0 4px 9px 0 #5930ff17;
+    position: absolute;
+    background-image: linear-gradient(135deg, #9A5EF0 0, #fff 74%);
+}
+
+.circle-section .circle-wrapper .circle-content .circle-content-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: inherit;
+}
+
+.circle-section .circle-wrapper .circle-content .circle-content-item h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.circle-section .circle-wrapper .circle-content.card1 {
+    top: -22%;
+    left: 35%;
+}
+
+.circle-section .circle-wrapper .circle-content.card2 {
+    top: 21%;
+    left: 3.5%;
+    background-image: linear-gradient(290deg, #9A5EF0 0, #fff 74%);
+}
+
+.circle-section .circle-wrapper .circle-content.card3 {
+    bottom: -15%;
+    left: 11.5%;
+    background-image: linear-gradient(140deg, #9A5EF0 0, #fff 74%);
+}
+
+.circle-section .circle-wrapper .circle-content.card4 {
+    top: -38%;
+    right: 4%;
+    background-image: linear-gradient(140deg, #9A5EF0 0, #fff 74%);
+}
+
+.circle-section .circle-wrapper .circle-content.card5 {
+    top: 19%;
+    background-image: linear-gradient(140deg, #9A5EF0 0, #fff 74%);
+    right: 6%;
+}
+
+.circle-section .circle-wrapper .circle-content.card6 {
+    bottom: -13%;
+    left: 46.5%;
+    background-image: linear-gradient(140deg, #9A5EF0 0, #fff 74%);
+}
+
+.za-inner-testimonials {
+    text-align: center;
+    width: 80%;
+    margin: 150px auto 0;
+    position: relative;
+    z-index: 11;
+}
+
+.za-inner-testimonials p {
+    font: 20px / 1.6 Zoho_Puvi_SemiBold;
+    margin-bottom: 30px
+}
+
+.za-inner-testimonials .double-quotes {
+    width: 87px;
+    height: 87px;
+    position: absolute;
+    left: -90px;
+    top: -48px;
+    z-index: 0;
+    content: ""
+}
+
+.za-inner-testimonials img:not(.double-quotes) {
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: inline-block;
+    background: black;
+    height: 57px;
+}
+
+.za-inner-testimonials .name {
+    display: block;
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold)
+}
+
+.za-inner-testimonials .designation {
+    display: block;
+    font-size: 18px
+}
+
+section.za-inner-testimonials {
+    padding: 70px 0;
+    margin-top: 0
+}
+
+/* Sample Dashboard Section */
+
+/* Sample Dashboard styles */
+
+.sampleDashboard-section {
+    text-align: center;
+    color: #fff;
+    background-image: radial-gradient(#2A365D, #171C2C);
+}
+
+.sampleDashboard-section .sampleDashboard-image {
+    margin-top: 58px;
+}
+
+.sampleDashboard-image .slick-slide img {
+    border-radius: 17px;
+    border: 5px solid #ffffff67;
+}
+
+.sampleDashboard-image .slick-slide {
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out;
+    padding: 40px 0;
+    opacity: 0.5;
+}
+
+.sampleDashboard-image .slick-prev {
+    left: 20px;
+    background-color: #00000070;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+.sampleDashboard-image .slick-next {
+    right: 20px;
+    background-color: #00000070;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+.sampleDashboard-image .slick-next:after,
+.sampleDashboard-image .slick-next:before,
+.sampleDashboard-image .slick-prev:after,
+.sampleDashboard-image .slick-prev:before {
+    background: #ffde00;
+}
+
+.sampleDashboard-image .slick-prev:before{
+    top: 8px;
+    left: 20px;
+}
+
+.sampleDashboard-image .slick-prev:after {
+    bottom: 10px;
+    left: 20px;
+}
+
+.sampleDashboard-image .slick-next:before {
+    top: 8px;
+    right: 20px;
+}
+
+.sampleDashboard-image .slick-next:after {
+    bottom: 11px;
+    right: 20px;
+}
+
+
+.sampleDashboard-image .slick-slide img {
+    max-width: 100%;
+    transition: all 0.4s ease-in-out;
+    width: 1000px;
+    margin: auto;
+
+}
+
+.sampleDashboard-image .slick-center {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.sampleDashboard-image-text {
+    width: 80%;
+    margin: 40px auto 0;
+    display: none;
+}
+
+.sampleDashboard-image .slick-center .sampleDashboard-image-text {
+    display: block;
+}
+
+.sampleDashboard-image .slick-dots li {
+    width: 10px;
+    height: 10px;
+}
+
+.sampleDashboard-image .slick-dots li.slick-active {
+    background: #2C66DD;
+}
+
+.sampleDashboard-image .slick-dots li.slick-active button:before {
+    display: none;
+}
+
+/* Connectors Section */
+
+.connectors-section .connectors-wrapper {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.connectors-section .connectors-wrapper .connector-card {
+    width: calc(32% - 10px);
+    text-align: center;
+    border-radius: 12px;
+    background: #FFF;
+    padding: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.connectors-section .connectors-wrapper .connector-card.books {
+    box-shadow: 0px 0px 32px 1px rgba(174, 212, 253, 0.50);
+}
+
+.connectors-section .connectors-wrapper .connector-card.quickbooks {
+    box-shadow: 0px 0px 32px 1px rgba(8, 153, 73, 0.20);
+}
+
+.connectors-section .connectors-wrapper .connector-card.xero {
+    box-shadow: 0px 0px 32px 1px rgba(0, 183, 226, 0.20);
+}
+
+.connectors-section .connectors-wrapper .connector-card.stripe {
+    box-shadow: 0px 0px 32px 1px rgba(99, 91, 255, 0.20);
+}
+
+.connectors-section .connectors-wrapper .connector-card.inventory {
+    box-shadow: 0px 0px 32px 1px rgba(146, 4, 5, 0.10);
+}
+
+.connectors-section .connectors-wrapper .connector-card.billing {
+    box-shadow: 0px 0px 32px 1px rgba(174, 212, 253, 0.50);
+}
+
+.connectors-section .connectors-wrapper .connector-card .connector-card-content {
+    opacity: 0;
+    display: none;
+}
+
+.connectors-section .connectors-wrapper .connector-card:hover .connector-card-content {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    display: block;
+}
+
+
+.connectors-section .connectors-wrapper .connector-card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    backdrop-filter: blur(44px);
+    opacity: 0;
+    transition: all .3s ease;
+    transform: scale(0);
+    backdrop-filter: blur(44px);
+}
+
+.connectors-section .connectors-wrapper .connector-card:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.connectors-section .connectors-wrapper .connector-card .connector-card-content a {
+    font-family: Zoho_Puvi_SemiBold;
+    opacity: 0;
+    transform: translateY(30px);
+    display: block;
+    font-size: 18px;
+}
+
+.connectors-section .connectors-wrapper .connector-card:hover a {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.5s;
+    transition: all 1s ease;
+}
+
+.connectors-btn-wrap {
+    text-align: center;
+    margin-top: 55px;
+}
+
+/* Ratings section */
+
+.reported-section .report-slider {
+    background-color: #262626;
+    color: #fff;
+    padding: 40px 50px;
+    width: 55%;
+    margin: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.report-section .slick-dots {
+    text-align: left;
+    padding-top: 30px
+}
+
+.report-section .slick-dots li {
+    background: #e0e0e0
+}
+
+.slick-dots li.slick-active:before {
+    background: #f70011 !important
+}
+
+@keyframes progresswidth {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+.slick-dots li {
+    width: 20px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    height: 8px;
+    border: 0;
+    position: relative
+}
+
+.slick-dots li.slick-active {
+    width: 35px;
+    height: 8px;
+    border: 0;
+    background: #e0e0e0
+}
+
+.report-slider .slick-dots {
+    text-align: left
+}
+
+.slick-dots li.slick-active:before {
+    animation: progresswidth 6s linear forwards;
+    content: "";
+    width: 40px;
+    left: 0;
+    position: absolute;
+    background: #000;
+    opacity: 1;
+    height: 8px;
+    border-radius: 5px
+}
+
+.report-slider .aem-report h5 {
+    font-size: 35px;
+    font-family: var(--primaryfont-semibold);
+    line-height: 45px
+}
+
+.report-slider .aem-report p {
+    font-size: 17px;
+    line-height: 27px;
+    font-family: var(--primaryfont-regular)
+}
+
+.reported-section .content-wrap {
+    display: flex;
+    gap: 20px
+}
+
+.reported-section .content-wrap .trust-section {
+    width: 40%;
+    height: 690px;
+    overflow: auto;
+    scrollbar-width: none
+}
+
+.reported-section .content-wrap.animated .anim-star.svg-sprites.four_half1 {
+    width: 90%;
+}
+
+.rating-sec {
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+
+.rating-table {
+    margin: 0 auto 0;
+    border: unset;
+    padding: 0 10px
+}
+
+.rating-sec:nth-child(1),
+.rating-sec:nth-child(2),
+.rating-sec:nth-child(3),
+.rating-sec:nth-child(4),
+.rating-sec:nth-child(5),
+.rating-sec:nth-child(6),
+.rating-sec:nth-child(7),
+.rating-sec:nth-child(8),
+.rating-sec:nth-child(9) {
+    border: unset;
+    box-shadow: 1px 1px 11px 0 #174aa81c;
+    margin-bottom: 10px;
+    border-radius: 9px
+}
+
+.rating-txt span {
+    font-size: 24px
+}
+
+/* FAQ section */
+
+/*faq-section*/
+.common-section.faq-section {
+    padding-top: 0;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.faq-section h2 {
+    text-align: center;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4:before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active:before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox>ul {
+    padding: 0 40px 25px 0;
+    display: none;
+}
+
+.z-accordianBox>ul>li {
+    position: relative;
+}
+
+/* Pre banner section */
+
+.pre-banner-section {
+    background-image: url(/sites/zweb/images/analytics/blue-shadow-with-texture.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.pre-banner-section p:not(.title-desc) {
+    margin-top: 30px;
+}
+
+@media (max-width: 1500px) {
+    .act-btn.watch-btn:not(.pre-banner-section .cta-btn.watch-btn) {
+        display: block;
+        width: fit-content;
+        margin-top: 33px;
+        padding: 21px;
+        margin-inline: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .circle-section .circle-wrapper .zia-circle-icons,
+    .circle-section .circle-wrapper .ask-zia-logo {
+        display: none;
+    }
+
+
+    .circle-section .circle-wrapper .circle-content {
+        position: unset;
+    }
+
+    .circle-section .circle-wrapper {
+        margin-top: 50px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .circle-section .circle-wrapper .circle-content .circle-content-item {
+        height: 100%;
+    }
+
+    .pre-banner-section {
+        background-size: cover;
+    }
+
+    .sampleDashboard-image .slick-slide img {
+        width: 600px;
+    }
+
+    .banner .banner-bg {
+        margin-inline: 0px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .box-icon-section .content-main .card {
+        width: calc(47% - 8px);
+    }
+
+    .box-icon-section .content-main {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 991px) {
+    .circle-section .circle-wrapper .circle-content {
+        width: 45%;
+    }
+
+    .banner .right-wrapper,
+    .banner .left-wrapper {
+        width: 50%;
+    }
+
+    .banner .banner-bg {
+        padding-top: 35px;
+    }
+
+    .title-desc {
+        font-size: 17px;
+        width: 85%;
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3 {
+        font-size: 24px;
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3,
+    .sticky-section .scroll-card .left-wrapper p,
+    .reported-section .report-slider,
+    .reported-section .content-wrap .trust-section {
+        width: 100%;
+    }
+
+    .reported-section .content-wrap {
+        flex-direction: column;
+    }
+
+    .reported-section .content-wrap .trust-section {
+        height: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner .banner-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner .banner-bg {
+        padding-top: 110px;
+    }
+
+    .act-btn.watch-btn:not(.pre-banner-section .cta-btn.watch-btn) {
+        margin: 33px auto 0;
+    }
+
+    .banner .left-wrapper {
+        width: 100%;
+    }
+
+    .banner .right-wrapper {
+        width: 75%;
+    }
+
+    .banner .right-wrapper {
+        padding-top: 10px;
+    }
+
+    .p-90 {
+        padding: 59px 0;
+    }
+
+    .key-finance-dashboard {
+        margin-top: 24px;
+    }
+
+    .sticky-section .scroll-card {
+        position: unset;
+        padding: 25px 24px 0;
+    }
+
+    .sticky-section .scroll-card .right-wrapper {
+        margin-top: 20px;
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        gap: 0px;
+    }
+
+    .sticky-section .scroll-card .right-wrapper img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pre-banner-section .cta-btn.watch-btn {
+        display: block;
+        width: fit-content;
+        margin-top: 24px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 567px) {
+    .banner .left-wrapper p {
+        font-size: 17px;
+        margin-bottom: 37px;
+    }
+
+    .za-cust-counts ul>li>span {
+        font-size: 30px;
+    }
+
+    .za-cust-counts ul>li p {
+        font-size: 16px;
+    }
+
+    .title-desc {
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .sticky-section .scroll-card {
+        margin: 30px 0px 0;
+    }
+
+    .box-icon-section .content-main .card {
+        width: 100%;
+    }
+
+    .page-container h3 {
+        font-size: 20px;
+    }
+
+    .box-icon-section .content-main {
+        row-gap: 24px;
+    }
+
+    .circle-section .circle-wrapper {
+        gap: 0px;
+        margin-top: 20px;
+    }
+
+    .sampleDashboard-image .slick-slide img {
+        width: 300px;
+    }
+
+    .sampleDashboard-image-text {
+        width: 30%;
+    }
+
+    .connectors-section .connectors-wrapper .connector-card {
+        width: calc(49% - 10px);
+    }
+
+    .connectors-section .connectors-wrapper .connector-card .connector-card-content a,
+    .za-inner-testimonials p {
+        font-size: 15px;
+    }
+
+    .za-inner-testimonials .designation {
+        font-size: 14px;
+    }
+
+    .circle-section .circle-wrapper .circle-content {
+        width: 100%;
+    }
+
+    .za-inner-testimonials .double-quotes {
+        width: 40px;
+        height: 40px;
+        left: -9px;
+        top: -31px;
+    }
+
+    .za-inner-testimonials {
+        margin: 86px auto 0;
+    }
+
+    .reported-section .report-slider {
+        padding: 40px 24px;
+    }
+
+    .circle-section::before,
+    .circle-section::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .connectors-section .connectors-wrapper .connector-card {
+        width: 64%;
+    }
+
+    .connectors-section .connectors-wrapper .xero img {
+        width: 50px;
+    }
+
+    .connectors-section .connectors-wrapper .stripe img {
+        width: 75px;
+    }
+}

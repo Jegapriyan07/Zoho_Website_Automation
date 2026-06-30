@@ -1,0 +1,46 @@
+---
+description: Newsletter development — Figma link, inline styles only, email-safe CSS
+globs:
+  - "News-Letter/**/*.html"
+  - "News-Letter/NEWSLETTER*.md"
+---
+
+# Newsletter rules
+
+Apply when creating or editing **newsletter** pages or docs. Newsletters are built from a **Figma design link** and use **inline styles only** (no `style.css`, no `script.js`). No `zohocustom.css` or `product.css`.
+
+## Inline styles only
+
+- **No external stylesheets.** Do not create or link to `style.css` or `script.js`. All styling is done with the **`style=""`** attribute on HTML elements.
+- Use only **email-safe CSS properties** in `style=""` so the newsletter works in Gmail, Outlook, Yahoo, Apple Mail, and other clients.
+
+## Email-safe CSS (inline)
+
+- **Use:** `width`, `height`, `max-width`, `margin`, `padding`, `font-size`, `font-weight`, `color`, `text-align`, `background-color`, `border`, `display: block|inline|inline-block|table|table-cell`.
+- **Do not use:** `font-family`, `line-height`, flexbox, CSS Grid, `position`, `float`, `box-shadow`, `border-radius`, `transform`, `opacity`, `filter`, `gap`, `object-fit`.
+- Layout with **`<table role="presentation">`** and padding on `<td>`; fixed width (e.g. 600px) on main container.
+
+## Check existing design and structure
+
+- **Before building from scratch**, check existing newsletters in the **News-Letter** directory (e.g. `2025 - Q1/`, `Nov - 24/`, `stat-card/`, `crm-integration/`). Review their `index.html` for structure, table layout, and inline-style patterns. **Reuse or adapt** that structure if it fits the new Figma design — take it if you want.
+
+## Source of truth
+
+- Figma link — get it from `News-Letter/NEWSLETTER.md` (Newsletter Index). Build and update HTML to match the Figma design.
+
+## Directory and files
+
+- One folder per newsletter under **News-Letter/** with **index.html** only (and optional **images/**). No `style.css` or `script.js`.
+
+## Workflow
+
+1. **Check existing newsletters** in `News-Letter/` — reuse or adapt their structure and markup if it fits (see News-Letter/NEWSLETTER_INSTRUCTIONS.md §2).
+2. **Analyze Figma** — sections, typography, colors, spacing, images.
+3. **Build HTML** — section by section; apply all styles via **inline `style=""`** using email-safe properties only; use tables for layout (or copy/adapt from an existing newsletter).
+4. **Cross-check** — compare to Figma; confirm no unsupported CSS.
+5. **Check spacing and layout** — Verify padding, margin, alignment, and section order against Figma; test at design width and narrow width; fix any spacing or layout mismatch.
+
+## Docs
+
+- **Instructions:** `News-Letter/NEWSLETTER_INSTRUCTIONS.md`
+- **Index:** Add new newsletters to the table in `News-Letter/NEWSLETTER.md` with Figma link.

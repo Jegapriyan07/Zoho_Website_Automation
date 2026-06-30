@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Analytics Architecture: A Technical Guide for SaaS and Enterprise Teams</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="zohocustom.css">
+</head>
+
+<body>
+    <div class="page-container">
+
+        <section class="banner">
+            <div class="content-wrap">
+                <h1><span>Embedded Analytics Architecture: A Technical Guide for SaaS and Enterprise Teams</span></h1>
+                <p class="hd-desc">Embedded analytics architecture describes a specific integration pattern: a full-fledged analytics platform running inside a host application, invisible to the end user as a third-party system.</p>
+                <a href="javascript:;" class="act-btn book-btn contactus-link zcontact-form">Book my Demo</a>
+                <a href="javascript:;" class="act-btn call-btn zreq-form">Call Me Back</a>
+                <div class="image-container">
+                    <div class="banner-img-wrap">
+                        <!-- TODO: replace with final dashboard screenshot asset -->
+                        <img src="https://placehold.co/1200x600/E8F2FF/667085?text=Dashboard+Screenshot"
+                            alt="Embedded analytics architecture showing layered integration inside a host application"
+                            width="1200" height="600">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tab">
+            <div class="content-wrap">
+                <div class="tabs-container">
+                    <button class="tab-btn active" data-tab="0">Introduction</button>
+                    <button class="tab-btn" data-tab="1">Why It's Hard</button>
+                    <button class="tab-btn" data-tab="2">Core Components</button>
+                    <button class="tab-btn" data-tab="3">How Zoho Implements</button>
+                    <button class="tab-btn" data-tab="4">In Practice</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-content">
+            <div class="content-wrap">
+                <div class="wrapper">
+                    <div class="left-wrapper">
+
+                        <section class="introduction" id="introduction">
+                            <h2 class="t-left">What is Embedded Analytics Architecture?</h2>
+                            <p>Embedded analytics architecture describes a specific integration pattern: a full-fledged analytics platform running inside a host application, invisible to the end user as a third-party system. Making that work cleanly requires a deliberate architecture. It must cover data ingestion, processing, secure exposure, and rendering as a coherent system rather than a collection of point integrations.</p>
+                            <p>What makes embedded analytics architecture distinct is the division of responsibilities: what the analytics platform owns versus what it delegates to the host application. That boundary determines not just how the embedded analytics solution is built. It also determines how maintainable, scalable, and secure it remains as the product evolves.</p>
+                            <p>Zoho Analytics structures its embedded offering across four layers, each with a distinct responsibility. Data flows from source systems through the analytics engine and across an integration boundary into the host application. It surfaces as dashboards, reports, and KPIs inside the products users already work in. Understanding where each layer begins and ends is what makes the difference between a brittle embed and a maintainable, scalable integration.</p>
+                        </section>
+
+                        <section class="why-hard" id="why-hard">
+                            <h2>Why Embedded Analytics Architecture Is Hard to Get Right</h2>
+                            <p class="f-20">Embedding analytics inside a host application sounds straightforward until integration is underway. The challenges that surface are architectural in nature. They compound quickly.</p>
+                            <div class="challenges-grid">
+                                <div class="challenge-item">
+                                    <h3>Authentication</h3>
+                                    <p>The host application has an existing identity model: users, roles, and session management. The analytics layer needs to operate within it, not alongside it. A separate login surface breaks the native experience immediately. It also introduces a security boundary that is difficult to govern at scale.</p>
+                                </div>
+                                <div class="challenge-item">
+                                    <h3>Tenant isolation</h3>
+                                    <p>SaaS platforms serve multiple customer organizations from a single deployment. The analytics layer has to enforce strict data boundaries between tenants. This enforcement cannot happen at the application level, where it becomes the host engineering team's responsibility to maintain. It must happen at the platform level, where it is guaranteed by architecture.</p>
+                                </div>
+                                <div class="challenge-item">
+                                    <h3>Visual consistency</h3>
+                                    <p>White-labeling at a surface level, such as swapping a logo or changing a primary color, is trivial. Achieving true brand consistency across a multi-tenant deployment is more demanding. Each tenant organization expects the analytics surface to match their own brand identity. That requires per-tenant style control that most platforms do not natively support.</p>
+                                </div>
+                                <div class="challenge-item">
+                                    <h3>Integration depth</h3>
+                                    <p>This varies significantly across host applications. A SaaS product with a mature frontend stack needs programmatic control over how analytics components are loaded, positioned, and updated. An iframe embed solves for speed, not depth. The architecture has to support both. It cannot force a choice between rapid deployment and long-term flexibility.</p>
+                                </div>
+                                <div class="challenge-item challenge-full">
+                                    <h3>Performance inside a host UI</h3>
+                                    <p>This is a constraint that standalone BI tools are not designed for. Query execution, data rendering, and dashboard load times work differently in an embedded context. Times that are acceptable in a dedicated analytics interface become friction inside a product. Users in a host application have no tolerance for context-switching delays.</p>
+                                </div>
+                            </div>
+                            <p class="challenges-note">These challenges are not independent. They interact. A weak authentication model creates tenant isolation gaps. Rigid white-labeling limits integration depth. Poor query performance undermines the entire native experience the architecture is meant to deliver. Addressing them requires a framework of core components, each with a distinct architectural responsibility.</p>
+                        </section>
+
+                        <section class="core-components" id="core-components">
+                            <h2>The Core Components of Embedded Analytics Architecture</h2>
+                            <p class="f-20 title-desc">A well-designed embedded analytics architecture addresses each of those challenges through a distinct set of components, organized as layers with clear boundaries. Each layer owns a specific set of responsibilities. The quality of the architecture depends on how cleanly those boundaries are drawn and maintained.</p>
+                            <p class="arch-intro">Zoho Analytics implements this as a four-layer architecture:</p>
+
+                            <div class="arch-diagram">
+                                <div class="arch-layer layer-1">
+                                    <div class="layer-header">
+                                        <span class="layer-num">Layer 1</span>
+                                        <h4>Data sources layer</h4>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item"><span>Databases</span><small>JDBC / ODBC</small></div>
+                                        <div class="layer-item"><span>Cloud apps</span><small>250+ connectors</small></div>
+                                        <div class="layer-item"><span>Files &amp; feeds</span><small>CSV, JSON, APIs</small></div>
+                                        <div class="layer-item"><span>Streaming</span><small>Real-time sync</small></div>
+                                        <div class="layer-item"><span>CRM / ERP</span><small>Native sync</small></div>
+                                    </div>
+                                </div>
+                                <div class="arch-connector"><span>Ingest &amp; sync</span></div>
+                                <div class="arch-layer layer-2">
+                                    <div class="layer-header">
+                                        <span class="layer-num">Layer 2</span>
+                                        <h4>Analytics engine layer</h4>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item"><span>Data modeling</span><small>Joins, blending, formulas</small></div>
+                                        <div class="layer-item"><span>Hidden org model</span><small>Tenant isolation</small></div>
+                                        <div class="layer-item"><span>Zia AI engine</span><small>NLP, ML, forecasting</small></div>
+                                        <div class="layer-item"><span>Query engine</span><small>Cache, optimization</small></div>
+                                        <div class="layer-item"><span>Row-level security</span><small>Per-user data filters</small></div>
+                                        <div class="layer-item"><span>Sandboxing</span><small>Cross-tenant data isolation</small></div>
+                                        <div class="layer-item"><span>Compliance</span><small>GDPR, SOC 2, ISO</small></div>
+                                        <div class="layer-item"><span>RBAC</span><small>Role-based permissions</small></div>
+                                    </div>
+                                </div>
+                                <div class="arch-connector"><span>APIs &amp; auth</span></div>
+                                <div class="arch-layer layer-3">
+                                    <div class="layer-header">
+                                        <span class="layer-num">Layer 3</span>
+                                        <h4>Embedding &amp; integration layer</h4>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item"><span>iFrame embed</span><small>Rapid deployment</small></div>
+                                        <div class="layer-item"><span>15 JS APIs</span><small>Front-end control</small></div>
+                                        <div class="layer-item"><span>150 REST APIs</span><small>Full backend control</small></div>
+                                        <div class="layer-item"><span>SSO / SAML</span><small>Auth passthrough</small></div>
+                                        <div class="layer-item"><span>Backend SDKs</span><small>Multi-language</small></div>
+                                    </div>
+                                </div>
+                                <div class="arch-connector"><span>Render</span></div>
+                                <div class="arch-layer layer-4">
+                                    <div class="layer-header">
+                                        <span class="layer-num">Layer 4</span>
+                                        <h4>Host application layer</h4>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item"><span>SaaS product</span><small>ISV / OEM embed</small></div>
+                                        <div class="layer-item"><span>White-label portal</span><small>Per-tenant CSS</small></div>
+                                        <div class="layer-item"><span>Dashboard editor</span><small>End-user authoring</small></div>
+                                        <div class="layer-item"><span>Mobile app</span><small>iOS &amp; Android</small></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layer-descs">
+                                <div class="layer-desc">
+                                    <h3>Data Sources Layer</h3>
+                                    <p>The data sources layer is the entry point for all data flowing into the embedded analytics system. It is responsible for connecting to source systems, ingesting data reliably, and maintaining synchronization, whether on a scheduled basis or in real time. The architectural decision at this layer goes beyond which connectors are supported. It also covers how sync frequency is configured per source. This gives teams explicit control over the trade-off between data freshness and infrastructure load. In multi-tenant deployments, this layer also determines how data from different tenant organizations is ingested and kept separate from the point of entry.</p>
+                                </div>
+                                <div class="layer-desc">
+                                    <h3>Analytics Engine Layer</h3>
+                                    <p>The analytics engine layer is where data is modeled, transformed, and queried. This is the computational core of the architecture: handling joins, formula computation, aggregations, and query execution at scale. Critically, this is also where tenant isolation is enforced. In a production embedded analytics architecture, tenant boundaries cannot be managed at the application level. They must be guaranteed by the engine itself. No query, however constructed, should be able to return data across tenant boundaries. AI-powered capabilities like automated insights, anomaly detection, and forecasting also operate within this layer. The host application does not need to manage any machine learning infrastructure.</p>
+                                </div>
+                                <div class="layer-desc">
+                                    <h3>Embedding and Integration Layer</h3>
+                                    <p>The embedding and integration layer is the technical boundary between the analytics platform and the host application. It is responsible for two things: exposing the right integration mechanisms for different embedding depths, and handling authentication so that the host application's identity model extends seamlessly into the analytics layer. The integration mechanisms range from iFrame embedding for rapid deployment to JavaScript APIs for programmatic front-end control and REST APIs for full backend integration. Authentication is handled via SSO or SAML pass-through at this layer. The host application's session is honored by the analytics platform, eliminating the separate login surface that breaks native experiences.</p>
+                                </div>
+                                <div class="layer-desc">
+                                    <h3>Host Application Layer</h3>
+                                    <p>The host application layer is where the embedded analytics experience is rendered and consumed by end users. At this layer, the analytics surface must conform entirely to the host application's visual identity: fonts, colors, navigation, and domain. This is where white-labeling is applied. The depth of that white-labeling determines whether the embedded experience feels native or bolted on. It is also where user permissions, set upstream in the engine layer, are enforced in what users can see, interact with, and modify within the embedded interface.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="how-implements" id="how-implements">
+                            <h2>How Zoho Analytics Implements Embedded Analytics</h2>
+                            <p class="f-20">Most embedded analytics platforms address the core architectural challenges at the surface level: SSO via a standard protocol, white-labeling via a logo swap, multi-tenancy via shared infrastructure with application-level access controls. Zoho Analytics makes different architectural choices at each layer. Those choices have downstream consequences for ISVs and enterprise teams building on top of the platform.</p>
+                            <div class="features-tabs">
+                                <div class="features-tab-list">
+                                    <button class="features-tab-btn active" data-tab="0">Hidden Org Model</button>
+                                    <button class="features-tab-btn" data-tab="1">Sandboxing</button>
+                                    <button class="features-tab-btn" data-tab="2">API Ecosystem</button>
+                                    <button class="features-tab-btn" data-tab="3">Tenant-level CSS</button>
+                                    <button class="features-tab-btn" data-tab="4">Embed Dashboard Editor</button>
+                                    <button class="features-tab-btn" data-tab="5">Deployment Flexibility</button>
+                                </div>
+                                <div class="features-tab-panels">
+                                    <div class="features-tab-panel active" data-panel="0">
+                                        <h3>Hidden Org Model: tenant isolation by architecture</h3>
+                                        <p>Zoho Analytics implements multi-tenancy through a Hidden Org Model, where each tenant organization operates as a fully isolated entity within the platform. Tenant boundaries are enforced at the engine level and not delegated to the host application. This means cross-tenant data exposure cannot occur through a misconfigured query or a permission gap at the application layer. For ISVs serving multiple customer organizations from a single deployment, this is the difference between tenant isolation as a platform guarantee and tenant isolation as an engineering responsibility.</p>
+                                    </div>
+                                    <div class="features-tab-panel" data-panel="1">
+                                        <h3>Sandboxing via linked workspaces</h3>
+                                        <p>Data isolation within the platform extends to workspace-level sandboxing through linked workspaces. Each tenant's data environment is contained, with access boundaries enforced at the workspace boundary rather than through application-level filtering. It is worth noting that sandboxing in Zoho Analytics is partial. It is implemented through linked workspaces rather than full environment isolation. This is an architectural consideration for deployments with strict data residency or compliance requirements.</p>
+                                    </div>
+                                    <div class="features-tab-panel" data-panel="2">
+                                        <h3>API ecosystem: integration depth without lock-in</h3>
+                                        <p>The embedding and integration layer in Zoho Analytics exposes approximately 150 REST APIs and 15 JavaScript APIs, supported by backend SDKs across multiple languages. The REST API surface covers data integration, user provisioning, workspace management, report generation, and permission modeling. This gives engineering teams programmatic control over the full analytics lifecycle, not just the front-end embed. The 15 JavaScript APIs handle front-end interactions: dynamic content loading, dashboard filtering, and component-level rendering based on user permissions. For SaaS products with mature frontend stacks, this API depth is what makes the difference between a shallow iFrame embed and a deeply integrated analytics experience that feels native to the host product.</p>
+                                    </div>
+                                    <div class="features-tab-panel" data-panel="3">
+                                        <h3>Tenant-level CSS: white-labeling beyond the surface</h3>
+                                        <p>Visual consistency across a multi-tenant deployment requires more than a global theme. Zoho Analytics supports tenant-level CSS customization, allowing visual styling to be applied independently per tenant organization. This means each customer of a SaaS platform built on Zoho Analytics can have an analytics surface that matches their own brand identity, not a shared theme applied uniformly across all tenants. White-labeling is available based on licensing tier. ISVs can deploy fully rebranded under their own identity or retain Zoho Analytics branding, depending on their licensing configuration.</p>
+                                    </div>
+                                    <div class="features-tab-panel" data-panel="4">
+                                        <h3>Embed Dashboard Editor: end-user authoring inside the host</h3>
+                                        <p>A significant architectural capability at the host application layer is the Embed Dashboard Editor, which allows end users to create and modify dashboards directly within the host application. For SaaS vendors, this means analytics self-service can be offered as a native product feature, not as a redirect to an external platform. The editor operates within the permission boundaries set upstream in the engine layer. End-user authoring is governed by the same access controls as consumption.</p>
+                                    </div>
+                                    <div class="features-tab-panel" data-panel="5">
+                                        <h3>Deployment flexibility</h3>
+                                        <p>Zoho Analytics supports multiple deployment configurations: managed cloud, public or private cloud, multi-cloud, and on-premise. Enterprise teams and ISVs can match the deployment model to their infrastructure requirements, compliance obligations, and data residency constraints.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="in-practice" id="in-practice">
+                            <h2>Embedded Analytics Architecture in Practice: Examples</h2>
+                            <p class="f-20 title-desc">The architectural decisions covered in the previous sections play out differently depending on who is building the embedded experience and what they are delivering. Here are two scenarios that illustrate how the architecture maps to real deployment contexts.</p>
+                            <div class="scenarios">
+                                <div class="scenario-card">
+                                    <h3>ISV / SaaS vendor: Embedding sales analytics in a CRM platform</h3>
+                                    <p>A CRM platform serving mid-market sales teams needs pipeline analysis, conversion tracking, and rep performance dashboards rendered natively inside the product. It serves hundreds of customer organizations, each expecting their own brand identity and isolated data. Authentication must never surface a second login.</p>
+                                    <p>Zoho Analytics handles this through the Hidden Org Model for tenant isolation, SSO pass-through to extend the CRM's identity model into the analytics layer, and tenant-level CSS for per-customer brand consistency. The Embed Dashboard Editor enables sales managers to build and modify dashboards without leaving the CRM.</p>
+                                </div>
+                                <div class="scenario-card">
+                                    <h3>Enterprise IT / architects: Analytics inside a financial services customer portal</h3>
+                                    <p>A financial services firm delivers personalized account analytics inside its customer portal: spending analysis, investment performance, and transaction history. The deployment requires row-level security enforced at the platform level, built-in GDPR and SOC 2 compliance, and a deployment model that satisfies data residency requirements without compromising analytics capability.</p>
+                                    <p>Zoho Analytics addresses this through engine-level row-level security and sandboxing, platform-certified compliance with GDPR, SOC 2, and ISO, and deployment flexibility across cloud and on-premise configurations. This keeps governance at the platform layer rather than delegating it to the enterprise IT team.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="getting-started" id="getting-started">
+                            <h2>Getting Started with Embedded Analytics on Zoho Analytics</h2>
+                            <p class="f-20">Implementing embedded analytics on Zoho Analytics follows a logical sequence: from environment setup through to a production-ready integration. Here is the pathway most ISV and enterprise teams follow.</p>
+                            <ol class="steps-list">
+                                <li>
+                                    <div>
+                                        <strong>Register for embedded analytics access</strong>
+                                        <p>Zoho Analytics' embedded offering is provisioned separately from the standard BI product. Registering for the embedded plan unlocks the full API surface, multi-tenant configuration options, and white-labeling controls needed for a production deployment.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Provision your tenant environment</strong>
+                                        <p>Before any data or embed configuration begins, define how tenant organizations will be structured within your deployment. This includes their boundaries, workspace configurations, user roles, and permission hierarchies.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Connect your identity provider</strong>
+                                        <p>Link your existing authentication infrastructure to Zoho Analytics. Once configured, your users move seamlessly between the host application and the analytics layer without any interruption to their session.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Bring in your data</strong>
+                                        <p>Set up connections to your source systems and define how frequently each source synchronizes. The right sync cadence depends on how time-sensitive the analytics experience needs to be for your end users.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Decide how deep the integration goes</strong>
+                                        <p>Not every deployment needs the same integration depth. Start with what ships fastest, then extend programmatic control over time as your product's analytics requirements mature.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Configure branding per tenant</strong>
+                                        <p>Apply visual customization at the deployment level first, then refine per tenant as needed. If your plan supports custom domains, configure those before any customer-facing testing begins.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Open up self-service for end users</strong>
+                                        <p>If your product roadmap includes end-user analytics authoring, configure the boundaries within which users can build and modify their own views. Scope these to what their role and tenant permissions allow.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>Validate before you ship</strong>
+                                        <p>Run a full verification pass in staging covering data boundaries, session behavior, permission enforcement, and audit logging. Open the deployment to production traffic only after this is complete.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                            <p>Zoho Analytics is built so that the operational complexity of a multi-tenant, secure, deeply integrated analytics deployment stays within the platform. It does not get distributed across your engineering team's backlog. For teams ready to move from architecture evaluation to implementation, a personalized demo is the fastest way to map these steps to your specific deployment context.</p>
+                            <a href="javascript:;" class="act-btn book-btn contactus-link zcontact-form">Request a Demo</a>
+                        </section>
+
+                        <section class="page-faq" id="faq">
+                            <h2>Frequently Asked Questions</h2>
+                            <div class="faq-list">
+                                <div class="faq-item">
+                                    <button class="faq-question">What is embedded analytics architecture?</button>
+                                    <div class="faq-answer">
+                                        <p>Embedded analytics architecture is the technical framework that governs how a full-fledged analytics platform is integrated inside a host application. It covers data ingestion, processing, secure exposure, and front-end rendering as a unified system. It defines the boundary between what the analytics platform owns and what it delegates to the host application. That boundary determines how scalable, secure, and maintainable the integration is over time.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">What is the difference between embedded analytics and traditional BI?</button>
+                                    <div class="faq-answer">
+                                        <p>Traditional BI operates as a standalone platform. Users export data from their primary tools, analyze it separately, and return to their workflow with findings. Embedded analytics eliminates that context switch by placing dashboards, reports, and KPIs directly inside the host application. The difference is not just convenience. It is architectural. Embedded analytics requires the analytics platform to operate within the host application's identity model, visual language, and performance constraints. Standalone BI tools are not designed to accommodate these requirements.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">How does multi-tenancy work in embedded analytics?</button>
+                                    <div class="faq-answer">
+                                        <p>Multi-tenancy in embedded analytics means a single deployment of the analytics platform serves multiple customer organizations simultaneously, with strict data isolation between them. The critical architectural question is where that isolation is enforced. It can happen at the application level, where it becomes the host engineering team's responsibility to maintain. Or it can happen at the platform level, where it is guaranteed by the analytics engine itself. Platform-level enforcement is the only approach that scales reliably across many tenants without accumulating governance risk.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">What is the Hidden Org Model in Zoho Analytics?</button>
+                                    <div class="faq-answer">
+                                        <p>The Hidden Org Model is Zoho Analytics' architectural approach to multi-tenancy in embedded deployments. Each tenant organization is provisioned as a fully isolated entity within the platform, with its own data workspace, user roles, and permission boundaries enforced at the engine level. The "hidden" aspect refers to the fact that the Zoho Analytics organizational structure is invisible to end users of the host application. They interact entirely within the host product's interface, with no awareness of the underlying analytics platform or its organizational model.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">How do I choose between iframe, SDK, and API embedding?</button>
+                                    <div class="faq-answer">
+                                        <p>The choice depends on how deeply analytics needs to be integrated into the host application.</p>
+                                        <ul>
+                                            <li>iFrame embedding is the fastest path to deployment. It requires minimal engineering effort and works well for straightforward dashboard delivery. However, it offers limited control over how analytics components interact with the host UI.</li>
+                                            <li>JavaScript SDK embedding gives front-end teams programmatic control over component rendering, dynamic content loading, and user interaction. It is appropriate for products where analytics needs to behave as a native UI element.</li>
+                                            <li>REST API integration provides full backend control over the analytics lifecycle: data management, user provisioning, permission modeling, and report generation. It is the right choice for deeply integrated deployments where the host application needs to orchestrate analytics programmatically.</li>
+                                        </ul>
+                                        <p>Most production deployments combine all three, using iFrame for initial velocity, and subsequently extending with APIs as integration requirements mature.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">What is white-labeling in embedded analytics?</button>
+                                    <div class="faq-answer">
+                                        <p>White-labeling in embedded analytics refers to the ability to replace the analytics platform's own branding with the host application's visual identity: logos, colors, fonts, navigation, and domain. Surface-level white-labeling applies a single global theme across all users of the embedded deployment. Deeper white-labeling, such as tenant-level CSS customization, allows visual styling to be applied independently per tenant organization. This means each customer of a SaaS platform can have an analytics surface that matches their own brand identity rather than a shared theme. The depth of white-labeling available depends on the analytics platform's architecture and the licensing tier in use.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">Can end users build their own dashboards in an embedded deployment?</button>
+                                    <div class="faq-answer">
+                                        <p>Yes. Zoho Analytics supports end-user dashboard authoring through the Embed Dashboard Editor, which allows users to create and modify dashboards directly within the host application without accessing the Zoho Analytics interface at any point.</p>
+                                        <p>Authoring is governed by the permission boundaries configured in the tenant environment. Users can only build within the scope their role and access controls allow. For SaaS vendors, this means analytics self-service can be offered as a native product feature rather than a redirect to an external platform.</p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <button class="faq-question">What compliance standards does Zoho Analytics meet for embedded deployments?</button>
+                                    <div class="faq-answer">
+                                        <p>Zoho Analytics is certified against GDPR, SOC 2, and ISO standards. For embedded deployments, compliance is enforced at the platform level through row-level security, audit logging, and data access controls built into the analytics engine. It is not delegated to the host application. Deployments with strict data residency requirements can be configured on private cloud or on-premise infrastructure. This gives enterprise teams and regulated industries the ability to satisfy jurisdictional data requirements without compromising on analytics capability.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="pre-banner">
+                            <h2>Getting Started with Zoho Analytics</h2>
+                            <p>Zoho Analytics offers a comprehensive embedded analytics platform that is tailored for OEMs, ISVs, and SaaS providers. If you are willing to consider Zoho Analytics, take the next step by</p>
+                            <a href="javascript:;" class="act-btn book-btn contactus-link zcontact-form">Book Your Demo</a>
+                            <a href="javascript:;" class="act-btn call-btn zreq-form">Request Callback</a>
+                        </section>
+
+                    </div>
+
+                    <div class="right-wrapper">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="freeze_layer">&nbsp;</div>
+    <div class="formSec">
+        <div class="formInner">
+            <span class="form-close"></span>
+            <div class="signup-box">
+                <h5>Register for a Discussion / Demo</h5>
+                <div class="zbookings-form">
+                    <iframe src="" width="100%" height="800"></iframe>
+                </div>
+                <div id="czone-home">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Features tab switching
+        document.querySelectorAll('.features-tab-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.features-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+                document.querySelectorAll('.features-tab-panel').forEach(function (p) { p.classList.remove('active'); });
+                btn.classList.add('active');
+                document.querySelector('.features-tab-panel[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
+            });
+        });
+
+        // Tab navigation
+        const tabs = document.querySelectorAll('.tab-btn');
+        const sections = [
+            document.querySelector('#introduction'),
+            document.querySelector('#why-hard'),
+            document.querySelector('#core-components'),
+            document.querySelector('#how-implements'),
+            document.querySelector('#in-practice')
+        ];
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const section = sections[index];
+                const h2 = section.querySelector('h2');
+                const headerOffset = 150;
+                const elementPosition = h2.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            });
+        });
+
+        const tabObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = sections.indexOf(entry.target);
+                    tabs.forEach(t => t.classList.remove('active'));
+                    if (tabs[index]) tabs[index].classList.add('active');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => { if (section) tabObserver.observe(section); });
+
+        // FAQ accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    faqItems.forEach(i => {
+                        i.classList.remove('open');
+                        i.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+
+        jQuery(document).ready(function () {
+            $('.zcontact-form').on('click', function (e) {
+                e.preventDefault();
+                $('.formSec').addClass("active zbiframe").css('transition', 'all ease 0.75s');
+                $('#czone-home').hide();
+                $('.zbookings-form').show();
+                $(".freeze_layer").fadeIn(400);
+                $('body').addClass('fixed-pos');
+                $(".zsiq_theme1.zsiq_floatmain").hide();
+            });
+
+            $('.zreq-form').on('click', function (e) {
+                e.preventDefault();
+                $(".formSec").addClass("active").css('transition', 'all ease 0.75s');
+                $('.zbookings-form').hide();
+                $('#czone-home').show();
+                $(".freeze_layer").fadeIn(400);
+                $('body').addClass('fixed-pos');
+                $(".zsiq_theme1.zsiq_floatmain").hide();
+            });
+
+            $(".form-close,.freeze_layer").on('click', function () {
+                $(".formSec").removeClass("active zbiframe");
+                $(".freeze_layer").fadeOut(100);
+                $('body').removeClass('fixed-pos');
+                $(".zsiq_theme1.zsiq_floatmain").show();
+            });
+
+            $(window).on('load', function () {
+                setTimeout(function () {
+                    $('.zgh-signup').addClass('scrollstop');
+                    $('.scrollstop').attr('style', 'display:inline-block');
+                }, 1000);
+
+                let zcf_marketing_source, zsignup_url, zcf_mr_url;
+                zcf_marketing_source = customvar.czms().split('|')[0];
+                zsignup_url = window.location.href;
+                zcf_mr_url = customvar.czmr();
+
+                let iframeLink;
+                if (countryEu.indexOf(CountryCode) > -1) {
+                    iframeLink = 'https://zohocorp.zohobookings.eu/portal-embed#/115569000002460704?Marketing%20Source=' + zcf_marketing_source + '&Signup%20URL=' + zsignup_url + '&Marketing%20Ref%20URL=' + zcf_mr_url;
+                } else {
+                    iframeLink = 'https://assist.zohobookings.com/portal-embed#/3846319000024144874?Marketing%20Source=' + zcf_marketing_source + '&Signup%20URL=' + zsignup_url + '&Marketing%20Ref%20URL=' + zcf_mr_url;
+                }
+                $('.zbookings-form iframe').attr('src', iframeLink);
+            });
+        });
+
+        const getZCount = customvar.numberOfUsers;
+        $('.zc-count').text(getZCount);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-30T05:27:22.240Z",
+  "sections": {
+    "hero": {
+      "best": "Main feature",
+      "class": "banner-section",
+      "alternates": [
+        "PowerBI New",
+        "comparison page",
+        "Solution-template"
+      ],
+      "example_count": 37
+    },
+    "carousel": {
+      "best": "PowerBI New",
+      "class": "marquee-wrapper",
+      "alternates": [
+        "comparison page",
+        "Solution-template",
+        "Business-Intelligence"
+      ],
+      "example_count": 24
+    },
+    "stats": {
+      "best": "PowerBI New",
+      "class": "za-counts-section",
+      "alternates": [
+        "comparison page",
+        "Solution-template",
+        "Business-Intelligence"
+      ],
+      "example_count": 17
+    },
+    "testimonials": {
+      "best": "PowerBI New",
+      "class": "za-inner-testimonials-section",
+      "alternates": [
+        "PowerBI New",
+        "comparison page",
+        "Solution-template"
+      ],
+      "example_count": 25
+    },
+    "cta": {
+      "best": "PowerBI New",
+      "class": "pre-banner-section",
+      "alternates": [
+        "PowerBI New",
+        "comparison page"
+      ],
+      "example_count": 34
+    },
+    "trust": {
+      "best": "Solution-template",
+      "class": "za-brandsCounts",
+      "alternates": [
+        "Business-Intelligence",
+        "RealTime-BI",
+        "BI-Marketing"
+      ],
+      "example_count": 11
+    },
+    "features": {
+      "best": "Business-Intelligence",
+      "class": "box-icon-section",
+      "alternates": [
+        "Business-Intelligence",
+        "RealTime-BI",
+        "pie-chart"
+      ],
+      "example_count": 17
+    },
+    "recognition": {
+      "best": "PowerBI New",
+      "class": "reported-section",
+      "alternates": [
+        "comparison page",
+        "Solution-template",
+        "RealTime-BI"
+      ],
+      "example_count": 17
+    },
+    "faq": {
+      "best": "PowerBI New",
+      "class": "faq-section",
+      "alternates": [
+        "comparison page",
+        "RealTime-BI",
+        "Spreadsheet"
+      ],
+      "example_count": 18
+    },
+    "comparison": {
+      "best": "PowerBI New",
+      "class": "comparison-container",
+      "alternates": [
+        "PowerBI New",
+        "comparison page",
+        "Business-Intelligence"
+      ],
+      "example_count": 12
+    },
+    "tabs": {
+      "best": "Enterprise-BI",
+      "class": "tabsection",
+      "alternates": [
+        "page-revamp",
+        "Pie-chart-maker",
+        "Create-Dashboard"
+      ],
+      "example_count": 5
+    },
+    "pricing": {
+      "best": "PowerBI New",
+      "class": "pricing-calculator",
+      "alternates": [
+        "comparison page",
+        "Pricing page"
+      ],
+      "example_count": 4
+    },
+    "content-blocks": {
+      "best": "comparison page",
+      "class": "dashboard-wrapper",
+      "alternates": [
+        "Solution-template",
+        "Spreadsheet",
+        "pie-chart"
+      ],
+      "example_count": 7
+    },
+    "steps": {
+      "best": "Executive-Dashboards",
+      "class": "steps-section",
+      "alternates": [
+        "Embedded Analytics",
+        "Homepage-2026",
+        "Homepage"
+      ],
+      "example_count": 6
+    },
+    "form": {
+      "best": "CSV to Dashboard Tools",
+      "class": "pop-up-section",
+      "alternates": [],
+      "example_count": 1
+    },
+    "media": {
+      "best": "Homepage",
+      "class": "media",
+      "alternates": [],
+      "example_count": 1
+    }
+  }
+}

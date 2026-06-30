@@ -1,0 +1,93 @@
+WEB-PAGES SITE AUDIT
+===================
+Total sites: 43
+Generated: 2026-06-30T05:27:22.239Z
+
+SITE INVENTORY:
+  AgenticAI                    feature-page           7 sections
+  BI Finance                   feature-page           12 sections
+  BI-Marketing                 feature-page           14 sections
+  Business-Intelligence        product-page           15 sections
+  case-study                   case-study             4 sections
+  collaborative-bi             feature-page           4 sections
+  comparison page              comparison-page        18 sections
+  Coupon page                  integration-campaign   10 sections
+  Create-Dashboard             tool-page              4 sections
+  CSV to Dashboard Tools       tool-page              7 sections
+  data visualization software  product-page           11 sections
+  data-preparations            product-page           11 sections
+  Demo-Popup                   landing-page           0 sections
+  Embedded Analytics           feature-page           12 sections
+  Enterprise                   feature-page           13 sections
+  Enterprise-BI                feature-page           12 sections
+  event-review                 integration-campaign   5 sections
+  Executive-Dashboards         feature-page           12 sections
+  Free Data visualization      product-page           11 sections
+  Generative-ai                feature-page           7 sections
+  Glossary - Embedded Analytics glossary               12 sections
+  Glossary - Embedded API      glossary               11 sections
+  Glossary - Embedded BI       glossary               13 sections
+  Help-page                    integration-campaign   0 sections
+  Homepage                     landing-page           10 sections
+  Homepage-2026                landing-page           11 sections
+  Inventory-decision           integration-campaign   5 sections
+  IPL Dashboard - 2025         event                  5 sections
+  Main feature                 product-page           33 sections
+  Marketing-Agencies           feature-page           12 sections
+  OrganizationAnalytics        feature-page           12 sections
+  page-revamp                  landing-page           7 sections
+  pie-chart                    tool-page              13 sections
+  Pie-chart-maker              tool-page              4 sections
+  PowerBI New                  comparison-page        23 sections
+  Pricing page                 pricing                13 sections
+  RealTime-BI                  feature-page           14 sections
+  Review-Landing               integration-campaign   2 sections
+  Solution-template            landing-page           15 sections
+  Spreadsheet                  feature-page           13 sections
+  Training                     landing-page           1 sections
+  Webinar-redirection          event                  9 sections
+  Whitelabel - Glossary        glossary               10 sections
+
+TOPIC COVERAGE:
+  BI / Analytics           6
+  Feature pages            13
+  Comparison pages         2
+  Case studies             1
+  Product landing          11
+  Glossary / Docs          4
+  Integration campaigns    5
+  Pricing                  1
+
+SECTION COVERAGE:
+  hero                 37 examples
+  cta                  30 examples
+  carousel             24 examples
+  trust                23 examples
+  testimonials         23 examples
+  faq                  18 examples
+  stats                17 examples
+  features             17 examples
+  recognition          16 examples
+  comparison           11 examples
+  tabs                 8 examples
+  content-blocks       7 examples
+  steps                6 examples
+  pricing              3 examples
+  media                2 examples
+  form                 1 examples
+
+GAPS — will be synthesised from team DNA:
+  (none)
+
+RULESBOOK COMPLIANCE SPOT CHECK:
+  → 42/43 sites use Puvi font variables
+  → 41/43 sites have BEM-like class patterns
+  → Inline styles found in: Business-Intelligence, case-study, comparison page, CSV to Dashboard Tools, data-preparations, Demo-Popup, Enterprise, event-review, Glossary - Embedded Analytics, Help-page, Main feature, PowerBI New, Spreadsheet, Webinar-redirection
+  → Numeric font-weight found in: BI Finance, BI-Marketing, case-study, collaborative-bi, comparison page, Coupon page, CSV to Dashboard Tools, data visualization software, Demo-Popup, Embedded Analytics, event-review, Executive-Dashboards, Free Data visualization, Marketing-Agencies, page-revamp, pie-chart, PowerBI New, Pricing page, RealTime-BI, Review-Landing, Solution-template, Spreadsheet, Webinar-redirection, Whitelabel - Glossary
+
+FILES:
+  site-catalog.json     ✅ (43 sites)
+  section-index.json    ✅ (16 section types)
+  team-dna.json         ✅
+  zohocustom.css        ✅ (source/zohocustom.css)
+  product.css           ✅ (source/product.css)

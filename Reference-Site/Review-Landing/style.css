@@ -1,0 +1,820 @@
+/* =============================================
+   Review Landing Page — Zoho Analytics
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Zoho_Puvi_Regular', 'Zoho Puvi', sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+.page-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =============================================
+   Header
+   ============================================= */
+
+.header-section {
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    height: 68px;
+    display: flex;
+    align-items: center;
+}
+
+.header-section .content-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo-link {
+    display: inline-flex;
+}
+
+.header-logo {
+    height: 48px;
+    width: auto;
+}
+
+
+/* =============================================
+   Banner Section
+   ============================================= */
+
+.banner-section {
+    position: relative;
+    overflow: hidden;
+    height: 645px;
+    background:
+        radial-gradient(ellipse at center bottom, rgba(102, 32, 177, 0.12) 0%, rgba(80, 25, 141, 0.09) 30%, rgba(57, 17, 105, 0.06) 50%, transparent 70%),
+        linear-gradient(90deg, #121621 0%, #121621 100%);
+}
+
+.banner-bg-watermark {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.banner-bg-watermark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/noise.png');
+    background-size: 1280px 768px;
+    mix-blend-mode: soft-light;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-decorative-lines {
+    position: absolute;
+    top: -80px;
+    left: -180px;
+    width: 990px;
+    height: 180px;
+    transform: rotate(-10deg);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-decorative-lines img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+    gap: 40px;
+}
+
+.banner-content {
+    flex: 0 1 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-shadow:
+        0px 6px 16px rgba(0, 0, 0, 0.15),
+        0px 4px 4px rgba(0, 0, 0, 0.15),
+        0px 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.banner-title {
+    font-family: 'Zoho_Puvi_Semibold', 'Zoho Puvi', sans-serif;
+    font-size: 44px;
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: -0.88px;
+    font-weight: 600;
+}
+
+.banner-subtitle {
+    font-family: 'Zoho_Puvi_Semibold', 'Zoho Puvi', sans-serif;
+    font-size: 44px;
+    line-height: 1.4;
+    color: #fff;
+    letter-spacing: -0.88px;
+    font-weight: 600;
+}
+
+.gradient-text {
+    font-size: 48px;
+    background: linear-gradient(93.47deg, #FE95B0 9.37%, #FFDDB2 61.38%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* =============================================
+   Banner Illustration
+   ============================================= */
+
+.banner-illustration {
+    position: relative;
+    flex: 0 0 580px;
+    height: 480px;
+    margin-left: auto;
+}
+
+.illus-curve-line {
+    position: absolute;
+    top: 355px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.illus-woman1 {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    width: 124px;
+    height: 163px;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.illus-woman1 img {
+    position: absolute;
+    width: 225%;
+    height: 115%;
+    top: -8.5%;
+    left: -55%;
+    max-width: none;
+}
+
+.illus-chat-bubble {
+    position: absolute;
+    top: 155px;
+    left: 90px;
+    width: 113px;
+    z-index: 4;
+}
+
+.illus-review-chart {
+    position: absolute;
+    bottom: 8px;
+    left: 195px;
+    width: 218px;
+    z-index: 3;
+}
+
+.illus-review-group {
+    position: absolute;
+    top: 225px;
+    left: 285px;
+    width: 132px;
+    z-index: 5;
+}
+
+.illus-man1 {
+    position: absolute;
+    top: 15px;
+    left: 265px;
+    width: 94px;
+    height: 235px;
+    overflow: hidden;
+    z-index: 7;
+    transform: rotate(4.27deg);
+}
+
+.illus-man1 img {
+    position: absolute;
+    width: 392%;
+    height: 104%;
+    top: -2.5%;
+    left: -154%;
+    max-width: none;
+}
+
+.illus-spotify {
+    position: absolute;
+    top: 55px;
+    left: 265px;
+    width: 34px;
+    height: 34px;
+    z-index: 8;
+}
+
+.illus-github {
+    position: absolute;
+    top: 3px;
+    left: 280px;
+    width: 34px;
+    height: 34px;
+    z-index: 8;
+}
+
+.illus-g2-icon {
+    position: absolute;
+    top: 22px;
+    left: 380px;
+    width: 42px;
+    height: 42px;
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0px -1px 5px rgba(255, 168, 0, 0.35),
+        inset 2px 2px 1px rgba(255, 255, 255, 0.1);
+    z-index: 8;
+    padding: 6px;
+    overflow: hidden;
+}
+
+.illus-emoji-group-left {
+    position: absolute;
+    top: 240px;
+    left: 78px;
+    width: 120px;
+    z-index: 3;
+    opacity: 0.7;
+}
+
+.illus-emoji-group-right {
+    position: absolute;
+    top: 175px;
+    right: 55px;
+    z-index: 3;
+    opacity: 0.7;
+}
+
+.emoji-ring {
+    width: 100%;
+    display: block;
+}
+
+.emoji-ring-medium {
+    width: 120px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.emoji-ring-large {
+    width: 185px;
+    display: block;
+}
+
+.illus-star-badge {
+    position: absolute;
+    top: 172px;
+    right: 15px;
+    z-index: 9;
+}
+
+.star-badge-inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(21px);
+    background: linear-gradient(161deg, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.2) 70%);
+}
+
+.star-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.illus-woman2 {
+    position: absolute;
+    top: 185px;
+    right: -5px;
+    width: 123px;
+    height: 174px;
+    overflow: hidden;
+    transform: rotate(-1.75deg);
+    z-index: 6;
+}
+
+.illus-woman2 img {
+    position: absolute;
+    width: 212%;
+    height: 100%;
+    top: 0;
+    left: -54%;
+    max-width: none;
+}
+
+
+/* =============================================
+   Review Platform Section
+   ============================================= */
+
+.review-platform-section {
+    position: relative;
+    padding: 50px 0 120px;
+}
+
+.bg-gradient {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-gradient img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.review-platform-section > .content-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.section-heading {
+    font-family: 'Zoho_Puvi_Bold', 'Zoho Puvi', sans-serif;
+    font-size: 40px;
+    line-height: 1.5;
+    color: #262626;
+    letter-spacing: -0.8px;
+    font-weight: 700;
+    margin-bottom: 48px;
+}
+
+.platform-category {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    font-family: 'Zoho_Puvi_Semibold', 'Zoho Puvi', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #262626;
+    letter-spacing: -0.48px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.platform-cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.platform-cards:last-child {
+    margin-bottom: 0;
+}
+
+.platform-card {
+    flex: 1;
+    height: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border: 0.8px solid #048af5;
+    border-radius: 16px;
+    box-shadow: 0px 4px 9px rgba(89, 48, 255, 0.05);
+    backdrop-filter: blur(2px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.platform-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 12px 32px rgba(89, 48, 255, 0.12);
+}
+
+.platform-card.card-highlight {
+    background: #f5f8ff;
+    box-shadow: 2px 12px 16px rgba(89, 48, 255, 0.05);
+}
+
+.marketplace-single {
+    flex: 0 0 calc(25% - 18px);
+}
+
+
+/* =============================================
+   Card Logo Sizing
+   ============================================= */
+
+.card-logo {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.gartner-logo {
+    height: 48px;
+    width: auto;
+}
+
+.capterra-logo-wrap {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.capterra-icon {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+}
+
+.capterra-text {
+    width: 187px;
+    height: auto;
+    margin-left: -8px;
+}
+
+.g2-logo {
+    height: 97px;
+    width: auto;
+}
+
+.trustradius-logo {
+    height: 42px;
+    width: auto;
+}
+
+.quickbooks-logo {
+    height: 58px;
+    width: auto;
+}
+
+.appsource-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.zendesk-logo {
+    height: 90px;
+    width: auto;
+}
+
+.hubspot-logo {
+    height: 108px;
+    width: auto;
+}
+
+.gworkspace-logo {
+    height: 31px;
+    width: auto;
+}
+
+
+/* =============================================
+   Responsive — Tablet (max-width: 1024px)
+   ============================================= */
+
+@media (max-width: 1024px) {
+    .banner-section {
+        height: auto;
+        min-height: 500px;
+    }
+
+    .banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .banner-content {
+        flex: none;
+        width: 100%;
+    }
+
+    .banner-title {
+        font-size: 36px;
+    }
+
+    .banner-subtitle {
+        font-size: 36px;
+    }
+
+    .gradient-text {
+        font-size: 40px;
+    }
+
+    .banner-illustration {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        height: 380px;
+        margin: 0 auto;
+    }
+
+    .illus-man1 {
+        width: 76px;
+        height: 190px;
+        left: 200px;
+    }
+
+    .illus-woman1 {
+        width: 100px;
+        height: 132px;
+    }
+
+    .illus-woman2 {
+        width: 100px;
+        height: 142px;
+    }
+
+    .illus-review-chart {
+        width: 180px;
+        left: 150px;
+    }
+
+    .illus-review-group {
+        width: 110px;
+        left: 220px;
+    }
+
+    .illus-chat-bubble {
+        width: 90px;
+        left: 70px;
+    }
+
+    .illus-g2-icon {
+        left: 310px;
+    }
+
+    .illus-github {
+        left: 220px;
+    }
+
+    .illus-spotify {
+        left: 210px;
+        top: 45px;
+    }
+
+    .section-heading {
+        font-size: 32px;
+    }
+
+    .platform-cards {
+        flex-wrap: wrap;
+    }
+
+    .platform-card {
+        flex: 1 1 calc(50% - 12px);
+        min-width: calc(50% - 12px);
+    }
+
+    .marketplace-single {
+        flex: 1 1 calc(50% - 12px);
+    }
+}
+
+
+/* =============================================
+   Responsive — Mobile (max-width: 768px)
+   ============================================= */
+
+@media (max-width: 768px) {
+    .header-section {
+        height: 56px;
+    }
+
+    .header-logo {
+        height: 36px;
+    }
+
+    .banner-section {
+        min-height: auto;
+    }
+
+    .banner-inner {
+        padding: 40px 0;
+        gap: 32px;
+    }
+
+    .banner-title {
+        font-size: 28px;
+    }
+
+    .banner-subtitle {
+        font-size: 28px;
+    }
+
+    .gradient-text {
+        font-size: 32px;
+    }
+
+    .banner-illustration {
+        max-width: 100%;
+        height: 300px;
+    }
+
+    .banner-decorative-lines {
+        width: 500px;
+        top: -40px;
+        left: -100px;
+    }
+
+    .section-heading {
+        font-size: 24px;
+        margin-bottom: 32px;
+    }
+
+    .category-title {
+        font-size: 20px;
+    }
+
+    .platform-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+        height: 160px;
+    }
+
+    .marketplace-single {
+        flex: 1 1 100%;
+    }
+
+    .review-platform-section {
+        padding: 40px 0 80px;
+    }
+
+    .illus-man1 {
+        width: 90px;
+        left: 200px;
+    }
+
+    .illus-woman1 {
+        width: 100px;
+    }
+
+    .illus-woman2 {
+        width: 100px;
+    }
+
+    .illus-review-chart {
+        width: 180px;
+        left: 140px;
+    }
+
+    .illus-review-group {
+        width: 110px;
+        left: 220px;
+    }
+
+    .illus-star-badge {
+        display: none;
+    }
+
+    .illus-emoji-group-left,
+    .illus-emoji-group-right {
+        display: none;
+    }
+
+    .illus-chat-bubble {
+        width: 90px;
+        left: 70px;
+    }
+
+    .illus-g2-icon {
+        left: 320px;
+    }
+
+    .illus-github {
+        left: 230px;
+    }
+
+    .illus-spotify {
+        left: 210px;
+    }
+}
+
+
+/* =============================================
+   Responsive — Small Mobile (max-width: 480px)
+   ============================================= */
+
+@media (max-width: 480px) {
+    .banner-title {
+        font-size: 24px;
+    }
+
+    .banner-subtitle {
+        font-size: 24px;
+    }
+
+    .gradient-text {
+        font-size: 28px;
+    }
+
+    .banner-illustration {
+        height: 240px;
+    }
+
+    .illus-man1 {
+        width: 70px;
+        left: 140px;
+    }
+
+    .illus-woman1 {
+        width: 80px;
+    }
+
+    .illus-woman2 {
+        display: none;
+    }
+
+    .illus-review-chart {
+        width: 140px;
+        left: 100px;
+    }
+
+    .illus-review-group {
+        width: 90px;
+        left: 160px;
+    }
+
+    .illus-chat-bubble {
+        width: 70px;
+        left: 50px;
+    }
+
+    .illus-g2-icon,
+    .illus-github,
+    .illus-spotify {
+        display: none;
+    }
+
+    .section-heading {
+        font-size: 22px;
+    }
+
+    .category-title {
+        font-size: 18px;
+    }
+
+    .platform-card {
+        height: 140px;
+    }
+}

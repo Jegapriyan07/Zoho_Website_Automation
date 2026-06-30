@@ -1,0 +1,888 @@
+<div class="main-wrap">
+    <h1>Zia Insights</h1>
+    <p>Deciphering insights in the reports or visualizations could be tedious and time intensive. Zia Insights, a
+        generative
+        AI tool powered by Zoho Analytics, examines all the data points in the report and deploys advanced analytical
+        methods and ML algorithms to bring out the insights, that may not be evident at first sight. These insights
+        facilitate multi-dimensional interpretation of data.</p>
+    <p>Zia Insights provides <strong>contextual narratives </strong>as insights to the various questions that arise
+        while
+        trying to interpret data and directs towards meaningful conclusions by offering<strong> Descriptive, Predictive,
+        </strong>and<strong> Diagnostic insights.</strong></p>
+    <ul>
+        <li><strong>Descriptive insights </strong>explain <strong>what has happened</strong> with a specific measure or
+            metric, providing a clear overview of past performance and trends.</li>
+        <li><strong>Predictive insights</strong> explain <strong>how a trend </strong>has been for a metric and how
+            likely
+            it is to change.</li>
+        <li><strong>Diagnostic insights</strong> focuses on <strong>Why something happened</strong>. It helps understand
+            the
+            causes of events by identifying the factors that impact and contribute to specific outcomes. Zia insights
+            uses
+            an ML technique to identify the key Drivers that have a significant impact on the outcome and different
+            statistical methods for explaining the factors.</li>
+    </ul>
+</div>
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="access" name="access"></a>Access to Zia Insights</h2>
+    <p>The <strong>Account</strong>, <strong>Organizatio</strong>n and the <strong>Workspac</strong>e <strong>admins
+        </strong>can access Zia Insights. They can also grant permission to other users while <a
+            href="https://www.zoho.com/analytics/help/sharing/sharing-to-a-user.html">sharing</a> the reports and
+        dashboards, or when they create <a href="https://www.zoho.com/analytics/help/manage-role.html">specific
+            roles</a>.
+    </p>
+</div>
+
+<style>
+.pricing-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+.pricing-card {
+    border-radius: 10px;
+    padding: 24px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid transparent;
+}
+.pricing-card.pricing-card--blue {
+    background-color: #EFF6FF;
+    border-left-color: #0062D9;
+}
+.pricing-card.pricing-card--indigo {
+    background-color: #F5F3FF;
+    border-left-color: #5B4ED4;
+}
+.pricing-card-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.pricing-card--blue .pricing-card-badge {
+    background-color: #DBEAFE;
+    color: #0062D9;
+}
+.pricing-card--indigo .pricing-card-badge {
+    background-color: #EDE9FE;
+    color: #5B4ED4;
+}
+.pricing-card h3.pricing-card-title {
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    color: #1F2937 !important;
+}
+.pricing-card p.pricing-card-body {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #374151 !important;
+    margin-bottom: 14px !important;
+    flex: 1;
+}
+a.pricing-card-link {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.pricing-card--blue a.pricing-card-link { color: #0062D9; }
+.pricing-card--indigo a.pricing-card-link { color: #5B4ED4; }
+a.pricing-card-link:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+    .pricing-cards-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="content-wrapper">
+    <div class="pricing-cards-grid">
+        <div class="pricing-card pricing-card--blue">
+            <span class="pricing-card-badge">Credits</span>
+            <h3 class="pricing-card-title">Pricing Plan</h3>
+            <p class="pricing-card-body">The autoML capability is available with the <strong>Enterprise plan</strong>, which includes
+                <strong>500</strong> free credits. Once these credits are exhausted, you can continue using the service
+                on a <strong>pay-as-you-use</strong> basis. Costs are incurred based on the compute duration and server
+                configuration utilized. Credits are consumed according to the resources and time required for model
+                training and deployment.</p>
+            <a href="#" class="pricing-card-link">Click here to learn more.</a>
+        </div>
+        <div class="pricing-card pricing-card--indigo">
+            <span class="pricing-card-badge">Enterprise</span>
+            <h3 class="pricing-card-title">Pricing Plan</h3>
+            <p class="pricing-card-body">The autoML capability is available with the <strong>Enterprise plan</strong>, which includes
+                <strong>500</strong> free credits. Once these credits are exhausted, you can continue using the service
+                on a <strong>pay-as-you-use</strong> basis. Costs are incurred based on the compute duration and server
+                configuration utilized. Credits are consumed according to the resources and time required for model
+                training and deployment.</p>
+            <a href="#" class="pricing-card-link">Click here to learn more.</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="types" name="types"></a>Types of Narratives</h2>
+    <p>Zia Insights enables users to understand the relationships (correlations) in the data, highlights the key points
+        like
+        trends, outliers, and top contributing measures, and also predicts future outcomes based on the past data. These
+        insights are available as <strong>Textual and Visual Narratives</strong></p>
+    <p><strong>Textual Insights:</strong> Provides story-like explanations of the key points in the report in simple
+        language, making it easier for non-technical users to comprehend the data insights. Textual Insights can also be
+        easily added to the presentations for effective data storytelling.</p>
+    <img title="" src="/sites/zweb/images/analytics/zia-textual-insights-1.png" alt="" width="800px" height="">
+    <p><a class="ck-anchor" id="visual_insights" name="visual_insights"></a><strong>Visual Insights: </strong>It is a
+        visual
+        depiction of the textual insights. It analyzes each element in the report and selects the most suitable and
+        intuitive visualization to illustrate the key points clearly. It highlights specific sections and pin-points
+        spikes
+        and dips in the data. Visual insights facilitate multi-dimensional interpretations like comparison,
+        contribution,
+        distribution, trends and proportions, all at once. This eliminates the need for creating multiple reports,
+        providing
+        a holistic view of your data in one visualization.</p>
+    <img title="" src="/sites/zweb/images/analytics/visual-insights.png" alt="" width="800px" height="">
+</div>
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="languages" name="languages"></a>Supported Languages</h2>
+    <p>Zia Insights is available in three languages: English, Spanish, and French. The default language is the one
+        configured with the Zoho Analytics account. Click the <strong>Language Settings</strong> icon on the right and
+        choose the preferred language from the drop-down.</p>
+    <img class="html-object-embed__content" title="" src="/sites/zweb/images/analytics/zia_insights_language.png" alt=""
+        width="450px" height="">
+</div>
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="invokinginsights" name="invokinginsights"></a>Invoking Zia Insights</h2>
+    <p>You can invoke the Zia Insights either from the individual report or from reports embedded in a dashboard.&nbsp;
+    </p>
+    <h3>From Report</h3>
+    <p>Clicking the <strong>Zia Insights</strong> button at the top-right will get you the automatic insights displayed
+        on
+        the right side of the report.&nbsp;</p>
+    <img style="height:auto;width:800px;" alt="" src="/sites/zweb/images/analytics/zia-insights-report.png">
+    <h3>From Dashboard</h3>
+    <p>Clicking the <strong>Zia</strong> icon from the toolbar of a report (embedded within the dashboard) will also get
+        you
+        the automatic insights of the report.</p>
+    <img style="height:auto;width:800px;" alt="" src="/sites/zweb/images/analytics/zia-insights-das.png">
+    <h2><a class="ck-anchor" id="customize" name="customize"></a>Customize Zia Insights</h2>
+    <p>Our AI powered analytical assistant, Zia, provides insights across various categories. You can customize and
+        control
+        both the columns (measures and dimensions) and the categories to generate insights that are most specific to
+        your
+        business needs.</p>
+    <p>Click the<strong> Settings</strong> icon in the top right corner to customize the Zia Insights settings.</p>
+    <h3><a class="ck-anchor" id="verbosity" name="verbosity"></a>Verbosity</h3>
+    <p>Zia Insights provides <strong>three verbosity levels</strong> for generating insights. Each level offers
+        contextually
+        tailored insights highlighting key metrics. Click the <strong>Verbosity</strong> icon to choose your preferred
+        level. By default, the Medium verbosity level is selected.</p>
+    <p>The following are the verbosity levels available in Zoho Analytics,</p>
+    <p><strong>Low-verbosity</strong> provides a high level summary of key metrics. They include aggregated totals,
+        min-max
+        values, and highest contributors. Insights are generated only based on the meta information available in the
+        report.
+        These insights are ideal for a quick overview.</p>
+    <p><strong>Medium-verbosity </strong>includes an appropriate date dimension, even if it is not used in the report,
+        and
+        generates insights focused on time series analysis, including trend identification, period-over-period
+        comparisons,
+        seasonality detection, forecasting, and anomaly detection. It captures patterns, fluctuations, and key changes
+        across different time periods.</p>
+    <p><strong>High-verbosity</strong> provides a comprehensive, multidimensional analysis. It chooses the best
+        dimension
+        from the meta-information used in the report or selects a suitable dimension available in the data for
+        generating
+        insights.<br>It provides contextual insights for the top factors for the selected dimensions, which include key
+        patterns, variations, and fluctuations.</p>
+    <h4>How are the Columns Selected for Insights Generation?</h4>
+    <ul>
+        <li><strong>Date columns</strong> are selected based on the following conditions:<ul>
+                <li>Consider the <strong>column priorities</strong> configured by the user.</li>
+                <li>Select the date column that is widely used in other reports.</li>
+                <li>Calculate the <strong>hop distance </strong>from the date column to the measure or non-date
+                    dimension
+                    columns.</li>
+            </ul>
+        </li>
+        <li><strong>Dimension columns</strong> are selected based on the hop distance from the dimension to the measure
+            columns.</li>
+    </ul>
+</div>
+
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="explain_by_column" name="explain_by_column"></a>Explain by Column&nbsp;</h2>
+    <p>This option allows you to choose the important metrics and dimensions columns to be used for generating Zia
+        Insights.
+        It is recommended to choose at least one metric and one dimensional or categorical columns for insights.</p>
+    <ol>
+        <li>All the columns used in the report are selected by default.</li>
+        <li>Click <strong>Add Column</strong> to include the relevant metrics or dimensional columns to be used for
+            generating insights. The selected columns will be used for generating Zia Insights.
+        </li>
+    </ol>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/add_columns.png" alt="" width="750px" height=""
+        loading="lazy">
+</div>
+
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="categories" name="categories"></a>Insight Categories</h2>
+    <p>Zoho Analytics allows you to choose the type of insights that needs to be generated for reports. It helps you to
+        focus only on the insight that you want. Zia Insights is broadly classified into the following five key
+        areas:</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/insights_categories.png" alt="" width="750px" height=""
+        loading="lazy">
+    <h3>Contribution Analysis</h3>
+    <p>Contribution analysis breaks down the impact and extent of various factors on an overall result. It analyzes the
+        weightage of each factor in relation to a particular outcome. By understanding this, organizations can identify
+        which factors significantly influence results and prioritize their strategies accordingly.&nbsp;</p>
+    <p>To generate insights about contribution, <strong>at least one measure</strong> and <strong>one dimension
+            column</strong> are required.</p>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Insight</strong></td>
+                <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+                <td>Total Contribution</td>
+                <td>Cumulative sum of values obtained from all categories or dimensions, reflecting the overall impact.
+                </td>
+            </tr>
+            <tr>
+                <td>Extreme Value</td>
+                <td>Highlights the minimum and maximum values of a metric, providing insights into the range,
+                    variability,
+                    and identifying outliers, trends, and boundaries.</td>
+            </tr>
+            <tr>
+                <td>Top Contributors&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&nbsp;</td>
+                <td>Identifies multiple factors that contribute to the overall result of a metric, based on the Pareto
+                    principle.</td>
+            </tr>
+            <tr>
+                <td>Value in Categories and Dimensions</td>
+                <td>Breakdown of the total outcome by showing how each category or dimension contributes to the overall
+                    result, helping identify relative impact and distribution.</td>
+            </tr>
+            <tr>
+                <td>Value in Categories</td>
+                <td>Indicates the number of categories within a dimension, highlighting the distribution across
+                    segments.
+                </td>
+            </tr>
+            <tr>
+                <td>Variance of Contribution</td>
+                <td>Measures the degree of variability or dispersion in the contributions of different factors toward an
+                    overall outcome.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Time Series Insights</h3>
+    <p>Time Series Insights analyzes trends and patterns within sequences of data points that are recorded or collected
+        at
+        consistent time intervals. It focuses on interpreting the changes in data over time to uncover valuable
+        insights,
+        such as identifying trends, detecting anomalies, and predicting future outcomes based on historical patterns.
+    </p>
+    <p>To generate time series insights, <strong>at least one time series column </strong>like date is required</p>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Insights</strong></td>
+                <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+                <td>Trend</td>
+                <td>Shows how a particular measure changes over time, indicating whether it is increasing, decreasing,
+                    or
+                    remaining stationary.</td>
+            </tr>
+            <tr>
+                <td>Seasonality</td>
+                <td>Helps identify recurring patterns or fluctuations in data at regular intervals, often driven by
+                    external
+                    factors like time of year, holidays, or cyclical events.</td>
+            </tr>
+            <tr>
+                <td>Forecasting</td>
+                <td>Predicts future values based on historical data, providing an outlook on potential trends and
+                    outcomes.
+                </td>
+            </tr>
+            <tr>
+                <td>Anomalies</td>
+                <td>Highlights data points that significantly deviate from the observed trend, indicating potential
+                    outliers
+                    or unexpected changes.</td>
+            </tr>
+            <tr>
+                <td>Period-over-Period Analysis</td>
+                <td>Compares data from one period to another to identify changes, trends, or growth over time, offering
+                    insights into performance changes.</td>
+            </tr>
+            <tr>
+                <td>Start vs End Period Analysis</td>
+                <td>Highlights how a specific metric has changed from the beginning to the end of a defined period,
+                    indicating if it has increased, decreased, or remained stable.</td>
+            </tr>
+            <tr>
+                <td>Recent Time Period Analysis</td>
+                <td>Compares data from the most current period to the immediately previous period, identifying trends,
+                    patterns, or changes in performance.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Comparison between Dimensions</h3>
+    <p>Comparison between dimensions compares the performance of a metric across various dimensions and helps understand
+        how
+        values within each dimension perform relative to one another.</p>
+    <p>To generate insights based on comparison between dimensions, <strong>at least one measure column</strong> and
+        <strong>at least two-dimensional columns</strong> are required.
+    </p>
+    <ul>
+        <li><strong>Trend across series</strong> shows the performance trends of each value within a dimension over
+            time.
+        </li>
+        <li><strong>Variance across dimensions</strong> shows the degree of variability of categorical values in a
+            dimension
+            over a period of time.</li>
+    </ul>
+    <h3>Analysis of Measures</h3>
+    <p>The analysis of measures computes the correlations between measures and their respective proportions. To generate
+        insights for analysis of measures, at least two measure columns are required.</p>
+</div>
+
+
+<div class="content-wrapper">
+    <h2><a class="ck-anchor" id="key_driver_analysis" name="key_driver_analysis"></a>Key Driver Analysis (Diagnostic
+        insights)</h2>
+    <p>Key driver analysis is a machine learning technique that identifies the key factors that significantly influence
+        a
+        target metric and the degree to which these factors impact the outcome (results). It is &nbsp;a robust method
+        that
+        uncovers the causes behind the observed trends of the target metric.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/diagonstic_insights_-_general.png" alt="" width="750px"
+        height="" loading="lazy">
+    <h3><a class="ck-anchor" id="components" name="components"></a>Components of Key Driver Analysis</h3>
+    <p>Key driver analysis hinges on the following two main components,</p>
+    <h4><a class="ck-anchor" id="target_metric" name="target_metric"></a>Target Metric&nbsp;</h4>
+    <p>Target Metric is the dependent variable or metric for which you want to assess the different factors that lead to
+        a
+        specific trend. For instance, revenue is a target metric used to evaluate the effectiveness of sales strategies
+        and
+        marketing campaigns.</p>
+    <h4><a href="https://factors">https://factors</a>Influencing Factors</h4>
+    <p>Influencing Factors or key drivers are the independent variables (factors) features that impact the outcome of
+        the
+        target metric. These factors contain information about what affects the trends observed in the data. Influencing
+        Factors can be both quantitative and qualitative.</p>
+    <ul>
+        <li><strong>Quantitative Factors:</strong> Numerical data that can be measured and analyzed statistically. For
+            instance, Advertising Spend is the amount invested in marketing campaigns, which can impact revenue.</li>
+        <li><strong>Qualitative Factors:</strong> Non-numerical data that provide details about behavior and
+            preferences.
+            For instance, The perception of a brand in the market, which can affect customer loyalty and purchasing
+            behavior.</li>
+    </ul>
+    <p><strong>Information</strong></p>
+    <p>The selection of factors is critical, as they determine the effectiveness of the analysis. Factors should be
+        relevant, measurable, and able to capture significant variations in the target metric.</p>
+    <h3><a class="ck-anchor" id="configure_kda" name="configure_kda"></a>Configuring Key Driver Analysis</h3>
+    <p>For key driver analysis, Both <strong>measure</strong> and <strong>categorical fields</strong> can be used as
+        influencing factors. A <strong>maximum of five dimensions and three measures </strong>can be used as factors to
+        analyze how they have influenced the target metric.</p>
+    <ol>
+        <li>Click the <strong>Settings</strong> <strong>icon</strong> &gt; <strong>Zia Insights </strong>&gt;
+            <strong>Key
+                Driver Analysis.</strong>
+        </li>
+        <li>Select the checkbox <strong>Show Key Drivers </strong>for the Diagnosable Insights.<br><img title=""
+                src="/sites/zweb/images/analytics/zaimages/enabling_key_driver_analysis.png" alt="" width="750px"
+                height="" loading="lazy"></li>
+        <li>Choose a <strong>Measure (target)</strong> column for which you want to conduct the diagnostic analysis.
+            evaluate the outcome.<br><img title="" src="/sites/zweb/images/analytics/zaimages/select_measure.png" alt=""
+                width="750px" height="" loading="lazy"></li>
+        <li>The <strong>Show Top N Drivers</strong> feature analyzes and highlights the most influential factors from
+            the
+            selected set of factors.<br><img title="" src="/sites/zweb/images/analytics/top_drivers.png" alt=""
+                width="750px" height="" loading="lazy"></li>
+        <li>The <strong>Top N Factors </strong>option for each dimension will use the top contribution factors within
+            that
+            dimension that are most likely to influence the target metric. By focusing on these top values, the analysis
+            can
+            highlight the key drivers that have the greatest impact on the outcome you are evaluating.<br>Click the
+            drop-down icon of any chosen factor to customize its settings.<ul>
+                <li><strong>Top Factors: </strong>Select the number of top contributing values from each category to
+                    analyze
+                    their influence on the target metric.</li>
+                <li><strong>Actual Values:</strong> Select the values to be considered from each category to analyze
+                    their
+                    influence on the target metric.A maximum of five factors can be selected.</li>
+            </ul>
+        </li>
+        <li>Click <strong>Add Column</strong> to include more factors for analysis. A maximum of five dimensions and
+            three
+            measures can be used. The <strong>Add Explain By column</strong> includes all selected columns from the
+            Explain
+            By columns for Key Driver Analysis.<br><img title=""
+                src="/sites/zweb/images/analytics/zaimages/add_explain_by_column.png" alt="" width="750px" height=""
+                loading="lazy"></li>
+        <li>Once you have configured the settings, <strong>Save</strong> the reports to view Zia Insights.<br>&nbsp;
+        </li>
+    </ol>
+    <h3><a class="ck-anchor" id="interpreting-results_kda" name="interpreting-results_kda"></a>Interpreting the Results
+        of
+        Key Driver Analysis</h3>
+    <p>Key Driver insights offer valuable analysis for time series trends, helping to identify the underlying factors
+        behind
+        increases or decreases and how the outliers or anomalies affect the results. These insights explain what is
+        driving
+        the changes, making it easier to understand the reasons behind shifting patterns over time.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/diagnostic_insights_1.png" alt="" width="750px" height=""
+        loading="lazy">
+    <h4><a class="ck-anchor" id="view_diagnostic_insights" name="view_diagnostic_insights"></a>Viewing Diagnostic
+        Insights
+    </h4>
+    <p>The Diagnostic Insights pane offers a comprehensive details of the Potential Drivers that influence the outcome
+        of
+        the Target Metric and the Possible Reasons that could have contributed to the observed trends in the target
+        metric.
+    </p>
+    <p>To access the insights, click the <strong>Diagnosis</strong> icon adjacent to any of the time series
+        insights.&nbsp;
+    </p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/diagnose_insights.png" alt="" width="750px" height=""
+        loading="lazy">
+    <p>The diagnostic insights provides the following details</p>
+    <ul>
+        <li>A <strong>visual narrative</strong> of what has happened to the target metric, whether increased or
+            decreased,
+            percentage of increase or decrease, and the increase or decrease in value.</li>
+        <li>The <strong>Top Drivers</strong> impacting the target metric with the possible reasons that could have
+            contributed to the observed trends of the target metric.</li>
+        <li>The <strong>Missing drivers </strong>that have not contributed in the past but have contributed positively
+            or
+            negatively to the outcome.<br><img title=""
+                src="/sites/zweb/images/analytics/zaimages/diagnostic_details_-_insights.png" alt="" width="750px"
+                height="" loading="lazy"></li>
+    </ul>
+    <h4><a class="ck-anchor" id="key_drivers" name="key_drivers"></a>Potential Drivers (Key Drivers)</h4>
+    <p>The <strong>Top (potential) drivers</strong> section answers the <strong>What</strong> and provides an overview
+        of
+        the diagnosis in the current state or condition of the target metric.</p>
+    <img class="html-object-embed__content" title="" src="/sites/zweb/images/analytics/zaimages/top_drivers_-kda.png"
+        alt="" width="350px" height="" loading="lazy">
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Trend</strong>&nbsp;</td>
+                <td>The observed trend of the target metric, whether it's increasing or decreasing.</td>
+            </tr>
+            <tr>
+                <td><strong>Impact on Overall trend</strong></td>
+                <td>
+                    <p>A breakdown of the individual contribution of each driver to the target metric, including the
+                        percentage of impact on the overall rise or fall.</p>
+                    <p><strong>Impact percentage</strong> calculates the effect of a specific factor on the target
+                        metric by
+                        calculating its contribution to the total change in the metric. It indicates how much of the
+                        overall
+                        variation can be attributed to that factor.</p>
+                    <img class="html-object-embed__content" title=""
+                        src="/sites/zweb/images/analytics/zaimages/impact_percentage.png" alt="" width="550px" height=""
+                        loading="lazy">
+                    <p>Example: <strong>Ad Spend</strong> is one of the <strong>influencing factors,</strong> and
+                        <strong>Sales </strong>is the <strong>target metric.</strong>
+                    </p>
+                    <p><strong>Total sales </strong>for July 2024= $1000.00 and August 2024 = $1500.00.<br>&nbsp;for
+                        July
+                        2024 = $250.00 and August 2024 = $500.00.</p>
+                    <img class="html-object-embed__content" title=""
+                        src="/sites/zweb/images/analytics/zaimages/screenshot_2025-02-20_at_7.46.14_pm.png" alt=""
+                        width="550px" height="" loading="lazy">
+                    <img class="html-object-embed__content" title=""
+                        src="/sites/zweb/images/analytics/zaimages/formula.png" alt="" width="550px" height=""
+                        loading="lazy">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Possible Reasons</h4>
+    <p>The <strong>Why</strong> section outlines all the potential reasons behind the observed trend, including detailed
+        impact assessments and the various factors contributing to the current outcome. Click Know more to view the
+        Possible
+        Reasons. For a deeper understanding of the types of insights provided in Key Driver Analysis, refer to the
+        Diagnostic Insights - Explanations section.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/possible_reasons1.png" alt="" width="750px" height=""
+        loading="lazy">
+    <p>The <strong>Possible Reasons</strong> section lists the following details.</p>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Impact Details&nbsp;</strong></td>
+                <td>Impact denotes the influence or contribution that a particular factor (driver) has on the target
+                    metric.
+                    It quantifies how much a specific factor affects the outcome being analyzed.</td>
+            </tr>
+            <tr>
+                <td><strong>Possible Reasons</strong></td>
+                <td>The possible reasons lists all the reasons that may have contributed to the observed trends in the
+                    target metric, such as top contributors or top off setters, number of occurrences, anomalies, and
+                    correlation (relationship) between the target metric and the target.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4><a class="ck-anchor" id="missing_drivers" name="missing_drivers"></a>Missing Drivers</h4>
+    <p>Missing Drivers in Key Driver Analysis are factors that had no measurable impact in the previous period but began
+        contributing positively or negatively in the current period. These drivers highlight the emerging influences
+        that
+        have shifted from being negligible to having a meaningful effect on the target metric.&nbsp;</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/missing_drivers_-_kda.png" alt="" width="750px" height=""
+        loading="lazy">
+    <p>Zia Insights takes into consideration the drivers or factors that could affect the target metric and gives the
+        type
+        of impact it exerts on the target metric.</p>
+    <ul>
+        <li><strong>Positive Impact:</strong> A factor is said to have a positive impact if it had no contribution in
+            the
+            previous period but has positively contributed in the current period, driving overall growth.</li>
+        <li><strong>Negative Impact: </strong>A factor is said to have a negative impact if it had no impact in the
+            previous
+            period but is now causing a decline in the outcome of the target metric.</li>
+    </ul>
+    <h4><a class="ck-anchor" id="recommendations" name="recommendations"></a>Prescriptive Insights - Recommendations
+    </h4>
+    <p>Prescriptive insights go beyond descriptive and predictive insights by recommending specific actions to achieve
+        desired outcomes. Zia Insights provides the best course of action as recommendations to improve performance or
+        solve
+        a problem. These recommendations are generated using OpenAI. The metadata of the involved columns is shared with
+        OpenAI for this purpose.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/zia_insights_-_recommendations.png" alt="" width="750px"
+        height="" loading="lazy">
+    <h4><a class="ck-anchor" id="diagnostic_insights_explanations"
+            name="diagnostic_insights_explanations"></a>Diagnostic
+        Insights - Explanations (Types)</h4>
+    <h4>Key Drivers - Top Contributors or Offsetters</h4>
+    <p>Key Drivers are the top factors that either positively or negatively influence the outcome of the target metric,
+        leading to its increase or decrease in value. This helps understand the causes of what is driving the outcome.
+    </p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/top_contributors_-_kda.png" alt="" width="750px" height=""
+        loading="lazy">
+    <p>Based on the influence of the factors on the target metric, Top contributors or top off-setters insights are
+        displayed.</p>
+    <ul>
+        <li><strong>Top contributors</strong> are the factors that positively influence the target metric leading to the
+            increase in value. For instance, a 20% increase in marketing spend may result in a 15% increase in sales,
+            showing that marketing efforts are positively influencing sales growth.</li>
+        <li><strong>Top off setters </strong>are factors that negatively impact the target metric, causing a decrease in
+            its
+            value. For example, a 10% increase in product returns could lead to a 5% decrease in total sales,
+            illustrating
+            that returns are hindering overall sales performance.</li>
+    </ul>
+    <h4>Anomalies</h4>
+    <p>Anomaly Insights detect unusual spikes or drops in the target metric that deviate from expected trends.It offers
+        a
+        clear comparison between the expected and observed values of the target metric, emphasizing the deviation
+        percentage
+        to highlight the extent of the difference.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/trend_and_patterns_-_kda.png" alt="" width="750px"
+        height="" loading="lazy">
+    <h4>Occurrences</h4>
+    <p>Occurrence analysis measures how often specific drivers appear in relation to high or low outcomes in the target
+        metric. It also helps determine how a driver correlates with changes in the target metric. This helps in
+        understanding the significance and impact of each driver over time or across different segments.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/ocuurences_-_kda.png" alt="" width="750px" height=""
+        loading="lazy">
+    <h4>Trends and Patterns&nbsp;</h4>
+    <p>The analysis of trends and relationships between the target metric and influencing measures indicates whether
+        there
+        is an increasing or decreasing trend. It also determines the type of correlation, whether direct or indirect,
+        and
+        provides prescriptive recommendations to sustain or improve the observed trend.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/trend_and_patterns_-_kda.png" alt="" width="750px"
+        height="" loading="lazy">
+    <h3><a class="ck-anchor" id="kda_model_info" name="kda_model_info"></a>Evaluating the Key Driver Analysis</h3>
+    <p>This section details the model used for identifying the key drivers and to evaluate the quality of the analysis.
+        Click <strong>Explain the models used </strong>to view the details.</p>
+    <img title="" src="/sites/zweb/images/analytics/explain-the-models-used.png" alt="" width="750px" height=""
+        loading="lazy">
+    <h4><a class="ck-anchor" id="summary" name="summary"></a>Summary&nbsp;</h4>
+    <p>The <strong>Summary section</strong> gives an overview about the <strong>Target Variable, Model used for
+            analysis,</strong> and the <strong>period of analysis.</strong></p>
+    <h4>Factors Used for Analysis</h4>
+    <p>This section lists all the factors used for conducting the key driver analysis.</p>
+    <h4><a class="ck-anchor" id="cause_and_effect" name="cause_and_effect"></a>Cause and Effect</h4>
+    <p>The <strong>Cause and Effect </strong>value in key driver analysis gives the strength of the relationship between
+        the
+        potential drivers and the target variable, indicating how much influence the factors have on the target metric.
+        Zoho
+        Analytics uses the <strong>Backdoor Criterion</strong> for causal path identification and <strong>Linear
+            regression</strong> for causal effect estimation.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/model_explanations.png" alt="" width="750px" height=""
+        loading="lazy">
+    <h4><a class="ck-anchor" id="evaluation_metrics" name="evaluation_metrics"></a>Evaluation Metrics</h4>
+    <p>Evaluation metrics help assess the performance and the accuracy of the causal inference models.</p>
+    <img title="" src="/sites/zweb/images/analytics/zaimages/evaluation_metrics.png" alt="" width="750px" height=""
+        loading="lazy">
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Metric&nbsp;</strong></td>
+                <td><strong>Explanation</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Average Treatment Effect( ATE)</strong></td>
+                <td>ATE is a statistical measure that calculates the impact of key drivers on an outcome It quantifies
+                    how
+                    much the outcome would change, on average, if a specific driver were altered.</td>
+            </tr>
+            <tr>
+                <td><strong>Edge Weight</strong></td>
+                <td>Edge Weight measures the correlation, the strength, and direction between the target metric and key
+                    drivers.</td>
+            </tr>
+            <tr>
+                <td><strong>P-value</strong></td>
+                <td>P-value is a statistical value used to validate a hypothesis against observed data. It measures the
+                    probability of obtaining the observed results, assuming that the null hypothesis is true. The lower
+                    the
+                    p-value, the greater the statistical significance of the observed difference.</td>
+            </tr>
+            <tr>
+                <td><strong>Confidence Interval&nbsp;</strong></td>
+                <td>A confidence interval, in statistics, refers to the probability that a population parameter will
+                    fall
+                    between a set of values for a certain proportion of times<br>A 95% confidence interval means that if
+                    we
+                    repeat the experiment many times, 95% of the time, the true value will fall within this range.</td>
+            </tr>
+            <tr>
+                <td><strong>R-squared</strong></td>
+                <td>R-squared is a statistical measure that indicates how much of the variation of a dependent variable
+                    is
+                    explained by an independent variable in a regression model.</td>
+            </tr>
+            <tr>
+                <td><strong>Adjusted R- Squared</strong></td>
+                <td>Adjusted R-squared measures how well a regression model explains the variability in the data,
+                    adjusting
+                    for the number of predictors. It prevents overestimation of model performance by penalizing
+                    unnecessary
+                    variables.</td>
+            </tr>
+            <tr>
+                <td><strong>F-Statistic</strong></td>
+                <td>The F-statistic tests whether the overall model is statistically significant. A higher F-statistic
+                    indicates that the model performs significantly better than a model that predicts the mean outcome.
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Bayesian Information Criterion (BIC)</strong></td>
+                <td>Bayesian Information Criterion (BIC) is a statistical metric used to evaluate the goodness of fit of
+                    a
+                    model while penalizing for model complexity to avoid overfitting.</td>
+            </tr>
+            <tr>
+                <td><strong>Akaike Information Criterion</strong></td>
+                <td>The Akaike Information Criterion (AIC) is a metric used to compare different statistical models and
+                    determine which one best balances goodness of fit and complexity.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3><a class="ck-anchor" id="explain__data_zia_insights" name="explain__data_zia_insights"></a>Explain Data - Zia
+        Insights</h3>
+    <p>The Explain Data - Zia Insights feature provides information related to the selected data point in the report.
+        This
+        helps in identifying significant changes or anomalies in the data.</p>
+    <img alt="" height="auto" src="/sites/zweb/images/analytics/zaimages/explain_data_-_zia_insights_1.png" width="750">
+    <p>For example, for a chart that displays the sales across the years by region, enabling <strong>Explain Data - Zia
+            Insights</strong> for the year 2022 will display insights on sales based on the quarterly breakdown of sales
+        for
+        that year.</p>
+    <p><strong>Invoking Explain Data - Zia Insights</strong></p>
+    <ol>
+        <li>Open the report in view mode.</li>
+        <li>Click any data point in the report and select <strong>Explain Data - Zia Insights.</strong><img
+                alt="" height="auto" src="/sites/zweb/images/analytics/zaimages/datapoint-explain_data_1.png"
+                width="750"></li>
+        <li>Insights for the selected data point will be displayed in the right.</li>
+    </ol>
+    <h3>Explanations</h3>
+    <p>When a data point is selected, insights are provided in the following three ways to help understand its
+        significance.
+    </p>
+    <h4>Insights specific to the Data Point</h4>
+    <p>Insights specific to a data point analyze its trends, identifying whether it is increasing, decreasing, or stable
+        over time. They also highlight the maximum and minimum recorded values, helping to understand its range.
+        Outliers
+        are detected to flag unexpected spikes or drops, while seasonality insights reveal recurring patterns influenced
+        by
+        external factors.&nbsp;</p>
+    <h4>Data Point Compared with Overall Value</h4>
+    <p>This insight compares the selected data point against the total value. It helps determine its contribution to the
+        overall metric and whether it is above or below the overall trend.<br>Example: If the selected Ad Spend for
+        Product
+        A is $50,000 and the total ad spend is $500,000, then Product A accounts for 10% of the overall spend.</p>
+    <h4>Data Point Compared with Peer Values</h4>
+    <p>This insight compares the selected data point with other similar data points (peers) within the same dimension.
+        It
+        helps assess whether the selected data point is performing better, worse, or similarly compared to its
+        peers.<br>Example: If the selected Ad Spend for Product A is $50,000, while Product B has $40,000 and Product C
+        has
+        $60,000, this comparison shows how Product A ranks within its category.</p>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Category</strong></td>
+                <td><strong>Insights</strong></td>
+                <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+                <td rowspan="5"><strong>Insights Based on Selected Data Point</strong></td>
+                <td>Trend</td>
+                <td>Identifies whether the data point follows an increasing, decreasing, or stable trend.</td>
+            </tr>
+            <tr>
+                <td>Seasonality</td>
+                <td>Detects recurring cycles in the data point over a time frame.</td>
+            </tr>
+            <tr>
+                <td>Surge and Decline</td>
+                <td>Highlights significant increases or decreases in the data point.</td>
+            </tr>
+            <tr>
+                <td>Outlier&nbsp;</td>
+                <td>Determines whether the data point is an anomaly affecting overall trends.</td>
+            </tr>
+            <tr>
+                <td>Growth Rate Analysis&nbsp;</td>
+                <td>Examines the percentage change in the data point over time.</td>
+            </tr>
+            <tr>
+                <td rowspan="4"><strong>Data Point Compared with Overall Value</strong></td>
+                <td>Focused Category vs Overall Aggregate Insight</td>
+                <td>Compares the selected data point’s total value to the overall total.</td>
+            </tr>
+            <tr>
+                <td>Comparative MinMax</td>
+                <td>Highlights the highest and lowest values of the data point versus overall values.</td>
+            </tr>
+            <tr>
+                <td>Threshold</td>
+                <td>Checks whether the data point falls below or exceeds a predefined threshold.</td>
+            </tr>
+            <tr>
+                <td>Driving Column Contribution</td>
+                <td>Compares the data point’s contribution within a category versus the overall contribution.</td>
+            </tr>
+            <tr>
+                <td rowspan="3"><strong>Data Point Compared with Peer Values</strong></td>
+                <td>Rank of Chosen Category Among Peers</td>
+                <td>Shows how the data point ranks among its peers.</td>
+            </tr>
+            <tr>
+                <td>Correlation with Peers&nbsp;</td>
+                <td>Identifies relationships between the data point and other similar data points.</td>
+            </tr>
+            <tr>
+                <td>Trend observed compared with peers</td>
+                <td>Determines whether the data point’s trend follows or diverges from similar data points.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="video-accordion-section">
+        <h3>Related Videos</h3>
+        <div class="video-accordion-item">
+            <button type="button" class="video-accordion-trigger" aria-expanded="false">
+                <span class="video-accordion-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                </span>
+                <span class="video-accordion-label">Watch: Getting Started with Zia Insights</span>
+                <svg class="video-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="video-accordion-panel">
+                <div class="video-embed-wrap">
+                    <iframe src="https://placehold.co/800x450?text=Video+1" title="Getting Started with Zia Insights"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="video-accordion-item">
+            <button type="button" class="video-accordion-trigger" aria-expanded="false">
+                <span class="video-accordion-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                </span>
+                <span class="video-accordion-label">Watch: Configuring Key Driver Analysis</span>
+                <svg class="video-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="video-accordion-panel">
+                <div class="video-embed-wrap">
+                    <iframe src="https://placehold.co/800x450?text=Video+2" title="Configuring Key Driver Analysis"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="video-accordion-item">
+            <button type="button" class="video-accordion-trigger" aria-expanded="false">
+                <span class="video-accordion-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                </span>
+                <span class="video-accordion-label">Watch: Interpreting Diagnostic Insights</span>
+                <svg class="video-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="video-accordion-panel">
+                <div class="video-embed-wrap">
+                    <iframe src="https://placehold.co/800x450?text=Video+3" title="Interpreting Diagnostic Insights"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="help-accordian">
+        <div class="faq-item">
+            <h3>What is event management software?</h3>
+            <div class="faq-ans">
+                <p>Event management software is a comprehensive technology solution designed to assist event planners in
+                    organizing various types of events, such as conferences, workshops, and trade shows, across
+                    different
+                    formats like onsite, online, and hybrid.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3>How does event management software help organize successful events?</h3>
+            <div class="faq-ans">
+                <p>Event management software can benefit event planners in many ways. Experience the advantages of Event
+                    Management Platform:</p>
+            </div>
+        </div>
+    </div>
+</div>

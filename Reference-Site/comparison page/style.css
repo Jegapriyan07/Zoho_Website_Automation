@@ -1,0 +1,2258 @@
+:root {
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #fff;
+    --primary-btn-color: #e42527;
+    --primary-bg: #F5F3FF;
+    --secondary-bg: #EEF4FF;
+    --teritary-bg: #F8F9FC;
+    --fourth-bg: #F0F9FF;
+}
+
+.banner-section {
+    background: url('/sites/zweb/images/analytics/za-comparison-bg.png') no-repeat;
+    margin-top: -70px;
+    padding: 120px 0px 75px;
+    background-size: cover;
+}
+
+.banner-section .content-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    flex-wrap: wrap;
+}
+
+.banner-section .left-wrapper {
+    flex: 1;
+}
+
+.banner-section .right-wrapper {
+    flex: 1;
+}
+
+.banner-section .left-wrapper h1 {
+    margin: 0px 0 20px;
+    font-size: 40px;
+    line-height: 1.4;
+}
+
+.banner-section .left-wrapper span.comparison-title {
+    font: 28px Zoho_Puvi_Bold;
+    color: #CF4334;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.banner-section .left-wrapper p {
+    font-size: 20px;
+    margin: 0px 0 30px;
+}
+
+/* form */
+
+/* banner sign up form styles */
+
+.act-btn {
+    display: inline-block;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-size: 17px;
+}
+
+/* Trusted Brands section */
+
+.trust-icon-wrap {
+    overflow: hidden;
+    display: flex;
+}
+
+.trust-icon .ae-icon {
+    margin: 0 150px 0 0;
+    font-size: 0;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+    min-height: 100px;
+    vertical-align: top;
+}
+
+/* Za counts section */
+
+.za-cust-counts ul {
+    display: flex;
+    max-width: 532px;
+    margin: 15px auto 0px;
+    text-align: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 117px;
+    padding: 30px 20px 20px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 22px 0 #00000017;
+}
+
+.za-cust-counts ul>li {
+    width: 40%;
+    position: relative;
+}
+
+.za-cust-counts ul>li p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.za-cust-counts ul>li>span {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.za-cust-counts ul>li>span:after {
+    content: '+';
+    font-family: var(--zf-primary-extralight);
+}
+
+.za-cust-counts ul>li:not(:first-child):before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 50%;
+    background: #601d1c;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    opacity: .2;
+}
+
+
+.brand-wrapper {
+    background-color: #FFFEEE;
+    padding-bottom: 70px;
+    border-radius: 0 0 115px 115px;
+}
+
+
+/* Dashboard Section */
+
+.dashboard-wrapper .header-content h2,
+.za-generative-ai-wrappper h2,
+.icon-border-section h2,
+.comparison-table-section h2,
+.pre-banner-section.light .content-wrapper h2,
+.pricing-calculator h2,
+.sticky-section .content-wrap h2,
+.za-services-offer h2,
+.testimonials-section .content-wrap h2,
+.faq-section h2,
+.i18n-en .faq-section h2,
+.article-section h2 {
+    text-align: center;
+    font: 40px / 1.3 Zoho_Puvi_Bold;
+}
+
+.dashboard-wrapper .header-content h2 {
+    margin: 0 auto 20px;
+    width: 61%;
+}
+
+.dashboard-wrapper .header-content {
+    text-align: center;
+}
+
+.dashboard-wrapper .main-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 0;
+}
+
+.dashboard-wrapper .main-wrapper.right-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 700px;
+    z-index: -1;
+    aspect-ratio: 1;
+    clip-path: polygon(0 var(--p), 100% 0, 100% 100%, 0 78%);
+    background: #FEF8EB;
+    --p: 116px;
+    border-radius: 30px;
+    right: 0;
+    top: 1px;
+}
+
+.dashboard-wrapper .main-wrapper.left-content::before {
+    content: "";
+    position: absolute;
+    width: 871px;
+    height: 674px;
+    z-index: -1;
+    aspect-ratio: 1;
+    clip-path: polygon(0 var(--p), 100% 0, 100% 100%, 0 78%);
+    background: #FEF8EB;
+    --p: 116px;
+    border-radius: 30px;
+    left: 0;
+    top: -42px;
+    transform: rotate(180deg);
+}
+
+.dashboard-wrapper .main-wrapper .image-wrapper {
+    width: 55%;
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper.right-content .image-wrapper {
+    transform: translateX(30px);
+}
+
+.dashboard-wrapper .main-wrapper.left-content .image-wrapper {
+    transform: translateX(-30px);
+}
+
+.dashboard-wrapper .main-wrapper.right-content.zwe-om .image-wrapper,
+.dashboard-wrapper .main-wrapper.left-content.zwe-om .image-wrapper {
+    transform: translateX(0px);
+}
+
+.dashboard-wrapper .main-wrapper.zwe-om .content-wrapper {
+    transform: translateY(0px);
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper {
+    width: 45%;
+    padding: 0 30px;
+    transform: translateY(20px);
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper .dashboard-image {
+    border: 5px solid #000;
+    border-radius: 20px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper h3 {
+    color: #1644b3;
+    margin: 0 0 20px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul li .check {
+    height: 16px;
+    width: 8px;
+    border-bottom: 3px solid #1644b3;
+    border-right: 3px solid #1644b3;
+    transform: rotate(45deg);
+    margin-right: 13px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper ul li {
+    font-size: 20px;
+    padding: 3px 0;
+    display: flex;
+}
+
+.dashboard-wrapper {
+    padding: 80px 0 80px;
+}
+
+/* Generative AI Section */
+
+.za-generative-ai-wrappper .box-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 75px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .left-wrapper,
+.za-generative-ai-wrappper .box-wrapper .right-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border-width: 1px 1px 0px 0px;
+    border-color: #9A5EF0;
+    border-style: solid;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 1s ease-in;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box1 .image-wrapper {
+    text-align: center;
+    background-color: #A6ACE9;
+    border-radius: 12px 12px 0px 0px;
+    margin-top: 24px;
+    padding: 30px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box1,
+.za-generative-ai-wrappper .box-wrapper .box-item.box4 {
+    padding-bottom: 0px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box4 .image-wrapper {
+    border-radius: 12px 12px 0px 0px;
+    margin-top: 24px;
+    background: #202020;
+    text-align: center;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box1,
+.za-generative-ai-wrappper .box-wrapper .box-item.box2,
+.za-generative-ai-wrappper .box-wrapper .box-item.box3,
+.za-generative-ai-wrappper .box-wrapper .box-item.box4 {
+    transform: translateY(50px);
+    opacity: 1;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box2,
+.za-generative-ai-wrappper .box-wrapper .box-item.box4 {
+    transition-delay: .4s;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item.box3 {
+    transition-delay: .2s;
+}
+
+.za-generative-ai-wrappper.zwe-om .box-wrapper .box-item {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.za-generative-ai-wrappper {
+    background-image: url('/sites/zweb/images/analytics/za-multicolor-radical-bg.png');
+    background-position: center;
+    padding: 80px 0px;
+    background-color: #F8F9FC;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item ul li {
+    font-size: 17px;
+    padding-left: 7px;
+}
+
+.za-generative-ai-wrappper .box-wrapper .box-item ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Inner Testimonials */
+
+.za-inner-testimonials {
+    text-align: center;
+    width: 80%;
+    margin: 96px auto 0px;
+    position: relative;
+}
+
+.za-inner-testimonials p {
+    font: 20px / 1.6 Zoho_Puvi_SemiBold;
+    margin-bottom: 30px;
+
+}
+
+.za-inner-testimonials .double-quotes {
+    width: 87px;
+    height: 87px;
+    position: absolute;
+    left: -70px;
+    top: -48px;
+    z-index: 0;
+    content: "";
+}
+
+.za-inner-testimonials img:not(.double-quotes) {
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    background: black
+}
+
+.za-inner-testimonials .name {
+    display: block;
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold)
+}
+
+.za-inner-testimonials .designation {
+    display: block;
+    font-size: 18px
+}
+
+section.za-inner-testimonials {
+    padding: 70px 0;
+    margin-top: 0
+}
+
+/* DSML Blue Section */
+
+.icon-border-section {
+    background-image: url('/sites/zweb/images/analytics/feature/data-visualization-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    background-attachment: fixed;
+}
+
+.icon-border-section.blue {
+    background-color: #272C6B;
+}
+
+.icon-border-section.dark {
+    background-color: #262626;
+}
+
+.icon-border-section .content-wrap {
+    max-width: 1180px;
+}
+
+.icon-border-section h2 {
+    text-align: center;
+    color: var(--secondary-font-color);
+    font-family: var(--primaryfont-semibold);
+    margin: 0 0 15px;
+}
+
+.icon-border-section .header-descriptions {
+    font: 24px / 1.4 Zoho_Puvi_SemiBold;
+    text-align: center;
+    color: #fff;
+}
+
+.icon-border-section .header-descriptions span {
+    color: #FFE294;
+}
+
+.icon-border-section .content-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.icon-border-section .content-main .card {
+    width: calc(32% - 8px);
+    margin: auto;
+    transition: transform 1s ease;
+    transform: translateY(50px);
+}
+
+.icon-border-section.blue .content-main .card {
+    background-image: linear-gradient(180deg, #ffffff17, #1e30441c);
+}
+
+.icon-border-section.dark .content-main .card {
+    background-color: #262626;
+}
+
+.icon-border-section .content-main .card {
+    background-image: linear-gradient(180deg, #ffffff17, #1e30441c);
+    border-radius: 16px;
+    padding: 60px 18px 15px;
+    text-align: center;
+    position: relative;
+    margin: 0;
+}
+
+.icon-border-section .content-main .card h3 {
+    font-size: 22px;
+    margin: 0 0 15px;
+    font-family: var(--primaryfont-semibold);
+    color: var(--secondary-font-color);
+}
+
+.icon-border-section .content-main .card p {
+    color: var(--secondary-font-color);
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.icon-border-section .content-main .card::before {
+    content: "";
+    position: absolute;
+    background-image: url('/sites/zweb/images/analytics/za-comparison-sprite-icons.png');
+    width: 53px;
+    height: 53px;
+    top: -33px;
+    left: 163px;
+}
+
+.icon-border-section .content-main .card::after {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: -33px;
+    background-size: cover;
+    border-radius: 12px;
+    left: 162px;
+    z-index: -1;
+}
+
+.icon-border-section.blue .content-main .card::after {
+    background-color: #666A8D;
+}
+
+.icon-border-section.dark .content-main .card::after {
+    background-color: #666666;
+}
+
+.icon-border-section .content-main .card.card1::before {
+    background-position: 0px 0;
+}
+
+.icon-border-section .content-main .card.card2::before {
+    background-position: -81px 0;
+}
+
+.icon-border-section .content-main .card.card3::before {
+    background-position: -161px 0;
+}
+
+.icon-border-section.dark .content-main .card.card1::before {
+    background-position: 0px -62px;
+}
+
+.icon-border-section.dark .content-main .card.card2::before {
+    background-position: -80px -62px;
+}
+
+.icon-border-section.dark .content-main .card.card3::before {
+    background-position: -161px -62px;
+}
+
+.icon-border-section .content-main {
+    margin-top: 100px;
+    column-gap: 15px;
+    justify-content: center;
+}
+
+.icon-border-section .content-main .card:nth-child(2) {
+    transition-delay: .2s;
+}
+
+.icon-border-section .content-main .card:nth-child(3) {
+    transition-delay: .4s;
+}
+
+.icon-border-section.zwe-om .content-main .card {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Comparison table styles */
+
+.comparison-table-section .content-wrapper p {
+    font-size: 20px;
+    text-align: center
+}
+
+.comparison-table-section h2 {
+    margin: 0 0 20px
+}
+
+.comparison-table-section {
+    padding: 90px 0;
+    background-image: url('/sites/zweb/images/analytics/texture-bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.comparison-table table tbody td,
+.comparison-table table thead th {
+    padding: 18px;
+    text-align: left
+}
+
+.comparison-table table thead th {
+    font-size: 24px;
+    font-family: var(--zf-primary-semibold)
+}
+
+.comparison-table table tr td:nth-child(1) {
+    font-family: var(--zf-primary-semibold)
+}
+
+.comparison-table table tbody tr:nth-child(odd) {
+    background-color: #f8f9fc
+}
+
+.comparison-table table .analytics-dark {
+    background-color: #fff6e2
+}
+
+.comparison-table table .analytics-light {
+    background-color: #fffbf3
+}
+
+.comparison-table table tr td:nth-child(2) {
+    border-left: 2px solid #eca91c;
+    border-right: 2px solid #eca91c
+}
+
+.comparison-table table thead th.analytics-light {
+    border-left: 2px solid #eca91c;
+    border-right: 2px solid #eca91c;
+    border-top: 2px solid #eca91c;
+    border-radius: 10px 10px 0 0
+}
+
+.comparison-table table tr td:nth-child(2).analytics-dark.bottom {
+    border-bottom: 2px solid #eca91c;
+    border-radius: 0 0 10px 10px
+}
+
+.comparison-table {
+    margin-top: 70px;
+    overflow-x: auto
+}
+
+/* Pre banner section styles */
+
+.pre-banner-section {
+    padding: 90px 0;
+    text-align: center
+}
+
+.pre-banner-section.light {
+    background-image: linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%);
+}
+
+/* 
+.pre-banner-section {
+    background-color: #F8F9FC;
+} */
+
+.pre-banner-section.light .content-wrapper h2 {
+    color: #000
+}
+
+.pre-banner-section .content-wrapper h2 {
+    font-family: var(--primaryfont-bold);
+    margin: 0 0 20px
+}
+
+
+/* Pricing Calculator */
+
+.pricing-calculator h2 {
+    margin-bottom: 5px;
+    font-family: var(--zf-primary-bold);
+    width: 100%;
+    max-width: 100%;
+}
+
+.pricing-calculator .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.pricing-calculator #user-slider {
+    width: 100%;
+    max-width: 400px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    background-image: -webkit-linear-gradient(0, #5eaffb 0, #5eaffb 48%, #0556b0 100%);
+    border-radius: 20px;
+    outline: 0;
+}
+
+.pricing-calculator #user-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: #f9ba2c;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: gold;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+}
+
+.pricing-calculator #user-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: #f9ba2c;
+    font-weight: 700;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: gold;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+}
+
+.pricing-calculator #user-count {
+    font-weight: 700;
+    color: #024dc3;
+    font-size: 22px;
+}
+
+.pricing-calculator .chart-container {
+    background-color: #f6fafd;
+    width: 100%;
+    max-width: 910px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 35px auto 0;
+    position: relative;
+}
+
+.pricing-calculator .chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 60%;
+    height: 335px;
+    position: relative;
+    border-bottom: 1px dashed #ccc;
+}
+
+.pricing-calculator .chart .line-20,
+.pricing-calculator .chart .line-40,
+.pricing-calculator .chart .line-60,
+.pricing-calculator .chart .line-80,
+.pricing-calculator .chart::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    height: 100%;
+    border-top: 1px dashed #85aec3;
+}
+
+.pricing-calculator .chart::before {
+    top: 10%;
+    width: 650px;
+    inset-inline-start: -55px;
+}
+
+.pricing-calculator .slider-col {
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-calculator .slider-col span {
+    font-size: 15px;
+    font-family: var(--zf-secondary-bold);
+}
+
+.pricing-calculator .chart .line-20 {
+    top: 70%;
+    width: 650px;
+    inset-inline-start: -55px;
+}
+
+.pricing-calculator .chart .line-40 {
+    top: 40%;
+    width: 650px;
+    inset-inline-start: -55px;
+}
+
+.pricing-calculator .chart .line-60 {
+    top: 100%;
+    width: 650px;
+    inset-inline-start: -55px;
+}
+
+.pricing-calculator .bar {
+    width: 140px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 5px;
+    z-index: 1;
+    transition: height .5s ease 0s;
+    position: unset;
+}
+
+.pricing-calculator #zoho-bar {
+    background-color: #E94D4F;
+}
+
+.pricing-calculator #powerbi-bar-pro {
+    background-color: #FAC248;
+}
+
+.pricing-calculator #powerbi-bar-premium {
+    background-color: #AE7C14;
+}
+
+.pricing-calculator .pricing-table {
+    width: 100%;
+    max-width: 910px;
+    border-radius: 8px;
+    margin: 10px auto;
+    font-size: 16px;
+    border-collapse: collapse;
+}
+
+.pricing-calculator .table-row-container {
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: #e2e4e8a3;
+    border-radius: 4px;
+}
+
+.pricing-calculator .powerbiPro,
+.pricing-calculator .powerbiPremium,
+.pricing-calculator .Zoho-Analytics {
+    width: 48%;
+}
+
+.pricing-calculator .pricing-table-row {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: inherit;
+}
+
+.pricing-calculator .table-header {
+    padding: 14px 14px 14px 14px;
+    font-family: var(--zf-primary-bold);
+}
+
+.pricing-calculator .pricing-table-row span {
+    font-size: 17px;
+}
+
+.pricing-calculator .pricing-table-row .costing-price {
+    padding-inline-start: 0;
+}
+
+.pricing-calculator .savings-info {
+    font-size: 17px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.pricing-calculator .savings-info p {
+    margin-bottom: 10px;
+}
+
+.pricing-calculator #savings-amount,
+.pricing-calculator #savings-percent,
+.pricing-calculator #powerbi-creator-cost,
+.pricing-calculator #powerbi-explorer-cost,
+.pricing-calculator #powerbi-viewer-cost,
+.pricing-calculator #zoho-users-cost,
+.pricing-calculator #zoho-viewers-cost {
+    font-family: var(--zf-primary-bold);
+}
+
+.pricing-calculator #powerbi-text-pro,
+.pricing-calculator #powerbi-text-premium,
+.pricing-calculator #zoho-text {
+    font: 16px/1.1 var(--primaryfont-bold);
+    padding-bottom: 10px;
+    position: unset;
+    transform: unset;
+    text-align: center;
+    color: #000;
+}
+
+.powerbi-premium-not {
+    width: 100%;
+    max-width: 910px;
+    margin: 0 auto;
+    display: block;
+    background-color: #EFF7FB;
+    padding: 8px 8px 8px;
+    border-radius: 4px;
+}
+
+.powerbi-premium-not p {
+    font-size: 15px;
+    text-align: left;
+    margin: 0;
+}
+
+.pricing-calculator .label {
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold);
+    margin-top: 8px;
+}
+
+.pricing-calculator .lable-wrapper {
+    display: flex;
+    width: 63%;
+    justify-content: space-between;
+}
+
+.pricing-calculator .zohoBarLabel {
+    margin-left: 18px;
+}
+
+.pricing-calculator .powerbiProBarLabel {
+    margin-left: 31px;
+}
+
+.pricing-calculator .powerbiPremiumBarLabel {
+    margin-left: 18px;
+}
+
+.pricing-calculator .powerbi-total-cost span:nth-child(2),
+.pricing-calculator .pricing-table-row:last-child #zoho-total {
+    font-family: var(--zf-primary-bold);
+}
+
+.pricing-calculator .year {
+    font-family: 'Zoho_Puvi_Regular';
+    font-size: 15px;
+}
+
+.pricing-calculator .sampleLabel {
+    width: 100%;
+    margin: 30px auto 10px;
+    text-align: left;
+    font-family: var(--zf-secondary-regular);
+    font-size: 16px;
+    max-width: 910px;
+}
+
+.slider-container label {
+    font-size: 24px;
+    font-family: var(--secondaryfont-semibold);
+    margin: 10px 0 8px;
+}
+
+.pricing-calculator {
+    padding: 80px 0 80px;
+}
+
+.pricing-table-row .total-text {
+    display: block;
+    font-family: var(--zf-primary-regular);
+    padding-right: 9px;
+}
+
+.pricing-table .table-view p {
+    margin: 0;
+}
+
+.powerbi-premium-not {
+    display: none;
+}
+
+.pricing-calculator .table-row-container .column.Zoho-Analytics .table-header {
+    background-color: #e94d5027;
+}
+
+.pricing-calculator .table-row-container .column.powerbiPro .table-header {
+    background-color: #fac24830;
+}
+
+.pricing-calculator .table-row-container .column.powerbiPremium .table-header {
+    background-color: #ae7d1430;
+}
+
+.pricing-calculator .table-row-container .row,
+.pricing-calculator .table-header {
+    border-width: 1px 0px 0px 1px;
+    border-style: solid;
+    border-color: #e2e4e88a;
+}
+
+.pricing-calculator .table-row-container .hidden {
+    height: 58.5px;
+}
+
+.pricing-calculator .table-row-container .row:last-child {
+    border-bottom-width: 1px;
+}
+
+.pricing-calculator .savings-info:last-child p {
+    margin-bottom: 10px;
+}
+
+.pricing-calculator .savings-info p span {
+    font-family: var(--zf-primary-semibold);
+}
+
+.btn-wrapper {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* Sticky card section */
+.sticky-section .scroll-card {
+    box-sizing: border-box;
+    border-radius: 32px;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff59;
+    background-image: linear-gradient(178deg, #666A8D, #333A69);
+    padding: 30px 40px;
+    transition: transform .3s ease;
+    gap: 35px;
+    color: #fff;
+    margin-bottom: 70px;
+    height: 700px;
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    width: 40%
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    width: 60%;
+    text-align: center
+}
+
+.sticky-section .scroll-card.card1 {
+    top: 80px;
+    z-index: 1
+}
+
+.sticky-section .scroll-card.card2 {
+    top: 90px;
+    z-index: 2
+}
+
+.sticky-section .scroll-card.card3 {
+    top: 100px;
+    z-index: 3
+}
+
+.sticky-section .scroll-card.card4 {
+    top: 110px;
+    z-index: 4
+}
+
+.sticky-section .scroll-card.card5 {
+    top: 120px;
+    z-index: 5
+}
+
+.sticky-section .scroll-card h3 {
+    font: 27px / 1.3 Zoho_Puvi_Bold;
+    margin: 0 0 15px;
+    color: #FFE294;
+}
+
+.sticky-section .content-wrap h2 {
+    margin: 0 0 10px;
+    color: #fff;
+    width: 75%;
+    margin: auto;
+}
+
+.sticky-section .scroll-card ul li {
+    font-size: 18px;
+    padding: 10px 0px 0px;
+}
+
+.sticky-section .scroll-card ul {
+    list-style: disc;
+    margin-left: 15px;
+}
+
+.sticky-section {
+    padding: 80px 0 80px;
+    background-image: linear-gradient(179deg, #343760, #272C6B);
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    border-radius: 8px;
+}
+
+.sticky-section .section-wrapper {
+    display: flex;
+    margin-top: 70px;
+    gap: 40px;
+}
+
+/* .sticky-section .features-section {
+    width: 60%;
+    margin-bottom: 70px;
+}
+
+.sticky-section .features-section ul {
+    position: sticky;
+    top: 150px;
+}
+
+.sticky-section .features-section ul li {
+    margin-bottom: 27px;
+    color: #fff;
+    font: 20px / 1.5 Zoho_Puvi_SemiBold;
+    padding: 12px 12px 12px;
+    border-radius: 8px;
+}
+
+.sticky-section .features-section ul li.active {
+    background-image: linear-gradient(178deg, #666a8d7a, #333A69);
+} */
+
+/* Analysts quotes section */
+
+/* Analysts section styles */
+.read-more-link {
+    display: block;
+    max-width: max-content;
+    position: relative;
+    color: var(--secondary-font-color);
+    font-family: var(--zf-secondary-medium);
+    padding-right: 35px;
+    text-decoration: underline;
+}
+
+.reported-section .report-slider {
+    background-color: var(--primary-font-color);
+    color: var(--secondary-font-color);
+    padding: 40px 50px;
+    width: 55%;
+    margin: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-section .slick-dots {
+    text-align: left;
+    padding-top: 30px
+}
+
+.report-section .slick-dots li {
+    background: #e0e0e0
+}
+
+.slick-dots li.slick-active:before {
+    background: #f70011 !important;
+}
+
+@keyframes progresswidth {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+.slick-dots li {
+    width: 20px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    height: 8px;
+    border: 0;
+    position: relative
+}
+
+.slick-dots li.slick-active {
+    width: 35px;
+    height: 8px;
+    border: 0;
+    background: #e0e0e0
+}
+
+.report-slider .slick-dots {
+    text-align: left;
+}
+
+.slick-dots li.slick-active:before {
+    animation: progresswidth 6s linear forwards;
+    content: "";
+    width: 40px;
+    left: 0;
+    position: absolute;
+    background: #000;
+    opacity: 1;
+    height: 8px;
+    border-radius: 5px
+}
+
+.report-slider .aem-report h5 {
+    font-size: 35px;
+    font-family: var(--primaryfont-semibold);
+    line-height: 45px;
+}
+
+.report-slider .aem-report p {
+    font-size: 17px;
+    line-height: 27px;
+    font-family: var(--primaryfont-regular);
+}
+
+.reported-section .content-wrap {
+    display: flex;
+    gap: 20px;
+}
+
+.reported-section .content-wrap .trust-section {
+    width: 40%;
+    height: 690px;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.rating-sec {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.rating-table {
+    margin: 0px auto 0;
+    border: unset;
+    padding: 0px 10px;
+}
+
+.rating-sec:nth-child(1),
+.rating-sec:nth-child(2),
+.rating-sec:nth-child(3),
+.rating-sec:nth-child(4),
+.rating-sec:nth-child(5),
+.rating-sec:nth-child(6),
+.rating-sec:nth-child(7),
+.rating-sec:nth-child(8),
+.rating-sec:nth-child(9) {
+    border: unset;
+    box-shadow: 1px 1px 11px 0px #174aa81c;
+    margin-bottom: 10px;
+    border-radius: 9px;
+}
+
+.rating-txt span {
+    font-size: 24px;
+}
+
+.reported-section {
+    padding: 80px 0px;
+}
+
+.reported-section .content-wrap.animated .anim-star.svg-sprites.four_half1 {
+    width: 90%;
+}
+
+/* Services we offer */
+
+.za-services-offer {
+    padding: 80px 0px;
+    background-color: #F8F9FC;
+}
+
+.za-services-offer .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.za-services-offer .services-grid .services-card {
+    width: calc(24.5% - 10px);
+    box-shadow: 0 4px 9px 0 #5930ff17;
+    border-radius: 12px;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+
+.za-services-offer.dark .services-grid .services-card {
+    width: calc(31.5% - 10px);
+}
+
+.za-services-offer .services-grid .services-card a {
+    border-radius: inherit;
+}
+
+.za-services-offer .services-grid .services-item {
+    background: #fff;
+    padding: 24px;
+    margin: 1px;
+    border-radius: inherit;
+    text-align: center;
+    height: 99.6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.za-services-offer .services-grid .services-item h3 {
+    font: 17px / 1.4 Zoho_Puvi_SemiBold;
+    color: #262626;
+}
+
+.za-services-offer .services-grid .services-card.card1 {
+    background-image: linear-gradient(158deg, #9A5EF0 0, #fff 41%);
+}
+
+.za-services-offer .services-grid .services-card.card2,
+.za-services-offer .services-grid .services-card:nth-child(4) {
+    background-image: linear-gradient(340deg, #9A5EF0 0, #fff 41%);
+}
+
+.za-services-offer .services-grid .services-card.card3 {
+    background-image: linear-gradient(204deg, #9A5EF0 0, #fff 41%);
+}
+
+.za-services-offer.zwe-om .services-grid .services-card {
+    transform: translateY(0px);
+}
+
+.za-services-offer .services-grid .services-card:nth-child(2) {
+    transition-delay: .2s;
+}
+
+.za-services-offer .services-grid .services-card:nth-child(3) {
+    transition-delay: .4s;
+}
+
+.za-services-offer .services-grid .services-card:nth-child(4) {
+    transition-delay: .6s;
+}
+
+.za-services-offer .services-grid .services-card:nth-child(4) img {
+    margin-top: 64px;
+}
+
+/* Dark mode  */
+.za-services-offer.dark {
+    background-color: #262626;
+    color: #fff;
+}
+
+.za-services-offer.dark .services-grid .services-card {
+    background-image: unset;
+}
+
+.za-services-offer.dark .services-grid .services-item {
+    background: linear-gradient(134deg, rgba(255, 255, 255, 0.40) 0%, rgba(153, 153, 153, 0.40) 100%);
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+    border: 1px solid #ffffff29;
+}
+
+.za-services-offer.dark .services-grid .services-item h3 {
+    color: #fff;
+}
+
+
+/* Testimonials Section */
+
+.zwc-nav-scroll-section {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: 60px
+}
+
+.zwc-nav-scroll-section>div:first-child {
+    display: flex
+}
+
+.zwc-nav-box-wrap {
+    display: flex;
+    gap: 20px;
+    animation: 45s linear 0s infinite normal none running marquee;
+    padding-right: 20px;
+    flex: 1 1 0%
+}
+
+.zwc-nav-scroll-section>div:hover .zwc-nav-box-wrap {
+    animation-play-state: paused
+}
+
+.zwc-nav-box {
+    padding: 25px;
+    min-width: 384px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex: 1 1 0%;
+    border-width: 1px;
+    border-style: solid
+}
+
+.zwc-nav-box:nth-child(1),
+.zwc-nav-box:nth-child(5) {
+    background-color: #fff7f0;
+    border-color: #f5e5d7
+}
+
+.zwc-nav-box:nth-child(2),
+.zwc-nav-box:nth-child(6) {
+    background-color: #f6fdf4;
+    border-color: #d4f0d4
+}
+
+.zwc-nav-box:nth-child(3),
+.zwc-nav-box:nth-child(7) {
+    background-color: #f3fafd;
+    border-color: #dcedf5
+}
+
+.zwc-nav-box:nth-child(4),
+.zwc-nav-box:nth-child(8) {
+    background-color: #fffaec;
+    border-color: #f2e9d0
+}
+
+.zwc-nav-box:nth-child(1) .descriptions-wrapper,
+.zwc-nav-box:nth-child(5) .descriptions-wrapper {
+    background-color: rgba(245, 229, 215, .43);
+    border: 1px solid rgba(245, 229, 215, .43)
+}
+
+.zwc-nav-box:nth-child(2) .descriptions-wrapper,
+.zwc-nav-box:nth-child(6) .descriptions-wrapper {
+    background-color: rgba(212, 240, 212, .447);
+    border: 1px solid rgba(212, 240, 212, .447)
+}
+
+.zwc-nav-box:nth-child(3) .descriptions-wrapper,
+.zwc-nav-box:nth-child(7) .descriptions-wrapper {
+    background-color: rgba(220, 237, 245, .416);
+    border: 1px solid rgba(220, 237, 245, .416)
+}
+
+.zwc-nav-box:nth-child(4) .descriptions-wrapper,
+.zwc-nav-box:nth-child(8) .descriptions-wrapper {
+    background-color: rgba(242, 233, 208, .404);
+    border: 1px solid rgba(242, 233, 208, .404)
+}
+
+.testimonials-section {
+    padding: 80px 0 80px;
+}
+
+.testimonials-section .content-wrap h2 {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.testimonials-section .profile-wrappper {
+    display: flex;
+    gap: 15px
+}
+
+.testimonials-section .profile-wrappper>div>img {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 50%;
+    max-width: unset
+}
+
+.testimonials-section .profile-wrappper>div>h6 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    font-family: var(--primaryfont-semibold)
+}
+
+.testimonials-section .profile-wrappper>div>.designation {
+    font-size: 17px;
+    font-family: var(--primaryfont-regular)
+}
+
+.testimonials-section .descriptions-wrapper {
+    padding: 30px;
+    margin-top: 50px
+}
+
+.testimonials-section .descriptions-wrapper p {
+    font-size: 17px
+}
+
+/* Article Section */
+
+.article-section {
+    padding: 80px 0px;
+}
+
+.article-section .article-wrapper {
+    background-color: #fbdcb2;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    line-height: 0;
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    overflow: hidden;
+    flex-direction: column
+}
+
+.article-section .article-wrapper .left,
+.article-section .article-wrapper .right {
+    width: 85%
+}
+
+.article-section .article-wrapper .right {
+    text-align: center;
+    margin-top: 25px
+}
+
+.article-section .article-wrapper .left {
+    padding: 50px 0 0 0;
+    position: relative;
+    top: 60px
+}
+
+.article-section .article-wrapper .right img {
+    margin-bottom: -10px
+}
+
+.article-section h2 {
+    font-family: var(--zf-primary-bold);
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.article-section a {
+    font-family: var(--zf-primary-semibold)
+}
+
+.article-section a .arrow {
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    border-color: #03a9f5;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 10px
+}
+
+.article-section a:hover {
+    text-decoration: underline
+}
+
+/*faq-section*/
+.common-section.faq-section {
+    padding-top: 0;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 70px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4:before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active:before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox>ul {
+    padding: 0 40px 25px 0;
+    display: none;
+}
+
+.z-accordianBox>ul>li {
+    position: relative;
+}
+
+.faq-section {
+    padding: 80px 0px 80px;
+}
+
+.other-lang .za-inner-testimonials,
+.other-lang .testimonials-section {
+    display: none;
+}
+
+.i18n-pt-br section.za-services-offer.zwe-ob.zwe-om.zwe-ot {
+    display: none;
+}
+
+/* popup screen */
+.modal#adsModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000d6;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .modal-content {
+    background-image: url(/sites/zweb/images/analytics/za-comparison-bg.png);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    overflow: hidden;
+    border: 4px solid #ffffff8f;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.umain .modal .modal-content {
+    padding: 30px 0px 0px 30px;
+}
+
+
+.modal .modal-content .left,
+.modal .modal-content .right {
+    width: 50%;
+    text-align: left;
+}
+
+.modal .close {
+    position: absolute;
+    top: -6px;
+    right: 6px;
+    font-size: 30px;
+    color: #888888;
+    cursor: pointer;
+    background: 0;
+    border: 0;
+    z-index: 111;
+}
+
+.modal .signup-box {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    box-shadow: 0px 15px 61px 0px #2f21022e;
+    height: 404px;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.umain .modal-content .right img {
+    display: block;
+    width: 80%;
+}
+
+.modal-content .right img {
+    display: none;
+}
+
+.modal .left .act-btn {
+    display: none;
+}
+
+.umain .modal-content .left .act-btn {
+    display: inline-block;
+    margin-top: 9px;
+}
+
+.umain .modal .modal-content .right {
+    text-align: -webkit-right;
+
+}
+
+@media (max-width: 1600px) {
+
+    .icon-border-section,
+    .comparison-table-section {
+        background-image: unset;
+    }
+}
+
+
+@media only screen and (max-width: 1366px) {
+    .za-cust-counts ul>li>span {
+        font-size: 42px;
+        line-height: 42px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .icon-border-section .content-main .card {
+        width: 45%;
+    }
+
+    .icon-border-section.blue .content-main .card::before {
+        left: 43%;
+        background-color: #666a8d;
+        border-radius: 5px;
+    }
+
+    .icon-border-section .content-main .card::before {
+        left: 43%;
+        background-color: #666;
+        border-radius: 5px;
+    }
+
+    .icon-border-section .content-main .card::after {
+        background-color: unset;
+    }
+
+    .zwc-nav-box {
+        padding: 30px
+    }
+
+    .icon-border-section.blue .content-main .card::after,
+    .icon-border-section.dark .content-main .card::after {
+        display: none;
+    }
+}
+
+@media (max-width: 1110px) {
+    .banner-section {
+        padding-top: 120px;
+    }
+
+    .banner-section .left-wrapper,
+    .banner-section .right-wrapper {
+        flex: auto;
+    }
+
+    .banner-section .left-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .banner-section .right-wrapper,
+    .banner-section .right-wrapper {
+        padding-top: 45px;
+        text-align: center;
+    }
+
+    .banner-section .right-wrapper img {
+        width: 50%;
+    }
+
+    .banner-section .left-wrapper h1 {
+        font-size: 34px;
+    }
+
+    .banner-section .left-wrapper span.comparison-title {
+        font: 20px Zoho_Puvi_Bold;
+        margin-bottom: 10px;
+    }
+
+    .banner-section .left-wrapper p {
+        font-size: 17px;
+    }
+
+    .dashboard-wrapper .header-content h2,
+    .za-generative-ai-wrappper h2,
+    .icon-border-section h2,
+    .comparison-table-section h2,
+    .pre-banner-section.light .content-wrapper h2,
+    .pricing-calculator h2,
+    .sticky-section .content-wrap h2,
+    .za-services-offer h2,
+    .testimonials-section .content-wrap h2,
+    .faq-section h2,
+    .i18n-en .faq-section h2,
+    .article-section h2 {
+        font: 30px / 1.3 Zoho_Puvi_Bold;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper ul li,
+    .sticky-section .scroll-card ul li {
+        font-size: 17px;
+    }
+
+    .za-generative-ai-wrappper .box-wrapper .box-item h3,
+    .sticky-section .scroll-card h3 {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 1080px) {
+    .pricing-calculator .pricing-table {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .dashboard-wrapper .main-wrapper .content-wrapper,
+    .dashboard-wrapper .main-wrapper .image-wrapper,
+    .reported-section .report-slider,
+    .reported-section .content-wrap .trust-section {
+        width: 100%;
+    }
+
+    .dashboard-wrapper .main-wrapper .image-wrapper {
+        order: 1;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        order: 2;
+    }
+
+    .dashboard-wrapper .main-wrapper {
+        gap: 30px;
+        padding: 40px 20px 40px;
+        flex-direction: column;
+        text-align: center;
+        background-color: #f8f9fc;
+        margin-top: 20px;
+        border-radius: 12px;
+    }
+
+    .dashboard-wrapper .header-content {
+        margin-bottom: 40px;
+    }
+
+    .dashboard-wrapper .main-wrapper.left-content::before,
+    .dashboard-wrapper .main-wrapper.right-content::before {
+        display: none;
+    }
+
+    .icon-border-section {
+        background-image: unset;
+    }
+
+    .icon-border-section {
+        background-color: var(--primary-font-color);
+    }
+
+    .icon-border-section .content-main .card {
+        margin-top: 20px;
+    }
+
+    .sticky-section .scroll-card {
+        flex-wrap: wrap;
+        height: unset
+    }
+
+    .sticky-section .scroll-card .left-wrapper,
+    .sticky-section .scroll-card .right-wrapper {
+        width: 100%
+    }
+
+    .sticky-section .scroll-card {
+        margin: 20px 0 30px;
+        position: unset;
+        padding: 30px 20px;
+        transform: scale(1) !important;
+    }
+
+    .sticky-section {
+        padding: 60px 0 0
+    }
+
+    .reported-section .content-wrap,
+    .testimonials-section .content-wrap,
+    .za-services-offer .services-grid,
+    .zwc-nav-box-wrap {
+        flex-wrap: wrap;
+    }
+
+    .za-generative-ai-wrappper .box-wrapper .left-wrapper,
+    .za-generative-ai-wrappper .box-wrapper .right-wrapper {
+        flex: auto;
+    }
+
+    .za-generative-ai-wrappper .box-wrapper {
+        flex-direction: column;
+    }
+
+    .za-services-offer .services-grid .services-item {
+        align-items: center;
+    }
+
+    .za-services-offer.dark .services-grid .services-item img {
+        width: 60%;
+    }
+
+    .za-services-offer .services-grid .services-card,
+    .za-services-offer.dark .services-grid .services-card {
+        width: calc(100% - 10px);
+    }
+
+    .rating-table {
+        max-width: 100%;
+    }
+
+    .zwc-nav-scroll-section,
+    .za-services-offer .services-grid .services-item h3 {
+        margin-top: 30px;
+    }
+
+    .sticky-section .section-wrapper {
+        margin-top: 40px;
+    }
+
+    .za-generative-ai-wrappper .box-wrapper .box-item ul li {
+        padding-left: 8px;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper ul li {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-section .left-wrapper p {
+        font-size: 19px;
+    }
+
+    .za-cust-counts ul>li>span {
+        font-size: 38px;
+        line-height: 38px;
+    }
+
+    .za-cust-counts ul>li p {
+        font-size: 17px;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        padding: 0;
+    }
+
+    .icon-border-section .content-main .card {
+        width: 100%;
+    }
+
+    .pricing-calculator .powerbi-Cost,
+    .pricing-calculator .Zoho-Analytics,
+    .pricing-calculator .powerbiPro,
+    .pricing-calculator .powerbiPremium,
+    .pricing-calculator .chart,
+    .pricing-calculator .sampleLabel {
+        width: 100%
+    }
+
+    .pricing-calculator .table-row-container {
+        flex-wrap: wrap
+    }
+
+    .pricing-calculator #zoho-total {
+        padding-inline-start: 0
+    }
+
+    .pricing-calculator .chart .line-20,
+    .pricing-calculator .chart .line-40,
+    .pricing-calculator .chart .line-60,
+    .pricing-calculator .chart::before {
+        inset-inline-start: 0;
+        width: 100%
+    }
+
+    .pricing-calculator .table-row-container .hidden {
+        display: none;
+    }
+
+    .pricing-table .table-view,
+    .powerbi-Cost .table-view {
+        width: unset
+    }
+
+    .powerbi-Cost {
+        margin-top: 20px
+    }
+
+    .pricing-calculator .pricing-table-row {
+        justify-content: center
+    }
+
+    .powerbi-premium-not,
+    .article-section h2 {
+        text-align: center
+    }
+
+    .read-more-link {
+        margin-left: 0
+    }
+
+    .comparison-table table thead th {
+        font-size: 20px;
+    }
+
+    .brand-wrapper {
+        padding-bottom: 50px;
+        border-radius: 0 0 50px 50px;
+    }
+
+    .pricing-calculator #savings-amount,
+    .pricing-calculator #savings-percent,
+    .pricing-calculator #powerbi-creator-cost,
+    .pricing-calculator #powerbi-explorer-cost,
+    .pricing-calculator #powerbi-viewer-cost,
+    .pricing-calculator #zoho-users-cost,
+    .pricing-calculator #zoho-viewers-cost,
+    #powerbi-total {
+        margin-left: 8px;
+    }
+
+    .article-section .article-wrapper .left {
+        top: 0;
+        padding: 0
+    }
+
+    .article-section .article-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 15px 0
+    }
+
+    .article-section .article-wrapper .left,
+    .article-section .article-wrapper .right {
+        width: 100%
+    }
+
+    .pricing-calculator .bar {
+        width: 95px;
+    }
+
+    .pricing-calculator .chart {
+        justify-content: space-around;
+    }
+
+    .pricing-calculator .lable-wrapper {
+        width: 90%;
+    }
+
+    .modal {
+        display: none !important;
+    }
+}
+
+
+@media only screen and (max-width: 565px) {
+    .za-cust-counts ul>li>span {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .za-cust-counts ul>li p {
+        font-size: 14px;
+    }
+
+    .za-cust-counts ul {
+        margin: 14px auto 45px;
+    }
+
+    .icon-border-section,
+    .za-services-offer.dark .services-grid .services-item img,
+    .dashboard-wrapper .header-content h2,
+    .sticky-section .content-wrap h2,
+    .testimonials-section .content-wrap h2 {
+        width: 100%;
+    }
+
+    .icon-border-section .content-main,
+    .za-generative-ai-wrappper .box-wrapper {
+        margin-top: 50px;
+    }
+
+    .icon-border-section .content-main .card::before {
+        left: 43%;
+    }
+
+    .reported-section .report-slider {
+        padding: 30px 20px;
+    }
+
+    .scroll-wrapper {
+        margin: 20px auto 0
+    }
+
+    .testimonials-section .descriptions-wrapper p {
+        font-size: 15px
+    }
+
+    .zwc-nav-scroll-section {
+        margin-top: 30px
+    }
+
+    .banner-section .left-wrapper h1 {
+        font-size: 27px;
+    }
+
+    .banner-section .left-wrapper p {
+        font-size: 17px;
+    }
+
+    .dashboard-wrapper .header-content h2,
+    .za-generative-ai-wrappper h2,
+    .icon-border-section h2,
+    .comparison-table-section h2,
+    .pre-banner-section.light .content-wrapper h2,
+    .pricing-calculator h2,
+    .sticky-section .content-wrap h2,
+    .za-services-offer h2,
+    .testimonials-section .content-wrap h2,
+    .faq-section h2,
+    .i18n-en .faq-section h2,
+    .article-section h2 {
+        font: 25px / 1.3 Zoho_Puvi_Bold;
+    }
+
+    .icon-border-section .content-main .card h3 {
+        font-size: 19px;
+    }
+
+    .za-inner-testimonials p {
+        font-size: 16px;
+    }
+
+    .za-inner-testimonials .designation {
+        font-size: 15px;
+    }
+
+    .slider-container label {
+        font-size: 20px;
+    }
+
+    .pre-banner-section,
+    .za-services-offer,
+    .dashboard-wrapper,
+    .icon-border-section,
+    .comparison-table-section,
+    .icon-border-section,
+    section.za-inner-testimonials,
+    .pricing-calculator,
+    .reported-section,
+    .testimonials-section,
+    .faq-section,
+    .za-generative-ai-wrappper,
+    .article-section {
+        padding: 50px 0;
+    }
+
+    .banner-section .right-wrapper img {
+        width: 90%;
+    }
+
+    .za-counts-section {
+        padding: 0px 15px;
+    }
+
+    .z-accordianBox h4 {
+        font-size: 16px;
+    }
+
+    .z-accordianBox h4:before {
+        right: -39px;
+    }
+
+    .article-section {
+        padding-bottom: 50px;
+    }
+
+    .pricing-calculator .label {
+        font-size: 15px;
+    }
+
+    .pricing-calculator .lable-wrapper {
+        width: 100%;
+    }
+
+    .pricing-calculator .powerbiProBarLabel {
+        margin-left: 50px;
+    }
+
+    .pricing-calculator .powerbiPremiumBarLabel {
+        margin-left: 48px;
+    }
+}
+
+
+@media(max-width: 480px) {
+    .pricing-calculator .savings-info {
+        font-size: 16px
+    }
+
+    .pricing-calculator .pricing-table-row span {
+        font-size: 15px
+    }
+
+    .pricing-calculator .year {
+        font-size: 8px;
+    }
+
+    .pricing-calculator #powerbi-text-pro,
+    .pricing-calculator #powerbi-text-premium,
+    .pricing-calculator #zoho-text {
+        font: 14px / 1.1 var(--primaryfont-bold);
+    }
+
+    .i18n-pt-br .z-accordianBox h4:before {
+        right: -12px;
+    }
+
+}

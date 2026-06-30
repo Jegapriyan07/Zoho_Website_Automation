@@ -1,0 +1,324 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Zoho Puvi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+/* Popup Container */
+.popup-container {
+    position: relative;
+    background: linear-gradient(to bottom, #362546 0%, #050520 100%);
+    border: 4px solid #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    min-height: 400px;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Decorative background element */
+.popup-decoration {
+    position: absolute;
+    bottom: -215.64px;
+    left: 240px;
+    width: 567.639px;
+    height: 567.639px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Popup Content */
+.popup-content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 34px 29px;
+    gap: 40px;
+    z-index: 2;
+}
+
+/* Left Section */
+.popup-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 3;
+}
+
+/* Heading */
+.popup-heading {
+    font-family: 'Zoho Puvi', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.5;
+    color: #ffffff;
+    letter-spacing: -0.56px;
+    margin-top: 26px;
+}
+
+.popup-heading .highlight-text {
+    background: linear-gradient(135deg, #F06270 0%, #E53935 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+/* Buttons Container */
+.popup-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: #e42527;
+    border: 1px solid #e42527;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #ffffff;
+    font-family: 'Zoho Puvi', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    white-space: nowrap;
+    min-width: 139px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background: #c91e20;
+    border-color: #c91e20;
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 8px 0px rgba(228, 37, 39, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 8px 18px;
+    color: #ffffff;
+    font-family: 'Zoho Puvi', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    white-space: nowrap;
+    min-width: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+.btn-text {
+    padding: 0 2px;
+}
+
+/* Right Section - Image */
+.popup-right {
+    width: 254px;
+    height: 287px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+.customer-support-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Trigger Button (for demo) */
+.trigger-button {
+    padding: 12px 24px;
+    background: #e42527;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Zoho Puvi', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(228, 37, 39, 0.3);
+}
+
+.trigger-button:hover {
+    background: #c91e20;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 16px rgba(228, 37, 39, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup-container {
+        max-width: 95%;
+        margin: 20px;
+    }
+
+    .popup-content {
+        flex-direction: column;
+        padding: 24px 20px;
+        gap: 24px;
+    }
+
+    .popup-left {
+        width: 100%;
+    }
+
+    .popup-heading {
+        font-size: 22px;
+        margin-top: 0;
+    }
+
+    .popup-right {
+        width: 100%;
+        height: 250px;
+        align-self: center;
+    }
+
+    .popup-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .popup-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-heading {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .popup-content {
+        padding: 20px 16px;
+    }
+
+    .popup-right {
+        height: 200px;
+    }
+}
+
+
+
+
+

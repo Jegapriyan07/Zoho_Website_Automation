@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 170.285 204.889" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-16.8" y="-16.8" width="203.885" height="238.489"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(8.4px);clip-path:url(#bgblur_0_10380_14117_clip_path);height:100%;width:100%"></div></foreignObject><path id="Ellipse 9" data-figma-bg-blur-radius="16.8" d="M60.6897 204.889C94.4248 182.411 122.082 151.945 141.202 116.2C160.323 80.4543 170.313 40.5378 170.285 0L60.8337 0.0759125C60.8493 22.5775 55.304 44.7343 44.6908 64.5757C34.0776 84.4171 18.7256 101.328 0 113.805L60.6897 204.889Z" fill="url(#paint0_linear_10380_14117)" fill-opacity="0.5"/>
+<defs>
+<clipPath id="bgblur_0_10380_14117_clip_path" transform="translate(16.8 16.8)"><path d="M60.6897 204.889C94.4248 182.411 122.082 151.945 141.202 116.2C160.323 80.4543 170.313 40.5378 170.285 0L60.8337 0.0759125C60.8493 22.5775 55.304 44.7343 44.6908 64.5757C34.0776 84.4171 18.7256 101.328 0 113.805L60.6897 204.889Z"/>
+</clipPath><linearGradient id="paint0_linear_10380_14117" x1="-293.215" y1="168.671" x2="-187.215" y2="85.1706" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FD6F8E"/>
+<stop offset="1" stop-color="#E31B54"/>
+</linearGradient>
+</defs>
+</svg>

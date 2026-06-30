@@ -1,0 +1,57 @@
+---
+description: Enforce analytics ruleset patterns and semantic HTML best practices
+type: always
+globs:
+  - "zohoanalyticsclient/src/js/jsTemplates/view/**"
+---
+
+1. Do **not** create any `.html` files. Use the logic defined in `TemplateCreator` and `TemplateObject`.
+- Reference: `zohoanalyticsclient/src/js/clientlibraries/TemplateCreator.js`
+- Also refer to: `zohoanalyticsclient/src/js/clientlibraries/TemplateObject.js`
+2. When constructing HTML elements:
+- Follow the exact patterns used in existing View files.
+- Reference folder: `zohoanalyticsclient/src/js/jsTemplates/view`
+- Do **not invent new logic or structures** — strictly reuse existing patterns.
+3. All core UI logic must be written inside Controller files.
+- Reference: `zohoanalyticsclient/src/js/jsTemplates/controller`
+- Follow structure and flow seen in existing controllers.
+4. Use the Model pattern for structured data logic.
+- Reference: `zohoanalyticsclient/src/js/jsTemplates/model`
+- Analyze models thoroughly before creating new ones.
+5. For loops, conditionals, and dynamic data binding in views:
+- Study examples from: `zohoanalyticsclient/src/js/jsTemplates/view`
+6. Use existing custom components:
+- **Search**: `ZASearchComponent.js`
+- **Checkbox**: `ZACheckbox.js`
+- **RadioButton**: `ZARadioButton.js`
+- **ToggleButton**: `ZAToggleButton.js`
+- Never create duplicate components.
+7. Do not use Web Components (no `customElements`, Shadow DOM, or `<template>`).
+8. Reuse logic and structure from:
+- `zohoanalyticsclient/src/js/jsTemplates/controller`
+9. SCSS styles must be written in:
+- `zohoanalyticsclient/src/scss`
+- Analyze naming and organization before adding new styles.
+10. Follow naming conventions for `class`, `id`, and `elName`:
+- Match style from View files
+- Use `elName` attributes consistently.
+11. Use semantic HTML:
+- Tags like `<section>`, `<article>`, `<nav>`, `<main>`, `<footer>`, `<button>`, etc.
+- Avoid unnecessary `<div>` and `<span>`.
+12. Ensure accessibility:
+- Tab order, ARIA roles/labels, screen reader support, focus management.
+13. Do not use inline styles or inline event handlers (`onclick`, `onchange`).
+- All styles ➜ SCSS
+- All events ➜ controller JS
+14. Enforce ESLint consistency:
+- Config: `zohoanalyticsclient/.eslintrc.js`
+- Run linter before commits. Maintain indentation, naming, and formatting.
+15. Use and reuse utility functions from:
+- `zohoanalyticsclient/src/js/clientlibraries`
+- Refer to how these are used in controllers.
+16. For accurate understanding of architecture:
+- Study 20–30 files each from:
+- `view`, `controller`, and `model` folders
+- This is **required** to follow correct data flow and rendering.
+17. When loading modules:
+- Use `preloadMVCFilesForModule(...)` for proper dependency resolution.

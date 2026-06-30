@@ -1,0 +1,107 @@
+
+.threeSimpleSteps-section {
+    padding: 90px 0 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper {
+    display: flex;
+    gap: 60px;
+    margin-top: 97px;
+    z-index: 33;
+    position: relative
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item {
+    flex: 1;
+    padding: 15px;
+    position: relative
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item h3 {
+    color: #006fda
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item:before {
+    border-radius: 50%;
+    background-color: #262626;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    padding-top: 2px;
+    left: 47%
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item1::before {
+    content: "1";
+    top: -45px
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item2::before {
+    content: "2";
+    bottom: -45px
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item3::before {
+    content: "3";
+    top: -45px
+}
+
+.threeSimpleSteps-section .background-svg {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.threeSimpleSteps-section .animated-line {
+    fill: none;
+    stroke: #e1e1e1;
+    stroke-width: 2;
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    transition: stroke-dashoffset 5s ease-in-out
+}
+
+
+@media (max-width:1200px) {
+    .threeSimpleSteps-section .background-svg {
+        display: none
+    }
+
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper {
+        flex-wrap: wrap
+    }
+
+    .threeSimpleSteps-section .background-svg {
+        display: none
+    }
+
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item2::before {
+        top: -45px;
+        bottom: 0
+    }
+
+    .threeSimpleSteps-section {
+        padding: 70px 0 40px
+    }
+}
+
+@media (max-width:1080px) {
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item {
+        flex: auto
+    }
+
+    .threeSimpleSteps-section .header-text {
+        font-size: 16px
+    }
+}
+
+@media only screen and (max-width:565px) {
+    .threeSimpleSteps-section .header-text {
+        font-size: 15px
+    }
+}
