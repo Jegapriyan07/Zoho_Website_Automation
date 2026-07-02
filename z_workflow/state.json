@@ -1,76 +1,76 @@
 {
-  "run_id": "cloud-analytics-tools-2026-06-29",
-  "timestamp": "2026-06-29T22:00:00.000Z",
-  "page_slug": "cloud-analytics-tools",
+  "run_id": "feature-grid-template-2026-07-02",
+  "timestamp": "2026-07-02T18:00:00.000Z",
+  "page_slug": "feature-grid-template",
 
   "writer_brief": {
-    "source_url": "https://writer.zoho.in/writer/open/qbqks8f7615f6d1694c04990470ffa8a8cc44",
-    "raw_content": "Extracted via Chrome MCP editor.doc — 25,107 chars. Saved: z_workflow/briefs/cloud-analytics-tools.txt",
-    "extraction_method": "chrome-mcp-editor-doc",
+    "source_url": null,
+    "raw_content_file": "z_workflow/briefs/feature-grid-template.txt",
+    "extraction_method": "docx-extract",
     "extraction_status": "complete",
-    "raw_content_file": "z_workflow/briefs/cloud-analytics-tools.txt",
-    "page_title": "Cloud Analytics Tools Guide for 2026: Comparison Matrix",
-    "page_type": "comparison-page",
+    "extraction_validated": true,
+    "validation_archetype": "none",
+    "extracted_char_count": 3624,
+    "page_title": "Zoho Analytics landing page - Feature grid template",
+    "page_type": "landing-page",
     "product_name": "Zoho Analytics",
-    "target_audience": "Business teams evaluating cloud BI and analytics platforms",
+    "target_audience": "Business users evaluating BI platforms",
     "tone": "professional",
     "sections_required": [
       "hero",
+      "stats",
       "features",
-      "content-blocks",
-      "cta",
-      "comparison",
-      "steps",
+      "recognition",
       "testimonials",
+      "pricing",
+      "cta",
       "faq"
     ],
     "key_messages": [
-      "Compare top 5 cloud analytics tools in 2026",
-      "Zoho Analytics at $8/user with 500+ connectors and Zia AI",
-      "5-step framework to choose the right tool",
-      "Feature comparison matrix for connectivity, AI, security, embedding",
-      "6 FAQs on cloud analytics"
+      "AI-powered BI and analytics in one place",
+      "Full analytics lifecycle in a single platform",
+      "Industry recognition and customer proof",
+      "Plans from free to enterprise"
     ],
     "keywords": [
-      "cloud analytics",
-      "comparison",
       "Zoho Analytics",
-      "Looker",
-      "Microsoft Fabric",
-      "Domo",
-      "ThoughtSpot",
-      "BI tools"
-    ]
+      "BI platform",
+      "feature grid",
+      "dashboards",
+      "AI analytics",
+      "self-service BI"
+    ],
+    "notes": "Extracted from Zoho_Analytics_landing_page_-_Feature_grid_template.docx. No section-composites archetype — composed from section-index patterns. 9 feature cards, 3 recognition blocks, 2 testimonials, 5 plan tiers, 5 FAQ items."
   },
 
   "site_scan": {
     "status": "complete",
     "source": "site-catalog.json",
     "total_sites": 43,
-    "catalog_generated_at": "2026-06-29T06:01:05.875Z"
+    "catalog_generated_at": "2026-06-30T05:27:22.239Z"
   },
 
   "similarity": {
     "status": "complete",
+    "archetype": "none",
     "scored_sites": [
-      { "site_name": "page-revamp", "score": 5 },
-      { "site_name": "collaborative-bi", "score": 4.9 },
-      { "site_name": "BI Finance", "score": 4.5 }
+      { "site_name": "page-revamp", "score": 4.7 },
+      { "site_name": "BI Finance", "score": 4.2 },
+      { "site_name": "Business-Intelligence", "score": 4.2 }
     ],
-    "primary_source": "comparison page",
-    "secondary_source": "PowerBI New",
+    "primary_source": "Business-Intelligence",
+    "secondary_source": "Executive-Dashboards",
     "structure_mode": "compose",
-    "synthesis_note": "Top auto-match score 5/10 — below synthesis_threshold 6; composed from section-index + team DNA",
+    "synthesis_note": "Feature grid template landing — hero + stats + 9-card box-icon grid + recognition + testimonials + plan tiers + CTA + FAQ",
     "source_map": [
-      { "section": "hero", "site": "sales-dashboard-examples", "class": "banner-section", "layout": "split" },
-      { "section": "key-takeaways", "site": "sales-dashboard-examples", "class": "box-icon-section", "layout": "3col-grid" },
-      { "section": "intro-blocks", "site": "SYNTHESISED", "class": "intro-content-section", "layout": "centered" },
-      { "section": "cta", "site": "Executive-Dashboards", "class": "pre-banner-section", "layout": "centered-fullwidth" },
-      { "section": "at-a-glance-table", "site": "PowerBI New", "class": "comparison-table-section", "layout": "full-bleed" },
-      { "section": "tool-reviews", "site": "Executive-Dashboards", "class": "dashboard-wrapper", "layout": "zigzag" },
-      { "section": "how-to-choose", "site": "Executive-Dashboards", "class": "steps-section", "layout": "tabbed-steps" },
-      { "section": "features-table", "site": "PowerBI New", "class": "comparison-table-section", "layout": "2col-comparison" },
-      { "section": "faq", "site": "Executive-Dashboards", "class": "faq-section", "layout": "accordion" }
+      { "section": "hero", "site": "Executive-Dashboards", "class": "banner-section", "layout": "split-text-left-image" },
+      { "section": "stats", "site": "page-revamp", "class": "za-counts-section", "layout": "3-stat-row", "repeat_count": 3 },
+      { "section": "features", "site": "Business-Intelligence", "class": "box-icon-section", "layout": "3col-grid", "repeat_count": 9 },
+      { "section": "recognition", "site": "BI-Marketing", "class": "reported-section", "layout": "recognition-grid", "repeat_count": 3 },
+      { "section": "testimonials", "site": "BI-Marketing", "class": "testimonials-section", "layout": "static-2col", "repeat_count": 2 },
+      { "section": "pricing", "site": "Help-page", "class": "plans-section", "layout": "5-tier-grid", "repeat_count": 5 },
+      { "section": "closing-cta", "site": "Executive-Dashboards", "class": "pre-banner-section", "layout": "centered-fullwidth" },
+      { "section": "faq", "site": "Executive-Dashboards", "class": "faq-section", "layout": "accordion", "repeat_count": 5 }
     ]
   },
 
@@ -78,34 +78,35 @@
     "status": "complete",
     "design_tokens": {
       "color_primary": "#008EF5",
+      "color_secondary": "#9914FF",
       "color_accent": "#e42527",
-      "color_dark_bg": "#010101",
-      "color_light_bg": "#f8f9fc",
-      "color_text_primary": "#262626",
+      "color_dark_bg": "#171C2C",
+      "color_light_bg": "#EFF4FF",
+      "color_text_primary": "#162033",
+      "color_text_secondary": "#4A5568",
       "font_display": "var(--zf-primary-bold)",
       "font_body": "var(--zf-primary-regular)",
       "spacing_section_v": "90px"
     },
-    "team_flavour": "Split hero, box-icon key takeaways, zigzag tool reviews, tabbed steps, comparison tables, pre-banner CTAs, z-accordian FAQ."
+    "team_flavour": "Split hero with eyebrow, za-counts stats strip, 9-card box-icon feature grid, reported-section recognition cards, static testimonials, 5-tier plans grid, pre-banner CTA, z-accordian FAQ."
   },
 
   "phase_2": {
     "status": "complete",
     "webpage_blueprint": {
-      "page_title": "Cloud Analytics Tools Guide for 2026: Comparison Matrix | Zoho Analytics",
-      "page_slug": "cloud-analytics-tools",
-      "meta_description": "Compare the top cloud analytics tools in 2026. See how Zoho Analytics, Looker, Microsoft Fabric, Domo, and ThoughtSpot stack up on pricing, AI, connectors, and deployment.",
-      "output_path": "output/cloud-analytics-tools/",
-      "section_count": 16
+      "page_title": "AI-Powered BI & Analytics Platform | Zoho Analytics",
+      "page_slug": "feature-grid-template",
+      "meta_description": "Zoho Analytics turns scattered spreadsheets, apps, and databases into live dashboards and AI-driven insights — no coding, no waiting on IT.",
+      "output_path": "output/feature-grid-template/",
+      "section_count": 8
     }
   },
 
   "phase_6": {
     "status": "complete",
-    "output_path": "output/cloud-analytics-tools/",
+    "output_path": "output/feature-grid-template/",
     "files_written": ["index.html", "style.css", "script.js"],
-    "approved": true,
-    "revise_rounds": 1,
-    "rebuild_note": "Layout pass — Zoho detail panel split, zigzag rows fixed, CTA/pre-banner/table/card grid styling"
+    "approved": false,
+    "revise_rounds": 0
   }
 }

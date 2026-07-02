@@ -7,6 +7,8 @@ alwaysApply: true
 
 When building pages via `z_workflow/cursor-build-workflow.md`, **compose structure from section patterns** — do not clone a whole reference page.
 
+**New Writer doc?** Read `z_workflow/writer-drop-playbook.md` before Phase 0.
+
 **Gold-standard output:** `output/sales-dashboard-examples/` — correct BEM, section patterns, brief-driven copy, dev handoff placeholders.
 
 ## What this means
@@ -68,9 +70,15 @@ Output is a **structured scaffold** for the dev team:
 
 ## Before approve
 
-Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). Open `index.html` in the browser. Update `z_workflow/state.json` → `phase_6.revise_rounds` on rebuilds.
+Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `z_workflow/agent-build-gates.md`** — verify CTAs are visible in browser, all Writer pages extracted, composite sections present. Open `index.html` in the browser. Update `z_workflow/state.json` → `phase_6.revise_rounds` on rebuilds.
 
 ## Anti-patterns
+
+- ❌ Hiding `.cta-btn` in output without `.page-container .cta-btn.act-btn { display: inline-block }` override
+- ❌ Tinting `.cta-btn.act-btn` or **See all testimonials** from page `--color-primary` — brand red `#e42527` only (`Rulesbook.md` §2.2.1)
+- ❌ Tinting `.zwc-nav-box` testimonial cards from page theme (cyan/violet/teal) — use fixed extracted peach/mint/blue (`Rulesbook.md` §2.2.2)
+- ❌ Extracting only page 1 of a multi-page Writer doc
+- ❌ Skipping `reported-section` / `testimonials-section` on dashboard-examples landings when brief page ~10 has social proof
 
 - ❌ Copying entire `style.css` / `script.js` from a reference folder
 - ❌ Keeping reference sections not in the writer's doc

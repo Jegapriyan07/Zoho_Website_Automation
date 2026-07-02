@@ -1,0 +1,51 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\sales-dashboard-examples.txt",
+  "archetype": "dashboard-examples-landing",
+  "archetype_score": 12,
+  "required_found": [
+    "Explore Examples",
+    "Dresner Advisory",
+    "Hear from our customers",
+    "STEP 1",
+    "STEP 4"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 5,
+    "page_markers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11
+    ],
+    "has_testimonials_heading": true,
+    "has_see_all_testimonials": true,
+    "has_dresner": true,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "GetApp",
+      "FinancesOnline",
+      "Capterra",
+      "G2",
+      "Google Workspace Marketplace"
+    ],
+    "char_count": 8300
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-06-30T10:35:27.692Z"
+}

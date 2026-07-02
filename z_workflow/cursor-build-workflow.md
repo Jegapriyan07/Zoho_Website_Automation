@@ -6,6 +6,8 @@ This workflow turns a Zoho Writer brief into a **structured dev handoff** in `ou
 
 **Gold-standard example:** `output/sales-dashboard-examples/` — composed from section patterns (`banner-section`, `dashboard-wrapper` zigzag rows, `box-icon-section`, `steps-section`, `faq-section`), brief-driven block counts, placeholder assets.
 
+**New Writer doc dropped?** Read **[writer-drop-playbook.md](writer-drop-playbook.md)** first — extraction, archetypes, section order, CTA visibility, pre-approve checks.
+
 ---
 
 ## Sources of truth
@@ -16,6 +18,8 @@ This workflow turns a Zoho Writer brief into a **structured dev handoff** in `ou
 | `Rulesbook.md` | Permanent coding law — fonts, BEM, breakpoints |
 | `.cursor/rules/structure-first-pipeline.mdc` | **Always-on override** — compose from section patterns, never clone whole pages |
 | `section-index.json` | Section type → best reference folder + BEM class |
+| `section-composites.json` | Multi-section archetypes (e.g. dashboard-examples landing) — **read when brief matches** |
+| `writer-drop-playbook.md` | **New Writer drop** — exact output checklist, section order, reference patterns |
 | Writer brief | **Only** source for copy, section list, and block counts |
 
 ```mermaid
@@ -43,6 +47,9 @@ Before any code:
    - `site-catalog.json` — reference site metadata
    - `section-index.json` — section type → best reference
    - `team-dna.json` — team tokens + synthesis threshold
+   - `section-composites.json` — multi-section archetypes (dashboard-examples landing, etc.)
+   - `writer-drop-playbook.md` — **read when a new Writer doc is dropped**
+   - `agent-build-gates.md` — short pre-approve checklist
 4. Read or initialize `state.json`
 
 **Hard stops:** No build until the writer brief is loaded. Nav and footer are never built — comment placeholders only.
@@ -51,11 +58,16 @@ Before any code:
 
 ## 2. Acquire the Writer brief
 
+> **Full procedure:** [writer-drop-playbook.md](writer-drop-playbook.md) §1–2 (scroll all pages, archetype match, save to `briefs/`).
+
 | Method | How |
 |--------|-----|
-| **A — Zoho Writer URL (preferred)** | Chrome MCP opens URL → extract full text → save to `briefs/{slug}.txt` |
-| **B — File or paste** | Read `.txt` / `.md` directly or from pasted content |
+| **A — Automated extract (preferred)** | `npm run extract:writer -- --url "…" --slug {slug}` → `briefs/{slug}.txt` + auto `validate:brief` |
+| **A2 — Chrome MCP** | Agent runs `WRITER_BROWSER_EXTRACT_FN` from `scripts/writer-extract-core.mjs` → then `npm run validate:brief` |
+| **B — File or paste** | Read `.txt` / `.md` directly or from pasted content — still run `validate:brief` |
 | **C — Nothing yet** | Prompt for URL, file, or paste and wait |
+
+**Hard stop:** Do not run `match-sites` or build until `validate:brief` exits 0.
 
 Extract into `state.json → writer_brief`:
 

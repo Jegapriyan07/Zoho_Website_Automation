@@ -156,6 +156,8 @@ Use a minimal grey rectangle as a stand-in. Do not copy SVG markup from other pr
 - **Font and typography:** Before writing any typography rule (font-size, font-family, line-height, letter-spacing) for h1–h6, `p`, or `a`, check `zohocustom.css` and align with what is defined there. Use `:root` font variables (`--zf-primary-regular`, `--zf-primary-semibold`, `--zf-primary-bold`) and the global body font. Do not introduce arbitrary font values; only override when the design explicitly requires it.
 - **`.content-wrap`:** Fully defined in `zohocustom.css`. Do not write any CSS for `.content-wrap` in page styles.
 - **`.act-btn`:** Base CTA styles are defined globally. Do not redefine base padding, border-radius, or font on `.act-btn`; only add variant classes (e.g. `.call-btn`, `.book-btn`) in `style.css` for colour or border overrides.
+- **Brand CTA red (immutable):** Set `--color-brand-cta: #e42527` and `--primary-btn-color: #e42527` in `:root`. Only `.cta-btn.act-btn` and **See all testimonials** use red — keep each page's own theme for everything else. See `Rulesbook.md` §2.2.1.
+- **Testimonial cards (immutable palette):** `.zwc-nav-box` peach/mint/blue pastels are **fixed extracted values** on every page — never derived from page theme. Copy from `Rulesbook.md` §2.2.2 / `team-dna.json`. Gold standard: `output/financial-dashboard-examples/style.css`.
 - Single-class selectors preferred; BEM-like naming (`.section-name`, `.section-name__element`). Avoid `!important` unless overriding third-party or base styles.
 - Use design tokens / CSS variables where available. Prefer `var(--...)` over hardcoded hex values when tokens exist.
 

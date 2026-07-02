@@ -1,0 +1,47 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\client-dashboard-software.txt",
+  "archetype": "agency-landing",
+  "archetype_score": 11,
+  "required_found": [
+    "Book a free demo",
+    "How client dashboard tool works",
+    "Step 1",
+    "Step 4",
+    "Hear from our happy customers",
+    "See all testimonials",
+    "Dresner Advisory",
+    "GetApp",
+    "Ready to give every client a dashboard"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 9,
+    "page_markers": [],
+    "has_testimonials_heading": true,
+    "has_see_all_testimonials": true,
+    "has_dresner": true,
+    "has_how_it_works": true,
+    "rating_platforms": [
+      "GetApp",
+      "FinancesOnline",
+      "Capterra",
+      "G2",
+      "Google Workspace Marketplace",
+      "Software Advice"
+    ],
+    "char_count": 10609
+  },
+  "errors": [],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~9)"
+  ],
+  "validated_at": "2026-06-30T10:04:04.777Z"
+}

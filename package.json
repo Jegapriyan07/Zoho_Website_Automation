@@ -7,7 +7,12 @@
     "audit": "node z_workflow/scripts/site-audit.mjs",
     "match": "node z_workflow/scripts/match-sites.mjs",
     "match:validate": "node z_workflow/scripts/match-sites.mjs --validate",
+    "extract:writer": "node z_workflow/scripts/extract-writer.mjs",
+    "validate:brief": "node z_workflow/scripts/validate-brief.mjs",
     "promote": "node z_workflow/scripts/promote-output.mjs",
     "organize": "node z_workflow/scripts/organize-reference-sites.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.0.0"
   }
 }

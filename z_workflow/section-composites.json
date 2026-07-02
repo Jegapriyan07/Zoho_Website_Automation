@@ -1,0 +1,248 @@
+{
+  "version": "1.2",
+  "description": "Multi-section page archetypes. When brief signals match, use this section order and reference folders — similarity scoring alone will miss social-proof blocks.",
+  "composites": {
+    "dashboard-examples-landing": {
+      "description": "50+ dashboard examples landings (sales, finance, marketing, etc.)",
+      "brief_signals": [
+        "50+",
+        "dashboard examples",
+        "by type",
+        "Explore Examples",
+        "one-click",
+        "Connect popular",
+        "Build Finance Dashboards Now",
+        "Build Sales Dashboards Now"
+      ],
+      "writer_page_hints": "Page ~10 = Dresner/ratings + Hear from our customers. Steps (STEP 1–4) come AFTER testimonials in the Writer doc.",
+      "required_strings": [
+        "Explore Examples",
+        "Dresner Advisory",
+        "Hear from our customers",
+        "STEP 1",
+        "STEP 4"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 4,
+        "min_rating_platforms": 4,
+        "require_testimonials_heading": true,
+        "require_see_all_testimonials": false,
+        "require_dresner": true
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
+        { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack", "pattern_notes": "scroll-card stacking per BI Finance — not dashboard-wrapper zigzag" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta_pattern": "Build * Dashboards Now" },
+        { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
+        { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right cards" },
+        { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + See all testimonials link + dual zwc-nav-box-wrap" },
+        { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
+      ],
+      "cta_strings_required": [
+        "Explore Examples",
+        "Build Finance Dashboards Now",
+        "Build Sales Dashboards Now",
+        "START FOR FREE",
+        "See all testimonials"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".testimonials-section .content-wrap a { color: var(--primary-btn-color); }",
+        ".testimonials-section .content-wrap a .arrow { border-color: var(--primary-btn-color); }",
+        ".zwc-nav-box:nth-child(1), .zwc-nav-box:nth-child(4) { background-color: var(--testimonial-peach-bg); border-color: var(--testimonial-peach-border); }",
+        ".zwc-nav-box:nth-child(2), .zwc-nav-box:nth-child(5) { background-color: var(--testimonial-mint-bg); border-color: var(--testimonial-mint-border); }",
+        ".zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { background-color: var(--testimonial-blue-bg); border-color: var(--testimonial-blue-border); }"
+      ],
+      "gold_standard_outputs": [
+        "output/financial-dashboard-examples"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "dashboard-examples-landing-sales": {
+      "description": "Sales dashboard examples landing — zigzag types, CRM integrations, steps, CTA, FAQ (no Dresner/testimonials in Writer doc)",
+      "brief_signals": [
+        "sales dashboard examples",
+        "Sales Dashboard Examples by Type",
+        "Explore Examples",
+        "Build Sales Dashboards Now",
+        "Connect popular CRMs",
+        "revenue teams",
+        "one-click"
+      ],
+      "writer_page_hints": "10 pages · ~6800 Chars. Steps (STEP 1–4) on pages 6–7, closing CTA pages 8–9, FAQ pages 9–10. No recognition/testimonials block in current Writer doc.",
+      "expected_page_count": 10,
+      "required_strings": [
+        "Explore Examples",
+        "Build Sales Dashboards Now",
+        "Connect popular CRMs",
+        "STEP 1",
+        "STEP 4",
+        "START FOR FREE"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 4,
+        "min_faq": 5,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
+        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta": "Build Sales Dashboards Now" },
+        { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
+        { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
+      ],
+      "cta_strings_required": [
+        "Explore Examples",
+        "Build Sales Dashboards Now",
+        "START FOR FREE"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".testimonials-section .content-wrap a { color: var(--primary-btn-color); }",
+        ".testimonials-section .content-wrap a .arrow { border-color: var(--primary-btn-color); }",
+        ".zwc-nav-box:nth-child(1), .zwc-nav-box:nth-child(4) { background-color: var(--testimonial-peach-bg); border-color: var(--testimonial-peach-border); }",
+        ".zwc-nav-box:nth-child(2), .zwc-nav-box:nth-child(5) { background-color: var(--testimonial-mint-bg); border-color: var(--testimonial-mint-border); }",
+        ".zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { background-color: var(--testimonial-blue-bg); border-color: var(--testimonial-blue-border); }"
+      ],
+      "gold_standard_outputs": [
+        "output/sales-dashboard-examples"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "dashboard-examples-landing-hr": {
+      "description": "HR & Workforce dashboard examples landing — sticky-stack types, HR integrations, steps before social proof, ratings without Dresner",
+      "brief_signals": [
+        "HR & Workforce",
+        "hr dashboard",
+        "workforce dashboard",
+        "Explore Examples",
+        "Build HR Dashboards Now",
+        "Connect popular HR tools",
+        "Trusted by teams worldwide",
+        "headcount",
+        "attrition"
+      ],
+      "writer_page_hints": "Steps (STEP 1–4) come BEFORE Trusted by teams worldwide + Hear from our customers. No Dresner block — recognition uses ratings-only panel.",
+      "required_strings": [
+        "Explore Examples",
+        "Build HR Dashboards Now",
+        "Connect popular HR tools",
+        "Trusted by teams worldwide",
+        "Hear from our customers",
+        "STEP 1",
+        "STEP 4",
+        "START FOR FREE"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 4,
+        "min_faq": 5,
+        "min_rating_platforms": 4,
+        "require_testimonials_heading": true,
+        "require_see_all_testimonials": false,
+        "require_dresner": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
+        { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta": "Build HR Dashboards Now" },
+        { "type": "features", "class": "box-icon-section", "best": "financial-dashboard-examples", "repeat_from_brief": true },
+        { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
+        { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "Trusted by teams worldwide heading + rating-left/rating-right — no Dresner" },
+        { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + dual zwc-nav-box-wrap — no See all link in brief" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
+      ],
+      "cta_strings_required": [
+        "Explore Examples",
+        "Build HR Dashboards Now",
+        "START FOR FREE"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".testimonials-section .content-wrap a { color: var(--primary-btn-color); }",
+        ".testimonials-section .content-wrap a .arrow { border-color: var(--primary-btn-color); }",
+        ".zwc-nav-box:nth-child(1), .zwc-nav-box:nth-child(4) { background-color: var(--testimonial-peach-bg); border-color: var(--testimonial-peach-border); }",
+        ".zwc-nav-box:nth-child(2), .zwc-nav-box:nth-child(5) { background-color: var(--testimonial-mint-bg); border-color: var(--testimonial-mint-border); }",
+        ".zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { background-color: var(--testimonial-blue-bg); border-color: var(--testimonial-blue-border); }"
+      ],
+      "gold_standard_outputs": [
+        "output/hr-workforce-dashboard-examples"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "agency-landing": {
+      "description": "Agency client-dashboard / marketing-agency landings (zigzag features, comparison grid, how-it-works, social proof)",
+      "brief_signals": [
+        "agency",
+        "agencies",
+        "client dashboard",
+        "white-label",
+        "Book a free demo",
+        "report to clients",
+        "marketing tools"
+      ],
+      "writer_page_hints": "Page ~6 = how-it-works (4 steps). Page ~7 = testimonials + Dresner/ratings + CTA intro. Do not map page numbers to comparison rows only.",
+      "expected_page_count": 9,
+      "required_strings": [
+        "Book a free demo",
+        "How client dashboard tool works",
+        "Step 1",
+        "Step 4",
+        "Hear from our happy customers",
+        "See all testimonials",
+        "Dresner Advisory",
+        "GetApp",
+        "Ready to give every client a dashboard"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 4,
+        "min_faq": 5,
+        "min_rating_platforms": 5,
+        "require_testimonials_heading": true,
+        "require_see_all_testimonials": true,
+        "require_dresner": true,
+        "require_how_it_works": true
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner", "best": "Marketing-Agencies", "cta": "Book a free demo" },
+        { "type": "intro", "class": "agency-intro-section", "best": "Marketing-Agencies" },
+        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag-writer-tables" },
+        { "type": "benefits", "class": "icon-border-section", "best": "Marketing-Agencies", "repeat_count": 3 },
+        { "type": "comparison", "class": "integrations-grid-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "layout": "3col-grid" },
+        { "type": "how-it-works", "class": "how-it-works-section", "best": "Marketing-Agencies", "repeat_count": 4, "layout": "hiw-timeline" },
+        { "type": "testimonials", "class": "testimonials-section", "best": "Marketing-Agencies", "pattern_notes": "h2.t-left + See all testimonials + zwc-nav-box ×3" },
+        { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right" },
+        { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "cta": "Book a free demo" },
+        { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true }
+      ],
+      "cta_strings_required": [
+        "Book a free demo",
+        "See all testimonials"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".testimonials-section .content-wrap a { color: var(--primary-btn-color); }",
+        ".testimonials-section .content-wrap a .arrow { border-color: var(--primary-btn-color); }",
+        ".zwc-nav-box:nth-child(1), .zwc-nav-box:nth-child(4) { background-color: var(--testimonial-peach-bg); border-color: var(--testimonial-peach-border); }",
+        ".zwc-nav-box:nth-child(2), .zwc-nav-box:nth-child(5) { background-color: var(--testimonial-mint-bg); border-color: var(--testimonial-mint-border); }",
+        ".zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { background-color: var(--testimonial-blue-bg); border-color: var(--testimonial-blue-border); }"
+      ],
+      "gold_standard_outputs": [
+        "output/client-dashboard-software"
+      ],
+      "primary_reference": "Marketing-Agencies",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    }
+  }
+}

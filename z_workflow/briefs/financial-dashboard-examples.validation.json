@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\financial-dashboard-examples.txt",
+  "archetype": "dashboard-examples-landing",
+  "archetype_score": 12,
+  "required_found": [
+    "Explore Examples",
+    "Dresner Advisory",
+    "Hear from our customers",
+    "STEP 1",
+    "STEP 4"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 8,
+    "page_markers": [],
+    "has_testimonials_heading": true,
+    "has_see_all_testimonials": false,
+    "has_dresner": true,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "GetApp",
+      "FinancesOnline",
+      "Capterra",
+      "G2",
+      "Google Workspace Marketplace"
+    ],
+    "char_count": 10962
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-06-30T10:01:45.912Z"
+}

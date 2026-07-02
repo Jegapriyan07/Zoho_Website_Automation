@@ -42,6 +42,8 @@ const LAYOUT_PATTERNS = [
   { style: '3-step-timeline', patterns: [/threeSimpleSteps/i] },
   { style: 'icon-grid', patterns: [/everything-opens/i, /icon-wrapper/i, /box-icon/i] },
   { style: 'zigzag', patterns: [/dashboard-wrapper/i, /left-content/i, /right-content/i] },
+  { style: 'sticky-stack', patterns: [/sticky-card-section/i, /scroll-card/i, /sticky-section/i] },
+  { style: 'journey-stack', patterns: [/za-journey-section/i, /za-journey-box/i] },
   { style: 'tabbed-steps', patterns: [/steps-section/i, /steps-tab/i] },
   { style: 'accordion', patterns: [/faq-section/i, /z-accordian/i] },
   { style: 'centered-fullwidth', patterns: [/pre-banner-section/i, /pre-banner-cta/i] },

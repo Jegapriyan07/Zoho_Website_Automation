@@ -153,6 +153,7 @@ the SOURCE FILE is the authority — flag the conflict but follow the source.
     /* Colour tokens */
     --color-primary:     #03a9f5;
     --color-cta:         #da212a;
+    --color-brand-cta:   #e42527;   /* Immutable — see §2.2.1 */
     --color-text-dark:   #000;
     --color-text-body:   #333;
     --color-text-muted:  #666;
@@ -168,6 +169,116 @@ the SOURCE FILE is the authority — flag the conflict but follow the source.
 - · Line-height follows the pattern from the source: `1.4` for headings, `1.5` for cards,
   `1.7` for body text and small labels. Use only these three values unless a specific
   design requirement dictates otherwise.
+
+### 2.2.1 Brand CTA red — immutable across all page themes
+
+**Source of truth:** `source/zohocustom.css` → `--primary-btn-color: #e42527`
+
+Every landing page may use its own **page theme** tokens (`--color-primary`, `--color-secondary`,
+gradients, section backgrounds). **Do not replace a vertical theme with client-dashboard blue/purple
+unless the brief requires it.** Only **action elements** use brand red (see table below).
+
+**Testimonial cards are an exception:** `.zwc-nav-box` pastels are **never** tinted from the page
+theme. Always use the fixed extracted palette in §2.2.2.
+
+| Element | Must use | Never use |
+|---------|----------|-----------|
+| `.cta-btn.act-btn` (all primary CTAs) | `background: var(--primary-btn-color)` or `#e42527` | Page `--color-primary`, gradient fills, teal/purple/violet |
+| Testimonials header link (`See all testimonials`) | `color: var(--primary-btn-color)` | `--color-primary`, `--color-secondary`, gradient text |
+| Arrow chevron on that link | `border-color: var(--primary-btn-color)` | Theme accent colours |
+| `.zwc-nav-box` card backgrounds | Fixed extracted peach / mint / blue (§2.2.2) | Page theme tints (cyan, violet, teal, etc.) |
+
+**Required in every `style.css` `:root` block:**
+
+```css
+--color-brand-cta: #e42527;
+--primary-btn-color: #e42527;
+```
+
+**Required dev-handoff overrides** (when team nav hides `.cta-btn`):
+
+```css
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+}
+
+.testimonials-section .content-wrap a {
+    color: var(--primary-btn-color);
+}
+
+.testimonials-section .content-wrap a .arrow {
+    border-color: var(--primary-btn-color);
+}
+```
+
+Gold-standard reference: `output/client-dashboard-software/style.css` (CTAs + link) · `output/financial-dashboard-examples/style.css` (testimonial cards).
+
+### 2.2.2 Testimonial cards — extracted palette only (automation)
+
+> **Automation rule:** Agents must copy these values on every build. Do **not** derive
+> `.zwc-nav-box` colours from `--color-primary`, `--color-secondary`, or vertical theme tokens.
+
+**Hear from our customers** marquee cards use a **fixed three-colour rotation** (peach → mint → blue),
+matching Writer extraction / `BI-Marketing` / `Marketing-Agencies` — same on finance, sales, agency,
+and all future dashboard landings.
+
+**Required `:root` tokens (identical on every page):**
+
+```css
+--testimonial-peach-bg: #FFF4E8;
+--testimonial-peach-border: #F0DCC8;
+--testimonial-mint-bg: #EEF8F4;
+--testimonial-mint-border: #C8E8D8;
+--testimonial-blue-bg: #EEF4FC;
+--testimonial-blue-border: #D4E4F5;
+```
+
+**Required `.zwc-nav-box` rules (copy verbatim — do not theme-tint):**
+
+```css
+.zwc-nav-box:nth-child(1),
+.zwc-nav-box:nth-child(4) {
+    background-color: var(--testimonial-peach-bg);
+    border-color: var(--testimonial-peach-border);
+}
+.zwc-nav-box:nth-child(2),
+.zwc-nav-box:nth-child(5) {
+    background-color: var(--testimonial-mint-bg);
+    border-color: var(--testimonial-mint-border);
+}
+.zwc-nav-box:nth-child(3),
+.zwc-nav-box:nth-child(6) {
+    background-color: var(--testimonial-blue-bg);
+    border-color: var(--testimonial-blue-border);
+}
+.zwc-nav-box:nth-child(1) .descriptions-wrapper,
+.zwc-nav-box:nth-child(4) .descriptions-wrapper {
+    background-color: rgba(240, 220, 200, 0.45);
+    border: 1px solid rgba(240, 220, 200, 0.45);
+}
+.zwc-nav-box:nth-child(2) .descriptions-wrapper,
+.zwc-nav-box:nth-child(5) .descriptions-wrapper {
+    background-color: rgba(200, 232, 216, 0.45);
+    border: 1px solid rgba(200, 232, 216, 0.45);
+}
+.zwc-nav-box:nth-child(3) .descriptions-wrapper,
+.zwc-nav-box:nth-child(6) .descriptions-wrapper {
+    background-color: rgba(212, 228, 245, 0.45);
+    border: 1px solid rgba(212, 228, 245, 0.45);
+}
+```
+
+| Wrong (do not generate) | Right |
+|-------------------------|-------|
+| Sales cyan `#ECFEFF` / violet `#F5F3FF` card fills | Peach `#FFF4E8` / mint `#EEF8F4` / blue `#EEF4FC` |
+| `background: var(--color-primary)` on testimonial cards | Fixed tokens above only |
+| Themed inner quote box matching page gradient | `rgba(240,220,200,0.45)` / `rgba(200,232,216,0.45)` / `rgba(212,228,245,0.45)` |
+
+Gold standard: `output/financial-dashboard-examples/style.css` · `output/sales-dashboard-examples/style.css` (after fix).
 
 ### 2.3 Font Weight Rules
 

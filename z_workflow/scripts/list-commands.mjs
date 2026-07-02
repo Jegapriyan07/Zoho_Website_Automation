@@ -37,6 +37,18 @@ const commands = [
     desc: 'Run the built-in validation set; expects ≥90% primary-match accuracy.'
   },
   {
+    id: 'extract-writer',
+    cmd: 'node z_workflow/scripts/extract-writer.mjs --url "<writer-url>" --slug <page-slug>',
+    npm: 'npm run extract:writer -- --url "<writer-url>" --slug <page-slug>',
+    desc: 'Puppeteer extract from Zoho Writer URL → briefs/{slug}.txt + auto validate. First login: add --headed.'
+  },
+  {
+    id: 'validate-brief',
+    cmd: 'node z_workflow/scripts/validate-brief.mjs --file z_workflow/briefs/<slug>.txt',
+    npm: 'npm run validate:brief -- --file z_workflow/briefs/<slug>.txt',
+    desc: 'Gate brief against section-composites.json (required strings + section inventory). Exit 1 = do not build.'
+  },
+  {
     id: 'promote-state',
     cmd: 'node z_workflow/scripts/promote-output.mjs --from-state',
     npm: 'npm run promote -- --from-state',

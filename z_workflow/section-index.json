@@ -33,14 +33,16 @@
       "example_count": 17
     },
     "testimonials": {
-      "best": "PowerBI New",
-      "class": "za-inner-testimonials-section",
+      "best": "BI-Marketing",
+      "class": "testimonials-section",
       "alternates": [
         "PowerBI New",
-        "comparison page",
-        "Solution-template"
+        "Executive-Dashboards",
+        "comparison page"
       ],
-      "example_count": 25
+      "example_count": 25,
+      "header_pattern": "content-wrap flex: h2.t-left + a[See all testimonials .arrow]",
+      "notes": "Dual zwc-nav-box-wrap for marquee; often on Writer page ~10 for dashboard-examples landings"
     },
     "cta": {
       "best": "PowerBI New",
@@ -72,14 +74,15 @@
       "example_count": 17
     },
     "recognition": {
-      "best": "PowerBI New",
+      "best": "BI-Marketing",
       "class": "reported-section",
       "alternates": [
         "comparison page",
-        "Solution-template",
-        "RealTime-BI"
+        "PowerBI New",
+        "BI Finance"
       ],
-      "example_count": 17
+      "example_count": 17,
+      "notes": "report-slider aem-report h5 + trust-section rating-table; rating-left/rating-right per product.css"
     },
     "faq": {
       "best": "PowerBI New",
@@ -124,11 +127,17 @@
       "best": "comparison page",
       "class": "dashboard-wrapper",
       "alternates": [
+        "BI Finance",
+        "Executive-Dashboards",
         "Solution-template",
         "Spreadsheet",
         "pie-chart"
       ],
-      "example_count": 7
+      "example_count": 7,
+      "layout_variants": {
+        "zigzag": { "class": "dashboard-wrapper", "best": "Executive-Dashboards" },
+        "sticky-stack": { "class": "sticky-card-section", "best": "BI Finance", "notes": "scroll-card stacking — finance dashboard examples gold standard" }
+      }
     },
     "steps": {
       "best": "Executive-Dashboards",

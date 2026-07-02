@@ -1,34 +1,31 @@
-/* Sales dashboard examples — dual-mix theme (cyan + violet) */
+/* Financial dashboard examples — finance token set (BI Finance flavour) */
 
 :root {
-    --color-primary: #06B6D4;
-    --color-secondary: #A855F7;
-    --color-accent: #7C3AED;
+    --color-primary: #0B7A6E;
+    --color-secondary: #2C66DD;
+    --color-accent: #1B4D6E;
     --color-brand-cta: #e42527;
-    --color-dark-bg: #1E1B4B;
-    --color-dark-bg-alt: #312E81;
-    --color-light-bg: #F8FAFC;
-    --color-surface: #ECFEFF;
-    --color-surface-alt: #F5F3FF;
+    --color-dark-bg: #171C2C;
+    --color-dark-bg-alt: #2A365D;
+    --color-light-bg: #EEF6F4;
+    --color-surface: #E8F4F1;
+    --color-surface-alt: #EEF4FF;
     --color-white: #ffffff;
-    --color-text-primary: #262626;
-    --color-text-secondary: #4a4a55;
+    --color-text-primary: #162033;
+    --color-text-secondary: #4A5568;
     --color-text-muted: #6B7280;
-    --color-border: #C084FC;
-    --color-border-soft: #E9D5FF;
-    --color-star: #F59E0B;
-    --gradient-mix: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    --gradient-mix-banner: linear-gradient(115deg, #CFFAFE 0%, #EDE9FE 52%, #FCE7F3 100%);
-    --gradient-mix-dark: linear-gradient(135deg, #0E7490 0%, #7C3AED 100%);
-    --shadow-rating: 1px 1px 11px 0 rgba(168, 85, 247, 0.14);
-    --shadow-card: 0 4px 22px 0 rgba(6, 182, 212, 0.12);
+    --color-border: #72B5AA;
+    --color-border-soft: #C5DDD8;
+    --color-star: #E5A100;
     --primary-btn-color: #e42527;
+    --shadow-rating: 1px 1px 11px 0 rgba(11, 122, 110, 0.14);
+    --shadow-card: 0 4px 22px 0 rgba(23, 74, 168, 0.09);
     --primary-color: var(--color-primary);
     --secondary-color: var(--color-secondary);
     --primary-font-color: var(--color-text-primary);
     --secondary-font-color: var(--color-white);
     --teritary-bg: var(--color-light-bg);
-    /* Extracted testimonial cards — fixed palette, NOT sales theme colours */
+    /* Extracted testimonial cards — fixed palette, NOT finance theme colours */
     --testimonial-peach-bg: #FFF4E8;
     --testimonial-peach-border: #F0DCC8;
     --testimonial-mint-bg: #EEF8F4;
@@ -95,7 +92,7 @@
 }
 
 .linear-gradient-text {
-    background-image: var(--gradient-mix);
+    background-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -121,7 +118,6 @@
     margin-top: 20px;
     text-decoration: none;
     transition: background 0.35s ease;
-    border: none;
 }
 
 .page-container .cta-btn.act-btn:hover {
@@ -132,13 +128,14 @@ body.umain .cta-btn {
     display: inline-block;
 }
 
-/* Banner — sales dual wash */
+/* Banner */
 .banner-section {
     padding: 120px 0 80px;
     overflow: hidden;
     margin-top: -70px;
     background-color: var(--color-light-bg);
-    background-image: var(--gradient-mix-banner);
+    background-image: radial-gradient(ellipse 90% 70% at 15% 0%, rgba(11, 122, 110, 0.1) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 95% 20%, rgba(44, 102, 221, 0.08) 0%, transparent 60%);
 }
 
 .banner-section .content-wrap {
@@ -168,101 +165,133 @@ body.umain .cta-btn {
     color: var(--color-text-secondary);
 }
 
-/* Dashboard zigzag */
-.dashboard-wrapper {
-    background: var(--color-white);
-    color: var(--color-text-primary);
+/* Sticky-stack dashboard types (BI Finance pattern) */
+.sticky-card-section {
+    background-image: radial-gradient(circle at 20% 20%, var(--color-dark-bg-alt), var(--color-dark-bg));
+    color: var(--color-white);
 }
 
-.dashboard-wrapper .header-content {
-    text-align: center;
+.sticky-card-section h2,
+.sticky-card-section h3,
+.sticky-card-section p,
+.sticky-card-section li,
+.sticky-card-section strong {
+    color: var(--color-white);
 }
 
-.dashboard-wrapper .main-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 100px 0;
+.sticky-card-section .title-desc {
+    color: rgba(255, 255, 255, 0.82);
 }
 
-.dashboard-wrapper .main-wrapper.right-content::before {
-    content: "";
-    position: absolute;
-    width: 871px;
-    height: 570px;
-    z-index: 0;
-    background: var(--color-surface);
-    border-radius: 30px;
-    right: 0;
-}
-
-.dashboard-wrapper .main-wrapper.left-content::before {
-    content: "";
-    position: absolute;
-    width: 871px;
-    height: 570px;
-    z-index: 0;
-    background: var(--color-surface);
-    border-radius: 30px;
-    left: 0;
-    transform: rotate(180deg);
-}
-
-.dashboard-wrapper .main-wrapper .image-wrapper {
-    width: 55%;
-    transition: 1s ease-in-out;
-    z-index: 1;
+.m-0 {
     margin: 0;
 }
 
-.dashboard-wrapper .main-wrapper.left-content .image-wrapper {
-    transform: translateX(-30px);
+.sticky-section .scroll-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 50px 20px 0;
+    box-sizing: border-box;
+    position: sticky;
+    padding: 50px 40px 40px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 221, 178, 0.3);
+    background: #2a3250;
+    box-shadow: 0 0 14px 0 rgba(255, 255, 255, 0.2) inset, 0 0 55.5px 0 rgba(197, 185, 246, 0.15) inset;
+    backdrop-filter: blur(17px);
 }
 
-.dashboard-wrapper .main-wrapper.left-content.zwe-om .image-wrapper,
-.dashboard-wrapper .main-wrapper.right-content.zwe-om .image-wrapper {
-    transform: translateX(0);
+.sticky-section .scroll-card .left-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 1 50%;
+    min-width: 0;
 }
 
-.dashboard-wrapper .main-wrapper .content-wrapper {
-    width: 45%;
-    padding: 0 30px;
-    transform: translateY(20px);
-    transition: 1s ease-in-out;
+.sticky-section .scroll-card .left-wrapper h3 {
+    width: 100%;
+    font-size: 28px;
+    line-height: 1.25;
+    flex-shrink: 0;
 }
 
-.dashboard-wrapper .main-wrapper .content-wrapper p {
-    margin-bottom: 10px;
+.sticky-section .scroll-card .card-copy {
+    width: 100%;
 }
 
-.dashboard-wrapper .main-wrapper.zwe-om .content-wrapper {
-    transform: translateY(0);
+.sticky-section .scroll-card .card-copy p {
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.dashboard-wrapper .main-wrapper .dashboard-image {
-    border: 5px solid var(--color-border);
-    border-radius: 20px;
-}
-
-.dashboard-wrapper .main-wrapper .content-wrapper h3 {
-    margin: 0 0 20px;
-}
-
-.dashboard-wrapper .content-wrapper ul {
-    padding-left: 24px;
-    margin: 12px 0 0;
+.sticky-section .scroll-card .card-copy ul {
+    margin: 8px 0 0;
+    padding-left: 22px;
     list-style: disc;
 }
 
-.dashboard-wrapper .content-wrapper ul li {
-    margin-bottom: 6px;
+.sticky-section .scroll-card .card-copy ul li {
+    margin-bottom: 4px;
     line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    flex: 1 1 50%;
+    text-align: center;
+    position: relative;
+    margin-top: 0;
+    line-height: 0;
+    align-self: stretch;
+}
+
+.sticky-section .scroll-card .right-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(254 163 180 / 20%) 11%, transparent 68%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    position: relative;
+    z-index: 2;
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.12);
+}
+
+.sticky-section .scroll-card.card1 { top: 80px; z-index: 1; }
+.sticky-section .scroll-card.card2 { top: 90px; z-index: 2; }
+.sticky-section .scroll-card.card3 { top: 100px; z-index: 3; }
+.sticky-section .scroll-card.card4 { top: 110px; z-index: 4; }
+.sticky-section .scroll-card.card5 { top: 120px; z-index: 5; }
+.sticky-section .scroll-card.card6 { top: 130px; z-index: 6; }
+.sticky-section .scroll-card.card7 { top: 140px; z-index: 7; }
+.sticky-section .scroll-card.card8 { top: 150px; z-index: 8; }
+.sticky-section .scroll-card.card9 { top: 160px; z-index: 9; }
+.sticky-section .scroll-card.card10 { top: 170px; z-index: 10; }
+.sticky-section .each-box-fort {
+    padding-bottom: 35vh;
 }
 
 /* Pre-banner CTA */
 .pre-banner-section {
     text-align: center;
-    background: var(--color-surface-alt);
+    background: var(--color-surface);
 }
 
 .pre-banner-section .content-wrapper h2 {
@@ -288,7 +317,7 @@ body.umain .cta-btn {
 }
 
 .reported-section .report-slider {
-    background-image: var(--gradient-mix-dark);
+    background-image: radial-gradient(circle at 20% 20%, var(--color-dark-bg-alt), var(--color-dark-bg));
     color: var(--color-white);
     padding: 40px 50px;
     width: 55%;
@@ -576,12 +605,12 @@ body.umain .cta-btn {
     border-radius: 12px;
     padding: 24px;
     box-shadow: var(--shadow-card);
-    border: 0.75px solid var(--color-border);
+    border: 1px solid var(--color-border-soft);
 }
 
 .box-icon-section .content-main .card .za-icon-wrapper {
     /* TODO: replace with final icon sprite */
-    background: var(--gradient-mix);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     width: 50px;
     height: 50px;
     display: inline-block;
@@ -645,7 +674,7 @@ body.umain .cta-btn {
 }
 
 .steps-tab:not(.active) .steps-tab-btn:hover {
-    background-color: rgba(168, 85, 247, 0.05);
+    background-color: rgba(11, 122, 110, 0.04);
 }
 
 .steps-tab-btn:focus-visible {
@@ -672,7 +701,7 @@ body.umain .cta-btn {
     top: 0;
     width: 100%;
     height: 0;
-    background: var(--gradient-mix);
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
     border-radius: 2px;
     opacity: 0;
     transition: opacity .35s ease;
@@ -870,35 +899,32 @@ body.umain .cta-btn {
     .page-container li { font-size: 15px; }
     .title-desc { font-size: 17px; }
 
-    .dashboard-wrapper .main-wrapper .content-wrapper,
-    .dashboard-wrapper .main-wrapper .image-wrapper {
+    .sticky-section .scroll-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 50px 40px 40px;
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        flex-direction: column;
+        text-align: left;
+        flex: none;
         width: 100%;
     }
 
-    .dashboard-wrapper .main-wrapper .image-wrapper {
-        order: 1;
+    .sticky-section .scroll-card .left-wrapper h3,
+    .sticky-section .scroll-card .card-copy {
+        width: 100%;
     }
 
-    .dashboard-wrapper .main-wrapper .content-wrapper {
-        order: 2;
+    .sticky-section .scroll-card .left-wrapper h3 {
+        font-size: 22px;
     }
 
-    .dashboard-wrapper .main-wrapper {
-        gap: 50px;
-        padding: 20px;
-        flex-direction: column;
-        background-color: var(--color-surface);
-        margin-top: 20px;
-        border-radius: 12px;
-    }
-
-    .dashboard-wrapper .header-content {
-        margin-bottom: 40px;
-    }
-
-    .dashboard-wrapper .main-wrapper.left-content::before,
-    .dashboard-wrapper .main-wrapper.right-content::before {
-        display: none;
+    .sticky-section .scroll-card .right-wrapper {
+        flex: none;
+        width: 100%;
+        margin-top: 30px;
     }
 
     .steps-section {
@@ -944,8 +970,20 @@ body.umain .cta-btn {
     .page-container h2 { font-size: 22px; }
     .page-container h3 { font-size: 17px; }
 
-    .dashboard-wrapper .main-wrapper .content-wrapper {
-        padding: 0;
+    .sticky-section .scroll-card {
+        position: unset;
+        padding: 25px 24px 24px;
+        flex-direction: column;
+    }
+
+    .sticky-section .scroll-card .right-wrapper {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .sticky-section .scroll-card .right-wrapper img {
+        width: 100%;
+        height: auto;
     }
 
     .steps-tab-btn {

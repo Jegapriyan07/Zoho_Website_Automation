@@ -55,8 +55,9 @@ STEP 4 → Acquire the writer's document:
 
 **Do not proceed past Step 4 until the writer's document is loaded.**
 
-> **Chrome MCP:** Navigate → wait for full load → extract all visible text.
+> **Chrome MCP:** Navigate → wait for full load → **scroll every Writer page** → extract all text.
 > If the page is empty or access-restricted → ask the user to paste instead.
+> **After brief is saved:** follow [z_workflow/writer-drop-playbook.md](z_workflow/writer-drop-playbook.md) for archetype match, section order, and CTA visibility.
 
 ---
 

@@ -1,0 +1,70 @@
+AI-POWERED BI &amp; ANALYTICS PLATFORM
+See Every Number That Matters. In One Place.
+Zoho Analytics turns scattered spreadsheets, apps, and databases into live dashboards and AI-driven insights — no coding, no waiting on IT, no guesswork.
+Sign Up For Free — No Credit Card Required
+Trusted by businesses across 180+ countries to blend, model, and visualize their data in one self-service workspace.
+91%
+of surveyed users would recommend Zoho Analytics
+250+
+data sources and business apps supported
+4×
+recognized in Gartner&apos;s Magic Quadrant for Analytics &amp; BI
+Everything You Need To Go From Raw Data To Decisions
+A single platform that covers the full analytics lifecycle — no stitching together five different tools.
+Integrate
+Connect databases, data lakes, warehouses, files, and 100+ business apps with live sync or scheduled refresh.
+Prepare
+Clean, model, and enrich data with 250+ no-code transforms and a visual ETL pipeline builder.
+Visualize
+Build charts, pivots, widgets, and dashboards with drag-and-drop — or start from an industry template.
+Agentic AI
+Let AI agents build pipelines, metrics, and dashboards for you through natural conversation.
+Predictive AI
+Run forecasts, what-if simulations, and anomaly detection trained on your own data.
+Ask Zia
+Type or speak a question in plain language and get instant charts, summaries, and narratives back.
+Collaborate
+Share dashboards with fine-grained roles, groups, and row-level security across teams.
+Embedded BI
+White-label full dashboards or single widgets inside your own product using SSO or SAML.
+Secure
+TLS encryption in transit, selective encryption at rest, and full audit logging by default.
+Recognized By The Industry
+Gartner Magic Quadrant
+Named in the Magic Quadrant for Analytics and BI Platforms for four consecutive years.
+Dresner Advisory
+Rated a leader in both the customer experience model and the vendor credibility model.
+G2 &amp; Capterra
+Consistently rated among the top self-service BI tools by verified business users.
+What Teams Are Saying
+Zoho&apos;s platform brings together capabilities we&apos;d otherwise need dozens of separate tools for.
+Eddie Shekari
+Principal &amp; CEO, Versa Creative
+Drag-and-drop filters and drill-downs made it easy for our managers to build their own reports.
+Director &amp; Shareholder
+Courier Logistics Limited
+Plans For Every Team Size
+Start free, then scale up as your data and your team grow.
+Free
+For individuals getting started
+Basic
+Small teams, core reporting
+Standard
+Growing teams, more data
+Premium
+Advanced BI at scale
+Enterprise
+Custom security &amp; scale
+Start Your Free Zoho Analytics Account
+No credit card needed. Set up your first dashboard in minutes.
+Frequently Asked Questions
+What is Zoho Analytics?
+Zoho Analytics is a self-service BI and analytics platform that lets you connect your data, build reports and dashboards, and uncover insights without writing code.
+Do I need coding or SQL knowledge to use it?
+No. Most report and dashboard building is drag-and-drop, and you can also ask questions in plain language using the built-in AI assistant.
+Can Zoho Analytics connect to my existing tools?
+Yes. It integrates with 100+ popular business apps and a wide range of databases, files, and cloud data sources.
+Can I embed Zoho Analytics inside my own product?
+Yes. You can white-label dashboards and reports and embed them into your own application using single sign-on or SAML.
+Is my data secure on Zoho Analytics?
+Yes. Data in transit is encrypted with TLS, personally identifying information can be selectively encrypted at rest, and all activity is captured in audit logs.

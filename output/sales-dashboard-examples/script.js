@@ -1,9 +1,8 @@
-/* Sales dashboard examples — page-specific JS (cloned from Executive-Dashboards) */
+/* Sales dashboard examples — page-specific JS */
 
 (function ($) {
     'use strict';
 
-    /* FAQ accordion */
     $('.z-accordianBox').find('h4.active').next().slideDown();
     $('.z-accordianBox').find('h4').on('click', function () {
         var _that = $(this);
@@ -19,8 +18,21 @@
     });
 })(jQuery);
 
-/* Steps section — tabbed accordion with auto-advancing progress */
 document.addEventListener('DOMContentLoaded', function () {
+    var onScrollEls = document.querySelectorAll('[data-onscroll]');
+    if (onScrollEls.length) {
+        var scrollObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('zwe-om');
+                }
+            });
+        }, { threshold: 0.15 });
+        onScrollEls.forEach(function (el) {
+            scrollObserver.observe(el);
+        });
+    }
+
     var stepsSection = document.querySelector('.steps-section');
     if (!stepsSection) {
         return;
