@@ -233,7 +233,7 @@ Without this, buttons exist in HTML but are **invisible** in Live Server / local
 2. `style.css` — only classes on this page; extract from mapped reference, not full-file copy
 3. `script.js` — only behaviors present (accordion, steps tabs, scroll reveal, slick if slider)
 4. Link `../../source/zohocustom.css` + `../../source/product.css`
-5. Images: `placehold.co` + `<!-- TODO: replace with final asset -->`
+5. Images: `https://prezohoweb.zoho.com/` + `<!-- TODO: replace with final asset -->` (see `Rulesbook.md` §2.8)
 6. Nav/footer: comment placeholders only
 
 **Never:** clone whole reference `index.html` / `style.css` / `script.js`

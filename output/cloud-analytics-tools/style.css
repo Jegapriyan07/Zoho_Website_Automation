@@ -97,6 +97,10 @@
     padding: 120px 0 80px;
     overflow: hidden;
     /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-color: var(--teritary-bg);
     margin-top: -70px;
 }
@@ -237,7 +241,10 @@ body.umain .cta-btn {
 
 .box-icon-section .content-main .card .za-icon-wrapper {
     /* TODO: replace with final icon sprite */
-    background-color: var(--icon-placeholder);
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 50px;
     height: 50px;
     display: inline-block;

@@ -62,57 +62,60 @@ If any instruction is unclear, refer to the detailed section below. **All instru
 
 > **This is a hard rule. It applies to every page, every section, every component.**
 
-During UI development, **never use real image URLs, CDN links, or local asset files**. All images and SVGs must be represented by placeholder services or inline placeholder elements until the user supplies the final assets.
+During UI development, use the **single approved Zoho placeholder URL** for all provisional assets
+(images, icons, logos, avatars, banner backgrounds). See `z_workflow/Rulesbook.md` §2.8.
+
+```
+https://prezohoweb.zoho.com/
+```
+
+Do **not** use `placehold.co`, local file paths, or other CDN URLs for placeholders.
 
 ### Why
-- Real URLs break when the CDN path changes or the asset is not yet available.
+- One consistent placeholder keeps scaffold output visually aligned across pages.
+- Real production URLs break when assets are not yet available.
 - Creating an `assets/` folder with dummy files pollutes the directory and gets committed by mistake.
-- Placeholders keep the layout honest — they show exact dimensions without hiding missing assets.
+- Placeholders keep the layout honest — `width`/`height` from Figma still define dimensions.
 
 ### Three asset types — handle each differently
 
 #### 1. Content images (`<img>` tags)
-Use `https://placehold.co/{width}x{height}` with dimensions from the Figma design. Always include `width`, `height`, a descriptive `alt`, and a `<!-- TODO -->` comment. Never use a real CDN URL or local file path.
+Use the universal placeholder URL. Always include `width`, `height`, a descriptive `alt`, and a `<!-- TODO -->` comment.
 
 ```html
 <!-- TODO: replace with final asset -->
 <img
-  src="https://placehold.co/1200x600/E8F2FF/667085?text=Dashboard+Screenshot"
+  src="https://prezohoweb.zoho.com/"
   alt="Dashboard showing sales pipeline analytics"
   width="1200"
   height="600">
 ```
 
-Optionally add a label or custom colours to the placeholder URL for context:
-```
-https://placehold.co/800x450                              → grey box
-https://placehold.co/400x400/E2E8F0/667085?text=Icon     → custom colour + label
-```
-
 #### 2. CSS decorative backgrounds (`background-image: url(...)`)
-Remove the `url()` value entirely. Hold the space with `background-color` and leave a `/* TODO */` comment. Never leave a broken CDN URL in a CSS property.
+Use the universal placeholder URL with required background properties and a `/* TODO */` comment.
 
 ```css
 .banner::after {
     /* TODO: replace with final background asset */
-    background-color: transparent;
-    /* background-image: url(...) — add when asset is supplied */
+    background-image: url('https://prezohoweb.zoho.com/');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
+    background-repeat: no-repeat;
 }
 ```
 
-#### 3. UI control icons (close button, arrows, small decorative icons)
-Do not use an image file. Use a `background-color` block as a size-holder and add a `/* TODO */` comment. The icon's dimensions and position stay intact so the layout is accurate.
+#### 3. UI control icons (close button, arrows, small decorative icons, icon sprites)
+Use the same placeholder URL as `background-image` on the icon holder. Keep dimensions and position intact.
 
 ```css
 .icon-close {
     /* TODO: replace with final icon asset */
-    background-color: #667085;
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 18px;
     height: 18px;
-    border-radius: 2px;
-    opacity: 0.6;
 }
 ```
 
@@ -455,11 +458,11 @@ Use CSS counters — do not add number markup in HTML:
 - [ ] No `assets/` folder has been created or populated during development — placeholders are used for all images and SVGs.
 
 ### Images and placeholders
-- [ ] Every `<img>` uses a `placehold.co` URL — no real CDN paths, no local file paths.
+- [ ] Every `<img>` uses `https://prezohoweb.zoho.com/` — not `placehold.co`, local paths, or other CDN URLs.
 - [ ] Every `<img>` placeholder has `width` and `height` matching the Figma design, and a descriptive `alt`.
 - [ ] Every `<img>` placeholder is marked with `<!-- TODO: replace with final asset -->` in HTML.
-- [ ] Every CSS `background-image: url(...)` referencing an asset file is replaced with `background-color` and a `/* TODO */` comment.
-- [ ] Every UI control icon (close, arrow, decorative) that used an image URL is replaced with a `background-color` size-holder and a `/* TODO */` comment.
+- [ ] Every CSS banner/background placeholder uses `background-image: url('https://prezohoweb.zoho.com/')` with cover/center/no-repeat and a `/* TODO */` comment.
+- [ ] Every UI control icon and icon sprite uses the same placeholder URL as `background-image` with a `/* TODO */` comment.
 - [ ] No SVG files copied from other projects — inline grey-rectangle `<rect>` placeholders used instead.
 - [ ] No `assets/` folder created or populated during development.
 - [ ] CSS `linear-gradient` values are left untouched — they are design tokens, not asset references.

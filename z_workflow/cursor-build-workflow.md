@@ -163,7 +163,7 @@ Output: `output/{page-slug}/` with exactly three files: `index.html`, `style.css
    - All 7 breakpoints at bottom
 3. **Write `script.js`** — only behaviors present (accordion, slick, tabs, sticky scroll, etc.)
 4. **Link** `../../source/zohocustom.css` and `../../source/product.css`
-5. **Images** — `placehold.co` + `<!-- TODO: replace with final asset -->`
+5. **Images** — universal placeholder `https://prezohoweb.zoho.com/` + `<!-- TODO: replace with final asset -->` (see `Rulesbook.md` §2.8)
 6. **Nav/footer** — placeholders only:
 
 ```html
@@ -185,7 +185,7 @@ Output: `output/{page-slug}/` with exactly three files: `index.html`, `style.css
 The agent delivers **structure**, not a finished production page. Devs:
 
 - Insert nav/footer from team templates
-- Replace `placehold.co` URLs with final assets
+- Replace `https://prezohoweb.zoho.com/` placeholder URLs with final assets
 - Polish spacing or one-off design tweaks as needed
 
 ### Section gate (per section)

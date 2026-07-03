@@ -20,7 +20,7 @@ When building pages via `z_workflow/cursor-build-workflow.md`, **compose structu
 | Repeat section blocks as many times as the brief needs (e.g. 8 zigzag rows) | Keep reference sections the brief does not mention |
 | Extract CSS **only for classes used** on this page | Ship unused reference CSS |
 | Include JS **only for behaviors present** (accordion, slick, tabs, sticky) | Copy ads, modals, or unrelated reference JS |
-| Use `placehold.co` + `<!-- TODO -->` for dev handoff | Treat output as production-final |
+| Use `https://prezohoweb.zoho.com/` + `<!-- TODO -->` for dev handoff | Treat output as production-final |
 
 Each new writer doc → new page composition. Similarity matching picks **section sources**, not a page to duplicate wholesale.
 
@@ -46,7 +46,7 @@ Synthesis is allowed for individual sections with no reference match — use `te
    - `:root` tokens from Phase 1 design tokens.
    - Copy **only** the CSS rules needed for classes on this page — from the mapped reference section(s), not the whole reference file.
 4. **Write `script.js`** with only behaviors this page uses — copy patterns from reference, trim everything else.
-5. **Link** `../../source/zohocustom.css` and `../../source/product.css`. Use `placehold.co` for all images.
+5. **Link** `../../source/zohocustom.css` and `../../source/product.css`. Use `https://prezohoweb.zoho.com/` for all placeholder images, icons, and banner backgrounds.
 6. **Nav/footer** — comment placeholders only; team inserts templates separately.
 
 ## Section gate (before moving on)

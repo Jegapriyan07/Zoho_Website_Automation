@@ -366,10 +366,54 @@ Gold standard: `output/financial-dashboard-examples/style.css` · `output/sales-
 - · Do not use `min-width` media queries unless building up from a mobile-first base.
   The source files use `max-width` as the primary direction.
 
-### 2.8 Images
+### 2.8 Images & Placeholders
 
-- **For icons and UI graphics — use SVG inline or as `<img src="file.svg">`.**
-  Never use raster PNG/JPG for icons.
+#### Universal dev-handoff placeholder (mandatory for all new builds)
+
+During scaffold generation, **every** provisional asset — content images, icons, logos, avatars,
+and CSS banner/section backgrounds — must use this single approved placeholder URL:
+
+```
+https://prezohoweb.zoho.com/
+```
+
+Do **not** use `placehold.co`, local file paths, or other CDN URLs for placeholders.
+The dev team replaces this URL with final assets at handoff.
+
+**Required on every placeholder `<img>`:**
+
+```html
+<!-- TODO: replace with final asset -->
+<img
+  src="https://prezohoweb.zoho.com/"
+  alt="Descriptive label for the final asset"
+  width="1200"
+  height="675"
+  loading="lazy">
+```
+
+Keep `width` and `height` from the Figma/brief dimensions — only the `src` is universal.
+
+**Required on every placeholder CSS background (banners, hero sections, decorative panels):**
+
+```css
+.hero-section {
+    /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size:     cover;
+    background-position: center top;
+    background-repeat:   no-repeat;
+}
+```
+
+**Icons during scaffold:** use the same URL in `<img src="...">` (or as a CSS `background-image`
+on icon holders) until the final SVG or sprite is supplied. Production handoff still prefers
+inline SVG or sprite patterns from the source files — but **never** a different placeholder service.
+
+#### Production image rules (after dev replaces placeholders)
+
+- **For icons and UI graphics in production — use SVG inline or as `<img src="file.svg">`.**
+  Never use raster PNG/JPG for icons in final output.
 
 - · SVG sprite technique is used in the source (`.svg-sprites` class with
   `background-position` offsets). When building icon sets, follow this sprite pattern.
@@ -387,9 +431,6 @@ Gold standard: `output/financial-dashboard-examples/style.css` · `output/sales-
 
 - · Use `loading="lazy"` on all `<img>` elements that are not in the initial viewport
   (i.e., everything below the hero section).
-
-- · Never hardcode pixel image paths from the Zoho CDN in new builds.
-  Use relative paths or placeholder variables. Reference source for CDN URL patterns.
 
 ### 2.9 Spacing System
 
@@ -578,7 +619,8 @@ Before submitting any build output, verify:
 - [ ] CSS ordered to match HTML structure top-to-bottom
 - [ ] BEM naming applied to all classes
 - [ ] All 7 breakpoints covered: 1240, 1080, 991, 767, 565, 480, 350
-- [ ] Icons are SVG, backgrounds use `background-image`, content uses `<img>`
+- [ ] Icons use the universal placeholder URL during scaffold; SVG in production handoff
+- [ ] All placeholder `<img>` and CSS backgrounds use `https://prezohoweb.zoho.com/` — not `placehold.co`
 - [ ] Slick Slider used if any carousel is present
 - [ ] jQuery used minimally; vanilla JS used for simple tasks
 - [ ] `aria-label`, `alt`, `aria-expanded` applied to interactive elements

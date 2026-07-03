@@ -256,6 +256,10 @@
 /* Icon border benefits */
 .icon-border-section {
     /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-color: var(--color-dark-bg);
     color: #fff;
 }
@@ -706,6 +710,10 @@
 /* Pre-banner */
 .pre-banner-section {
     /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-color: var(--color-light-bg);
     text-align: center;
 }
