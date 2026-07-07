@@ -1,111 +1,45 @@
 {
-  "run_id": "feature-grid-template-2026-07-02",
-  "timestamp": "2026-07-02T18:00:00.000Z",
-  "page_slug": "feature-grid-template",
-
+  "run_id": "finance-dashboard-examples-2026-07-07",
+  "page_slug": "finance-dashboard-examples",
+  "writer_url": "file://local/Finance_Dashboard_Examples.docx",
   "writer_brief": {
-    "source_url": null,
-    "raw_content_file": "z_workflow/briefs/feature-grid-template.txt",
-    "extraction_method": "docx-extract",
-    "extraction_status": "complete",
-    "extraction_validated": true,
-    "validation_archetype": "none",
-    "extracted_char_count": 3624,
-    "page_title": "Zoho Analytics landing page - Feature grid template",
-    "page_type": "landing-page",
+    "raw_content_file": "z_workflow/briefs/finance-dashboard-examples.txt",
+    "page_title": "Finance Dashboard Examples: 10 Templates for CFOs and Finance Teams",
+    "page_type": "dashboard-examples-landing-finance",
     "product_name": "Zoho Analytics",
-    "target_audience": "Business users evaluating BI platforms",
-    "tone": "professional",
+    "archetype": "dashboard-examples-landing-finance",
     "sections_required": [
       "hero",
-      "stats",
-      "features",
-      "recognition",
-      "testimonials",
-      "pricing",
-      "cta",
+      "sticky-card-section",
+      "one-click-cta",
+      "integrations",
+      "steps",
+      "closing-cta",
       "faq"
     ],
-    "key_messages": [
-      "AI-powered BI and analytics in one place",
-      "Full analytics lifecycle in a single platform",
-      "Industry recognition and customer proof",
-      "Plans from free to enterprise"
-    ],
-    "keywords": [
-      "Zoho Analytics",
-      "BI platform",
-      "feature grid",
-      "dashboards",
-      "AI analytics",
-      "self-service BI"
-    ],
-    "notes": "Extracted from Zoho_Analytics_landing_page_-_Feature_grid_template.docx. No section-composites archetype — composed from section-index patterns. 9 feature cards, 3 recognition blocks, 2 testimonials, 5 plan tiers, 5 FAQ items."
+    "dashboard_type_count": 10,
+    "integration_count": 9,
+    "step_count": 4,
+    "faq_count": 8,
+    "char_count": 13549,
+    "source": "local-docx"
   },
-
-  "site_scan": {
-    "status": "complete",
-    "source": "site-catalog.json",
-    "total_sites": 43,
-    "catalog_generated_at": "2026-06-30T05:27:22.239Z"
-  },
-
   "similarity": {
-    "status": "complete",
-    "archetype": "none",
-    "scored_sites": [
-      { "site_name": "page-revamp", "score": 4.7 },
-      { "site_name": "BI Finance", "score": 4.2 },
-      { "site_name": "Business-Intelligence", "score": 4.2 }
-    ],
-    "primary_source": "Business-Intelligence",
-    "secondary_source": "Executive-Dashboards",
     "structure_mode": "compose",
-    "synthesis_note": "Feature grid template landing — hero + stats + 9-card box-icon grid + recognition + testimonials + plan tiers + CTA + FAQ",
+    "archetype": "dashboard-examples-landing-finance",
+    "primary_source": "BI Finance",
     "source_map": [
-      { "section": "hero", "site": "Executive-Dashboards", "class": "banner-section", "layout": "split-text-left-image" },
-      { "section": "stats", "site": "page-revamp", "class": "za-counts-section", "layout": "3-stat-row", "repeat_count": 3 },
-      { "section": "features", "site": "Business-Intelligence", "class": "box-icon-section", "layout": "3col-grid", "repeat_count": 9 },
-      { "section": "recognition", "site": "BI-Marketing", "class": "reported-section", "layout": "recognition-grid", "repeat_count": 3 },
-      { "section": "testimonials", "site": "BI-Marketing", "class": "testimonials-section", "layout": "static-2col", "repeat_count": 2 },
-      { "section": "pricing", "site": "Help-page", "class": "plans-section", "layout": "5-tier-grid", "repeat_count": 5 },
-      { "section": "closing-cta", "site": "Executive-Dashboards", "class": "pre-banner-section", "layout": "centered-fullwidth" },
-      { "section": "faq", "site": "Executive-Dashboards", "class": "faq-section", "layout": "accordion", "repeat_count": 5 }
+      { "section": "hero", "class": "banner-section", "source": "Executive-Dashboards", "source_type": "reference", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Explore Examples" },
+      { "section": "content-blocks", "class": "sticky-card-section", "source": "BI Finance", "source_type": "reference", "count": 10, "layout": "sticky-stack", "banner_slot": "dark-showcase", "bg_treatment": "dark-showcase" },
+      { "section": "one-click-cta", "class": "pre-banner-section", "source": "Executive-Dashboards", "source_type": "reference", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "cta": "Build Finance Dashboards Now" },
+      { "section": "integrations", "class": "box-icon-section", "source": "sales-dashboard-examples", "source_type": "reference", "count": 9 },
+      { "section": "steps", "class": "steps-section", "source": "Executive-Dashboards", "source_type": "reference", "count": 4 },
+      { "section": "closing-cta", "class": "pre-banner-section", "source": "Marketing-Agencies", "source_type": "reference", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "START FOR FREE" },
+      { "section": "faq", "class": "faq-section", "source": "Executive-Dashboards", "source_type": "reference", "count": 8 }
     ]
   },
-
-  "phase_1": {
-    "status": "complete",
-    "design_tokens": {
-      "color_primary": "#008EF5",
-      "color_secondary": "#9914FF",
-      "color_accent": "#e42527",
-      "color_dark_bg": "#171C2C",
-      "color_light_bg": "#EFF4FF",
-      "color_text_primary": "#162033",
-      "color_text_secondary": "#4A5568",
-      "font_display": "var(--zf-primary-bold)",
-      "font_body": "var(--zf-primary-regular)",
-      "spacing_section_v": "90px"
-    },
-    "team_flavour": "Split hero with eyebrow, za-counts stats strip, 9-card box-icon feature grid, reported-section recognition cards, static testimonials, 5-tier plans grid, pre-banner CTA, z-accordian FAQ."
-  },
-
-  "phase_2": {
-    "status": "complete",
-    "webpage_blueprint": {
-      "page_title": "AI-Powered BI & Analytics Platform | Zoho Analytics",
-      "page_slug": "feature-grid-template",
-      "meta_description": "Zoho Analytics turns scattered spreadsheets, apps, and databases into live dashboards and AI-driven insights — no coding, no waiting on IT.",
-      "output_path": "output/feature-grid-template/",
-      "section_count": 8
-    }
-  },
-
   "phase_6": {
-    "status": "complete",
-    "output_path": "output/feature-grid-template/",
-    "files_written": ["index.html", "style.css", "script.js"],
+    "output_path": "output/finance-dashboard-examples/",
     "approved": false,
     "revise_rounds": 0
   }

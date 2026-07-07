@@ -1,40 +1,30 @@
 # Writer briefs
 
-One text file per page build. The agent saves extracted copy here during Phase 0.
+**Empty by default.** A `{slug}.txt` file appears here only after a **successful Chrome MCP extraction** from the Writer URL in the current session.
 
-| File | Page |
-|------|------|
-| `cloud-analytics-tools.txt` | Cloud analytics comparison guide |
-| `sales-dashboard-examples.txt` | Sales dashboard examples landing |
-| `embedded-analytics-sales.txt` | Embedded analytics for sales |
-| `financial-dashboard-examples.txt` | Finance dashboard examples landing |
+## Extraction — Chrome MCP only
 
-Optional `.json` sidecars may exist for structured brief metadata.
-
-**Do not delete** briefs for promoted pages — they document the content source for the build.
-
----
-
-## Extraction rules (Zoho Writer URL)
-
-**Automated (preferred):**
-
-```bash
-npm run extract:writer -- --url "<writer-url>" --slug <page-slug>
-npm run validate:brief -- --file z_workflow/briefs/<slug>.txt
+```
+1. navigate_page / new_page  →  {writer-doc-link}
+2. If URL is Zoho Accounts / sign-in  →  STOP. Ask user to sign in in the MCP browser, then retry.
+3. evaluate_script  →  WRITER_BROWSER_EXTRACT_FN  (z_workflow/scripts/writer-extract-core.mjs)
+4. Save  →  z_workflow/briefs/{slug}.txt
+5. npm run validate:brief -- --file z_workflow/briefs/{slug}.txt   (must exit 0)
 ```
 
-**Manual / Chrome MCP:** use `WRITER_BROWSER_EXTRACT_FN` in `z_workflow/scripts/writer-extract-core.mjs`, then validate.
+## Hard stops (agent must obey)
 
-1. Sign in via `--headed` first run (persistent Chrome profile).
-2. Extraction merges per-page text + structured DOM walk (not `innerText` only).
-3. **validate-brief must pass** before `match-sites` or build.
-4. Save full text here, then follow [writer-drop-playbook.md](../writer-drop-playbook.md).
+| Do not | Why |
+|--------|-----|
+| Use an existing `briefs/*.txt` without extracting the user's URL in this session | Stale or wrong doc |
+| Fall back to Puppeteer, paste, or file upload | User test flow is MCP-only |
+| Run `match-sites` or build when extraction failed or login wall is up | No valid brief |
+| Invent copy | Writer doc is the only content source |
 
----
-
-## After brief is saved
+## After a fresh brief is saved
 
 1. Match archetype in `section-composites.json`
-2. Run `node z_workflow/scripts/match-sites.mjs --brief-file z_workflow/briefs/{slug}.txt`
+2. `node z_workflow/scripts/match-sites.mjs --brief-file z_workflow/briefs/{slug}.txt`
 3. Build per [cursor-build-workflow.md](../cursor-build-workflow.md)
+
+Optional `.validation.json` / `.extract.json` sidecars may be written by scripts after extraction.

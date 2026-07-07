@@ -30,14 +30,14 @@
         "require_dresner": true
       },
       "section_order": [
-        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Explore Examples" },
         { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack", "pattern_notes": "scroll-card stacking per BI Finance — not dashboard-wrapper zigzag" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta_pattern": "Build * Dashboards Now" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta_pattern": "Build * Dashboards Now", "pattern_notes": "Add class bg-white — flat white band; NOT same bg as hero or closing" },
         { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right cards" },
         { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + See all testimonials link + dual zwc-nav-box-wrap" },
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured pre-banner-section (blue-shadow-with-texture.png) — NOT hero radial gradient" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
       "cta_strings_required": [
@@ -47,6 +47,10 @@
         "START FOR FREE",
         "See all testimonials"
       ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_one_click_bg_white": true
+      },
       "mandatory_css": [
         ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
         ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
@@ -57,7 +61,7 @@
         ".zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { background-color: var(--testimonial-blue-bg); border-color: var(--testimonial-blue-border); }"
       ],
       "gold_standard_outputs": [
-        "output/financial-dashboard-examples"
+        "output/sales-dashboard-examples"
       ],
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
@@ -90,14 +94,18 @@
         "require_dresner": false
       },
       "section_order": [
-        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Explore Examples" },
         { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta": "Build Sales Dashboards Now" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta": "Build Sales Dashboards Now", "pattern_notes": "Add class bg-white — flat white band; NOT same bg as hero or closing" },
         { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured pre-banner-section (blue-shadow-with-texture.png) — NOT hero radial gradient" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_one_click_bg_white": true
+      },
       "cta_strings_required": [
         "Explore Examples",
         "Build Sales Dashboards Now",
@@ -114,6 +122,61 @@
       ],
       "gold_standard_outputs": [
         "output/sales-dashboard-examples"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "dashboard-examples-landing-finance": {
+      "description": "Finance dashboard examples landing — sticky-stack types, finance integrations, steps, CTA, FAQ (no Dresner/testimonials in Writer doc)",
+      "brief_signals": [
+        "finance dashboard examples",
+        "Finance Dashboard Examples by Type",
+        "Explore Examples",
+        "Build Finance Dashboards Now",
+        "Connect popular finance tools",
+        "CFOs, finance teams",
+        "one-click"
+      ],
+      "writer_page_hints": "12 pages · ~9600 Chars. Steps (STEP 1–4) on pages 9, closing CTA pages 10–11, FAQ pages 11–12. No recognition/testimonials block in current Writer doc.",
+      "expected_page_count": 12,
+      "required_strings": [
+        "Explore Examples",
+        "Build Finance Dashboards Now",
+        "Connect popular finance tools",
+        "STEP 1",
+        "STEP 4",
+        "START FOR FREE"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 4,
+        "min_faq": 8,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Explore Examples" },
+        { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack", "banner_slot": "dark-showcase", "bg_treatment": "dark-showcase", "pattern_notes": "Dark radial sticky stack — NOT a CTA band" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta": "Build Finance Dashboards Now", "pattern_notes": "Add class bg-white — flat white band" },
+        { "type": "features", "class": "scroll-section", "best": "sales-dashboard-examples", "repeat_from_brief": true, "child_class": "integrations-grid" },
+        { "type": "steps", "class": "how-it-works-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured closing band — distinct from hero gradient and white one-click" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
+      ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_one_click_bg_white": true
+      },
+      "cta_strings_required": [
+        "Explore Examples",
+        "Build Finance Dashboards Now",
+        "START FOR FREE"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [
+        "output/finance-dashboard-examples"
       ],
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
@@ -150,16 +213,20 @@
         "require_dresner": false
       },
       "section_order": [
-        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "cta": "Explore Examples" },
-        { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "one-click-cta", "cta": "Build HR Dashboards Now" },
-        { "type": "features", "class": "box-icon-section", "best": "financial-dashboard-examples", "repeat_from_brief": true },
+        { "type": "hero", "class": "banner-section", "best": "Executive-Dashboards", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Explore Examples" },
+        { "type": "content-blocks", "class": "sticky-card-section", "best": "BI Finance", "repeat_from_brief": true, "layout": "sticky-stack", "banner_slot": "dark-showcase", "bg_treatment": "dark-showcase" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta": "Build HR Dashboards Now", "pattern_notes": "Add class bg-white — flat white band" },
+        { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "Trusted by teams worldwide heading + rating-left/rating-right — no Dresner" },
         { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + dual zwc-nav-box-wrap — no See all link in brief" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "id": "conclusion", "cta": "START FOR FREE" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured closing band — distinct from hero gradient" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_one_click_bg_white": true
+      },
       "cta_strings_required": [
         "Explore Examples",
         "Build HR Dashboards Now",
@@ -177,6 +244,63 @@
       "gold_standard_outputs": [
         "output/hr-workforce-dashboard-examples"
       ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "comparison-guide": {
+      "description": "Long-form cloud analytics / BI comparison guides with sidebar TOC, tool reviews, steps, and FAQ",
+      "brief_signals": [
+        "cloud analytics tools guide",
+        "cloud analytics tools at a glance",
+        "top 5 cloud analytics tools",
+        "how to choose the right cloud analytics tool",
+        "why zoho analytics works for cloud analytics",
+        "comparison matrix",
+        "try zoho analytics for free today"
+      ],
+      "writer_page_hints": "7+ pages · sidebar TOC · comparison tables · 5 tool deep-dives · 5 selection steps · 6 FAQs",
+      "expected_page_count": 7,
+      "required_strings": [
+        "Cloud Analytics Tools Guide for 2026",
+        "Try Zoho Analytics for free today",
+        "Start testing with your data",
+        "Start free trial",
+        "Join us - It's free to start",
+        "Step 1",
+        "Step 5",
+        "FAQs"
+      ],
+      "section_inventory_checks": {
+        "min_steps": 5,
+        "min_faq": 1,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner", "best": "collaborative-bi", "banner_slot": "hero", "bg_treatment": "dark-card-hero", "cta": "Try Zoho Analytics for free today" },
+        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "pattern_notes": "left-tab sidebar + cont-sec blocks" },
+        { "type": "comparison", "class": "comparison-table-section", "best": "Business-Intelligence", "layout": "tools-at-a-glance" },
+        { "type": "content-blocks", "class": "tool-block", "best": "collaborative-bi", "repeat_count": 5 },
+        { "type": "steps", "class": "cont-sec", "best": "collaborative-bi", "repeat_count": 5 },
+        { "type": "comparison", "class": "comparison-table", "best": "Business-Intelligence", "layout": "key-features" },
+        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "child_class": "z-accordian", "block_count": 6 }
+      ],
+      "cta_strings_required": [
+        "Try Zoho Analytics for free today",
+        "Start testing with your data",
+        "Start free trial",
+        "Join us - It's free to start"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [
+        "output/cloud-analytics-tools"
+      ],
+      "primary_reference": "collaborative-bi",
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "agency-landing": {
@@ -213,7 +337,7 @@
         "require_how_it_works": true
       },
       "section_order": [
-        { "type": "hero", "class": "banner", "best": "Marketing-Agencies", "cta": "Book a free demo" },
+        { "type": "hero", "class": "banner", "best": "Marketing-Agencies", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Book a free demo" },
         { "type": "intro", "class": "agency-intro-section", "best": "Marketing-Agencies" },
         { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag-writer-tables" },
         { "type": "benefits", "class": "icon-border-section", "best": "Marketing-Agencies", "repeat_count": 3 },
@@ -222,13 +346,17 @@
         { "type": "testimonials", "class": "testimonials-section", "best": "Marketing-Agencies", "pattern_notes": "h2.t-left + See all testimonials + zwc-nav-box ×3" },
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right" },
         { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "cta": "Book a free demo" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
         { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true }
       ],
       "cta_strings_required": [
         "Book a free demo",
         "See all testimonials"
       ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_pre_banner_background": true
+      },
       "mandatory_css": [
         ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --testimonial-peach-bg: #FFF4E8; --testimonial-peach-border: #F0DCC8; --testimonial-mint-bg: #EEF8F4; --testimonial-mint-border: #C8E8D8; --testimonial-blue-bg: #EEF4FC; --testimonial-blue-border: #D4E4F5; }",
         ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
@@ -242,6 +370,283 @@
         "output/client-dashboard-software"
       ],
       "primary_reference": "Marketing-Agencies",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "ppc-agency-client-dashboard": {
+      "description": "PPC/agency client dashboard landing — zigzag features, benefits, comparison grid, demo CTA, FAQ (no how-it-works, testimonials, or Dresner)",
+      "brief_signals": [
+        "client dashboard software built for agencies",
+        "report to clients",
+        "Book a free demo",
+        "What key features to look for in a client dashboard tool",
+        "Ready to give every client a dashboard",
+        "Built for the way agencies report to clients",
+        "white-label"
+      ],
+      "writer_page_hints": "9 pages · ~7945 Chars. Page 7 = CTA intro. Page 8 = demo CTA + FAQ start. No social proof block in Writer doc.",
+      "expected_page_count": 9,
+      "required_strings": [
+        "Book a free demo",
+        "Everything an agency needs to run a client's dashboard from one place",
+        "Connect every client's stack",
+        "What key features to look for in a client dashboard tool",
+        "Ready to give every client a dashboard",
+        "What is client dashboard software?"
+      ],
+      "section_inventory_checks": {
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner", "best": "Marketing-Agencies", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Book a free demo" },
+        { "type": "intro", "class": "agency-intro-section", "best": "Marketing-Agencies" },
+        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag-writer-tables", "block_count": 5 },
+        { "type": "benefits", "class": "icon-border-section", "best": "Marketing-Agencies", "repeat_count": 3 },
+        { "type": "comparison", "class": "integrations-grid-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "layout": "3col-grid", "block_count": 6 },
+        { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
+        { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "block_count": 7 }
+      ],
+      "cta_strings_required": [
+        "Book a free demo"
+      ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_pre_banner_background": true
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [],
+      "primary_reference": "Marketing-Agencies",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "integration-campaign-books": {
+      "description": "Zoho Books + Zoho Analytics integration campaign — $100 credit offer, comparison table, dashboard carousel, setup steps, features, recognition cards, FAQ",
+      "brief_signals": [
+        "zoho books",
+        "integration",
+        "$100",
+        "wallet credit",
+        "Claim my $100 credit",
+        "financial insights",
+        "Before Zoho Analytics",
+        "FAQs from your Zoho Books peers"
+      ],
+      "writer_page_hints": "5 pages · ~5660 Chars. Page 3 = testimonials placeholder + recognition cards. No Dresner slider — use recognition-cards-section only.",
+      "expected_page_count": 5,
+      "required_strings": [
+        "Claim my $100 credit",
+        "Zoho Books tracks your finance",
+        "Before Zoho Analytics",
+        "Connected and live in under an hour",
+        "Everything that opens up once you connect",
+        "FAQs from your Zoho Books peers"
+      ],
+      "section_inventory_checks": {},
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "Coupon page", "cta": "Claim my $100 credit" },
+        { "type": "comparison", "class": "desk-connect-section", "best": "Coupon page", "layout": "two-column-table" },
+        { "type": "carousel", "class": "sampleDashboard-section", "best": "Coupon page" },
+        { "type": "steps", "class": "threeSimpleSteps-section", "best": "Coupon page", "repeat_count": 3 },
+        { "type": "features", "class": "everything-opens-section", "best": "Coupon page", "repeat_count": 6 },
+        { "type": "testimonials", "class": "testimonials-section", "best": "Coupon page", "pattern_notes": "INSERT TESTIMONIALS HERE — placeholder cards only" },
+        { "type": "recognition", "class": "recognition-cards-section", "best": "Coupon page", "block_count": 3 },
+        { "type": "cta", "class": "pre-banner-section", "best": "Coupon page", "cta": "Claim my $100 credit" },
+        { "type": "faq", "class": "faq-section", "best": "Coupon page", "repeat_from_brief": true, "block_count": 6 }
+      ],
+      "cta_strings_required": [
+        "Claim my $100 credit"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [],
+      "primary_reference": "Coupon page",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "embedded-sales-analytics": {
+      "description": "Long-form embedded analytics in sales guide — hero, sidebar TOC, comparison, examples, implementation steps, features, personas, benefits, testimonials, CTA, FAQ",
+      "brief_signals": [
+        "embedded analytics for sales",
+        "embedded analytics in sales",
+        "what is embedded analytics in sales",
+        "embedded analytics vs traditional sales reporting",
+        "examples of embedded analytics in sales",
+        "how to implement embedded analytics",
+        "key features for embedded sales analytics",
+        "customer stories",
+        "start free trial",
+        "schedule a demo"
+      ],
+      "writer_page_hints": "12 pages · ~19482 Chars. Sidebar-style long article. Customer Stories on page 8–9. 9 FAQs pages 9–11. No Dresner/testimonials marquee.",
+      "expected_page_count": 12,
+      "required_strings": [
+        "Embedded Analytics for Sales",
+        "What Is Embedded Analytics in Sales?",
+        "Embedded Analytics vs Traditional Sales Reporting",
+        "Examples of Embedded Analytics in Sales",
+        "How to Implement Embedded Analytics in a CRM or Sales Application",
+        "Key Features for Embedded Sales Analytics",
+        "Customer Stories",
+        "Start Free Trial",
+        "Schedule a Demo",
+        "Frequently asked questions"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 9,
+        "min_example_rows": 5,
+        "min_impl_steps": 7,
+        "min_feature_blocks": 7,
+        "min_persona_blocks": 4,
+        "min_benefit_blocks": 4,
+        "min_customer_stories": 2,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false,
+        "example_row_markers": [
+          "In-CRM Performance Dashboards",
+          "Deal Velocity Reports",
+          "Sales Forecasting Modules",
+          "Client Dashboards by Sales Tech Vendors",
+          "Internal Incentive Tracking"
+        ],
+        "impl_step_markers": [
+          "Identify your analytics requirements",
+          "Choose an embedded analytics platform",
+          "Connect your data sources",
+          "Build dashboards by role",
+          "Generate embed tokens and add the dashboard",
+          "Set up authentication and access control",
+          "Test before rollout"
+        ],
+        "feature_markers": [
+          "CRM integrations:",
+          "Mobile responsiveness:",
+          "Real-time data synchronization:",
+          "Customizable white-labeled dashboards:",
+          "AI-assisted analytics:",
+          "Unified sales analytics:",
+          "Role-based self-service access:"
+        ],
+        "persona_markers": [
+          "Sales managers use embedded dashboards",
+          "Account executives use embedded analytics",
+          "Sales operations teams combine",
+          "ISVs and SaaS providers embed"
+        ],
+        "benefit_markers": [
+          "Fast time to value",
+          "Enterprise scale",
+          "Security and compliance",
+          "Flexible deployment"
+        ],
+        "customer_story_markers": [
+          "Ivan Carillo",
+          "Toni Wall"
+        ]
+      },
+      "output_inventory_checks": {
+        "selectors": {
+          "example_row": { "selector": ".example-row", "min": 5 },
+          "impl_step": { "selector": ".impl-step", "min": 7 },
+          "feature_block": { "selector": ".feature-block", "min": 7 },
+          "persona_block": { "selector": ".persona-block", "min": 4 },
+          "benefit_block": { "selector": ".benefit-block", "min": 4 },
+          "za_inner_testimonials": { "selector": ".za-inner-testimonials", "min": 2 },
+          "z_accordian_box": { "selector": ".z-accordianBox", "min": 9 }
+        },
+        "required_classes": ["banner", "tabsection", "faq-section", "z-accordian"],
+        "min_cont_sec": 11,
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner", "best": "collaborative-bi", "banner_slot": "hero", "bg_treatment": "dark-card-hero", "cta": "Start Free Trial" },
+        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "pattern_notes": "left-tab sidebar + cont-sec blocks" },
+        { "type": "comparison", "class": "comparison-table-section", "best": "cloud-analytics-tools", "layout": "2-column" },
+        { "type": "content-blocks", "class": "example-row", "best": "sales-dashboard-examples", "repeat_from_brief": true, "block_count": 5, "layout": "zigzag" },
+        { "type": "steps", "class": "impl-steps", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7 },
+        { "type": "features", "class": "feature-block", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7 },
+        { "type": "testimonials", "class": "za-inner-testimonials", "best": "cloud-analytics-tools", "block_count": 2 },
+        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card", "cta": "Start Free Trial" },
+        { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "child_class": "z-accordian", "block_count": 9 }
+      ],
+      "cta_strings_required": [
+        "Start Free Trial",
+        "Schedule a Demo"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [
+        "output/embedded-sales-analytics"
+      ],
+      "primary_reference": "collaborative-bi",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "white-label-reporting-landing": {
+      "description": "White label reporting product landing — feature insights, build steps, build-vs-buy, benefits, FAQ",
+      "brief_signals": [
+        "white label reporting tool",
+        "white-label reporting",
+        "key features of white label reporting software",
+        "how to build a white label dashboard",
+        "build vs. buy white label reporting",
+        "why should businesses choose white label reporting tool",
+        "connect to 500+ platforms"
+      ],
+      "writer_page_hints": "7 pages · ~9800 Chars. Page 1 = hero + 5 key features. Pages 3–4 = 6 build steps + build-vs-buy. Pages 5–6 = 4 benefit drivers. Page 7 = 3 FAQ items. No Dresner/testimonials in current Writer doc.",
+      "expected_page_count": 7,
+      "required_strings": [
+        "White Label Reporting Tool for Customizable",
+        "Key features of white label reporting software",
+        "Connect to 500+ Platforms",
+        "Why should businesses choose white label reporting tool?",
+        "Frequently Asked Questions",
+        "Connect Your Data",
+        "Publish the Dashboard",
+        "Build In-House",
+        "Hybrid Approach"
+      ],
+      "section_inventory_checks": {},
+      "section_order": [
+        { "type": "hero", "class": "za-banner-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "source_url": "https://www.zoho.com/analytics/white-label-reporting-tool.html", "banner_slot": "hero", "bg_treatment": "za-banner-gradient", "cta": "Book my Demo" },
+        { "type": "general", "class": "webinar-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate" },
+        { "type": "features", "class": "za-insights-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 5 },
+        { "type": "sticky-stack", "class": "sticky-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "repeat_from_brief": false, "block_count": 4, "layout": "split — image left, text right" },
+        { "type": "benefits", "class": "box-icon-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 4 },
+        { "type": "testimonials", "class": "za-custories-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "child_class": "report-section" },
+        { "type": "recognition", "class": "za-rating-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "block_count": 6 },
+        { "type": "recognition", "class": "zwnew-testi-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "block_count": 3 },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "source_type": "reference", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "pattern_notes": "Textured full-width CTA band — hero za-banner ≠ this pre-banner-section", "cta": "Book my Demo" },
+        { "type": "faq", "class": "faq-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 3 }
+      ],
+      "output_inventory_checks": {
+        "required_classes": ["pre-banner-section", "faq-section"],
+        "require_pre_banner_background": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true
+      },
+      "cta_strings_required": [
+        "Book my Demo",
+        "Get a Price Quote"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "primary_reference": "webtemplate/white-label-reporting-tool",
+      "primary_url": "https://www.zoho.com/analytics/white-label-reporting-tool.html",
       "playbook": "z_workflow/writer-drop-playbook.md"
     }
   }

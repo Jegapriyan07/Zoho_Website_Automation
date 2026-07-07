@@ -1,0 +1,92 @@
+{
+  "pass": true,
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\white-label-reporting",
+  "slug": "white-label-reporting",
+  "archetype": "white-label-reporting-landing",
+  "inventory": {
+    "example_row": 0,
+    "impl_step": 0,
+    "feature_block": 0,
+    "persona_block": 0,
+    "benefit_block": 0,
+    "za_inner_testimonials": 0,
+    "z_accordian_box": 3,
+    "cont_sec": 0,
+    "banner": 5,
+    "tabsection": 0,
+    "faq_section": 1,
+    "cta_button_count": 3,
+    "cta_texts": [
+      "Book my Demo",
+      "Get a Price\r\n                                Quote",
+      "Book my Demo"
+    ],
+    "h1_count": 1,
+    "has_page_container": true,
+    "has_nav_placeholder": true,
+    "has_footer_placeholder": false,
+    "has_zoho_placeholder": true,
+    "has_placehold_co": false,
+    "has_local_assets": false,
+    "has_cta_visibility_override": true,
+    "has_brand_cta_token": true,
+    "pre_banner_section": 1,
+    "has_pre_banner_background": true
+  },
+  "brief_inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 3,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 9952,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "banner_audit": {
+    "hero_bg_fingerprint": "background-color:#fff;background-image:radial-gradient(circle at 10% 20%, rgba(127, 86, 217, 0.08) 0, transparent 45%), radial-gradient(circle at 90% 80%, rgba(236, 92, 99, 0.06) 0, transparent 40%)",
+    "closing_bg_fingerprint": "background-color:#dce8ff;background-image:radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.18) 0, transparent 55%), radial-gradient(circle at 25% 130%, rgba(14, 116, 144, 0.14) 0, transparent 50%), var(--pre-banner-texture)",
+    "mid_white_bg_fingerprint": null,
+    "slots": [
+      {
+        "type": "hero",
+        "class": "za-banner-section",
+        "banner_slot": "hero",
+        "bg_treatment": "za-banner-gradient"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner-section",
+        "banner_slot": "closing-cta",
+        "bg_treatment": "texture-closing"
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [
+    "Footer placeholder comment not found (expected dev handoff slot)"
+  ],
+  "validated_at": "2026-07-07T08:48:58.272Z"
+}

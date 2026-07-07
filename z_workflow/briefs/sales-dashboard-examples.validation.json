@@ -1,14 +1,15 @@
 {
   "pass": true,
   "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\sales-dashboard-examples.txt",
-  "archetype": "dashboard-examples-landing",
-  "archetype_score": 12,
+  "archetype": "dashboard-examples-landing-sales",
+  "archetype_score": 13,
   "required_found": [
     "Explore Examples",
-    "Dresner Advisory",
-    "Hear from our customers",
+    "Build Sales Dashboards Now",
+    "Connect popular CRMs",
     "STEP 1",
-    "STEP 4"
+    "STEP 4",
+    "START FOR FREE"
   ],
   "required_missing": [],
   "inventory": {
@@ -21,31 +22,39 @@
     ],
     "faq_count": 5,
     "page_markers": [
-      1,
       2,
       3,
       4,
       5,
       6,
+      7,
       8,
       9,
-      10,
-      11
+      10
     ],
-    "has_testimonials_heading": true,
-    "has_see_all_testimonials": true,
-    "has_dresner": true,
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
     "has_how_it_works": false,
-    "rating_platforms": [
-      "GetApp",
-      "FinancesOnline",
-      "Capterra",
-      "G2",
-      "Google Workspace Marketplace"
-    ],
-    "char_count": 8300
+    "rating_platforms": [],
+    "char_count": 7157,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 4,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
   },
   "errors": [],
-  "warnings": [],
-  "validated_at": "2026-06-30T10:35:27.692Z"
+  "warnings": [
+    "Only 9 --- PAGE N --- markers (expected ~10)"
+  ],
+  "validated_at": "2026-07-07T05:24:56.535Z"
 }

@@ -25,6 +25,18 @@ const commands = [
     desc: 'Full rescan of reference site folders → regenerates site-catalog.json, section-index.json, team-dna.json, audit-report.txt. Run after adding or revamping any reference page.'
   },
   {
+    id: 'audit-webtemplate',
+    cmd: 'node z_workflow/scripts/audit-webtemplate-sitemap.mjs --resume',
+    npm: 'npm run audit:webtemplate',
+    desc: 'Fetch all 630 live webtemplate URLs and enrich sitemap-categorized.json with per-section layout descriptions (hero split, zigzag, FAQ accordion, etc.).'
+  },
+  {
+    id: 'find-webtemplate',
+    cmd: 'node z_workflow/scripts/find-webtemplate-section.mjs hero "split left"',
+    npm: 'npm run find:webtemplate -- hero "split left" --limit 5',
+    desc: 'Search sitemap section descriptions to pick the best webtemplate page for one brief section (section-wise compose, not whole-page clone).'
+  },
+  {
     id: 'match',
     cmd: 'node z_workflow/scripts/match-sites.mjs --brief "your keywords here"',
     npm: 'npm run match -- --brief "sales dashboard examples"',
@@ -47,6 +59,12 @@ const commands = [
     cmd: 'node z_workflow/scripts/validate-brief.mjs --file z_workflow/briefs/<slug>.txt',
     npm: 'npm run validate:brief -- --file z_workflow/briefs/<slug>.txt',
     desc: 'Gate brief against section-composites.json (required strings + section inventory). Exit 1 = do not build.'
+  },
+  {
+    id: 'validate-output',
+    cmd: 'node z_workflow/scripts/validate-output.mjs --slug <page-slug>',
+    npm: 'npm run validate:output -- --slug embedded-sales-analytics',
+    desc: 'Gate output HTML/CSS against archetype block counts, CTAs, banner_slot diversity, mandatory CSS. Writes validation.json with banner_audit.'
   },
   {
     id: 'promote-state',

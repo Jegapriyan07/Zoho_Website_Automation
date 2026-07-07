@@ -22,6 +22,20 @@ This file is the short checklist. The playbook has full section patterns and ref
 
 ---
 
+## 1b. Output validation (before APPROVE)
+
+| Gate | Requirement |
+|------|-------------|
+| **validate-output** | `npm run validate:output -- --slug {slug}` or `--from-state` — **exit 0 before APPROVE** |
+| **Block counts** | Per archetype `output_inventory_checks` (example rows, FAQ items, steps, …) |
+| **Banner slots** | Hero vs mid-cta vs closing-cta use different `bg_treatment` — `banner_audit` in validation.json flags identical hero/closing CSS |
+| **CTA strings** | Every `cta_strings_required` entry visible in HTML |
+| **Mandatory CSS** | Brand CTA override + `--primary-btn-color: #e42527` |
+| **Placeholders** | `prezohoweb.zoho.com` only — no `placehold.co` or `./assets/` |
+| **Mid-page CTA band** | Red `.cta-btn.act-btn` inside `pre-banner-section` (or dark showcase band) — **not** plain white `za-bottom-section` |
+
+---
+
 ## 2. CTA visibility + brand red (Phase 6 — critical)
 
 `zohocustom.css` hides `.act-btn.cta-btn` until team nav loads. **Always override in page CSS.**
@@ -55,6 +69,21 @@ Gold standard: `output/client-dashboard-software/style.css`
 
 ---
 
+## 2c. Mid-page / closing CTA band — `pre-banner-section` (Phase 6)
+
+**Every red CTA block before FAQ (or page end) must sit inside a visible CTA band** — textured gradient or dark showcase — not plain white padding.
+
+| Check | Pass |
+|-------|------|
+| Section class | `pre-banner-section` (or mapped reference equivalent) |
+| Background | `background-image` with `blue-shadow-with-texture.png` and/or theme gradients — **not** unstyled white |
+| Buttons | Inside `.cta-btn-wrap` within `.content-wrap` |
+| Anti-pattern | `za-bottom-section` with only `padding` and no background treatment |
+
+Gold standards: `output/ppc-agency-client-dashboard`, `output/white-label-reporting-tool`, `Reference-Site/Marketing-Agencies`
+
+---
+
 ## 2b. Testimonial card palette (Phase 6 — automation)
 
 **Do not theme-tint** `.zwc-nav-box` from `--color-primary` or vertical palette.
@@ -72,7 +101,7 @@ Fixed extracted values — copy from `Rulesbook.md` §2.2.2 · `team-dna.json`:
 
 Inner quote boxes: `rgba(240,220,200,0.45)` · `rgba(200,232,216,0.45)` · `rgba(212,228,245,0.45)` — never cyan/violet/teal tints.
 
-Gold standard: `output/financial-dashboard-examples/style.css`
+Gold standard: `output/sales-dashboard-examples/style.css`
 
 ---
 
@@ -82,7 +111,7 @@ See [section-composites.json](section-composites.json) → `dashboard-examples-l
 
 **Order:** hero → sticky-stack types (`sticky-card-section`) → one-click CTA → integrations → **recognition** → **testimonials** → steps → closing CTA → FAQ
 
-> Finance gold standard (`output/financial-dashboard-examples`) uses **BI Finance** `scroll-card` stacking — sales variant still uses zigzag `dashboard-wrapper`.
+> Finance builds use **BI Finance** `scroll-card` stacking — sales variant still uses zigzag `dashboard-wrapper`.
 
 **References:** recognition + testimonials → **BI-Marketing** (not partial PowerBI pattern)
 
@@ -93,7 +122,9 @@ See [section-composites.json](section-composites.json) → `dashboard-examples-l
 1. Grep output for every CTA string from brief + `See all testimonials`
 2. Open in browser — buttons must be **visible**, not just in DOM
 3. Section count vs composite / `source_map`
-4. Checklist in `.cursor/rules/web-pages-frontend.mdc`
+4. **Pre-banner** — closing/demo CTA section shows textured background (not white); grep `blue-shadow-with-texture` or radial-gradient in `style.css`
+5. **Dashboard zigzag** — `.dashboard-wrapper .main-wrapper` has `padding: 100px 0`, `gap: 40px`, clip-path `::before` panels; image column vertically centered
+6. Checklist in `.cursor/rules/web-pages-frontend.mdc`
 
 ---
 

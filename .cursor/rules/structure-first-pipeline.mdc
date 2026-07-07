@@ -9,14 +9,16 @@ When building pages via `z_workflow/cursor-build-workflow.md`, **compose structu
 
 **New Writer doc?** Read `z_workflow/writer-drop-playbook.md` before Phase 0.
 
-**Gold-standard output:** `output/sales-dashboard-examples/` — correct BEM, section patterns, brief-driven copy, dev handoff placeholders.
+**Writer brief gate:** Chrome MCP extraction from the user's URL **in this session** only. Zoho login page → stop and ask user to sign in — never use stale `briefs/*.txt`, paste, or Puppeteer fallback.
+
+**Gold-standard reference:** `Reference-Site/agent-reference/` (promoted pages) — correct BEM, section patterns, brief-driven copy.
 
 ## What this means
 
 | Do | Do not |
 |----|--------|
 | Build only sections the writer's doc requires | Copy an entire reference `index.html` and swap copy |
-| Pull **per-section** HTML skeleton from `section-index.json` + top matches | Copy a reference site's full `style.css` or `script.js` |
+| Pull **per-section** HTML skeleton from `section-index.json` + top matches, or from a `webtemplate` live page (Chrome MCP, one section only) | Copy a reference site's full `style.css` or `script.js`, or inline a webtemplate's whole page |
 | Repeat section blocks as many times as the brief needs (e.g. 8 zigzag rows) | Keep reference sections the brief does not mention |
 | Extract CSS **only for classes used** on this page | Ship unused reference CSS |
 | Include JS **only for behaviors present** (accordion, slick, tabs, sticky) | Copy ads, modals, or unrelated reference JS |
@@ -26,10 +28,11 @@ Each new writer doc → new page composition. Similarity matching picks **sectio
 
 ## Phase 0 gate
 
-1. Run `node z_workflow/scripts/match-sites.mjs` and record results in `z_workflow/state.json`.
+1. **Writer brief:** Chrome MCP → user's URL → save `briefs/{slug}.txt` → `validate:brief` exit 0. Login wall → stop; do not use existing brief files.
+2. Run `node z_workflow/scripts/match-sites.mjs` and record results in `z_workflow/state.json`.
 2. Set `similarity.primary_source` to the top-scoring reference folder for **tokens and flavour** — not for blind full-page copy.
 3. Build `similarity.source_map`: one entry per **brief section** → reference folder → BEM class → layout style.
-4. Use `section-index.json` alternates when the top site lacks a required section type.
+4. Use `section-index.json` alternates when the top site lacks a required section type. If still unmatched, pick from `webtemplate/sitemap-categorized.json` by reading each entry's **`sections[]` descriptions** (type + layout, e.g. `split — text left, image right`, `zigzag — alternating text/image rows`). Use `npm run find:webtemplate -- <type> "<layout keyword>"` to shortlist. Fetch only the matched section live via Chrome MCP in Phase 6. Tag each `source_map` entry `source_type: "reference" | "webtemplate"`.
 5. Set `similarity.structure_mode: "compose"` in `state.json` (not `clone_mode`).
 
 Synthesis is allowed for individual sections with no reference match — use `team-dna.json` + section-index alternates.
@@ -80,9 +83,13 @@ Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `
 - ❌ Extracting only page 1 of a multi-page Writer doc
 - ❌ Skipping `reported-section` / `testimonials-section` on dashboard-examples landings when brief page ~10 has social proof
 
-- ❌ Copying entire `style.css` / `script.js` from a reference folder
+- ❌ Using `briefs/*.txt` from a prior session when user provided a fresh Writer URL
+- ❌ Building when Chrome MCP hits Zoho Accounts login without stopping for user sign-in
 - ❌ Keeping reference sections not in the writer's doc
 - ❌ Cloning `output/*` pages as templates (use `section-index.json` + reference site folders)
 - ❌ Inventing section class names when `section-index.json` already has a pattern
 - ❌ Building nav or footer code
 - ❌ Skipping JS for accordion / slick / tabs when those sections are present
+- ❌ Leaving `.pre-banner-section` on white/plain placeholder — copy textured background from mapped reference (`blue-shadow-with-texture.png` for agency landings)
+- ❌ Placing mid-page/closing red CTAs on plain white (`za-bottom-section`, bare `.content-wrap`) — use `pre-banner-section` with textured or dark band; gold standard: `output/ppc-agency-client-dashboard`
+- ❌ Zigzag `.dashboard-wrapper` rows without clip-path panels, row spacing (`100px 0` / `margin-bottom: 50px`), or centered image column

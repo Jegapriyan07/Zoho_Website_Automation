@@ -215,7 +215,7 @@ theme. Always use the fixed extracted palette in §2.2.2.
 }
 ```
 
-Gold-standard reference: `output/client-dashboard-software/style.css` (CTAs + link) · `output/financial-dashboard-examples/style.css` (testimonial cards).
+Gold-standard reference: `output/client-dashboard-software/style.css` (CTAs + link) · `output/sales-dashboard-examples/style.css` (testimonial cards).
 
 ### 2.2.2 Testimonial cards — extracted palette only (automation)
 
@@ -278,7 +278,7 @@ and all future dashboard landings.
 | `background: var(--color-primary)` on testimonial cards | Fixed tokens above only |
 | Themed inner quote box matching page gradient | `rgba(240,220,200,0.45)` / `rgba(200,232,216,0.45)` / `rgba(212,228,245,0.45)` |
 
-Gold standard: `output/financial-dashboard-examples/style.css` · `output/sales-dashboard-examples/style.css` (after fix).
+Gold standard: `output/sales-dashboard-examples/style.css`.
 
 ### 2.3 Font Weight Rules
 

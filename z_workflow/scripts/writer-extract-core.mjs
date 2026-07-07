@@ -4,6 +4,10 @@
  * Used by extract-writer.mjs (Puppeteer) and documented for Chrome MCP evaluate_script.
  */
 
+import { inventoryBrief } from './inventory-checks.mjs';
+
+export { inventoryBrief } from './inventory-checks.mjs';
+
 /**
  * Async function body run inside the Writer page via page.evaluate.
  * Returns structured extraction result (JSON-serializable).
@@ -173,46 +177,6 @@ export function assembleBriefFile(result, title = '') {
   const body = result.mergedText || result.briefText || result.structuredText || '';
   const header = title ? `${title}\n` : '';
   return header + body.trim() + '\n';
-}
-
-/**
- * Inventory sections for validation sidecar.
- * @param {string} text
- */
-export function inventoryBrief(text) {
-  const norm = text.replace(/\r\n/g, '\n');
-
-  const stepMatches = [...norm.matchAll(/step\s*(\d+)/gi)];
-  const stepNumbers = [...new Set(stepMatches.map((m) => parseInt(m[1], 10)))].sort((a, b) => a - b);
-
-  const faqIdx = norm.search(/\bFAQs?\b/i);
-  let faqCount = 0;
-  if (faqIdx >= 0) {
-    const faqBlock = norm.slice(faqIdx);
-    faqCount = (faqBlock.match(/\?\s*\n/g) || []).length;
-    if (faqCount === 0) {
-      faqCount = (faqBlock.match(/\n[A-Z][^\n]+\?\n/g) || []).length;
-    }
-  }
-
-  const pageMarkers = [...norm.matchAll(/---\s*PAGE\s+(\d+)\s*---/gi)];
-  const pages = pageMarkers.map((m) => parseInt(m[1], 10));
-
-  const ratingPlatforms = ['GetApp', 'FinancesOnline', 'Capterra', 'G2', 'Google Workspace Marketplace', 'Software Advice']
-    .filter((p) => norm.includes(p));
-
-  return {
-    step_count: stepNumbers.length,
-    step_numbers: stepNumbers,
-    faq_count: faqCount,
-    page_markers: pages,
-    has_testimonials_heading: /hear from our (happy )?customers/i.test(norm),
-    has_see_all_testimonials: /see all testimonials/i.test(norm),
-    has_dresner: /dresner advisory/i.test(norm),
-    has_how_it_works: /how .+ works for agencies/i.test(norm),
-    rating_platforms: ratingPlatforms,
-    char_count: norm.length
-  };
 }
 
 /**

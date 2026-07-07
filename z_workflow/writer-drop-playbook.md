@@ -1,58 +1,69 @@
 # Writer Drop Playbook — exact output every build
 
-**Read this whenever a new Zoho Writer URL, `.txt`, or pasted brief arrives.**
+**Read this whenever a new Zoho Writer URL arrives.**
 
 Goal: structured dev handoff in `output/{page-slug}/` that matches the brief **and** team reference patterns — no missing CTAs, no skipped Writer pages, no wrong section order.
 
-Companion files: [agent-build-gates.md](agent-build-gates.md) · [section-composites.json](section-composites.json) · [cursor-build-workflow.md](cursor-build-workflow.md)
+Companion files: [agent-build-gates.md](agent-build-gates.md) · [section-composites.json](section-composites.json) · [banner-selection-guide.md](banner-selection-guide.md) · [cursor-build-workflow.md](cursor-build-workflow.md)
 
-Gold-standard outputs:
-- `output/sales-dashboard-examples/` — sales dashboard landing
-- `output/financial-dashboard-examples/` — finance dashboard landing (full composite incl. recognition + testimonials)
+Reference outputs (promoted to `Reference-Site/agent-reference/` when approved): sales-dashboard-examples.
 
 ---
 
 ## 0. Trigger checklist (do first)
 
 ```
-[ ] Writer brief loaded → z_workflow/briefs/{slug}.txt
-[ ] Brief char count ≈ Writer footer "Chars:" (if URL extraction)
+[ ] Writer URL opened via Chrome MCP in THIS session
+[ ] NOT on Zoho Accounts login page (if login → stop, ask user to sign in, retry)
+[ ] Fresh extract saved → z_workflow/briefs/{slug}.txt (not a stale file from disk)
+[ ] validate:brief exit 0
+[ ] Brief char count ≈ Writer footer "Chars:" (if shown)
 [ ] All Writer pages scrolled (Page 1 of N … N of N)
 [ ] section-composites.json archetype matched (if applicable)
+[ ] banner-selection-guide.md — hero vs mid-cta vs closing-cta bg treatments differ (no one banner reused everywhere)
 [ ] state.json reset for new run_id / page_slug
 ```
 
 ---
 
-## 1. Acquire the Writer brief (mandatory)
+## 1. Acquire the Writer brief — Chrome MCP only (mandatory)
 
-### Method A — Automated extract (preferred)
+### Step 1 — Open the Writer URL
 
-```bash
-npm install                    # once — installs puppeteer
-npm run extract:writer -- --url "https://writer.zoho.in/writer/open/..." --slug client-dashboard-software
+```
+navigate_page or new_page  →  {writer-doc-link}
 ```
 
-First run (Zoho login): add `--headed` and use a persistent profile (default: `%LOCALAPPDATA%/zoho-writer-chrome-profile`).
+### Step 2 — Login gate (fail closed)
 
-The script:
+| Signal | Action |
+|--------|--------|
+| URL contains `accounts.zoho` or page title is "Zoho Accounts" | **STOP.** Tell user: sign in in the browser tab, then say **continue**. Do not read `briefs/*.txt`, do not build. |
+| Writer editor loads (`.zw-page` present) | Continue to extraction |
+| Empty extraction after scroll | **STOP.** Ask user to confirm login / sharing, then retry |
+
+### Step 3 — Extract via Chrome MCP
+
+Use `evaluate_script` with `WRITER_BROWSER_EXTRACT_FN` from `z_workflow/scripts/writer-extract-core.mjs`:
 
 1. Incrementally scrolls the Writer editor (hydrates lazy pages)
 2. Merges per-page `innerText` + structured `p/h/td` walk
-3. Saves `z_workflow/briefs/{slug}.txt` + `{slug}.extract.json`
-4. Runs **`validate-brief.mjs`** — build must not proceed if validation fails
+3. Agent saves `z_workflow/briefs/{slug}.txt`
 
-### Method A2 — Chrome MCP (agent in Cursor)
-
-Use `evaluate_script` with `WRITER_BROWSER_EXTRACT_FN` from `z_workflow/scripts/writer-extract-core.mjs` (same logic as Puppeteer). Then:
+Then:
 
 ```bash
 npm run validate:brief -- --file z_workflow/briefs/{slug}.txt
 ```
 
-### Method B — File or paste
+### Forbidden
 
-Save as `z_workflow/briefs/{slug}.txt`. Do not invent copy. Still run `validate:brief` before matching/build.
+| Do not | Why |
+|--------|-----|
+| Use `briefs/*.txt` from a previous session | User is testing from scratch |
+| Use Puppeteer when user expects MCP test flow | Wrong extraction path |
+| Accept paste/file instead of MCP when a Writer URL was given | Bypasses the test |
+| Build on failed extraction | No valid content source |
 
 ### Extraction gates (fail closed)
 
@@ -88,7 +99,7 @@ Archetypes: `dashboard-examples-landing` · `agency-landing` (client dashboard /
 
 **Brief signals:** `50+`, `dashboard examples`, `by type`, `Explore Examples`, `one-click`, `Connect popular`
 
-**Examples:** sales-dashboard-examples, financial-dashboard-examples
+**Examples:** sales-dashboard-examples
 
 **Section order (strict — from Writer doc):**
 
@@ -143,6 +154,50 @@ If no composite matches → use `section-index.json` per section + `team-dna.jso
 ```
 
 ### One-click + closing CTA — `pre-banner-section`
+
+**Mid-page and closing red CTAs must sit inside a textured CTA band** — never on plain white with only padding.
+
+Reference: `Marketing-Agencies`, `output/ppc-agency-client-dashboard`, `output/finance-dashboard-examples`
+
+```html
+<section class="pre-banner-section p-90 t-center" id="conclusion">
+  <div class="content-wrap">
+    <h2>Get started with our white-label reporting tool</h2>
+    <div class="cta-btn-wrap">
+      <a href="#" class="cta-btn act-btn">Book my Demo</a>
+    </div>
+  </div>
+</section>
+```
+
+**Required CSS (textured band — adapt gradient to page theme):**
+
+```css
+:root {
+  --pre-banner-texture: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
+}
+
+.pre-banner-section {
+  text-align: center;
+  background-color: #dce8ff;
+  background-image:
+    radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.18) 0, transparent 55%),
+    radial-gradient(circle at 25% 130%, rgba(14, 116, 144, 0.14) 0, transparent 50%),
+    var(--pre-banner-texture);
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  background-size: cover, cover, 100% auto;
+  min-height: 280px;
+}
+```
+
+| Do | Do not |
+|----|--------|
+| `pre-banner-section` + textured/dark/colored background | Plain `za-bottom-section` on white with CTAs only |
+| Wrap buttons in `.cta-btn-wrap` | Loose `.cta-btn` links with no band |
+| Copy texture from mapped reference (`blue-shadow-with-texture.png` for agency/product landings) | Leave `.pre-banner-section` on white/plain placeholder |
+
+Dark variant (examples carousel): `Create-Dashboard` `.sampleDashboard-section` — use when brief maps to dark showcase band before closing CTA.
 
 ```html
 <a href="…" class="cta-btn act-btn">Build Finance Dashboards Now</a>
@@ -236,6 +291,49 @@ Without this, buttons exist in HTML but are **invisible** in Live Server / local
 5. Images: `https://prezohoweb.zoho.com/` + `<!-- TODO: replace with final asset -->` (see `Rulesbook.md` §2.8)
 6. Nav/footer: comment placeholders only
 
+### `pre-banner-section` — textured CTA band (do not skip)
+
+When the brief has a closing/demo CTA (`Book a free demo`, `START FOR FREE`, etc.), **never leave `.pre-banner-section` on a bare white page**. Copy the background stack from the mapped reference — not the root placeholder URL.
+
+| Archetype | Reference | Background asset |
+|-----------|-----------|------------------|
+| Agency / PPC client dashboard | `Marketing-Agencies` | `blue-shadow-with-texture.png` on `prezohoweb.zoho.com` |
+| Dashboard-examples | `Executive-Dashboards` / finance output | Radial gradients + `--primary-bg` (see `output/finance-dashboard-examples/style.css`) |
+
+**Minimum CSS (agency):**
+
+```css
+.pre-banner-section {
+    background-color: #dce8ff;
+    background-image:
+        radial-gradient(circle at 88% -20%, rgba(153, 20, 255, 0.14) 0, transparent 55%),
+        radial-gradient(circle at 25% 130%, rgba(0, 142, 245, 0.12) 0, transparent 50%),
+        url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 320px;
+}
+```
+
+Use `.pre-banner-list` for ★ bullet lines. **Browser gate:** pre-banner must show a visible textured band before APPROVE.
+
+### `dashboard-wrapper` zigzag — spacing (do not skip)
+
+When composing zigzag feature rows from `Executive-Dashboards` / agency briefs:
+
+| Rule | Value |
+|------|-------|
+| Row padding | `100px 0` per `.main-wrapper` |
+| Row gap | `margin-bottom: 50px` between rows |
+| Flex gap | `gap: 40px` between image + copy columns |
+| Panel shape | `clip-path` angled panels on `::before` — not plain `border-radius` boxes |
+| Image column | `min-height: 360px`, `display: flex`, `align-items: center`, `justify-content: center` |
+| Placeholder img | `max-width: 560px`, `min-height: 300px`, `object-fit: cover` |
+| Token | `--teritary-bg: #f8f9fc` for panel fill |
+
+Gold standard: `output/sales-dashboard-examples/style.css` → `.dashboard-wrapper` block.
+
 **Never:** clone whole reference `index.html` / `style.css` / `script.js`
 
 ---
@@ -260,6 +358,8 @@ Open `output/{slug}/index.html` and confirm:
 - [ ] Recognition block: dark Dresner panel + rating cards
 - [ ] Section order matches composite / brief
 - [ ] Zigzag / FAQ / card counts match brief
+- [ ] **Pre-banner CTA** shows textured/dark background band — not plain white (see §5 `pre-banner-section`)
+- [ ] **Dashboard zigzag** rows have clip-path panels, 100px row padding, centered image column (see §5 `dashboard-wrapper`)
 
 ### Section count
 
@@ -283,7 +383,7 @@ Compare `index.html` sections to `section-composites.json` or `state.json → si
 
 ---
 
-## 8. Lessons from financial-dashboard-examples (do not repeat)
+## 8. Lessons from dashboard-examples builds (do not repeat)
 
 | Mistake | Fix |
 |---------|-----|
@@ -309,4 +409,4 @@ npm run promote -- --from-state   # after dev polish + APPROVE
 
 ---
 
-*Writer drop playbook v1.0 · Derived from financial-dashboard-examples revise rounds · Update when new archetypes are promoted*
+*Writer drop playbook v1.0 · Derived from dashboard-examples revise rounds · Update when new archetypes are promoted*

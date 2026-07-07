@@ -1,54 +1,31 @@
-'use strict';
+(function () {
+    'use strict';
 
-(function ($) {
-    $('.z-accordianBox').find('h4.active').next().slideDown();
-    $('.z-accordianBox').find('h4').on('click', function () {
-        var $that = $(this);
-        if ($that.next().is(':visible')) {
-            $that.removeClass('active');
-            $that.next().hide('slow');
-        } else {
-            $('.z-accordianBox').find('h4').removeClass('active');
-            $that.addClass('active');
-            $('.z-accordianBox > ul').hide('slow');
-            $that.next().slideDown();
-        }
-    });
-})(jQuery);
+    document.querySelectorAll('.z-accordianBox h4').forEach(function (heading) {
+        heading.addEventListener('click', function () {
+            var box = heading.parentElement;
+            var list = box.querySelector('ul');
+            var isActive = heading.classList.contains('active');
 
-document.addEventListener('DOMContentLoaded', function () {
-    var onScrollEls = document.querySelectorAll('[data-onscroll]');
-    if (onScrollEls.length && window.IntersectionObserver) {
-        var scrollObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('zwe-om');
-                }
+            document.querySelectorAll('.z-accordianBox h4').forEach(function (h) {
+                h.classList.remove('active');
             });
-        }, { threshold: 0.15 });
-        onScrollEls.forEach(function (el) {
-            scrollObserver.observe(el);
+            document.querySelectorAll('.z-accordianBox > ul').forEach(function (ul) {
+                ul.style.display = 'none';
+            });
+
+            if (!isActive && list) {
+                heading.classList.add('active');
+                list.style.display = 'block';
+            }
         });
-    }
+    });
 
-    var hiwSteps = document.querySelectorAll('.how-it-works-section .hiw-step');
-    if (hiwSteps.length) {
-        if (window.IntersectionObserver) {
-            var hiwObserver = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('hiw-visible');
-                        hiwObserver.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
-            hiwSteps.forEach(function (step) {
-                hiwObserver.observe(step);
-            });
-        } else {
-            hiwSteps.forEach(function (step) {
-                step.classList.add('hiw-visible');
-            });
+    var firstFaq = document.querySelector('.z-accordianBox h4.active');
+    if (firstFaq) {
+        var firstList = firstFaq.parentElement.querySelector('ul');
+        if (firstList) {
+            firstList.style.display = 'block';
         }
     }
-});
+})();

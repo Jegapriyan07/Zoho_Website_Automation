@@ -22,6 +22,13 @@ This workflow turns a Zoho Writer brief into a **structured dev handoff** in `ou
 | `writer-drop-playbook.md` | **New Writer drop** — exact output checklist, section order, reference patterns |
 | Writer brief | **Only** source for copy, section list, and block counts |
 
+**Two section-pattern sources (compose from either, per section):**
+
+| Source | What | How to read |
+|--------|------|-------------|
+| `Reference-Site/{page}/` | Team pages on disk | Read local `index.html` / `style.css` / `script.js` |
+| `webtemplate/sitemap-categorized.json` | 630 live Zoho links, 22 categories | **Fetch live page via Chrome MCP** (`new_page` + `evaluate_script`), extract one section only |
+
 ```mermaid
 flowchart TD
     start[Writer brief URL file or paste] --> preflight[Pre-flight]
@@ -56,18 +63,30 @@ Before any code:
 
 ---
 
-## 2. Acquire the Writer brief
+## 2. Acquire the Writer brief — Chrome MCP only
 
-> **Full procedure:** [writer-drop-playbook.md](writer-drop-playbook.md) §1–2 (scroll all pages, archetype match, save to `briefs/`).
+> **Full procedure:** [writer-drop-playbook.md](writer-drop-playbook.md) §1 (scroll all pages, login gate, save to `briefs/`).
 
-| Method | How |
-|--------|-----|
-| **A — Automated extract (preferred)** | `npm run extract:writer -- --url "…" --slug {slug}` → `briefs/{slug}.txt` + auto `validate:brief` |
-| **A2 — Chrome MCP** | Agent runs `WRITER_BROWSER_EXTRACT_FN` from `scripts/writer-extract-core.mjs` → then `npm run validate:brief` |
-| **B — File or paste** | Read `.txt` / `.md` directly or from pasted content — still run `validate:brief` |
-| **C — Nothing yet** | Prompt for URL, file, or paste and wait |
+**The only allowed method in this repo's test flow:**
 
-**Hard stop:** Do not run `match-sites` or build until `validate:brief` exits 0.
+| Step | Action |
+|------|--------|
+| 1 | `navigate_page` or `new_page` → `{writer-doc-link}` |
+| 2 | **Login gate:** if URL/title is Zoho Accounts sign-in → **STOP**. Ask user to sign in in the MCP browser tab, then retry. Do not build. |
+| 3 | `evaluate_script` → `WRITER_BROWSER_EXTRACT_FN` from `scripts/writer-extract-core.mjs` |
+| 4 | Save → `briefs/{slug}.txt` (created in **this session** only) |
+| 5 | `npm run validate:brief -- --file z_workflow/briefs/{slug}.txt` — must exit 0 |
+
+**Forbidden — do not use:**
+
+- Existing `briefs/*.txt` from a prior session (stale brief)
+- Puppeteer `npm run extract:writer` as a substitute for MCP in the test flow
+- Pasted text or pre-saved files when the user provided a Writer URL
+- Proceeding to Phase 0+ when extraction failed or login wall is up
+
+> **Trigger form:** `{writer-doc-link}` + `read readme.md and start` → open URL via Chrome MCP immediately. On login wall, stop and ask for sign-in — do not fall back to disk.
+
+**Hard stop:** do not run `match-sites` or build until `validate:brief` exits 0 on a brief extracted **in this session** from the user's Writer URL.
 
 Extract into `state.json → writer_brief`:
 
@@ -120,6 +139,11 @@ Set `similarity.structure_mode: "compose"` in `state.json`.
 
 Use `team-dna.json` + `section-index.json` alternates when a required section type is missing from the top 3 matches.
 
+**Per-section source selection:** for each `sections_required` entry, choose ONE source and record it in the source map as `source_type: "reference" | "webtemplate"`:
+
+- **`reference`** — the section pattern exists in a `Reference-Site/` folder (default; read from disk).
+- **`webtemplate`** — no strong on-disk match, or the brief category maps to a live template category in `sitemap-categorized.json`. **Read `sections[]` descriptions** on each entry (order, type, class, layout) — pick the page that has the best-matching section for this brief item, not a whole page to clone. Fetch only that section live via Chrome MCP in Phase 6. Use `npm run find:webtemplate -- hero "split left"` to shortlist. Never pre-fetch all URLs here.
+
 ---
 
 ## 4. Phase 1 — Design tokens
@@ -153,7 +177,9 @@ Output: `output/{page-slug}/` with exactly three files: `index.html`, `style.css
 ### Mandatory build order
 
 1. **Compose `index.html`** — one section at a time from blueprint:
-   - Pull HTML skeleton from mapped reference section
+   - Pull HTML skeleton from the mapped source:
+     - `source_type: reference` → read the section from the `Reference-Site/` folder on disk.
+     - `source_type: webtemplate` → `new_page {url, background:true}` for that section's template link, then `evaluate_script` to return **only that section's `outerHTML` + relevant computed styles**. Reuse its DOM shape + BEM classes; do not inline the site's full CSS/JS.
    - Repeat blocks per `repeat_count`
    - Inject all copy from `briefs/{slug}.txt`
 2. **Write `style.css`** — only rules for classes on this page:
@@ -193,6 +219,7 @@ The agent delivers **structure**, not a finished production page. Devs:
 - BEM classes match mapped reference pattern
 - Copy only from brief — no invented headings or sections
 - Block count matches brief (not reference page)
+- Mid-page/closing red CTAs inside `pre-banner-section` with textured background (not plain white band)
 - Breakpoints: **1240 · 1080 · 991 · 767 · 565 · 480 · 350**
 
 ---
@@ -201,9 +228,13 @@ The agent delivers **structure**, not a finished production page. Devs:
 
 After all three files are written:
 
-1. Run `/review` or checklist in `.cursor/rules/web-pages-frontend.mdc`
-2. Open `output/{slug}/index.html` in the browser
-3. Print build summary (section mapping, synthesised sections if any)
+1. Run `npm run validate:output -- --slug {page-slug}` (or `--from-state`) — must exit 0
+2. Run `/review` or checklist in `.cursor/rules/web-pages-frontend.mdc`
+2. **Auto-open the output in the browser (mandatory, every build)** via Chrome MCP:
+   `new_page { url: "file:///<abs-repo-path>/output/{slug}/index.html" }`
+   (or `navigate_page {type:"url", url:"file://…"}` in the current tab). Then `take_snapshot` /
+   `take_screenshot` for the summary. Confirm CTAs render (see `writer-drop-playbook.md` §4/§6).
+3. Print build summary (section mapping, per-section source_type, synthesised sections if any)
 4. Wait for user:
 
 | Command | Action |

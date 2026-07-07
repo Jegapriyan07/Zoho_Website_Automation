@@ -13,7 +13,7 @@
 import fs from 'fs';
 import path from 'path';
 import { resolveArchetype, getRequiredStrings } from './composite-utils.mjs';
-import { inventoryBrief } from './writer-extract-core.mjs';
+import { enrichBriefInventory, inventoryBrief, checkBriefInventory } from './inventory-checks.mjs';
 import { ROOT, isScriptMain } from './workflow-paths.mjs';
 
 function parseArgs(argv) {
@@ -39,35 +39,6 @@ function checkRequiredStrings(briefText, required) {
   return { missing, found };
 }
 
-function checkSectionInventory(inventory, composite) {
-  const issues = [];
-  const checks = composite.section_inventory_checks || {};
-
-  if (checks.min_steps != null && inventory.step_count < checks.min_steps) {
-    issues.push(`Expected ≥${checks.min_steps} steps, found ${inventory.step_count}`);
-  }
-  if (checks.min_faq != null && inventory.faq_count < checks.min_faq) {
-    issues.push(`Expected ≥${checks.min_faq} FAQ items, found ${inventory.faq_count}`);
-  }
-  if (checks.min_rating_platforms != null && inventory.rating_platforms.length < checks.min_rating_platforms) {
-    issues.push(`Expected ≥${checks.min_rating_platforms} rating platforms, found ${inventory.rating_platforms.length}`);
-  }
-  if (checks.require_testimonials_heading && !inventory.has_testimonials_heading) {
-    issues.push('Missing testimonials heading (e.g. "Hear from our happy customers")');
-  }
-  if (checks.require_see_all_testimonials && !inventory.has_see_all_testimonials) {
-    issues.push('Missing "See all testimonials" link text');
-  }
-  if (checks.require_dresner && !inventory.has_dresner) {
-    issues.push('Missing Dresner Advisory recognition block');
-  }
-  if (checks.require_how_it_works && !inventory.has_how_it_works) {
-    issues.push('Missing how-it-works heading');
-  }
-
-  return issues;
-}
-
 export function validateBriefFile(filePath, options = {}) {
   const briefText = fs.readFileSync(filePath, 'utf8');
   const resolved = resolveArchetype(briefText, options.archetype);
@@ -91,8 +62,8 @@ export function validateBriefFile(filePath, options = {}) {
   const uniqueRequired = [...new Set(required)];
 
   const { missing, found } = checkRequiredStrings(briefText, uniqueRequired);
-  const inventory = inventoryBrief(briefText);
-  const sectionIssues = checkSectionInventory(inventory, composite);
+  const inventory = enrichBriefInventory(briefText, composite);
+  const sectionIssues = checkBriefInventory(inventory, composite);
 
   const errors = [];
   const warnings = [];

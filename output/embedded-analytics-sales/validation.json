@@ -1,0 +1,83 @@
+{
+  "pass": true,
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\embedded-analytics-sales",
+  "slug": "embedded-analytics-sales",
+  "archetype": "embedded-sales-analytics",
+  "inventory": {
+    "example_row": 5,
+    "impl_step": 7,
+    "feature_block": 7,
+    "persona_block": 4,
+    "benefit_block": 4,
+    "za_inner_testimonials": 2,
+    "z_accordian_box": 9,
+    "cont_sec": 11,
+    "banner": 4,
+    "tabsection": 1,
+    "faq_section": 1,
+    "cta_button_count": 3,
+    "cta_texts": [
+      "Start Free Trial",
+      "Start Free Trial",
+      "Schedule a Demo"
+    ],
+    "h1_count": 1,
+    "has_page_container": true,
+    "has_nav_placeholder": true,
+    "has_footer_placeholder": true,
+    "has_zoho_placeholder": true,
+    "has_placehold_co": false,
+    "has_local_assets": false,
+    "has_cta_visibility_override": true,
+    "has_brand_cta_token": true,
+    "pre_banner_section": 1,
+    "has_pre_banner_background": true
+  },
+  "brief_inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 9,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 19495,
+    "example_row_count": 5,
+    "example_row_missing": [],
+    "impl_step_count": 7,
+    "impl_step_missing": [],
+    "feature_block_count": 7,
+    "feature_block_missing": [],
+    "persona_block_count": 4,
+    "persona_block_missing": [],
+    "benefit_block_count": 4,
+    "benefit_block_missing": [],
+    "customer_story_count": 2,
+    "customer_story_missing": []
+  },
+  "banner_audit": {
+    "hero_bg_fingerprint": null,
+    "closing_bg_fingerprint": "background-color:#dce8ff;background-image:radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.12) 0, transparent 55%), linear-gradient(41deg, #e8f4ff 7%, #d4eaff 34%, #c8e0ff)",
+    "mid_white_bg_fingerprint": null,
+    "slots": [
+      {
+        "type": "hero",
+        "class": "banner",
+        "banner_slot": "hero",
+        "bg_treatment": "dark-card-hero"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner",
+        "banner_slot": "inline-cta",
+        "bg_treatment": "inline-card"
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-07-07T07:33:37.343Z"
+}

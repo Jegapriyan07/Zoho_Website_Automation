@@ -63,6 +63,10 @@ export function resolveArchetype(briefText, forcedId) {
     norm.includes('sales dashboard examples') ||
     norm.includes('build sales dashboards now') ||
     norm.includes('connect popular crms');
+  const isFinanceExamples =
+    norm.includes('finance dashboard examples') ||
+    norm.includes('build finance dashboards now') ||
+    norm.includes('connect popular finance tools');
   const hasDresner = norm.includes('dresner advisory');
 
   if (isSalesExamples && !hasDresner) {
@@ -70,7 +74,52 @@ export function resolveArchetype(briefText, forcedId) {
     if (sales) return sales;
   }
 
-  if (isSalesExamples && hasDresner) {
+  if (isFinanceExamples && !hasDresner) {
+    const finance = ranked.find((r) => r.id === 'dashboard-examples-landing-finance');
+    if (finance) return finance;
+  }
+
+  const isCloudAnalyticsGuide =
+    norm.includes('cloud analytics tools guide') ||
+    norm.includes('cloud analytics tools at a glance') ||
+    norm.includes('top 5 cloud analytics tools in 2026');
+  if (isCloudAnalyticsGuide) {
+    const guide = ranked.find((r) => r.id === 'comparison-guide');
+    if (guide) return guide;
+  }
+
+  const isWhiteLabelReporting =
+    norm.includes('white label reporting tool for customizable') ||
+    norm.includes('key features of white label reporting software') ||
+    norm.includes('build vs. buy white label reporting');
+  if (isWhiteLabelReporting) {
+    const wl = ranked.find((r) => r.id === 'white-label-reporting-landing');
+    if (wl) return wl;
+  }
+
+  const isEmbeddedSalesAnalytics =
+    norm.includes('embedded analytics for sales') ||
+    (norm.includes('embedded analytics in sales') &&
+      norm.includes('what is embedded analytics in sales') &&
+      norm.includes('start free trial'));
+  if (isEmbeddedSalesAnalytics) {
+    const embedded = ranked.find((r) => r.id === 'embedded-sales-analytics');
+    if (embedded) return embedded;
+  }
+
+  const isPpcAgencyClientDashboard =
+    (norm.includes('client dashboard software built for agencies') ||
+      norm.includes('what key features to look for in a client dashboard tool')) &&
+    norm.includes('ready to give every client a dashboard') &&
+    !norm.includes('dresner advisory') &&
+    !norm.includes('hear from our happy customers') &&
+    !norm.includes('how client dashboard tool works');
+  if (isPpcAgencyClientDashboard) {
+    const ppc = ranked.find((r) => r.id === 'ppc-agency-client-dashboard');
+    if (ppc) return ppc;
+  }
+
+  if ((isSalesExamples || isFinanceExamples) && hasDresner) {
     const full = ranked.find((r) => r.id === 'dashboard-examples-landing');
     if (full) return full;
   }

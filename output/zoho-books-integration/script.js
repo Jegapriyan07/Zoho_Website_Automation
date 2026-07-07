@@ -1,27 +1,33 @@
-'use strict';
+(function () {
+    'use strict';
 
-$(document).ready(function () {
+    function initStepsAnimation() {
+        var section = document.querySelector('.threeSimpleSteps-section');
+        if (!section || !('IntersectionObserver' in window)) {
+            return;
+        }
 
-    // Three steps SVG line animation
-    var stepsSection = document.querySelector('.threeSimpleSteps-section');
-    if (stepsSection) {
-        var stepsObserver = new IntersectionObserver(function (entries) {
+        var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    stepsSection.classList.add('in-view');
-                    stepsSection.classList.remove('not-in-view');
+                    section.classList.add('in-view');
+                    section.classList.remove('not-in-view');
                 } else {
-                    stepsSection.classList.add('not-in-view');
-                    stepsSection.classList.remove('in-view');
+                    section.classList.add('not-in-view');
+                    section.classList.remove('in-view');
                 }
             });
         }, { threshold: 0.5 });
-        stepsObserver.observe(stepsSection);
+
+        observer.observe(section);
     }
 
-    // Sample dashboard carousel
-    if ($('[data-slider]').length && $.fn.slick) {
-        $('[data-slider]').slick({
+    function initCarousel() {
+        if (typeof window.jQuery === 'undefined' || !window.jQuery.fn.slick) {
+            return;
+        }
+
+        window.jQuery('.sampleDashboard-image ul').slick({
             infinite: true,
             speed: 500,
             autoplaySpeed: 5000,
@@ -29,56 +35,38 @@ $(document).ready(function () {
             centerMode: true,
             centerPadding: '0',
             variableWidth: true,
-            arrows: true,
-            dots: true,
-            responsive: [
-                { breakpoint: 991, settings: { arrows: true } },
-                { breakpoint: 767, settings: { arrows: false } },
-                { breakpoint: 480, settings: { arrows: false, dots: true } }
-            ]
+            arrows: true
         });
     }
 
-    // Campaign credit links
-    function openCouponLinks() {
-        var links = {
-            US: 'https://analytics.zoho.com/ZDBHome.cc?zdbreferer=bigin-wallet-credits&PLANID=15&WEBSITETRYNOW=true&COUPON_CODE=CSCANA_6_25',
-            IN: 'https://analytics.zoho.in/ZDBHome.cc?zdbreferer=bigin-wallet-credits&PLANID=15&WEBSITETRYNOW=true&COUPON_CODE=CSCANA1_6_25'
-        };
-        var finalLink = '';
-
-        if (typeof zohouser !== 'undefined' && zohouser.DC_INFO && links[zohouser.DC_INFO.toUpperCase()]) {
-            finalLink = links[zohouser.DC_INFO.toUpperCase()];
-        } else if (typeof CountryCode !== 'undefined' && links[CountryCode.toUpperCase()]) {
-            finalLink = links[CountryCode.toUpperCase()];
-        } else {
-            finalLink = links.US;
+    function initAccordion() {
+        if (typeof window.jQuery === 'undefined') {
+            return;
         }
 
-        document.querySelectorAll('[data-action="claim-credit"]').forEach(function (btn) {
-            btn.setAttribute('href', finalLink);
-            btn.setAttribute('target', '_blank');
+        var $ = window.jQuery;
+        $('.z-accordianBox').find('h4.active').next().show();
+
+        $('.z-accordianBox').find('h4').on('click', function () {
+            var $heading = $(this);
+            if ($heading.next().is(':visible')) {
+                $heading.removeClass('active');
+                $heading.next().hide('slow');
+            } else {
+                $('.z-accordianBox').find('h4').removeClass('active');
+                $heading.addClass('active');
+                $('.z-accordianBox > ul').hide('slow');
+                $heading.next().slideDown();
+            }
         });
     }
 
-    openCouponLinks();
-    $('[data-action="claim-credit"]').on('click', function () {
-        openCouponLinks();
-    });
+    document.addEventListener('DOMContentLoaded', initStepsAnimation);
 
-    // FAQ accordion
-    $('.z-accordianBox').find('h4.active').next().slideDown();
-    $('.z-accordianBox').find('h4').on('click', function () {
-        var $trigger = $(this);
-        if ($trigger.next().is(':visible')) {
-            $trigger.removeClass('active');
-            $trigger.next().hide('slow');
-        } else {
-            $('.z-accordianBox').find('h4').removeClass('active');
-            $trigger.addClass('active');
-            $('.z-accordianBox > ul').hide('slow');
-            $trigger.next().slideDown();
-        }
-    });
-
-});
+    if (typeof window.jQuery !== 'undefined') {
+        window.jQuery(document).ready(function () {
+            initCarousel();
+            initAccordion();
+        });
+    }
+})();

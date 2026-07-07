@@ -1,0 +1,53 @@
+{
+  "pass": false,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\finance-dashboard-examples.txt",
+  "archetype": "dashboard-examples-landing-finance",
+  "archetype_score": 6,
+  "required_found": [
+    "Build Finance Dashboards Now",
+    "STEP 1",
+    "STEP 4",
+    "START FOR FREE"
+  ],
+  "required_missing": [
+    "Explore Examples",
+    "Connect popular finance tools"
+  ],
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 8,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 13549,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 4,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [
+    "Missing required strings (2): Explore Examples · Connect popular finance tools"
+  ],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~12)"
+  ],
+  "validated_at": "2026-07-07T10:30:22.601Z"
+}

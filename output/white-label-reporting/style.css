@@ -1,0 +1,563 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Global typography and utilities */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container h4 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.p-90 { padding: 90px 0; }
+.title-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 920px;
+    margin: 16px auto 0;
+    text-align: center;
+}
+
+:root {
+    --color-primary: #7F56D9;
+    --color-secondary: #EC5C63;
+    --primary-color: #7F56D9;
+    --secondary-color: #EC5C63;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #fcfaff;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+    --pre-banner-texture: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
+}
+
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    opacity: 0.92;
+}
+
+.page-container .cta-btn.call-btn {
+    background: transparent;
+    color: #000;
+    border: 1.5px solid #000;
+    text-transform: none;
+}
+
+/* Hero — za-banner-section */
+.za-banner-section {
+    padding: 80px 0 100px;
+    background-color: #fff;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(127, 86, 217, 0.08) 0, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(236, 92, 99, 0.06) 0, transparent 40%);
+}
+
+.za-banner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.za-banner-cont {
+    width: 55%;
+}
+
+.za-banner-cont h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    max-width: 700px;
+    margin: 0 0 20px;
+    font-family: Zoho_Puvi_Bold;
+    text-align: left;
+}
+
+.za-banner-cont p {
+    font-size: 18px;
+    margin: 0 0 14px;
+    text-align: left;
+}
+
+.za-cta-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.za-banner-img {
+    width: 42%;
+}
+
+.za-banner-img .bimg {
+    display: block;
+    width: 100%;
+    max-width: 530px;
+    margin-left: auto;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Key features — za-insights-section */
+.za-insights-section {
+    background: #fff;
+}
+
+.za-insights-section h2 {
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.za-insights-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.za-insights-box > .za-insights-item:not(:nth-child(3)) {
+    width: calc(50% - 12px);
+    display: grid;
+    grid-template-rows: repeat(2, max-content) 1fr;
+}
+
+.za-insights-item {
+    background: #f7f7f8;
+    padding: 48px;
+    border-radius: 8px;
+}
+
+.za-insights-item:first-child {
+    background: #fff9db;
+}
+
+.za-insights-item:nth-child(2) {
+    background: #e4edff;
+}
+
+.za-insights-item h3 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin: 0 0 16px;
+    text-align: left;
+}
+
+.za-insights-item > p {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.za-insights-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.za-insights-item > ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.za-insights-item > ul li {
+    width: 31%;
+}
+
+.za-insights-item > ul li h4 {
+    margin: 0 0 10px;
+    text-align: left;
+}
+
+.za-insights-item > ul li p {
+    text-align: left;
+}
+
+.za-insights-img {
+    display: flex;
+    min-height: 180px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.za-insights-item:nth-child(3) {
+    width: 100%;
+}
+
+/* Build steps — sticky-section */
+.sticky-section .content-main h2 {
+    margin: 0 0 10px;
+}
+
+.sticky-section .each-box-fort {
+    margin-top: 48px;
+}
+
+.sticky-section .scroll-card {
+    margin: 50px 0 0;
+    border-radius: 32px;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9e77ed;
+    background-color: #fcfaff;
+    padding: 36px 40px;
+    box-shadow: 0 0 35px 0 rgba(127, 86, 217, 0.12);
+    gap: 35px;
+    min-height: 420px;
+}
+
+.sticky-section .scroll-card.card1 { top: 80px; z-index: 1; }
+.sticky-section .scroll-card.card2 { top: 90px; z-index: 2; }
+.sticky-section .scroll-card.card3 { top: 100px; z-index: 3; }
+.sticky-section .scroll-card.card4 { top: 110px; z-index: 4; }
+.sticky-section .scroll-card.card5 { top: 120px; z-index: 5; }
+.sticky-section .scroll-card.card6 { top: 130px; z-index: 6; }
+
+.sticky-section .scroll-card .left-wrapper {
+    width: 42%;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    width: 58%;
+    text-align: center;
+}
+
+.sticky-section .scroll-card h3 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin: 0 0 16px;
+    text-align: left;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.sticky-section .scroll-card p {
+    margin: 0;
+    text-align: left;
+}
+
+.sticky-section .scroll-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Build vs Buy */
+.compare-cards-section {
+    background: var(--primary-bg);
+}
+
+.compare-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.compare-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 32px 28px;
+}
+
+.compare-card h3 {
+    margin: 0 0 14px;
+    text-align: left;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.compare-card p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Benefits — box-icon-section */
+.box-icon-section h2 {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.box-icon-section .content-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    column-gap: 20px;
+    row-gap: 36px;
+    justify-content: center;
+}
+
+.box-icon-section .content-main .card {
+    width: calc(50% - 10px);
+    text-align: left;
+}
+
+.box-icon-section .za-icon-wrapper {
+    /* TODO: replace with final icon sprite asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: cover;
+    margin-bottom: 8px;
+}
+
+.box-icon-section .content-main .card:nth-child(1) .za-icon-wrapper { background-position: -64px 0; }
+.box-icon-section .content-main .card:nth-child(2) .za-icon-wrapper { background-position: -190px 0; }
+.box-icon-section .content-main .card:nth-child(3) .za-icon-wrapper { background-position: -126px 0; }
+.box-icon-section .content-main .card:nth-child(4) .za-icon-wrapper { background-position: 0 0; }
+
+.box-icon-section .content-main .card h4 {
+    margin: 12px 0 12px;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.box-icon-section .content-main .card p {
+    margin: 0 0 10px;
+}
+
+/* Closing CTA — pre-banner-section */
+.pre-banner-section {
+    text-align: center;
+    background-color: #dce8ff;
+    background-image:
+        radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 25% 130%, rgba(14, 116, 144, 0.14) 0, transparent 50%),
+        var(--pre-banner-texture);
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+    background-size: cover, cover, 100% auto;
+    min-height: 280px;
+}
+
+.pre-banner-section h2 {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.cta-btn-wrap {
+    margin-top: 24px;
+}
+
+/* FAQ */
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 48px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 22px 40px 22px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.z-accordianBox h4::before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 8px;
+    bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
+    height: 24px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active::before {
+    content: "-";
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 22px 0;
+    margin: 0;
+    list-style: none;
+    display: none;
+}
+
+.z-accordianBox h4.active + ul {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1240px) {
+    .za-banner-cont h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .za-banner-box {
+        flex-direction: column;
+    }
+
+    .za-banner-cont,
+    .za-banner-img {
+        width: 100%;
+    }
+
+    .za-banner-cont h1,
+    .za-banner-cont p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .za-cta-box {
+        justify-content: center;
+    }
+
+    .za-banner-img .bimg {
+        margin: 0 auto;
+    }
+
+    .compare-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h2 { font-size: 26px; }
+    .page-container h3 { font-size: 18px; }
+    .page-container p,
+    .page-container li { font-size: 15px; }
+    .title-desc { font-size: 17px; }
+
+    .za-insights-box > .za-insights-item:not(:nth-child(3)) {
+        width: 100%;
+    }
+
+    .za-insights-item > ul {
+        flex-wrap: wrap;
+    }
+
+    .za-insights-item > ul li {
+        width: 48%;
+    }
+
+    .sticky-section .scroll-card {
+        flex-wrap: wrap;
+        position: relative;
+        top: auto !important;
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+    .sticky-section .scroll-card .left-wrapper,
+    .sticky-section .scroll-card .right-wrapper {
+        width: 100%;
+    }
+
+    .box-icon-section .content-main .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 { font-size: 22px; }
+    .page-container h3 { font-size: 17px; }
+
+    .za-banner-cont h1 {
+        font-size: 32px;
+    }
+
+    .za-insights-item {
+        padding: 28px 24px;
+    }
+
+    .za-insights-item > ul li {
+        width: 100%;
+    }
+
+    .pre-banner-section {
+        background-size: cover;
+    }
+}
+
+@media (max-width: 565px) {
+    .p-90 {
+        padding: 40px 0;
+    }
+
+    .za-cta-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sticky-section .scroll-card h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .za-banner-cont h1 {
+        font-size: 28px;
+    }
+
+    .page-container .cta-btn.act-btn {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 350px) {
+    .za-banner-cont h1 {
+        font-size: 24px;
+    }
+}
