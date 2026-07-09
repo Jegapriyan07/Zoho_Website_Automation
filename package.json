@@ -12,6 +12,7 @@
     "extract:writer": "node z_workflow/scripts/extract-writer.mjs",
     "validate:brief": "node z_workflow/scripts/validate-brief.mjs",
     "validate:output": "node z_workflow/scripts/validate-output.mjs",
+    "fix:output": "node z_workflow/scripts/fix-output-archetype.mjs",
     "promote": "node z_workflow/scripts/promote-output.mjs",
     "organize": "node z_workflow/scripts/organize-reference-sites.mjs"
   },

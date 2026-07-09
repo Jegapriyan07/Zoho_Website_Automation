@@ -1,0 +1,59 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\sales-dashboard-examples-landing-page-explore-50-sales-dashb.txt",
+  "archetype": "dashboard-examples-landing-sales",
+  "archetype_score": 13,
+  "required_found": [
+    "Explore Examples",
+    "Build Sales Dashboards Now",
+    "Connect popular CRMs",
+    "STEP 1",
+    "STEP 4",
+    "START FOR FREE"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 6,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 7927,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 4,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-07-08T09:21:33.656Z"
+}

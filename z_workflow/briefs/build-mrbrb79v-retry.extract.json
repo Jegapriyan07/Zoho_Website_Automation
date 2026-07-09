@@ -1,0 +1,158 @@
+{
+  "extracted_at": "2026-07-08T07:41:44.451Z",
+  "source_url": "https://writer.zoho.in/writer/open/qbqks8f7615f6d1694c04990470ffa8a8cc44",
+  "output_file": "z_workflow/briefs/build-mrbrb79v-retry.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "page_count": 17,
+  "footer_chars": 24792,
+  "merged_length": 25412,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1722
+    },
+    {
+      "page": 2,
+      "len": 1650
+    },
+    {
+      "page": 3,
+      "len": 1184
+    },
+    {
+      "page": 4,
+      "len": 1319
+    },
+    {
+      "page": 5,
+      "len": 1158
+    },
+    {
+      "page": 6,
+      "len": 1370
+    },
+    {
+      "page": 7,
+      "len": 1327
+    },
+    {
+      "page": 8,
+      "len": 1501
+    },
+    {
+      "page": 9,
+      "len": 1576
+    },
+    {
+      "page": 10,
+      "len": 1641
+    },
+    {
+      "page": 11,
+      "len": 1497
+    },
+    {
+      "page": 12,
+      "len": 1871
+    },
+    {
+      "page": 13,
+      "len": 1641
+    },
+    {
+      "page": 14,
+      "len": 1608
+    },
+    {
+      "page": 15,
+      "len": 1462
+    },
+    {
+      "page": 16,
+      "len": 1884
+    },
+    {
+      "page": 17,
+      "len": 737
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Writer float-image / section-reference blocks (68 found, 18 hydrated) — Dresner/testimonials may be missing from extract. Paste PAGE 7 social proof manually or open doc in Edit mode."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 5,
+      "step_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "faq_count": 1,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 25412
+    }
+  },
+  "inventory": {
+    "step_count": 5,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "faq_count": 1,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 25413
+  },
+  "archetype_guess": "comparison-guide"
+}

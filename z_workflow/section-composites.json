@@ -372,6 +372,57 @@
       "primary_reference": "Marketing-Agencies",
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
+    "client-dashboard-software-landing": {
+      "description": "Agency client-dashboard landing — zigzag feature rows, demo CTA, FAQ (no comparison grid, how-it-works, testimonials, or Dresner)",
+      "brief_signals": [
+        "client dashboard software built for agencies",
+        "report to clients",
+        "Book a free demo",
+        "Ready to give every client a dashboard",
+        "Connect every client's stack",
+        "Offer AI-powered insights",
+        "white-label"
+      ],
+      "writer_page_hints": "9 pages · ~7945 Chars. Zigzag feature tables (Connect stack, Spin up, AI insights, Share branded). Page 7 = CTA intro. Page 8 = demo CTA + FAQ. No 'What key features' comparison grid.",
+      "expected_page_count": 9,
+      "required_strings": [
+        "Book a free demo",
+        "Everything an agency needs to run a client's dashboard from one place",
+        "Connect every client's stack",
+        "Ready to give every client a dashboard",
+        "What is client dashboard software?"
+      ],
+      "section_inventory_checks": {
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner", "best": "Marketing-Agencies", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Book a free demo" },
+        { "type": "intro", "class": "agency-intro-section", "best": "Marketing-Agencies" },
+        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag-writer-tables", "block_count": 4 },
+        { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
+        { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "block_count": 6 }
+      ],
+      "cta_strings_required": [
+        "Book a free demo"
+      ],
+      "output_inventory_checks": {
+        "require_distinct_hero_closing_bg": true,
+        "require_pre_banner_background": true
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "gold_standard_outputs": [
+        "output/client-dashboard-software"
+      ],
+      "primary_reference": "Marketing-Agencies",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
     "ppc-agency-client-dashboard": {
       "description": "PPC/agency client dashboard landing — zigzag features, benefits, comparison grid, demo CTA, FAQ (no how-it-works, testimonials, or Dresner)",
       "brief_signals": [

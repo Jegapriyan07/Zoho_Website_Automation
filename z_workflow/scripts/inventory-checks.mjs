@@ -70,41 +70,54 @@ export function countBriefMarkers(text, markers = []) {
 /**
  * @param {object} inventory — from inventoryBrief + marker counts
  * @param {object} composite
+ * @returns {{ issues: string[], warnings: string[] }}
+ *
+ * Honest gate design: a real Writer doc legitimately varies in length from the
+ * archetype's gold-standard template (fewer FAQs, steps, features, etc.). Those
+ * count shortfalls are advisory WARNINGS — they must not hard-stop an otherwise
+ * complete brief. Genuine content problems (missing required strings, no archetype
+ * match) are handled by the caller as hard errors; truncated extraction is caught
+ * by the orchestrator's partial-extraction gate. Only explicit `require_*` flags
+ * that the archetype actually turns on remain hard issues here.
  */
 export function checkBriefInventory(inventory, composite) {
   const issues = [];
+  const warnings = [];
   const checks = composite.section_inventory_checks || {};
 
   if (checks.min_steps != null && inventory.step_count < checks.min_steps) {
-    issues.push(`Expected ≥${checks.min_steps} steps, found ${inventory.step_count}`);
+    warnings.push(`Fewer steps than template (found ${inventory.step_count}, template ~${checks.min_steps}) — composing what the doc contains`);
   }
   if (checks.min_faq != null && inventory.faq_count < checks.min_faq) {
-    issues.push(`Expected ≥${checks.min_faq} FAQ items, found ${inventory.faq_count}`);
+    warnings.push(`Fewer FAQ items than template (found ${inventory.faq_count}, template ~${checks.min_faq}) — composing what the doc contains`);
   }
   if (checks.min_rating_platforms != null && inventory.rating_platforms.length < checks.min_rating_platforms) {
-    issues.push(`Expected ≥${checks.min_rating_platforms} rating platforms, found ${inventory.rating_platforms.length}`);
+    warnings.push(`Fewer rating platforms than template (found ${inventory.rating_platforms.length}, template ~${checks.min_rating_platforms})`);
   }
   if (checks.min_example_rows != null) {
     const count = inventory.example_row_count ?? inventory.image_placeholder_count ?? 0;
     if (count < checks.min_example_rows) {
-      issues.push(`Expected ≥${checks.min_example_rows} example rows, found ${count}`);
+      warnings.push(`Fewer example rows than template (found ${count}, template ~${checks.min_example_rows})`);
     }
   }
   if (checks.min_impl_steps != null && (inventory.impl_step_count ?? 0) < checks.min_impl_steps) {
-    issues.push(`Expected ≥${checks.min_impl_steps} implementation steps, found ${inventory.impl_step_count ?? 0}`);
+    warnings.push(`Fewer implementation steps than template (found ${inventory.impl_step_count ?? 0}, template ~${checks.min_impl_steps})`);
   }
   if (checks.min_feature_blocks != null && (inventory.feature_block_count ?? 0) < checks.min_feature_blocks) {
-    issues.push(`Expected ≥${checks.min_feature_blocks} feature blocks, found ${inventory.feature_block_count ?? 0}`);
+    warnings.push(`Fewer feature blocks than template (found ${inventory.feature_block_count ?? 0}, template ~${checks.min_feature_blocks})`);
   }
   if (checks.min_persona_blocks != null && (inventory.persona_block_count ?? 0) < checks.min_persona_blocks) {
-    issues.push(`Expected ≥${checks.min_persona_blocks} persona blocks, found ${inventory.persona_block_count ?? 0}`);
+    warnings.push(`Fewer persona blocks than template (found ${inventory.persona_block_count ?? 0}, template ~${checks.min_persona_blocks})`);
   }
   if (checks.min_benefit_blocks != null && (inventory.benefit_block_count ?? 0) < checks.min_benefit_blocks) {
-    issues.push(`Expected ≥${checks.min_benefit_blocks} benefit blocks, found ${inventory.benefit_block_count ?? 0}`);
+    warnings.push(`Fewer benefit blocks than template (found ${inventory.benefit_block_count ?? 0}, template ~${checks.min_benefit_blocks})`);
   }
   if (checks.min_customer_stories != null && (inventory.customer_story_count ?? 0) < checks.min_customer_stories) {
-    issues.push(`Expected ≥${checks.min_customer_stories} customer stories, found ${inventory.customer_story_count ?? 0}`);
+    warnings.push(`Fewer customer stories than template (found ${inventory.customer_story_count ?? 0}, template ~${checks.min_customer_stories})`);
   }
+
+  // Explicit archetype requirements stay hard — but only when the archetype
+  // actually turns them on (these default to false for docs that don't need them).
   if (checks.require_testimonials_heading && !inventory.has_testimonials_heading) {
     issues.push('Missing testimonials heading (e.g. "Hear from our happy customers")');
   }
@@ -118,7 +131,7 @@ export function checkBriefInventory(inventory, composite) {
     issues.push('Missing how-it-works heading');
   }
 
-  return issues;
+  return { issues, warnings };
 }
 
 /**
@@ -390,18 +403,43 @@ export function checkBannerSlots(html, css, composite) {
  * @param {object} inventory — from inventoryOutput
  * @param {object} composite
  * @param {{ html?: string, css?: string }} files
+ * @param {object|null} briefInventory — enriched brief counts, used to scale
+ *   count minimums down to what the source doc actually contains. The page must
+ *   include everything the doc has (no dropped sections), but we never demand more
+ *   blocks than the doc provides. Length-richness metrics become warnings.
  */
-export function checkOutputInventory(inventory, composite, files = {}) {
+export function checkOutputInventory(inventory, composite, files = {}, briefInventory = null) {
   const issues = [];
   const warnings = [];
   const checks = composite.output_inventory_checks || {};
   const selectors = checks.selectors || {};
 
+  // Map an output selector key → the brief inventory field that supplies it.
+  const BRIEF_FIELD_FOR_SELECTOR = {
+    example_row: 'example_row_count',
+    impl_step: 'impl_step_count',
+    feature_block: 'feature_block_count',
+    persona_block: 'persona_block_count',
+    benefit_block: 'benefit_block_count',
+    za_inner_testimonials: 'customer_story_count',
+    z_accordian_box: 'faq_count'
+  };
+
+  const effectiveMin = (key, templateMin) => {
+    const field = BRIEF_FIELD_FOR_SELECTOR[key];
+    if (briefInventory && field && briefInventory[field] != null) {
+      // Require at least what the doc provides, capped at the template expectation.
+      return Math.max(0, Math.min(templateMin, briefInventory[field]));
+    }
+    return templateMin;
+  };
+
   for (const [key, rule] of Object.entries(selectors)) {
-    const min = rule.min ?? 0;
+    const templateMin = rule.min ?? 0;
+    const min = effectiveMin(key, templateMin);
     const count = inventory[key] ?? inventory.countSelectorOccurrences(rule.selector || `.${key}`);
     if (count < min) {
-      issues.push(`Expected ≥${min} \`${rule.selector || key}\`, found ${count}`);
+      issues.push(`Expected ≥${min} \`${rule.selector || key}\`, found ${count}${min < templateMin ? ` (scaled from template ~${templateMin} to match brief)` : ''}`);
     }
   }
 
@@ -414,7 +452,8 @@ export function checkOutputInventory(inventory, composite, files = {}) {
   }
 
   if (checks.min_cont_sec != null && inventory.cont_sec < checks.min_cont_sec) {
-    issues.push(`Expected ≥${checks.min_cont_sec} \`.cont-sec\` blocks, found ${inventory.cont_sec}`);
+    // Content-section richness scales with doc length — advisory, not a hard stop.
+    warnings.push(`Fewer \`.cont-sec\` blocks than template (found ${inventory.cont_sec}, template ~${checks.min_cont_sec})`);
   }
 
   const ctaRequired = composite.cta_strings_required || [];

@@ -63,7 +63,7 @@ export function validateBriefFile(filePath, options = {}) {
 
   const { missing, found } = checkRequiredStrings(briefText, uniqueRequired);
   const inventory = enrichBriefInventory(briefText, composite);
-  const sectionIssues = checkBriefInventory(inventory, composite);
+  const sectionCheck = checkBriefInventory(inventory, composite);
 
   const errors = [];
   const warnings = [];
@@ -71,7 +71,8 @@ export function validateBriefFile(filePath, options = {}) {
   if (missing.length) {
     errors.push(`Missing required strings (${missing.length}): ${missing.join(' · ')}`);
   }
-  errors.push(...sectionIssues);
+  errors.push(...sectionCheck.issues);
+  warnings.push(...sectionCheck.warnings);
 
   if (options.minSteps != null && inventory.step_count < options.minSteps) {
     errors.push(`--min-steps ${options.minSteps}: only ${inventory.step_count} steps found`);

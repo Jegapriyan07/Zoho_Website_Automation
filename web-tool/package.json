@@ -1,0 +1,17 @@
+{
+  "name": "zoho-web-page-builder-tool",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal web app: Zoho-authenticated employees turn a Writer doc URL into a composed page via the existing structure-first pipeline (Phase 0->1->2->6), streamed live with chat-style history.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "cookie": "^0.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "pass": true,
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\build-mrbtxpsv",
+  "slug": "build-mrbtxpsv",
+  "archetype": "comparison-guide",
+  "inventory": {
+    "example_row": 0,
+    "impl_step": 0,
+    "feature_block": 0,
+    "persona_block": 0,
+    "benefit_block": 0,
+    "za_inner_testimonials": 0,
+    "z_accordian_box": 6,
+    "cont_sec": 9,
+    "banner": 9,
+    "tabsection": 1,
+    "faq_section": 1,
+    "cta_button_count": 7,
+    "cta_texts": [
+      "Try Zoho Analytics for free today",
+      "Try Zoho Analytics for free today",
+      "View all features and pricing",
+      "Start analyzing",
+      "Start testing with your data",
+      "Start free trial",
+      "Join us - It's free to start"
+    ],
+    "h1_count": 1,
+    "has_page_container": true,
+    "has_nav_placeholder": false,
+    "has_footer_placeholder": false,
+    "has_zoho_placeholder": true,
+    "has_placehold_co": false,
+    "has_local_assets": false,
+    "has_cta_visibility_override": true,
+    "has_brand_cta_token": true,
+    "pre_banner_section": 0,
+    "has_pre_banner_background": false
+  },
+  "brief_inventory": {
+    "step_count": 5,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "faq_count": 1,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 25413,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 5,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "banner_audit": {
+    "hero_bg_fingerprint": null,
+    "closing_bg_fingerprint": null,
+    "mid_white_bg_fingerprint": null,
+    "slots": [
+      {
+        "type": "hero",
+        "class": "banner",
+        "banner_slot": "hero",
+        "bg_treatment": "dark-card-hero"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner",
+        "banner_slot": "inline-cta",
+        "bg_treatment": "inline-card"
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-07-08T08:52:51.134Z"
+}

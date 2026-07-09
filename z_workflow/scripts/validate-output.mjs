@@ -101,12 +101,18 @@ export function validateOutputDir(outputDir, options = {}) {
   }
 
   const outputInventory = inventoryOutput(html, css);
-  const { issues, warnings, banner_audit } = checkOutputInventory(outputInventory, composite, { html, css });
 
   let briefInventory = null;
   if (briefPath && fs.existsSync(briefPath)) {
     briefInventory = enrichBriefInventory(fs.readFileSync(briefPath, 'utf8'), composite);
   }
+
+  const { issues, warnings, banner_audit } = checkOutputInventory(
+    outputInventory,
+    composite,
+    { html, css },
+    briefInventory
+  );
 
   return {
     pass: issues.length === 0,

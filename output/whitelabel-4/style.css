@@ -1,0 +1,1048 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Global typography and utilities */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container h4 {
+    font-size: 18px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.p-90 { padding: 90px 0; }
+.title-desc,
+.heading-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+:root {
+    --color-primary: #008EF5;
+    --color-secondary: #9914FF;
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #f0f7ff;
+    --teritary-bg: #f8f9fc;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+    --pre-banner-texture: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
+}
+
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 0;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    opacity: 0.92;
+}
+
+.page-container .cta-btn.act-btn:focus {
+    outline: 2px solid var(--primary-btn-color);
+    outline-offset: 2px;
+}
+
+.za-cta-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    margin-top: 8px;
+}
+
+/* Hero — za-banner-section (live white-label-reporting-tool) */
+.za-banner-section {
+    padding: 80px 0 120px;
+    overflow: hidden;
+    background-color: var(--primary-bg);
+    background-image:
+        radial-gradient(circle at 12% 20%, rgba(0, 142, 245, 0.18) 0, transparent 50%),
+        radial-gradient(circle at 88% 80%, rgba(153, 20, 255, 0.12) 0, transparent 45%);
+}
+
+.za-banner-section .za-banner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.za-banner-section .za-banner-cont {
+    width: 58%;
+}
+
+.za-banner-section .za-banner-cont p {
+    font-size: 20px;
+}
+
+.za-banner-section .za-banner-img {
+    width: 42%;
+    text-align: center;
+}
+
+.za-banner-section .za-banner-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Webinar — live promo band */
+.webinar-section {
+    padding: 0 0 40px;
+    margin-top: 30px;
+}
+
+.webinar-section .content-wrap {
+    background-color: #4a3aff;
+    padding: 60px 24px;
+    position: relative;
+    border-radius: 13px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.webinar-section .content-wrap::before {
+    /* TODO: replace with final background asset */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/unsymmetric-texture.png');
+    background-size: 592px auto;
+    background-repeat: no-repeat;
+    background-position: right;
+    pointer-events: none;
+}
+
+.webinar-section .content-wrap::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: -13%;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 98%;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.webinar-section .webinar-wrap {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.webinar-section .webinar-wrap p:first-child {
+    font-size: 40px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    font-family: var(--zf-primary-bold);
+}
+
+.webinar-section .webinar-wrap p:first-child span {
+    display: block;
+    font-size: 45px;
+    font-family: var(--zf-primary-bold);
+}
+
+.webinar-section .webinar-wrap p:nth-child(2) {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.webinar-section .webinar-wrap .webinar-timing {
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.webinar-section .webinar-wrap .cta-btn.act-btn {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+/* Features — za-insights-section (live grid) */
+.za-insights-section {
+    background: #fff;
+    padding: 100px 0;
+}
+
+.za-insights-section h2 {
+    max-width: 1020px;
+    margin: 0 auto 50px;
+    font-size: 40px;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+
+.za-insights-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 80px 0 0;
+}
+
+.za-insights-box > .za-insights-item:not(:nth-child(3)) {
+    width: calc(50% - 13px);
+    display: grid;
+    grid-template-rows: repeat(2, max-content) 1fr;
+}
+
+.za-insights-item {
+    background: #f7f7f8;
+    padding: 60px;
+    border-radius: 8px;
+}
+
+.za-insights-item:first-child {
+    background: #fff9db;
+}
+
+.za-insights-item:nth-child(2) {
+    background: #e4edff;
+}
+
+.za-insights-item:nth-child(3) {
+    width: 100%;
+}
+
+.za-insights-item h3 {
+    font-size: 30px;
+    line-height: 1.3;
+    max-width: 650px;
+    margin: 0 0 12px;
+}
+
+.za-insights-item h4 {
+    margin: 0 0 12px;
+}
+
+.za-insights-item > p {
+    margin-bottom: 50px;
+}
+
+.za-insights-item > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    align-self: end;
+}
+
+.za-insights-item > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+}
+
+.za-insights-item > ul li {
+    width: 30%;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+.za-insights-img {
+    display: flex;
+    min-height: 230px;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+.za-insights-img img {
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sticky stack — Components (4 cards, live pattern) */
+.sticky-section {
+    background: #fff;
+    padding: 20px 0 90px;
+}
+
+.sticky-section .content-main {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.sticky-section .content-main h2 {
+    font-size: 40px;
+    line-height: 1.3;
+    margin: 0 0 10px;
+}
+
+.sticky-section .each-box-fort {
+    margin-top: 55px;
+    padding-bottom: 40px;
+}
+
+.sticky-section .scroll-card {
+    margin: 70px 20px 0;
+    border-radius: 32px;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9e77ed;
+    background-color: #fcfaff;
+    padding: 30px 40px;
+    box-shadow: 0 0 35px 0 rgba(127, 86, 217, 0.12);
+    transition: transform 0.3s ease;
+    min-height: 420px;
+    height: auto;
+    gap: 35px;
+    box-sizing: border-box;
+}
+
+.sticky-section .scroll-card h3 {
+    font-size: 30px;
+    margin: 0 0 20px;
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    width: 40%;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    width: 60%;
+    text-align: center;
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.sticky-section .scroll-card.card1 { top: 80px; z-index: 1; }
+.sticky-section .scroll-card.card2 { top: 90px; z-index: 2; }
+.sticky-section .scroll-card.card3 { top: 100px; z-index: 3; }
+.sticky-section .scroll-card.card4 { top: 110px; z-index: 4; }
+
+/* Benefits — box-icon-section (live icon grid) */
+.box-icon-section {
+    text-align: center;
+    background: #fff;
+    padding: 15px 0 90px;
+}
+
+.box-icon-section h2 {
+    width: 60%;
+    max-width: 820px;
+    margin: 0 auto;
+    font-size: 35px;
+    line-height: 1.3;
+}
+
+.box-icon-section .heading-desc {
+    width: 46%;
+    max-width: 820px;
+    margin: 10px auto 0;
+    font-size: 24px;
+    line-height: 1.3;
+    display: inline-block;
+}
+
+.box-icon-section .content-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    column-gap: 20px;
+    row-gap: 40px;
+    justify-content: center;
+}
+
+.box-icon-section .content-main .card {
+    width: calc(45% - 8px);
+    min-width: 280px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.box-icon-section .content-main .card .za-icon-wrapper {
+    /* TODO: replace with final icon sprite */
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/feature/za-key-features-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+.box-icon-section .content-main .card:nth-child(1) .za-icon-wrapper {
+    background-position: -64px 0;
+}
+
+.box-icon-section .content-main .card:nth-child(2) .za-icon-wrapper {
+    background-position: -190px 0;
+}
+
+.box-icon-section .content-main .card:nth-child(3) .za-icon-wrapper {
+    background-position: -126px 0;
+}
+
+.box-icon-section .content-main .card:nth-child(4) .za-icon-wrapper {
+    background-position: 0 0;
+}
+
+.box-icon-section .content-main .card h4 {
+    margin: 0 0 12px;
+}
+
+/* Testimonials — za-custories-section (live report-section + stat row) */
+.za-custories-section {
+    padding: 160px 0;
+    position: relative;
+    background: #fff;
+}
+
+.za-custories-section::after {
+    /* TODO: replace with final background asset */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #d73e3e;
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/homepage/testimonial-arrow.png');
+    background-size: 120px;
+    left: 0;
+    z-index: -1;
+    bottom: 0;
+}
+
+.report-section {
+    background: #1d1d1d;
+    color: #fff;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 100px;
+    border-radius: 20px;
+    padding: 10px 24px 30px;
+    position: relative;
+    text-align: center;
+}
+
+.report-section h2 {
+    color: #fff;
+    margin: 25px 0;
+    font-size: 33px;
+}
+
+.report-section .customer-slider {
+    display: grid;
+    gap: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.report-section .aem-report {
+    padding: 0;
+}
+
+.report-section .aem-report p {
+    margin: 0 0 25px;
+}
+
+.report-section .read-more-link {
+    color: #fff;
+    margin: 30px 0 0;
+    text-decoration: none;
+    font-family: var(--zf-primary-semibold);
+    padding-right: 35px;
+    position: relative;
+    display: inline-block;
+}
+
+.report-section .read-more-link::after {
+    /* TODO: replace with final icon asset */
+    content: '';
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+}
+
+.report-svg {
+    /* TODO: replace with final decorative asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    width: 120px;
+    height: 120px;
+    position: absolute;
+}
+
+.report-svg1 {
+    display: none;
+}
+
+.report-svg2 {
+    right: -18px;
+    top: 0;
+    opacity: 0.5;
+}
+
+.za-custories-data {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.za-custories-data li {
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    width: calc(25% - 8px);
+    min-width: 180px;
+    flex: 1 1 180px;
+    max-width: calc(25% - 8px);
+    text-align: left;
+}
+
+.za-custimg {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: left;
+}
+
+.za-custimg img {
+    max-width: 100%;
+    height: auto;
+}
+
+.za-custories-data h4 {
+    color: #0cb24b;
+    font-family: var(--zf-primary-bold);
+    font-size: 30px;
+    margin: 30px 0 0;
+}
+
+.za-custories-data p {
+    max-width: 180px;
+    margin: 8px 0 0;
+}
+
+.zrmore-cta {
+    color: #000;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--zf-primary-semibold);
+}
+
+/* Recognition — za-rating-section */
+.za-rating-section {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    position: relative;
+}
+
+.za-rating-section::before {
+    content: '';
+    background: #f8f8f8;
+    width: 200%;
+    position: absolute;
+    left: -50%;
+    top: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+.za-rating-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 95%;
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.za-rating-section ul li {
+    position: relative;
+    width: 20%;
+    min-width: 140px;
+    padding: 0 12px;
+}
+
+.za-rating-section ul li:not(:first-child)::before {
+    content: '';
+    width: 1px;
+    height: 50px;
+    background: #e5e5e5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.za-rating-section .rating-logo {
+    min-height: 40px;
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.za-rating-section .rating-logo img {
+    max-width: 100%;
+    max-height: 40px;
+    height: auto;
+}
+
+.za-rating-section .rating-star {
+    display: block;
+    color: #f5a623;
+    letter-spacing: 2px;
+    margin: 8px 0 4px;
+}
+
+.za-rating-section ul li p {
+    margin: 5px 0 0;
+    font-family: var(--zf-primary-bold);
+    font-size: 16px;
+}
+
+/* Industry recognition — zwnew-testi-section (live peach band) */
+.zwnew-testi-section {
+    background: #fff;
+    padding: 100px 0 0;
+}
+
+.zwnew-testi-section .ztesti-box {
+    background: #ffe9d9;
+    box-shadow: 50px 50px 36px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 40px 40px;
+}
+
+.zwnew-testi-section .ztesti-box h2 {
+    max-width: 1000px;
+    margin: 0 auto 16px;
+    font-size: 33px;
+}
+
+.zwnew-testi-section .ztesti-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto 0;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.zwnew-testi-section .ztesti-box li {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.zwnew-testi-section .ztesti-box li img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.zwnew-testi-section .ztesti-box li p {
+    margin: 0;
+    font-size: 17px;
+}
+
+.zwnew-testi-section .read-more-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #000;
+    text-decoration: none;
+    font-family: var(--zf-primary-semibold);
+    padding-right: 35px;
+    position: relative;
+}
+
+.zwnew-testi-section .read-more-link::after {
+    /* TODO: replace with final icon asset */
+    content: '';
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+}
+
+/* Closing CTA — pre-banner-section (archetype closing band) */
+.pre-banner-section {
+    text-align: center;
+    background-color: #dce8ff;
+    background-image:
+        radial-gradient(circle at 88% -20%, rgba(0, 142, 245, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 25% 130%, rgba(153, 20, 255, 0.14) 0, transparent 50%),
+        var(--pre-banner-texture);
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+    background-size: cover, cover, 100% auto;
+    min-height: 320px;
+    padding: 160px 0;
+    margin-top: 60px;
+}
+
+.pre-banner-section h2 {
+    max-width: 920px;
+    margin: 0 auto 36px;
+    letter-spacing: -1.6px;
+    line-height: 1.2;
+    font-size: 40px;
+}
+
+.cta-btn-wrap {
+    margin-top: 8px;
+}
+
+/* FAQ */
+.faq-section {
+    padding: 0 0 80px;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.faq-section h2 {
+    text-align: center;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 48px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: var(--zf-primary-semibold);
+}
+
+.z-accordianBox h4:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4::before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active::before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 25px 0;
+    display: none;
+    margin: 0;
+}
+
+.z-accordianBox > ul > li {
+    position: relative;
+    list-style: none;
+}
+
+/* Responsive — 1240 · 1080 · 991 · 767 · 565 · 480 · 350 */
+@media (max-width: 1240px) {
+    .sticky-section .scroll-card {
+        padding: 24px 28px;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .za-insights-box > .za-insights-item:not(:nth-child(3)) {
+        width: 100%;
+    }
+
+    .za-insights-box {
+        margin-top: 50px;
+    }
+
+    .za-insights-item > ul {
+        flex-direction: column;
+    }
+
+    .za-insights-item > ul li {
+        width: 100%;
+    }
+
+    .box-icon-section h2,
+    .box-icon-section .heading-desc {
+        width: 100%;
+    }
+
+    .zwnew-testi-section .ztesti-box ul {
+        grid-template-columns: 1fr;
+    }
+
+    .za-custories-data li {
+        width: calc(50% - 8px);
+        max-width: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h2 { font-size: 26px; }
+    .page-container h3 { font-size: 18px; }
+    .page-container p,
+    .page-container li { font-size: 15px; }
+    .title-desc,
+    .heading-desc,
+    .za-banner-section .za-banner-cont p { font-size: 17px; }
+
+    .za-insights-section h2,
+    .sticky-section .content-main h2,
+    .pre-banner-section h2 {
+        font-size: 28px;
+    }
+
+    .za-banner-section .za-banner-box {
+        flex-direction: column;
+    }
+
+    .za-banner-section .za-banner-cont,
+    .za-banner-section .za-banner-img {
+        width: 100%;
+    }
+
+    .webinar-section .webinar-wrap p:first-child {
+        font-size: 28px;
+    }
+
+    .webinar-section .webinar-wrap p:first-child span {
+        font-size: 32px;
+    }
+
+    .sticky-section {
+        padding: 60px 0 0;
+    }
+
+    .sticky-section .scroll-card {
+        flex-wrap: wrap;
+        min-height: unset;
+        height: auto;
+        position: relative;
+        top: auto !important;
+        margin: 20px 0 30px;
+        padding: 24px 20px;
+    }
+
+    .sticky-section .scroll-card .left-wrapper,
+    .sticky-section .scroll-card .right-wrapper {
+        width: 100%;
+    }
+
+    .box-icon-section .content-main .card {
+        width: 100%;
+    }
+
+    .za-rating-section ul li {
+        width: 33%;
+    }
+
+    .za-rating-section ul li:not(:first-child)::before {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 { font-size: 22px; }
+    .page-container h3 { font-size: 17px; }
+
+    .za-insights-section {
+        padding: 60px 0 80px;
+    }
+
+    .za-insights-section h2 {
+        max-width: 680px;
+        font-size: 26px;
+    }
+
+    .za-custories-section {
+        padding: 100px 0;
+    }
+
+    .pre-banner-section {
+        padding: 100px 0;
+        margin-top: 40px;
+    }
+
+    .z-accordianBox h4 {
+        padding-right: 40px;
+        font-size: 16px;
+    }
+
+    .za-custories-data li {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .report-section {
+        margin-bottom: 60px;
+        padding: 10px 20px 24px;
+    }
+}
+
+@media (max-width: 565px) {
+    .za-banner-section {
+        padding: 60px 0 50px;
+    }
+
+    .webinar-section {
+        margin-top: 20px;
+    }
+
+    .webinar-section .content-wrap {
+        padding: 40px 20px;
+    }
+
+    .za-cta-box {
+        flex-direction: column;
+    }
+
+    .za-cta-box .cta-btn.act-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .za-insights-item {
+        padding: 32px 24px;
+    }
+
+    .sticky-section {
+        padding: 0;
+    }
+
+    .zwnew-testi-section .ztesti-box {
+        padding: 24px 20px 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container .cta-btn.act-btn {
+        font-size: 14px;
+        padding: 12px 22px;
+    }
+}
+
+@media (max-width: 350px) {
+    .page-container h2 { font-size: 20px; }
+
+    .page-container .cta-btn.act-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}

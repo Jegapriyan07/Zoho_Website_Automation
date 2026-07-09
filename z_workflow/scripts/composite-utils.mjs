@@ -107,9 +107,21 @@ export function resolveArchetype(briefText, forcedId) {
     if (embedded) return embedded;
   }
 
-  const isPpcAgencyClientDashboard =
+  const isClientDashboardSoftwareLanding =
     (norm.includes('client dashboard software built for agencies') ||
-      norm.includes('what key features to look for in a client dashboard tool')) &&
+      norm.includes('client dashboard software that makes the monthly report')) &&
+    norm.includes('ready to give every client a dashboard') &&
+    !norm.includes('what key features to look for in a client dashboard tool') &&
+    !norm.includes('dresner advisory') &&
+    !norm.includes('hear from our happy customers') &&
+    !norm.includes('how client dashboard tool works');
+  if (isClientDashboardSoftwareLanding) {
+    const cds = ranked.find((r) => r.id === 'client-dashboard-software-landing');
+    if (cds) return cds;
+  }
+
+  const isPpcAgencyClientDashboard =
+    norm.includes('what key features to look for in a client dashboard tool') &&
     norm.includes('ready to give every client a dashboard') &&
     !norm.includes('dresner advisory') &&
     !norm.includes('hear from our happy customers') &&

@@ -1,0 +1,101 @@
+{
+  "extracted_at": "2026-07-07T12:17:40.162Z",
+  "source_url": "https://writer.zoho.in/writer/open/qqpdy3bc16b80933a46378b7ab7a8ecbf9b1b",
+  "output_file": "z_workflow/briefs/build-mram4a7o.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "page_count": 9,
+  "footer_chars": 7945,
+  "merged_length": 7199,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1033
+    },
+    {
+      "page": 2,
+      "len": 798
+    },
+    {
+      "page": 3,
+      "len": 0
+    },
+    {
+      "page": 4,
+      "len": 0
+    },
+    {
+      "page": 5,
+      "len": 0
+    },
+    {
+      "page": 6,
+      "len": 0
+    },
+    {
+      "page": 7,
+      "len": 219
+    },
+    {
+      "page": 8,
+      "len": 1254
+    },
+    {
+      "page": 9,
+      "len": 726
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Thin pages (may be lazy-loaded): 3, 4, 5, 6",
+      "Only 0 steps found — agency landings usually have 4"
+    ],
+    "errors": [
+      "Writer float-image / section-reference blocks (9 found, 0 hydrated) — Dresner/testimonials may be missing from extract. Paste PAGE 7 social proof manually or open doc in Edit mode."
+    ],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 11,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 7199
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 11,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 7200
+  },
+  "archetype_guess": "ppc-agency-client-dashboard"
+}

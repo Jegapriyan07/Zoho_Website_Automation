@@ -1,0 +1,111 @@
+{
+  "extracted_at": "2026-07-08T11:13:37.124Z",
+  "source_url": "https://writer.zoho.in/writer/open/pnptj713e7a0e930043d685e5e02458925cda",
+  "output_file": "z_workflow/briefs/build-mrbz61ch.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "Embedded Sales",
+  "page_count": 12,
+  "footer_chars": 19482,
+  "merged_length": 19749,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1905
+    },
+    {
+      "page": 2,
+      "len": 2007
+    },
+    {
+      "page": 3,
+      "len": 2086
+    },
+    {
+      "page": 4,
+      "len": 1631
+    },
+    {
+      "page": 5,
+      "len": 1697
+    },
+    {
+      "page": 6,
+      "len": 1973
+    },
+    {
+      "page": 7,
+      "len": 2040
+    },
+    {
+      "page": 8,
+      "len": 1801
+    },
+    {
+      "page": 9,
+      "len": 1508
+    },
+    {
+      "page": 10,
+      "len": 1386
+    },
+    {
+      "page": 11,
+      "len": 1553
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Writer float-image / section-reference blocks (48 found, 12 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 5,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "image_placeholder_count": 6,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 19749
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 5,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "image_placeholder_count": 6,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 19750
+  },
+  "archetype_guess": "embedded-sales-analytics"
+}
