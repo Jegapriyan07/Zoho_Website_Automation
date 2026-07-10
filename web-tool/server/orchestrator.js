@@ -5,12 +5,60 @@ import { config } from './config.js';
 import { Runs, RunEvents, Users } from './store.js';
 import { publish } from './sse.js';
 import { runComposer, outputDirFor } from './composer.js';
+import { injectTrustedBrandsFile } from '../trusted-brands/inject.js';
+import { DEFAULT_BRAND_LIST } from '../trusted-brands/brands-data.js';
 
 // ── Phase orchestrator ─────────────────────────────────────────
 // Drives the existing pipeline scripts in the documented order and streams
 // every phase to the Live Agent Console via SSE + persists RunEvents.
 //   extract-writer.mjs  ->  validate:brief  ->  match  ->  compose(agent)  ->  validate:output
 // Hard stops use the workflow's own failure vocabulary.
+
+// ── Template catalogue hints ────────────────────────────────────
+// When a user picks a template, we prepend a structured directive to the brief
+// so the LLM produces the right section order and visual style.
+const TEMPLATE_HINTS = {
+  dashboard: {
+    label: 'SaaS Dashboard',
+    style_hint: 'dark-sidebar admin panel with metric cards, data tables and chart areas',
+    sections: ['hero', 'metrics-overview', 'key-charts', 'activity-feed', 'quick-actions', 'integrations', 'cta']
+  },
+  analytics: {
+    label: 'Analytics Report',
+    style_hint: 'data-driven layout with KPI cards, trend graphs, comparison tables and insight callouts',
+    sections: ['header', 'executive-summary', 'kpi-cards', 'trend-analysis', 'breakdown-charts', 'insights', 'cta']
+  },
+  'saas-landing': {
+    label: 'SaaS Landing Page',
+    style_hint: 'clean SaaS product landing with bold hero, feature grid, social proof and pricing tiers',
+    sections: ['hero', 'trusted-brands', 'features', 'how-it-works', 'testimonials', 'pricing', 'faq', 'cta']
+  },
+  portfolio: {
+    label: 'Portfolio / Agency',
+    style_hint: 'creative agency or personal portfolio with fullscreen hero, case-study grid, skills and contact',
+    sections: ['hero', 'about', 'work', 'services', 'testimonials', 'process', 'contact']
+  },
+  ecommerce: {
+    label: 'E-Commerce Store',
+    style_hint: 'product-first layout with hero banner, featured products grid, category filters, reviews and checkout CTA',
+    sections: ['hero-banner', 'featured-products', 'categories', 'bestsellers', 'reviews', 'trust-badges', 'newsletter']
+  },
+  docs: {
+    label: 'Documentation Hub',
+    style_hint: 'technical documentation with top navigation, sidebar, content sections, code examples and search',
+    sections: ['nav', 'getting-started', 'installation', 'core-concepts', 'api-reference', 'examples', 'faq', 'community']
+  },
+  event: {
+    label: 'Event / Conference',
+    style_hint: 'event page with countdown, speaker grid, schedule timeline, venue map and registration CTA',
+    sections: ['hero-countdown', 'about', 'speakers', 'schedule', 'venue', 'sponsors', 'register']
+  },
+  nonprofit: {
+    label: 'Nonprofit / NGO',
+    style_hint: 'mission-driven layout with impact stats, stories, donation CTA and transparency section',
+    sections: ['hero', 'mission', 'impact-numbers', 'stories', 'programs', 'donate', 'team', 'partners']
+  }
+};
 
 const BRIEFS_DIR = path.join(config.pipelineRoot, 'z_workflow', 'briefs');
 const STATE_FILE = path.join(config.pipelineRoot, 'z_workflow', 'state.json');
@@ -412,12 +460,39 @@ function seedState(run, briefPath, validation, primarySource) {
       output_path: `output/${run.slug}/`,
       approved: false,
       revise_rounds: run.revise_rounds || 0
+    },
+    build_options: {
+      trusted_brands: run.trusted_brands === true
     }
   };
   fs.writeFileSync(STATE_FILE, JSON.stringify(seeded, null, 2) + '\n');
 }
 
 // ── Phase 1/2/6: compose (agent) ───────────────────────────────
+
+/**
+ * If the run has a template_id, prepend a structured directive to the brief
+ * file so the LLM produces the right section layout.
+ */
+function injectTemplateHint(run, briefPath) {
+  const hint = TEMPLATE_HINTS[run.template_id];
+  if (!hint) return;
+  const briefText = fs.readFileSync(briefPath, 'utf8');
+  // Don't double-inject
+  if (briefText.startsWith('=== TEMPLATE DIRECTIVE ===')) return;
+  const directive = [
+    '=== TEMPLATE DIRECTIVE ===',
+    `Template: ${hint.label}`,
+    `Style: ${hint.style_hint}`,
+    `Required sections (in order): ${hint.sections.join(', ')}`,
+    'Instructions: Build the page using the sections listed above. Keep the user\'s actual content',
+    'but organise it into these sections. Match the visual style described.',
+    '=== END TEMPLATE DIRECTIVE ===',
+    ''
+  ].join('\n');
+  fs.writeFileSync(briefPath, directive + briefText, 'utf8');
+  log(run, 1, `Template hint injected: "${hint.label}" — sections: ${hint.sections.join(', ')}`);
+}
 
 async function composeAndReport(run, briefPath, revise) {
   emit(run, 1, 'phase_start', { title: 'Phase 1 — Design tokens' });
@@ -426,6 +501,9 @@ async function composeAndReport(run, briefPath, revise) {
   setStatus(run, 'blueprint');
   emit(run, 6, 'phase_start', { title: 'Phase 6 — Production build' });
   setStatus(run, 'building');
+
+  // Inject template structural hint before the composer reads the brief.
+  if (!revise) injectTemplateHint(run, briefPath);
 
   const state = readJsonSafe(STATE_FILE) || {};
   const archetypeId = state.writer_brief?.archetype || state.similarity?.archetype || null;
@@ -445,6 +523,7 @@ async function composeAndReport(run, briefPath, revise) {
     revise,
     archetype: archetypeId,
     composite,
+    trustedBrands: run.trusted_brands === true,
     onLog: (line) => {
       for (const l of String(line).split('\n')) if (l.trim()) log(run, 6, l);
     }
@@ -506,6 +585,39 @@ async function phaseValidateOutput(run) {
   }
   emit(run, 'validation', 'validate_output_ok', { report });
   return { ok: true, report };
+}
+
+// ── Trusted Brands injection ──────────────────────────────────
+
+/**
+ * Inject the trusted-brands marquee block into output/<slug>/index.html
+ * AFTER the first </section> tag (i.e. after the hero/banner section),
+ * matching the placement on zoho.com/analytics/ai-powered-embedded-analytics.html
+ */
+function injectTrustedBrands(run) {
+  const dir = outputDirFor(run.slug);
+  const htmlPath = path.join(dir, 'index.html');
+  const result = injectTrustedBrandsFile(htmlPath);
+
+  if (!result.ok) {
+    log(run, 6, `Trusted brands: ${result.reason} — skipping injection.`);
+    return false;
+  }
+
+  log(run, 6, `Trusted brands marquee injected ${result.placement === 'after-hero' ? 'after hero/banner section' : 'after <body>'} ✓`);
+
+  if (result.verify?.warnings?.length) {
+    for (const w of result.verify.warnings) log(run, 6, `Trusted brands warning: ${w}`);
+  }
+
+  if (!result.verify?.ok) {
+    const msg = (result.verify?.errors || []).join('; ');
+    hardStop(run, 6, 'compose_failed', `Trusted brands verification failed: ${msg}`);
+    return false;
+  }
+
+  log(run, 6, `Trusted brands verified (${DEFAULT_BRAND_LIST.length} logos, live-calibrated speed, lazy load) ✓`);
+  return true;
 }
 
 function finishAwaitingReview(run) {
@@ -570,6 +682,9 @@ export async function startRun(runId) {
     }
     if (!validationResult.ok) return;
 
+    // Inject trusted brands marquee after the hero/banner section if requested.
+    if (run.trusted_brands && !injectTrustedBrands(run)) return;
+
     finishAwaitingReview(run);
   } catch (e) {
     hardStop(run, 'system', 'extraction_failed', `Unexpected orchestration error: ${e.message}`);
@@ -599,6 +714,103 @@ export async function reviseRun(runId, revision) {
   const validationResult = await phaseValidateOutput(run);
   if (!validationResult.ok) return;
 
+  if (run.trusted_brands && !injectTrustedBrands(run)) return;
+
   Runs.update(run.id, { revise_rounds: revision.round });
   finishAwaitingReview(run);
 }
+
+// ── DOCX upload path (skips Puppeteer extraction) ──────────────
+
+/**
+ * Start a run from an already-extracted brief file (DOCX upload path).
+ * Skips Phase 0 browser extraction — goes straight to validate:brief → match → compose.
+ *
+ * @param {string} runId
+ * @param {string} preExtractedBriefPath  - absolute path to the .txt file already written
+ * @param {object} sidecarData            - data from extract-docx.mjs sidecar JSON
+ */
+export async function startRunFromDocx(runId, preExtractedBriefPath, sidecarData) {
+  const run = Runs.get(runId);
+  if (!run) return;
+
+  try {
+    emit(run, 0, 'phase_start', { title: 'Phase 0 — DOCX extract · Validate · Match' });
+    setStatus(run, 'extracting');
+
+    if (!fs.existsSync(preExtractedBriefPath)) {
+      hardStop(run, 0, 'extraction_failed', `Brief file not found: ${preExtractedBriefPath}`);
+      return;
+    }
+
+    const briefText = fs.readFileSync(preExtractedBriefPath, 'utf8');
+
+    // Emit extraction result summary (mirrors phase0Extract output shape)
+    emit(run, 0, 'extract_result', {
+      pages: sidecarData.page_count ?? null,
+      chars: sidecarData.merged_length ?? briefText.length,
+      footer_chars: null,
+      archetype_guess: sidecarData.archetype_guess ?? null,
+      source: 'docx'
+    });
+
+    log(run, 0, `DOCX extraction: ${sidecarData.page_count ?? '?'} page(s), ${sidecarData.merged_length ?? briefText.length} chars`);
+    log(run, 0, `Archetype guess: ${sidecarData.archetype_guess || '(detecting from content…)'}`);
+
+    // Finalize slug from the brief content + sidecar title
+    if (!fs.existsSync(BRIEFS_DIR)) fs.mkdirSync(BRIEFS_DIR, { recursive: true });
+    let briefPath = preExtractedBriefPath;
+
+    const outputRoot = path.join(config.pipelineRoot, 'output');
+    const provisional = run.slug;
+    const { pageTitle, baseSlug } = derivePageTitleAndSlug(briefText, sidecarData.writer_doc_title || null);
+    const finalSlug = allocateUniqueSlug(baseSlug, { briefsDir: BRIEFS_DIR, outputRoot, exceptSlug: provisional }) || provisional;
+
+    if (finalSlug !== provisional) {
+      const finalPath = path.join(BRIEFS_DIR, `${finalSlug}.txt`);
+      renameBriefArtifacts(briefPath, finalPath);
+      briefPath = finalPath;
+      run.slug = finalSlug;
+    }
+
+    Runs.update(run.id, {
+      slug: run.slug,
+      page_title: pageTitle || run.page_title || run.slug
+    });
+    run.page_title = pageTitle || run.page_title || run.slug;
+
+    // validate:brief
+    const validation = await phase0ValidateBrief(run, briefPath);
+    if (!validation) return;
+
+    // match
+    const primary = await phase0Match(run, briefText);
+    seedState(run, briefPath, validation, primary);
+    emit(run, 0, 'phase_done', { title: 'Phase 0 complete (DOCX)' });
+
+    // compose phases 1/2/6
+    const composed = await composeAndReport(run, briefPath, null);
+    if (!composed) return;
+
+    // validate output
+    let validationResult = await phaseValidateOutput(run);
+    if (!validationResult.ok && validationResult.report?.errors?.length) {
+      log(run, 'validation', 'Validation failed — attempting one automatic revise…');
+      const instruction = [
+        'Fix these validate:output errors without changing unrelated sections:',
+        ...validationResult.report.errors.map((e) => `- ${e}`)
+      ].join('\n');
+      const reComposed = await composeAndReport(run, briefPath, { round: 1, scope: 'general', instruction });
+      if (reComposed) validationResult = await phaseValidateOutput(run);
+    }
+    if (!validationResult.ok) return;
+
+    // Trusted brands injection (same as Writer URL path)
+    if (run.trusted_brands && !injectTrustedBrands(run)) return;
+
+    finishAwaitingReview(run);
+  } catch (e) {
+    hardStop(run, 'system', 'extraction_failed', `Unexpected DOCX orchestration error: ${e.message}`);
+  }
+}
+

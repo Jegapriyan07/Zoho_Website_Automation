@@ -1,0 +1,892 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Global typography and utilities */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.p-90 { padding: 90px 0; }
+.title-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+:root {
+    --color-primary: #008EF5;
+    --color-secondary: #9914FF;
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #F5F3FF;
+    --teritary-bg: #F8F9FC;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+    --testimonial-peach-bg: #FFF7F0;
+    --testimonial-peach-border: #F5E5D7;
+    --testimonial-mint-bg: #F6FDF4;
+    --testimonial-mint-border: #D4F0D4;
+    --testimonial-blue-bg: #F3FAFD;
+    --testimonial-blue-border: #DCEDF5;
+}
+
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 10px;
+    text-decoration: none;
+    border: 0;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    opacity: 0.92;
+}
+
+.page-container .cta-btn.act-btn:focus {
+    outline: 2px solid var(--primary-btn-color);
+    outline-offset: 2px;
+}
+
+.section-eyebrow {
+    font-size: 14px;
+    font-family: var(--zf-primary-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-font-color);
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.section-eyebrow.light {
+    color: #fff;
+}
+
+/* Hero */
+.banner-section {
+    position: relative;
+    background: radial-gradient(61.72% 61.71% at 44.84% 39.89%, #009171 1.92%, #007759 50.96%, #005D40 100%);
+}
+
+.banner-section .container {
+    text-align: center;
+    padding: 140px 0 0;
+    margin-top: -70px;
+    overflow: hidden;
+    border-radius: 0 0 84px 84px;
+    background: radial-gradient(61.72% 61.71% at 44.84% 39.89%, #009171 1.92%, #007759 50.96%, #005D40 100%);
+}
+
+.banner-section .content-wrap {
+    position: relative;
+}
+
+.banner-section::after {
+    content: '';
+    position: absolute;
+    /* TODO: replace with final background asset */
+    background: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/square-texture-bg.png') no-repeat top center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: 1720px auto;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.banner-section h1 {
+    font-size: 41px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.banner-section p {
+    font-size: 20px;
+    color: #fff;
+}
+
+.banner-section .banner-disclaimer {
+    margin-top: 16px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.cuopon-webForm {
+    margin-top: 70px;
+    line-height: 0;
+    position: relative;
+}
+
+.cuopon-webForm img {
+    z-index: 1;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Comparison */
+.desk-connect-section {
+    padding: 90px 0;
+    background: #fff;
+}
+
+.desk-connect-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.desk-connect-header h2 {
+    color: var(--primary-font-color);
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+    line-height: 1.5;
+}
+
+.desk-connect-header p {
+    font-size: 20px;
+    color: var(--primary-font-color);
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.desk-connect-table {
+    display: flex;
+    border-radius: 46px;
+    box-sizing: border-box;
+    gap: 0;
+}
+
+.desk-connect-column {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.desk-connect-column-highlight {
+    border: 2px solid #eca91c;
+}
+
+.desk-connect-column-header {
+    padding: 24px;
+}
+
+.desk-connect-column-header h3 {
+    font-size: 24px;
+    color: var(--primary-font-color);
+    margin: 0;
+}
+
+.desk-connect-column-header-highlight {
+    background: rgba(255, 246, 226, 0.4);
+}
+
+.desk-connect-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desk-connect-cell {
+    min-height: 64px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: var(--primary-font-color);
+    line-height: 1.5;
+}
+
+.desk-connect-column:not(.desk-connect-column-highlight) .desk-connect-cell:nth-child(odd) {
+    background: var(--teritary-bg);
+}
+
+.desk-connect-column-highlight .desk-connect-cell:nth-child(odd) {
+    background: #fff6e2;
+}
+
+/* Sample dashboards carousel */
+.sampleDashboard-section {
+    padding: 90px 0;
+    text-align: center;
+    background-color: #262626;
+    color: #fff;
+}
+
+.sampleDashboard-section p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.sampleDashboard-section .sampleDashboard-image {
+    margin-top: 58px;
+}
+
+.sampleDashboard-image .slick-slide img {
+    border-radius: 17px;
+    border: 5px solid #ffffff67;
+    max-width: 72%;
+    transition: all 0.4s ease-in-out;
+}
+
+.sampleDashboard-image .slick-slide {
+    transition: all 0.4s ease-in-out;
+    padding: 40px 0;
+    opacity: 0.5;
+}
+
+.sampleDashboard-image .slick-center {
+    transform: scale(1.14);
+    opacity: 1;
+}
+
+.sampleDashboard-image .slick-prev {
+    left: 10%;
+}
+
+.sampleDashboard-image .slick-next {
+    right: 10%;
+}
+
+.sampleDashboard-image .slick-next:after,
+.sampleDashboard-image .slick-next:before,
+.sampleDashboard-image .slick-prev:after,
+.sampleDashboard-image .slick-prev:before {
+    width: 4px;
+    background: #ffffff;
+}
+
+/* Steps */
+.threeSimpleSteps-section {
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.threeSimpleSteps-section .header-text {
+    font-size: 20px;
+    margin: 0;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper {
+    display: flex;
+    gap: 60px;
+    margin-top: 97px;
+    z-index: 33;
+    position: relative;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item {
+    flex: 1;
+    padding: 15px;
+    position: relative;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item h3 {
+    font-size: 20px;
+    color: #006FDA;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item:before {
+    border-radius: 50%;
+    background-color: #262626;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    padding-top: 2px;
+    left: 47%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--zf-primary-semibold);
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item1::before {
+    content: "1";
+    top: -45px;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item2::before {
+    content: "2";
+    bottom: -45px;
+}
+
+.threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item3::before {
+    content: "3";
+    top: -45px;
+}
+
+.threeSimpleSteps-section .step-meta {
+    font-size: 14px;
+    font-family: var(--zf-primary-semibold);
+    color: #006FDA;
+    margin-top: 8px;
+}
+
+.threeSimpleSteps-section .background-svg {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.threeSimpleSteps-section .animated-line {
+    fill: none;
+    stroke: #E1E1E1;
+    stroke-width: 2;
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    transition: stroke-dashoffset 5s ease-in-out;
+}
+
+.threeSimpleSteps-section.not-in-view .animated-line {
+    stroke-dashoffset: 2500;
+}
+
+.threeSimpleSteps-section.in-view .animated-line {
+    stroke-dashoffset: 0;
+}
+
+/* Features */
+.slant {
+    width: 100%;
+    height: 130px;
+}
+
+.slant.right {
+    background-image: linear-gradient(177deg, #fff 50%, #f9f6f0 50%);
+}
+
+.slant.left {
+    background-image: linear-gradient(176deg, #f9f6f0 50%, #fff 0);
+}
+
+.everything-opens-section {
+    padding: 90px 0;
+    background: #F9F6F0;
+    position: relative;
+}
+
+.everything-opens-section h2 {
+    color: var(--primary-font-color);
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -0.8px;
+    line-height: 1.5;
+}
+
+.everything-opens-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 32px;
+}
+
+.everything-opens-item {
+    flex: 1 1 calc(33.333% - 22px);
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.sprite-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    /* TODO: replace with final icon sprite asset */
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/desk-sprite-image-26.png');
+    background-size: 343px auto;
+}
+
+.everything-opens-item:nth-child(1) .sprite-icon { background-position: 0 0; }
+.everything-opens-item:nth-child(2) .sprite-icon { background-position: -62px 0; }
+.everything-opens-item:nth-child(3) .sprite-icon { background-position: -118px 0; }
+.everything-opens-item:nth-child(4) .sprite-icon { background-position: -175px 0; }
+.everything-opens-item:nth-child(5) .sprite-icon { background-position: -234px 0; }
+.everything-opens-item:nth-child(6) .sprite-icon { background-position: -296px 0; }
+
+.everything-opens-item h3 {
+    font-size: 20px;
+    color: var(--primary-font-color);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.everything-opens-item p {
+    margin: 0;
+}
+
+/* Testimonials */
+.testimonials-section {
+    padding: 90px 0;
+}
+
+.testimonials-section .content-wrap {
+    text-align: center;
+}
+
+.testimonials-section .content-wrap h2 {
+    margin: 0 0 15px;
+}
+
+.zwc-nav-scroll-section {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: 60px;
+}
+
+.zwc-nav-scroll-section > div:first-child {
+    display: flex;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.zwc-nav-box-wrap {
+    display: flex;
+    gap: 20px;
+    animation: 45s linear 0s infinite normal none running marquee;
+    padding-right: 20px;
+    flex: 1;
+}
+
+.zwc-nav-scroll-section > div:hover .zwc-nav-box-wrap {
+    animation-play-state: paused;
+}
+
+.zwc-nav-box {
+    padding: 25px;
+    min-width: 384px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex: 1;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.zwc-nav-box:nth-child(1) {
+    background-color: var(--testimonial-peach-bg);
+    border-color: var(--testimonial-peach-border);
+}
+
+.zwc-nav-box:nth-child(2) {
+    background-color: var(--testimonial-mint-bg);
+    border-color: var(--testimonial-mint-border);
+}
+
+.zwc-nav-box:nth-child(3) {
+    background-color: var(--testimonial-blue-bg);
+    border-color: var(--testimonial-blue-border);
+}
+
+.zwc-nav-box:nth-child(1) .descriptions-wrapper {
+    background-color: #f5e5d76e;
+    border: 1px solid #f5e5d76e;
+}
+
+.zwc-nav-box:nth-child(2) .descriptions-wrapper {
+    background-color: #d4f0d472;
+    border: 1px solid #d4f0d472;
+}
+
+.zwc-nav-box:nth-child(3) .descriptions-wrapper {
+    background-color: #dcedf56a;
+    border: 1px solid #dcedf56a;
+}
+
+.testimonials-section .profile-wrappper {
+    display: flex;
+    gap: 15px;
+    text-align: left;
+}
+
+.testimonials-section .profile-wrappper > div > img {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 50%;
+    max-width: unset;
+}
+
+.testimonials-section .profile-wrappper > div > h6 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.testimonials-section .profile-wrappper > div > .designation {
+    font-size: 17px;
+    font-family: var(--zf-primary-regular);
+}
+
+.testimonials-section .descriptions-wrapper {
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+.testimonials-section .descriptions-wrapper p {
+    font-size: 17px;
+    margin: 0;
+    text-align: left;
+}
+
+/* Recognition cards */
+.recognition-cards-section {
+    background: #f8f9fc;
+    padding: 90px 0;
+}
+
+.recognition-cards-grid {
+    display: flex;
+    gap: 26px;
+}
+
+.recognition-card {
+    flex: 1;
+    min-height: 253px;
+    background: #fff;
+    border: 1px solid #cbd3d9;
+    border-radius: 8px;
+    box-shadow: 0 4px 22.5px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.recognition-card img {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.recognition-card h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #000;
+    line-height: 1.5;
+}
+
+.recognition-card p {
+    margin: 0;
+    font-size: 17px;
+    color: #262626;
+    line-height: 1.5;
+}
+
+/* Closing CTA */
+.pre-banner-section {
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+}
+
+.pre-banner-section .content-wrapper h2 {
+    font-family: Zoho_Puvi_Bold;
+    margin: 0 0 15px;
+}
+
+.pre-banner-section .content-wrapper p {
+    font-size: 20px;
+    margin: 0 auto 20px;
+}
+
+.pre-banner-section.pre-banner-cta {
+    background: #005d40;
+}
+
+.pre-banner-section.pre-banner-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/noise-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.pre-banner-section.pre-banner-cta .content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.pre-banner-section.pre-banner-cta .content-wrapper h2,
+.pre-banner-section.pre-banner-cta .content-wrapper p,
+.pre-banner-section.pre-banner-cta .pre-banner-disclaimer {
+    color: #fff;
+}
+
+.pre-banner-section.pre-banner-cta .content-wrapper h2 {
+    letter-spacing: -0.8px;
+}
+
+.pre-banner-section.pre-banner-cta .pre-banner-disclaimer {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+/* FAQ */
+.faq-section {
+    padding: 90px 0;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.z-accordianBox h4:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4:before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active:before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 25px 0;
+    display: none;
+    list-style: none;
+    margin: 0;
+}
+
+.z-accordianBox > ul > li {
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 1240px) {
+    .threeSimpleSteps-section .background-svg {
+        display: none;
+    }
+
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item.item2::before {
+        top: -45px;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1080px) {
+    .banner-section h1 {
+        font-size: 34px;
+    }
+
+    .banner-section p,
+    .sampleDashboard-section p,
+    .threeSimpleSteps-section .header-text,
+    .desk-connect-header p {
+        font-size: 16px;
+    }
+
+    .sampleDashboard-section .sampleDashboard-image {
+        margin-top: 0;
+    }
+
+    .sampleDashboard-image .slick-center {
+        transform: scale(0.8);
+    }
+
+    .sampleDashboard-section {
+        padding: 80px 15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h2 { font-size: 26px; }
+    .page-container h3 { font-size: 18px; }
+    .page-container p,
+    .page-container li { font-size: 15px; }
+    .title-desc { font-size: 17px; }
+
+    .desk-connect-table {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .recognition-cards-grid {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 { font-size: 22px; }
+    .page-container h3 { font-size: 17px; }
+
+    .desk-connect-section {
+        padding: 40px 0 60px;
+    }
+
+    .desk-connect-header {
+        margin-bottom: 32px;
+    }
+
+    .everything-opens-section {
+        padding: 50px 0 70px;
+    }
+
+    .everything-opens-section h2 {
+        margin-bottom: 40px;
+    }
+
+    .everything-opens-grid {
+        gap: 48px 24px;
+    }
+
+    .everything-opens-item {
+        min-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .threeSimpleSteps-section {
+        padding: 60px 0;
+    }
+
+    .threeSimpleSteps-section .threeSimpleSteps-wrapper .threeSimpleSteps-item {
+        flex: auto;
+    }
+
+    .pre-banner-section {
+        padding: 60px 0;
+    }
+
+    .recognition-cards-section {
+        padding: 50px 0;
+    }
+
+    .testimonials-section {
+        padding: 60px 0;
+    }
+
+    .zwc-nav-scroll-section {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 565px) {
+    .banner-section h1 {
+        font-size: 27px;
+    }
+
+    .banner-section p,
+    .sampleDashboard-section p,
+    .threeSimpleSteps-section .header-text {
+        font-size: 15px;
+    }
+
+    .cuopon-webForm {
+        margin-top: 60px;
+    }
+
+    .sampleDashboard-image .slick-slide {
+        padding: 0;
+    }
+
+    .testimonials-section .descriptions-wrapper p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-section .container {
+        padding-top: 100px;
+        border-radius: 0 0 40px 40px;
+    }
+}
+
+@media (max-width: 350px) {
+    .page-container .cta-btn.act-btn {
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}

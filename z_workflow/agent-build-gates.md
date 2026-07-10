@@ -115,6 +115,37 @@ See [section-composites.json](section-composites.json) → `dashboard-examples-l
 
 **References:** recognition + testimonials → **BI-Marketing** (not partial PowerBI pattern)
 
+### Dashboard zigzag (left/right rows) — gold standard `output/testing-3/`
+
+When the brief uses `dashboard-wrapper` content blocks:
+
+| Check | Pass |
+|-------|------|
+| Row classes | Alternating `.main-wrapper.right-content` / `.left-content` |
+| Spacing | `padding: 100px 0`, `margin-bottom: 50px`, `gap: 40px` |
+| Panels | 55% `::before` rectangles, `border-radius: 30px`, **no clip-path** |
+| Images | Vertically centered in image column |
+| Motion | `data-onscroll` + `.zwe-om` IntersectionObserver in `script.js` |
+
+---
+
+## 3b. Trusted Brands builds (★ Build with Trusted Brands)
+
+When `build_options.trusted_brands` is true in `state.json` (Web Page Builder option):
+
+| Gate | Requirement |
+|------|-------------|
+| **Agent must NOT build** | No `za-brandsCounts`, `marquee-wrapper`, or `za-cust-counts` in agent output — server injects after compose |
+| **Placement** | Injected immediately after first `</section>` (hero close) |
+| **Logo count** | 30 brands from `inTrustIconList` (`web-tool/trusted-brands/brands-data.js`) |
+| **Image paths** | `https://prezohoweb.zoho.com/sites/zweb/images/otherbrandlogos/…` |
+| **Lazy load** | `loading="lazy"` on every logo `<img>` |
+| **Marquee speed** | Live-calibrated: `SLICK_STEP_PX` 261 · `SLICK_STEP_MS` 3018 · pixel `--tb-scroll-end` |
+| **Counters** | `za-thousand-customers` / `za-million-users` count 1 → target via IntersectionObserver |
+| **Gold standard** | `output/testing-3/index.html` |
+
+Pipeline module: `web-tool/trusted-brands/inject.js` — used on **every** build path (Writer URL, DOCX upload, revise).
+
 ---
 
 ## 4. Before APPROVE
@@ -123,7 +154,7 @@ See [section-composites.json](section-composites.json) → `dashboard-examples-l
 2. Open in browser — buttons must be **visible**, not just in DOM
 3. Section count vs composite / `source_map`
 4. **Pre-banner** — closing/demo CTA section shows textured background (not white); grep `blue-shadow-with-texture` or radial-gradient in `style.css`
-5. **Dashboard zigzag** — `.dashboard-wrapper .main-wrapper` has `padding: 100px 0`, `gap: 40px`, clip-path `::before` panels; image column vertically centered
+5. **Dashboard zigzag** — `.dashboard-wrapper .main-wrapper` has `padding: 100px 0`, `gap: 40px`, clean rectangle `::before` panels (NO clip-path); image column vertically centered
 6. Checklist in `.cursor/rules/web-pages-frontend.mdc`
 
 ---

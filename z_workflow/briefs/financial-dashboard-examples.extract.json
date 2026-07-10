@@ -1,0 +1,133 @@
+{
+  "extracted_at": "2026-07-10T07:46:19.926Z",
+  "source_url": "https://writer.zoho.in/writer/open/kksoa797d44a0002b402fb1f6e59e359621fd",
+  "output_file": "z_workflow/briefs/build-mremmz8v.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "Financial dashboard examples - Landing page",
+  "page_count": 12,
+  "footer_chars": 357,
+  "merged_length": 10822,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 762
+    },
+    {
+      "page": 2,
+      "len": 963
+    },
+    {
+      "page": 3,
+      "len": 1236
+    },
+    {
+      "page": 4,
+      "len": 760
+    },
+    {
+      "page": 5,
+      "len": 721
+    },
+    {
+      "page": 6,
+      "len": 744
+    },
+    {
+      "page": 7,
+      "len": 587
+    },
+    {
+      "page": 8,
+      "len": 649
+    },
+    {
+      "page": 9,
+      "len": 727
+    },
+    {
+      "page": 10,
+      "len": 1208
+    },
+    {
+      "page": 11,
+      "len": 1006
+    },
+    {
+      "page": 12,
+      "len": 140
+    },
+    {
+      "page": 13,
+      "len": 1123
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Writer float-image / section-reference blocks (48 found, 12 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 4,
+      "step_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "faq_count": 8,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 10822
+    }
+  },
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 8,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 10823
+  },
+  "archetype_guess": "dashboard-examples-landing-finance"
+}

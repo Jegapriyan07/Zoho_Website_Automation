@@ -1,0 +1,75 @@
+{
+  "extracted_at": "2026-07-10T09:15:45.366Z",
+  "source_url": "https://writer.zoho.in/writer/open/3m0rq5f8713942bba431395723ec18a983f83",
+  "output_file": "z_workflow/briefs/build-mrepwxmc.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "integration page",
+  "page_count": 5,
+  "footer_chars": 498,
+  "merged_length": 10976,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1226
+    },
+    {
+      "page": 2,
+      "len": 1770
+    },
+    {
+      "page": 3,
+      "len": 1212
+    },
+    {
+      "page": 4,
+      "len": 971
+    },
+    {
+      "page": 5,
+      "len": 552
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Writer float-image / section-reference blocks (20 found, 5 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 1,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 10976
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 2,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 10977
+  },
+  "archetype_guess": "integration-campaign-books"
+}

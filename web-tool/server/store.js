@@ -35,19 +35,12 @@ function load(key) {
   }
 }
 
-// Serialize writes per-file to avoid interleaved corruption.
-const writeChains = new Map();
 function save(key, rows) {
   ensureDir();
   const p = filePath(key);
-  const prev = writeChains.get(key) || Promise.resolve();
-  const next = prev.then(() => {
-    const tmp = `${p}.${process.pid}.tmp`;
-    fs.writeFileSync(tmp, JSON.stringify(rows, null, 2));
-    fs.renameSync(tmp, p);
-  });
-  writeChains.set(key, next.catch(() => {}));
-  return next;
+  const tmp = `${p}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(rows, null, 2) + '\n');
+  fs.renameSync(tmp, p);
 }
 
 export function newId(prefix = '') {
@@ -102,7 +95,7 @@ export const Users = {
 // ── Runs ───────────────────────────────────────────────────────
 
 export const Runs = {
-  create({ user_id, writer_doc_url, slug, page_title }) {
+  create({ user_id, writer_doc_url, slug, page_title, trusted_brands, template_id }) {
     const rows = load('runs');
     const run = {
       id: newId('run'),
@@ -115,6 +108,8 @@ export const Runs = {
       output_path: null,
       revise_rounds: 0,
       approved: false,
+      trusted_brands: trusted_brands === true, // whether to inject the brand marquee
+      template_id: template_id || null,         // optional page-structure template hint
       created_at: now(),
       updated_at: now()
     };

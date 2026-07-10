@@ -327,14 +327,17 @@ When composing zigzag feature rows from `Executive-Dashboards` / agency briefs:
 | Row padding | `100px 0` per `.main-wrapper` |
 | Row gap | `margin-bottom: 50px` between rows |
 | Flex gap | `gap: 40px` between image + copy columns |
-| Panel shape | `clip-path` angled panels on `::before` — not plain `border-radius` boxes |
+| Panel shape | Clean **rectangle** `::before` — `width: 55%; height: 100%; border-radius: 30px` — NO `clip-path` |
 | Image column | `min-height: 360px`, `display: flex`, `align-items: center`, `justify-content: center` |
 | Placeholder img | `max-width: 560px`, `min-height: 300px`, `object-fit: cover` |
 | Token | `--teritary-bg: #f8f9fc` for panel fill |
 
-Gold standard: `output/sales-dashboard-examples/style.css` → `.dashboard-wrapper` block.
+Gold standard: `output/testing-2/style.css` → `.dashboard-wrapper` block.
+
+Gold standard: `output/testing-2/style.css` → `.dashboard-wrapper` block.
 
 **Never:** clone whole reference `index.html` / `style.css` / `script.js`
+**Never:** use `clip-path` on `.banner-section` or `.hero-dashboard-preview` backgrounds. Use plain `border-radius` rectangles.
 
 ---
 
@@ -359,7 +362,7 @@ Open `output/{slug}/index.html` and confirm:
 - [ ] Section order matches composite / brief
 - [ ] Zigzag / FAQ / card counts match brief
 - [ ] **Pre-banner CTA** shows textured/dark background band — not plain white (see §5 `pre-banner-section`)
-- [ ] **Dashboard zigzag** rows have clip-path panels, 100px row padding, centered image column (see §5 `dashboard-wrapper`)
+- [ ] **Dashboard zigzag** rows have clean **rectangle** `::before` panels (NO clip-path), 100px row padding, centered image column (see §5 `dashboard-wrapper`)
 
 ### Section count
 

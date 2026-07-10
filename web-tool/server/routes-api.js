@@ -5,7 +5,9 @@ import { config } from './config.js';
 import { requireAuth } from './auth-zoho.js';
 import { Runs, RunEvents, Revisions, Approvals } from './store.js';
 import { subscribe } from './sse.js';
-import { startRun, reviseRun } from './orchestrator.js';
+import { startRun, reviseRun, startRunFromDocx } from './orchestrator.js';
+import { parseMultipart } from './multipart.js';
+import { extractDocx } from '../../z_workflow/scripts/extract-docx.mjs';
 
 const OUTPUT_ROOT = path.join(config.pipelineRoot, 'output');
 
@@ -28,12 +30,12 @@ export function registerApiRoutes(app) {
 
   // ── New build ────────────────────────────────────────────────
   api.post('/runs', (req, res) => {
-    const { writer_doc_url } = req.body || {};
+    const { writer_doc_url, trusted_brands, template_id } = req.body || {};
     if (!writer_doc_url || !isWriterUrl(writer_doc_url)) {
       return res.status(400).json({ error: 'invalid_writer_url', message: 'Provide a writer.zoho.* document URL.' });
     }
-    const run = Runs.create({ user_id: req.user.id, writer_doc_url });
-    RunEvents.append(run.id, 'system', 'run_created', { writer_doc_url });
+    const run = Runs.create({ user_id: req.user.id, writer_doc_url, trusted_brands: trusted_brands === true, template_id: template_id || null });
+    RunEvents.append(run.id, 'system', 'run_created', { writer_doc_url, trusted_brands: run.trusted_brands, template_id: run.template_id });
     // Kick off async; console streams via SSE.
     setImmediate(() => startRun(run.id));
     res.status(201).json({ run });
@@ -54,6 +56,81 @@ export function registerApiRoutes(app) {
       revisions: Revisions.listByRun(run.id),
       approval: Approvals.getByRun(run.id)
     });
+  });
+
+  // ── DOCX file upload build ───────────────────────────────
+  // POST /api/runs/docx  multipart/form-data  field: "docx"
+  // Optional text fields: trusted_brands ("true"), doc_title
+  api.post('/runs/docx', async (req, res) => {
+    try {
+      const upload = await parseMultipart(req, { maxBytes: 52_428_800 });
+
+      if (!upload.originalname.toLowerCase().endsWith('.docx')) {
+        return res.status(400).json({ error: 'invalid_file_type', message: 'Only .docx files are accepted.' });
+      }
+
+      const trusted_brands = upload.fields?.trusted_brands === 'true';
+      const template_id = upload.fields?.template_id || null;
+      const docTitle = upload.fields?.doc_title || path.basename(upload.originalname, '.docx');
+
+      // Write the uploaded buffer to a temp file for extraction
+      const tmpDir = path.join(config.dataDir, 'docx-uploads');
+      fs.mkdirSync(tmpDir, { recursive: true });
+      const tmpDocx = path.join(tmpDir, `upload-${Date.now()}.docx`);
+      fs.writeFileSync(tmpDocx, upload.buffer);
+
+      // Create the run record (writer_doc_url is set to a docx:// pseudo-URI)
+      const run = Runs.create({
+        user_id: req.user.id,
+        writer_doc_url: `docx://${upload.originalname}`,
+        trusted_brands,
+        template_id
+      });
+      RunEvents.append(run.id, 'system', 'run_created', {
+        writer_doc_url: `docx://${upload.originalname}`,
+        source: 'docx_upload',
+        trusted_brands,
+        template_id
+      });
+
+      // Extract DOCX in-process (fast, no browser) → briefs/<slug>.txt
+      const briefsDir = path.join(config.pipelineRoot, 'z_workflow', 'briefs');
+      fs.mkdirSync(briefsDir, { recursive: true });
+      const provisional = `build-${Date.now().toString(36)}`;
+      const briefPath = path.join(briefsDir, `${provisional}.txt`);
+
+      let extractResult;
+      try {
+        extractResult = extractDocx(tmpDocx, briefPath, { title: docTitle });
+      } catch (extractErr) {
+        fs.unlinkSync(tmpDocx).catch?.(() => {});
+        return res.status(422).json({ error: 'docx_extract_failed', message: extractErr.message });
+      }
+
+      // Clean up temp upload
+      try { fs.unlinkSync(tmpDocx); } catch { /* ignore */ }
+
+      Runs.update(run.id, { slug: provisional, page_title: docTitle });
+      run.slug = provisional;
+      run.page_title = docTitle;
+
+      const sidecar = JSON.parse(
+        fs.existsSync(extractResult.sidecarPath)
+          ? fs.readFileSync(extractResult.sidecarPath, 'utf8')
+          : '{}'
+      );
+
+      // Kick off async pipeline (skips browser extraction)
+      setImmediate(() => startRunFromDocx(run.id, briefPath, sidecar));
+      res.status(201).json({ run });
+
+    } catch (e) {
+      if (e.message?.includes('boundary') || e.message?.includes('multipart')) {
+        return res.status(400).json({ error: 'bad_upload', message: 'Expected multipart/form-data with a "docx" file field.' });
+      }
+      console.error('DOCX upload error:', e);
+      res.status(500).json({ error: 'upload_failed', message: e.message });
+    }
   });
 
   // ── Live event stream (SSE) ──────────────────────────────────

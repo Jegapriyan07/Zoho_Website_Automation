@@ -1,0 +1,69 @@
+{
+  "extracted_at": "2026-07-09T06:20:05.515Z",
+  "source_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
+  "output_file": "z_workflow/briefs/build-mrd3xh5u.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "testing",
+  "page_count": 10,
+  "footer_chars": 298,
+  "merged_length": 2957,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 771
+    },
+    {
+      "page": 2,
+      "len": 769
+    },
+    {
+      "page": 3,
+      "len": 691
+    },
+    {
+      "page": 4,
+      "len": 678
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Writer float-image / section-reference blocks (40 found, 10 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 0,
+      "page_markers": [
+        2,
+        3,
+        4
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 2957
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [
+      2,
+      3,
+      4
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 2958
+  },
+  "archetype_guess": "dashboard-examples-landing-sales"
+}

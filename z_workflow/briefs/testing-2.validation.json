@@ -1,6 +1,6 @@
 {
   "pass": true,
-  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\sales-dashboard-examples-landing-page-explore-50-sales-dashb.txt",
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\testing-2.txt",
   "archetype": "dashboard-examples-landing-sales",
   "archetype_score": 13,
   "required_found": [
@@ -55,5 +55,5 @@
   },
   "errors": [],
   "warnings": [],
-  "validated_at": "2026-07-08T09:21:33.656Z"
+  "validated_at": "2026-07-09T11:52:49.334Z"
 }

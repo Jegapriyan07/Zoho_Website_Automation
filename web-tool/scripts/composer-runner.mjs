@@ -19,10 +19,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const MAX_ATTEMPTS = 4;
-const STALL_MS = 4 * 60 * 1000; // no output for 4 min → kill + retry
+const STALL_MS = parseInt(process.env.COMPOSER_STALL_MS || '', 10) || 12 * 60 * 1000;
 const RETRY_PAUSE_MS = 8000;
 
 const CONNECTION_LOST_RE = /connection lost|reconnecting to https?:\/\/|retry attempt \d/i;
+const RECONNECTING_NOTE = '[composer-runner] Composer reconnecting — still working (this is normal on long builds).';
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -100,6 +101,35 @@ function buildArgs(attempt) {
   return args;
 }
 
+function watchOutputActivity(slug, onActivity) {
+  if (!slug) return () => {};
+
+  const outputDir = path.join(process.cwd(), 'output', slug);
+  let watcher = null;
+  let pollTimer = null;
+
+  const attach = () => {
+    if (!fs.existsSync(outputDir)) return false;
+    try {
+      watcher = fs.watch(outputDir, { recursive: true }, onActivity);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  if (!attach()) {
+    pollTimer = setInterval(() => {
+      if (attach()) clearInterval(pollTimer);
+    }, 5000);
+  }
+
+  return () => {
+    if (pollTimer) clearInterval(pollTimer);
+    if (watcher) watcher.close();
+  };
+}
+
 function runAgent(prompt, attempt) {
   return new Promise((resolve) => {
     const { bin, argsPrefix, useShell } = resolveAgentSpawn();
@@ -114,23 +144,33 @@ function runAgent(prompt, attempt) {
 
     let combined = '';
     let hadConnectionLoss = false;
+    let reconnectNoted = false;
     let stallTimer = null;
+    let stopOutputWatch = () => {};
 
     const bumpStall = () => {
       if (stallTimer) clearTimeout(stallTimer);
       stallTimer = setTimeout(() => {
         console.error(
-          `[composer-runner] No output for ${STALL_MS / 60000} min — restarting (attempt ${attempt + 1})…`
+          `[composer-runner] No output or file activity for ${Math.round(STALL_MS / 60000)} min — restarting (attempt ${attempt + 1})…`
         );
         child.kill('SIGTERM');
         setTimeout(() => child.kill('SIGKILL'), 5000);
       }, STALL_MS);
     };
 
+    stopOutputWatch = watchOutputActivity(process.env.ZWPB_SLUG, bumpStall);
+
     const onData = (chunk) => {
       const text = chunk.toString();
       combined += text;
-      if (CONNECTION_LOST_RE.test(text)) hadConnectionLoss = true;
+      if (CONNECTION_LOST_RE.test(text)) {
+        hadConnectionLoss = true;
+        if (!reconnectNoted) {
+          reconnectNoted = true;
+          console.error(RECONNECTING_NOTE);
+        }
+      }
       process.stdout.write(text);
       bumpStall();
     };
@@ -138,13 +178,18 @@ function runAgent(prompt, attempt) {
     child.stdout.on('data', onData);
     child.stderr.on('data', onData);
 
-    child.on('error', (err) => {
+    const cleanup = () => {
       if (stallTimer) clearTimeout(stallTimer);
+      stopOutputWatch();
+    };
+
+    child.on('error', (err) => {
+      cleanup();
       resolve({ code: 1, hadConnectionLoss, error: err.message, combined });
     });
 
     child.on('close', (code) => {
-      if (stallTimer) clearTimeout(stallTimer);
+      cleanup();
       resolve({
         code: code ?? 1,
         hadConnectionLoss: hadConnectionLoss || CONNECTION_LOST_RE.test(combined),

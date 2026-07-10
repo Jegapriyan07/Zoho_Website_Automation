@@ -1,0 +1,54 @@
+{
+  "pass": false,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\testing.txt",
+  "archetype": "dashboard-examples-landing-sales",
+  "archetype_score": 8,
+  "required_found": [
+    "Explore Examples"
+  ],
+  "required_missing": [
+    "Build Sales Dashboards Now",
+    "Connect popular CRMs",
+    "STEP 1",
+    "STEP 4",
+    "START FOR FREE"
+  ],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [
+      2,
+      3,
+      4
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 2958,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [
+    "Missing required strings (5): Build Sales Dashboards Now · Connect popular CRMs · STEP 1 · STEP 4 · START FOR FREE"
+  ],
+  "warnings": [
+    "Fewer steps than template (found 0, template ~4) — composing what the doc contains",
+    "Fewer FAQ items than template (found 0, template ~5) — composing what the doc contains",
+    "Only 3 --- PAGE N --- markers (expected ~10)"
+  ],
+  "validated_at": "2026-07-09T06:20:05.863Z"
+}

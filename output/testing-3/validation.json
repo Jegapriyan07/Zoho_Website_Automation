@@ -1,7 +1,7 @@
 {
   "pass": true,
-  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\sales-dashboard-examples-landing-page-explore-50-sales-dashb",
-  "slug": "sales-dashboard-examples-landing-page-explore-50-sales-dashb",
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\testing-3",
+  "slug": "testing-3",
   "archetype": "dashboard-examples-landing-sales",
   "inventory": {
     "example_row": 0,
@@ -12,7 +12,7 @@
     "za_inner_testimonials": 0,
     "z_accordian_box": 5,
     "cont_sec": 0,
-    "banner": 4,
+    "banner": 3,
     "tabsection": 0,
     "faq_section": 1,
     "cta_button_count": 3,
@@ -75,8 +75,8 @@
     "customer_story_missing": []
   },
   "banner_audit": {
-    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:radial-gradient(circle at 12% 20%, rgba(0, 142, 245, 0.18) 0, transparent 50%), radial-gradient(circle at 88% 80%, rgba(153, 20, 255, 0.12) 0, transparent 45%)",
-    "closing_bg_fingerprint": null,
+    "hero_bg_fingerprint": "background-color:#fff;background-image:url('https://prezohoweb.zoho.com/')",
+    "closing_bg_fingerprint": "background-color:#dce8ff;background-image:radial-gradient(circle at 88% -20%, rgba(0, 142, 245, 0.18) 0, transparent 55%), radial-gradient(circle at 25% 130%, rgba(153, 20, 255, 0.14) 0, transparent 50%), var(--pre-banner-texture)",
     "mid_white_bg_fingerprint": "background:#fff",
     "slots": [
       {
@@ -102,12 +102,6 @@
     ]
   },
   "errors": [],
-  "warnings": [
-    "Mandatory CSS snippet may be missing or altered: .testimonials-section .content-wrap a { color: var(--primary…",
-    "Mandatory CSS snippet may be missing or altered: .testimonials-section .content-wrap a .arrow { border-color:…",
-    "Mandatory CSS snippet may be missing or altered: .zwc-nav-box:nth-child(1), .zwc-nav-box:nth-child(4) { backg…",
-    "Mandatory CSS snippet may be missing or altered: .zwc-nav-box:nth-child(2), .zwc-nav-box:nth-child(5) { backg…",
-    "Mandatory CSS snippet may be missing or altered: .zwc-nav-box:nth-child(3), .zwc-nav-box:nth-child(6) { backg…"
-  ],
-  "validated_at": "2026-07-08T09:25:47.911Z"
+  "warnings": [],
+  "validated_at": "2026-07-10T06:09:22.409Z"
 }

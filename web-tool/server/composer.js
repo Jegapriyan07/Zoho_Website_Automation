@@ -26,8 +26,20 @@ export function outputFilesPresent(slug) {
   return fs.existsSync(html) && fs.existsSync(css);
 }
 
+const DASHBOARD_ZIGZAG_ARCHETYPES = new Set([
+  'dashboard-examples-landing-sales',
+  'dashboard-examples-landing',
+  'dashboard-examples-landing-finance'
+]);
+
+function compositeUsesDashboardZigzag(composite) {
+  return Boolean(
+    composite?.section_order?.some((s) => s.class === 'dashboard-wrapper' || s.layout === 'zigzag')
+  );
+}
+
 /** Build the exact instruction the agent must follow (mirrors the workflow). */
-export function buildComposerPrompt({ slug, briefFile, revise, archetype, composite }) {
+export function buildComposerPrompt({ slug, briefFile, revise, archetype, composite, trustedBrands }) {
   const base = [
     'You are the Zoho Web Page Builder agent operating inside the Web-pages repo.',
     'Follow z_workflow/AGENT-PROJECT-WORKFLOW.md (Phases 1, 2, 6), z_workflow/Rulesbook.md,',
@@ -61,6 +73,29 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
       base.push(`Required CTA button labels: ${composite.cta_strings_required.map((c) => `"${c}"`).join(', ')}`);
     }
   }
+
+  const needsDashboardZigzag =
+    DASHBOARD_ZIGZAG_ARCHETYPES.has(archetype) || compositeUsesDashboardZigzag(composite);
+
+  if (needsDashboardZigzag) {
+    base.push('');
+    base.push('DASHBOARD ZIGZAG (left/right rows — mandatory, gold standard: output/testing-3/):');
+    base.push('- Section class: .dashboard-wrapper with alternating .main-wrapper.right-content / .left-content rows');
+    base.push('- Row spacing: padding 100px 0, margin-bottom 50px, gap 40px, align-items center');
+    base.push('- Background panels: 55% width ::before rectangles, border-radius 30px, NO clip-path');
+    base.push('- Image column vertically centered; copy from brief tables only');
+    base.push('- Scroll reveal: data-onscroll + .zwe-om via IntersectionObserver in script.js');
+  }
+
+  if (trustedBrands) {
+    base.push('');
+    base.push('TRUSTED BRANDS (pipeline-injected — do NOT build in Phase 6):');
+    base.push('- This build uses ★ Build with Trusted Brands — the tool injects the block after compose');
+    base.push('- Do NOT add za-brandsCounts, marquee-wrapper, trusted-icon-wrap, trust-icon, or za-cust-counts');
+    base.push('- Hero ends at first </section>; trusted brands are inserted immediately after by the server');
+    base.push('- Gold standard for injected output: output/testing-3/index.html (marquee + counters only)');
+  }
+
   if (revise) {
     base.push('');
     if (revise.scope === 'section' && revise.section_name) {
@@ -78,9 +113,9 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
  * Run the external composer command.
  * @returns {Promise<{ok:boolean, reason?:string, manual?:boolean}>}
  */
-export function runComposer({ slug, briefFile, revise, archetype, composite, onLog }) {
+export function runComposer({ slug, briefFile, revise, archetype, composite, trustedBrands, onLog }) {
   return new Promise((resolve) => {
-    const prompt = buildComposerPrompt({ slug, briefFile, revise, archetype, composite });
+    const prompt = buildComposerPrompt({ slug, briefFile, revise, archetype, composite, trustedBrands });
 
     if (!config.composerSpawn) {
       onLog?.(

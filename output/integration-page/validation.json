@@ -1,8 +1,8 @@
 {
   "pass": true,
-  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\whitelabel",
-  "slug": "whitelabel",
-  "archetype": "white-label-reporting-landing",
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\integration-page",
+  "slug": "integration-page",
+  "archetype": "integration-campaign-books",
   "inventory": {
     "example_row": 0,
     "impl_step": 0,
@@ -10,16 +10,15 @@
     "persona_block": 0,
     "benefit_block": 0,
     "za_inner_testimonials": 0,
-    "z_accordian_box": 3,
+    "z_accordian_box": 6,
     "cont_sec": 0,
-    "banner": 3,
+    "banner": 5,
     "tabsection": 0,
     "faq_section": 1,
-    "cta_button_count": 3,
+    "cta_button_count": 2,
     "cta_texts": [
-      "Book my Demo",
-      "Get a Price Quote",
-      "Book my Demo"
+      "Claim my $100 credit",
+      "Claim my $100 credit"
     ],
     "h1_count": 1,
     "has_page_container": true,
@@ -30,20 +29,18 @@
     "has_local_assets": false,
     "has_cta_visibility_override": true,
     "has_brand_cta_token": true,
-    "pre_banner_section": 2,
+    "pre_banner_section": 1,
     "has_pre_banner_background": true
   },
   "brief_inventory": {
     "step_count": 0,
     "step_numbers": [],
-    "faq_count": 3,
+    "faq_count": 2,
     "page_markers": [
       2,
       3,
       4,
-      5,
-      6,
-      7
+      5
     ],
     "image_placeholder_count": 0,
     "has_testimonials_heading": false,
@@ -51,7 +48,7 @@
     "has_dresner": false,
     "has_how_it_works": false,
     "rating_platforms": [],
-    "char_count": 9940,
+    "char_count": 10977,
     "example_row_count": 0,
     "example_row_missing": [],
     "impl_step_count": 0,
@@ -65,26 +62,8 @@
     "customer_story_count": 0,
     "customer_story_missing": []
   },
-  "banner_audit": {
-    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:radial-gradient(circle at 12% 20%, rgba(0, 142, 245, 0.18) 0, transparent 50%), radial-gradient(circle at 88% 80%, rgba(153, 20, 255, 0.12) 0, transparent 45%)",
-    "closing_bg_fingerprint": null,
-    "mid_white_bg_fingerprint": "background:#fff",
-    "slots": [
-      {
-        "type": "hero",
-        "class": "za-banner-section",
-        "banner_slot": "hero",
-        "bg_treatment": "za-banner-gradient"
-      },
-      {
-        "type": "cta",
-        "class": "pre-banner-section",
-        "banner_slot": "closing-cta",
-        "bg_treatment": "texture-closing"
-      }
-    ]
-  },
+  "banner_audit": null,
   "errors": [],
   "warnings": [],
-  "validated_at": "2026-07-08T09:49:41.898Z"
+  "validated_at": "2026-07-10T09:22:16.820Z"
 }
