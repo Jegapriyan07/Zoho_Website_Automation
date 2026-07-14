@@ -83,7 +83,12 @@ export function resolveArchetype(briefText, forcedId) {
     norm.includes('cloud analytics tools guide') ||
     norm.includes('cloud analytics tools at a glance') ||
     norm.includes('top 5 cloud analytics tools in 2026');
-  if (isCloudAnalyticsGuide) {
+  const isAiPoweredAnalyticsGuide =
+    norm.includes('ai powered data analytics') &&
+    (norm.includes('tools at a glance') ||
+      norm.includes('comparison matrix') ||
+      norm.includes('key takeaways'));
+  if (isCloudAnalyticsGuide || isAiPoweredAnalyticsGuide) {
     const guide = ranked.find((r) => r.id === 'comparison-guide');
     if (guide) return guide;
   }

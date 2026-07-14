@@ -247,27 +247,31 @@
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "comparison-guide": {
-      "description": "Long-form cloud analytics / BI comparison guides with sidebar TOC, tool reviews, steps, and FAQ",
+      "description": "Long-form cloud / AI / BI comparison guides with sidebar TOC, tool reviews, steps, and FAQ",
       "brief_signals": [
         "cloud analytics tools guide",
         "cloud analytics tools at a glance",
         "top 5 cloud analytics tools",
         "how to choose the right cloud analytics tool",
         "why zoho analytics works for cloud analytics",
+        "ai powered data analytics software",
+        "ai powered data analytics tools at a glance",
+        "why zoho analytics works for ai powered",
         "comparison matrix",
+        "tools at a glance",
         "try zoho analytics for free today"
       ],
-      "writer_page_hints": "7+ pages · sidebar TOC · comparison tables · 5 tool deep-dives · 5 selection steps · 6 FAQs",
+      "writer_page_hints": "7+ pages · sidebar TOC · comparison tables · 5 tool deep-dives · 5 selection steps · 6 FAQs. Topic may be cloud analytics OR AI-powered analytics — same section order + CTA bank.",
       "expected_page_count": 7,
       "required_strings": [
-        "Cloud Analytics Tools Guide for 2026",
         "Try Zoho Analytics for free today",
         "Start testing with your data",
         "Start free trial",
         "Join us - It's free to start",
         "Step 1",
         "Step 5",
-        "FAQs"
+        "FAQs",
+        "tools at a glance"
       ],
       "section_inventory_checks": {
         "min_steps": 5,
