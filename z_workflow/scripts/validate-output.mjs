@@ -169,7 +169,7 @@ if (isScriptMain(import.meta.url)) {
     );
 
     if (args.json) {
-      console.log(JSON.stringify(report, null, 2));
+      console.log(JSON.stringify(report));
     } else {
       printReport(report);
       console.log(`\nReport saved: ${outPath}`);

@@ -35,12 +35,60 @@ function load(key) {
   }
 }
 
+function sleepSync(ms) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) {
+    /* busy-wait: Node has no sync sleep, and save must stay sync for callers */
+  }
+}
+
+/**
+ * Windows-safe atomic-ish write. Rapid renameSync on a hot file often throws
+ * EPERM/EBUSY while Defender / Indexer still hold the previous handle — that
+ * previously crashed the orchestrator mid validate:output and left runs stuck
+ * on VALIDATING.
+ */
 function save(key, rows) {
   ensureDir();
   const p = filePath(key);
-  const tmp = `${p}.${process.pid}.tmp`;
-  fs.writeFileSync(tmp, JSON.stringify(rows, null, 2) + '\n');
-  fs.renameSync(tmp, p);
+  const payload = JSON.stringify(rows) + '\n';
+  const tmp = `${p}.${process.pid}.${Date.now()}.tmp`;
+  fs.writeFileSync(tmp, payload);
+
+  let lastErr = null;
+  for (let attempt = 0; attempt < 10; attempt++) {
+    try {
+      try {
+        if (fs.existsSync(p)) fs.unlinkSync(p);
+      } catch {
+        /* dest may be locked — rename or write below may still succeed */
+      }
+      fs.renameSync(tmp, p);
+      return;
+    } catch (err) {
+      lastErr = err;
+      const retryable = err && ['EPERM', 'EACCES', 'EBUSY', 'ENOENT'].includes(err.code);
+      if (!retryable) break;
+      sleepSync(15 * (attempt + 1));
+    }
+  }
+
+  try {
+    fs.writeFileSync(p, payload);
+    try {
+      fs.unlinkSync(tmp);
+    } catch {
+      /* ignore */
+    }
+    return;
+  } catch (err) {
+    try {
+      fs.unlinkSync(tmp);
+    } catch {
+      /* ignore */
+    }
+    throw lastErr || err;
+  }
 }
 
 export function newId(prefix = '') {
@@ -48,6 +96,67 @@ export function newId(prefix = '') {
 }
 
 const now = () => new Date().toISOString();
+
+// ── Events cache ───────────────────────────────────────────────
+// validate:output / composer streams can emit dozens of log lines in <100ms.
+// Coalesce disk writes so we don't rewrite a multi-100KB run_events.json
+// once per line (the EPERM failure mode on Windows).
+
+const eventsCache = {
+  rows: null,
+  dirty: false,
+  timer: null
+};
+
+function getEventsRows() {
+  if (!eventsCache.rows) eventsCache.rows = load('events');
+  return eventsCache.rows;
+}
+
+function flushEventsSync() {
+  if (eventsCache.timer) {
+    clearTimeout(eventsCache.timer);
+    eventsCache.timer = null;
+  }
+  if (!eventsCache.dirty || !eventsCache.rows) return;
+  save('events', eventsCache.rows);
+  eventsCache.dirty = false;
+}
+
+function scheduleEventsFlush() {
+  eventsCache.dirty = true;
+  if (eventsCache.timer) return;
+  eventsCache.timer = setTimeout(() => {
+    eventsCache.timer = null;
+    try {
+      flushEventsSync();
+    } catch (err) {
+      console.error('[store] deferred run_events flush failed:', err.message);
+    }
+  }, 75);
+}
+
+function invalidateEventsCache() {
+  flushEventsSync();
+  eventsCache.rows = null;
+}
+
+process.on('exit', () => {
+  try {
+    flushEventsSync();
+  } catch {
+    /* best effort */
+  }
+});
+for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
+  process.on(sig, () => {
+    try {
+      flushEventsSync();
+    } catch {
+      /* best effort */
+    }
+  });
+}
 
 // ── Users ──────────────────────────────────────────────────────
 
@@ -139,7 +248,7 @@ export const Runs = {
 
 export const RunEvents = {
   append(run_id, phase, type, payload = {}) {
-    const rows = load('events');
+    const rows = getEventsRows();
     const ev = {
       id: newId('ev'),
       run_id,
@@ -149,13 +258,28 @@ export const RunEvents = {
       created_at: now()
     };
     rows.push(ev);
-    save('events', rows);
+    // High-frequency log storms (validate:output inventory dumps) are coalesced.
+    // Critical lifecycle events flush immediately so status survives a crash.
+    if (type === 'log') {
+      scheduleEventsFlush();
+    } else {
+      flushEventsSync();
+    }
     return ev;
   },
   listByRun(run_id) {
-    return load('events')
+    flushEventsSync();
+    return getEventsRows()
       .filter((e) => e.run_id === run_id)
       .sort((a, b) => (a.created_at < b.created_at ? -1 : 1));
+  },
+  /** Force any deferred log writes to disk (tests / graceful shutdown). */
+  flush() {
+    flushEventsSync();
+  },
+  /** Drop in-memory cache after external edits of run_events.json. */
+  reload() {
+    invalidateEventsCache();
   }
 };
 

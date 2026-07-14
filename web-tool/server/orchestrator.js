@@ -65,8 +65,27 @@ const STATE_FILE = path.join(config.pipelineRoot, 'z_workflow', 'state.json');
 const SCRIPTS = path.join(config.pipelineRoot, 'z_workflow', 'scripts');
 
 function emit(run, phase, type, payload = {}) {
-  const ev = RunEvents.append(run.id, phase, type, payload);
-  publish(run.id, ev);
+  // Never let store/SSE failures kill the orchestrator mid-phase (Windows EPERM
+  // on run_events.json rename previously crashed the server during validate:output).
+  let ev;
+  try {
+    ev = RunEvents.append(run.id, phase, type, payload);
+  } catch (err) {
+    console.error(`[orchestrator] RunEvents.append failed (${type}):`, err.message);
+    ev = {
+      id: `ephemeral_${Date.now().toString(36)}`,
+      run_id: run.id,
+      phase,
+      type,
+      payload,
+      created_at: new Date().toISOString()
+    };
+  }
+  try {
+    publish(run.id, ev);
+  } catch (err) {
+    console.error('[orchestrator] SSE publish failed:', err.message);
+  }
   return ev;
 }
 
@@ -161,7 +180,7 @@ function renameOutputDir(fromSlug, toSlug) {
 }
 
 /** Spawn a node script under the pipeline root, streaming stdout/stderr. */
-function runScript(run, phase, scriptFile, args, { onLine } = {}) {
+function runScript(run, phase, scriptFile, args, { onLine, muteLogs = false } = {}) {
   return new Promise((resolve) => {
     const scriptPath = path.join(SCRIPTS, scriptFile);
     // Force a persistent Puppeteer cache dir so headless Chrome is found even when
@@ -178,10 +197,11 @@ function runScript(run, phase, scriptFile, args, { onLine } = {}) {
       if (isErr) err += text;
       else out += text;
       for (const line of text.split('\n')) {
-        if (line.trim()) {
-          log(run, phase, line);
-          onLine?.(line);
-        }
+        if (!line.trim()) continue;
+        onLine?.(line);
+        // Skip persisting/streaming raw child stdout when the caller will summarize
+        // (e.g. validate-output --json). Still capture `out` for parsing.
+        if (!muteLogs) log(run, phase, line);
       }
     };
 
@@ -574,8 +594,39 @@ async function phaseValidateOutput(run) {
     fixLines.forEach((l) => log(run, 'validation', l.trim()));
   }
 
-  const { code } = await runScript(run, 'validation', 'validate-output.mjs', ['--slug', run.slug]);
-  const report = readJsonSafe(path.join(outputDirFor(run.slug), 'validation.json'));
+  // --json keeps stdout to one compact blob (pretty inventory dumps used to
+  // spam RunEvents and trip Windows EPERM renames, freezing UI on VALIDATING).
+  const { code, out } = await runScript(
+    run,
+    'validation',
+    'validate-output.mjs',
+    ['--slug', run.slug, '--json'],
+    { muteLogs: true }
+  );
+  const report =
+    readJsonSafe(path.join(outputDirFor(run.slug), 'validation.json')) ||
+    (() => {
+      try {
+        return JSON.parse(String(out).trim());
+      } catch {
+        return null;
+      }
+    })();
+
+  if (report) {
+    log(
+      run,
+      'validation',
+      `OUTPUT VALIDATION — ${report.pass ? 'PASS' : 'FAIL'} (archetype: ${report.archetype || 'n/a'})`
+    );
+    if (report.errors?.length) {
+      report.errors.forEach((e) => log(run, 'validation', `✗ ${e}`));
+    }
+    if (report.warnings?.length) {
+      report.warnings.slice(0, 8).forEach((w) => log(run, 'validation', `! ${w}`));
+    }
+  }
+
   if (code !== 0) {
     hardStop(
       run, 'validation', 'validate_output_failed',
