@@ -1,0 +1,140 @@
+Finance dashboard examples - Landing page
+Explore 50+ Finance Dashboard Examples & Templates
+Browse real-world finance dashboard examples built for CFOs, finance teams, and controllers. From cash flow tracking to subscription revenue, find a template that fits your data and get started in minutes.
+Explore Examples
+
+Section reference
+Finance Dashboard Examples by Type
+Explore ready-to-use finance dashboard templates for every use case, from P&L overview to receivables aging. Each type includes multiple examples you can customize.
+Finance Overview Dashboard
+Get a complete picture of financial health in one screen. Track assets, liabilities, revenue, and expenses with month-over-month comparisons.
+Key KPIs
+Total assets
+Total liabilities
+Revenue
+Expenses
+Accounts receivable
+Accounts payable
+Cash Flow Dashboard
+Monitor cash inflows and outflows so leadership never waits on a Friday spreadsheet to know runway and burn.
+Key KPIs
+Opening cash
+Cash in
+Cash out
+Net cash flow
+Burn rate
+Projected runway
+P&L Performance Dashboard
+Compare revenue and expense lines across periods. Spot margin pressure early without exporting from your accounting tool.
+Key KPIs
+Gross revenue
+COGS
+Gross margin
+Operating expenses
+Net profit
+YoY variance
+Accounts Receivable Dashboard
+Track invoiced revenue, collections, and overdue accounts in one place.
+Key KPIs
+Total AR
+Invoices generated
+Paid invoices
+Overdue balance
+Average days to pay
+Aging buckets
+Accounts Payable Dashboard
+Monitor vendor bills, outstanding balances, and discount utilization.
+Key KPIs
+Total AP
+Bills generated
+Outstanding balances
+Discount %
+Bills by status
+Vendor spend trend
+Subscription Revenue Dashboard
+Keep a pulse on MRR, new logos, cancellations, and churn for recurring businesses.
+Key KPIs
+MRR
+ARR
+New subscriptions
+Cancellations
+Churn rate
+ARPU
+Budget vs Actual Dashboard
+Compare planned budgets to actual spend by cost center and period.
+Key KPIs
+Budget amount
+Actual spend
+Variance $
+Variance %
+Top overruns
+Forecast vs plan
+Executive Finance Dashboard
+A high-level view for leadership combining revenue, cash, margin, and runway.
+Key KPIs
+Total revenue
+Net profit
+Cash position
+Gross margin
+Working capital
+Monthly trend
+
+Section reference
+Create these dashboards in one-click
+Simply authenticate your finance tools, and Zoho Analytics will automatically generate a set of professional dashboards with all the essential metrics and KPIs.
+Build Finance Dashboards Now
+★ Takes only a few minutes   ★ Automated data sync   ★ Completely customizable
+
+Section reference
+Connect popular finance tools you already use
+Zoho Analytics integrates with the platforms your finance team relies on every day. Get these finance dashboards generated prebuilt for you as soon as you connect your tools.
+logo
+Zoho Books
+Pull Zoho Books accounting data into Zoho Analytics and build finance dashboards without any manual exports. The integration syncs automatically.
+logo
+QuickBooks
+Connect QuickBooks to Zoho Analytics and get deeper reporting than native QuickBooks dashboards allow across P&L, AR, and cash.
+logo
+Xero
+Bring your Xero data into Zoho Analytics to analyze cash flow, expenses, and period comparisons in one place.
+logo
+Stripe
+Sync Stripe payments and subscription data with Zoho Analytics to track MRR, failures, and revenue trends.
+logo
+PayPal
+Import PayPal transaction data to monitor collections, refunds, and payment patterns.
+logo
+FreshBooks
+Connect FreshBooks invoices and expenses to turn client billing data into clear finance dashboards.
+
+Section reference
+How to create finance dashboards using Zoho Analytics
+Connect your data once. Your finance dashboards stay updated automatically.
+STEP 1
+Connect your accounting and finance tools
+Link Zoho Books, QuickBooks, Xero, Stripe, or any other finance tool you use. Data syncs automatically, so your dashboards always reflect current numbers.
+STEP 2
+Access prebuilt finance dashboards
+Get instant access to ready-made dashboards for cash flow, P&L, receivables, subscriptions, and more. Just connect your data and the dashboards populate on their own.
+STEP 3
+Build custom dashboards your way
+Drag and drop charts, KPI widgets, and tables to build dashboards that match exactly what your finance team tracks. Filter by account, period, or cost center without writing a single query.
+STEP 4
+Share dashboards with your team securely
+Share live dashboards with CFOs, controllers, or board members. Control who can view, edit, or export, so the right people see the right data.
+
+Ready to build your finance dashboard?
+Start with a prebuilt template or build from scratch. Connect your accounting stack, set up your key metrics, and share live dashboards with your team, all in one place.
+START FOR FREE
+
+FAQs
+What is a finance dashboard?
+A finance dashboard is a visual report that pulls accounting and billing data into one screen. It tracks metrics like revenue, expenses, cash flow, and receivables in real time.
+What should a finance dashboard include?
+At minimum: revenue, expenses, cash position, receivables, and payables. Many teams also add budget vs actual, margin, and subscription metrics.
+Can I build a finance dashboard without knowing SQL or coding?
+Yes. Zoho Analytics lets you connect your finance tools and build dashboards using drag-and-drop and Ask Zia. You do not need to write queries.
+Can I share my finance dashboard with people outside finance?
+Yes. You can share dashboards with specific users via email, embed them in portals, or schedule report emails. You control permissions for each share.
+Which finance tools can I connect?
+Zoho Analytics connects popular finance tools including Zoho Books, QuickBooks, Xero, Stripe, PayPal, and more under Connect popular finance tools.

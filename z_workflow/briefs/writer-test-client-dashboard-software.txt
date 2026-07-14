@@ -1,0 +1,46 @@
+Client dashboard software - Landing page
+Client dashboard software built for agencies that report to clients
+Client dashboard software that makes the monthly report a thing of the past. Zoho Analytics helps agencies create dashboards with custom branding, so clients can check their own numbers whenever they want and agencies stop rebuilding the same report by hand every time for every client.
+Book a free demo
+
+Everything an agency needs to run a client's dashboard from one place
+You're managing ten clients, each on a different set of platforms, each expecting a report with their name on it. Zoho Analytics is built for that load. Connect every client's tools, build their dashboard once, and let the numbers and the reports take care of themselves.
+Connect every client's stack
+Every client runs a different mix of tools. One lives in Google Ads, another is all Meta, a third wants Search Console and email in the same view. Zoho Analytics connects to all of it and pulls the numbers in for you.
+✔ Connect 30+ marketing tools including Google Analytics, Google Ads, Search Console, Meta Ads, LinkedIn Ads, Mailchimp, and HubSpot
+✔ Blend data across platforms into one cross-channel view no single tool can give you
+✔ Data syncs on a schedule you set, so you're not exporting files the night before a review
+Spin up a new client dashboard in minutes
+A new client signs up and they want to see marketing analytics from the first week. Start from a template built around the metrics agencies already track, then shape it to the account.
+✔ 100+ pre-built reports and marketing dashboards across every connected tool
+✔ Ready-made templates for campaign performance, channel ROI, paid spend, and audience metrics
+✔ Customize any template to match that client's goals and the KPIs they actually care about
+Offer AI-powered insights
+Zia answers plain-English questions on top of each client dashboard, summarizes what changed, and flags anomalies so clients get context without another call.
+✔ Ask Zia questions in natural language on live client data
+✔ Auto-generated summary narratives on key reports
+✔ Anomaly alerts when a KPI moves unexpectedly
+Share branded portals with white-label control
+Clients should open a report that looks like your product. Apply your agency logo, colors, and domain so every portal reinforces your brand.
+✔ Apply agency logo, color palette, and custom domain
+✔ Keep each client's data isolated with role-based access
+✔ Schedule branded report emails on each client's cadence
+
+Ready to give every client a dashboard they'll actually open?
+See how Zoho Analytics pulls all your client data into branded, live dashboards, automates the monthly report, and hands clients AI that feels like your own.
+Book a free demo
+★ No commitment required   ★ 30-minute demo   ★ See it working with your data
+
+FAQs
+What is client dashboard software?
+Client dashboard software lets agencies pull marketing data from every channel into one live, branded dashboard each client can access instead of waiting for a monthly PDF.
+Can I white-label dashboards with my agency's branding?
+Yes. Zoho Analytics lets you apply your agency's logo, colors, and domain so clients experience reporting as part of your service.
+How many data sources can I connect?
+Zoho Analytics connects 500+ data sources, including 30+ marketing tools, plus databases, warehouses, and spreadsheets.
+Can clients access their own dashboards?
+Yes. Each client gets secure, role-based access to a live dashboard showing only their own data.
+Does it automate client reporting?
+Yes. Data syncs on a schedule and branded reports can email on each client's cadence without rebuilding packs by hand.
+Is Zoho Analytics good for agencies managing many clients?
+Yes. Run separate dashboards per client, control access individually, and reuse templates as your roster grows.
