@@ -713,11 +713,19 @@ input:focus {
   align-items: center;
 }
 
-/* ── Review bar ─────────────────────────────── */
-.review-bar {
+/* ── Review dock (sticky bar + revise panel) ── */
+.review-dock {
   position: sticky;
   bottom: 0;
-  margin: 0 -28px -120px;
+  margin: 24px -28px -120px;
+  z-index: 30;
+}
+.review-dock.revise-open {
+  margin-top: 32px;
+}
+
+/* ── Review bar ─────────────────────────────── */
+.review-bar {
   padding: 14px 28px;
   background: var(--bg-2);
   border-top: 1px solid var(--border);
@@ -725,6 +733,7 @@ input:focus {
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .accept-btn {
   padding: 10px 22px;
@@ -751,12 +760,12 @@ input:focus {
 .revise-panel {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: var(--shadow-sm);
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 20px 28px 16px;
+  box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.04);
 }
-.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .tab {
   padding: 7px 14px;
   border-radius: var(--radius);
@@ -765,6 +774,7 @@ input:focus {
   color: var(--muted);
   font-family: var(--zf-primary-medium);
   font-size: 13px;
+  cursor: pointer;
   transition: color 0.12s, border-color 0.12s, background 0.12s;
 }
 .tab.active {
@@ -773,15 +783,18 @@ input:focus {
   background: var(--accent-soft);
 }
 .revise-panel textarea {
+  display: block;
   width: 100%;
-  min-height: 74px;
-  background: var(--bg-2);
+  min-height: 96px;
+  box-sizing: border-box;
+  background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
   border-radius: var(--radius);
-  padding: 10px 12px;
+  padding: 12px 14px;
   font-family: var(--zf-primary-regular);
   font-size: 13px;
+  line-height: 1.5;
   resize: vertical;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
@@ -791,16 +804,18 @@ input:focus {
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
 .revise-panel select {
+  display: block;
   width: 100%;
-  margin-bottom: 10px;
-  background: var(--bg-2);
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  background: var(--bg);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 10px 12px;
   font-family: var(--zf-primary-regular);
 }
-.revise-actions { display: flex; gap: 10px; margin-top: 10px; }
+.revise-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
 .submit-revise {
   padding: 10px 18px;
   background: var(--accent);
@@ -865,7 +880,9 @@ input:focus {
     max-height: 220px;
   }
   .main-inner { padding: 20px 16px 100px; }
-  .review-bar { margin: 0 -16px -100px; padding: 12px 16px; }
+  .review-dock { margin: 20px -16px -100px; }
+  .review-bar { padding: 12px 16px; }
+  .revise-panel { padding: 16px 16px 12px; }
   .topbar-user { display: none; }
 }
 

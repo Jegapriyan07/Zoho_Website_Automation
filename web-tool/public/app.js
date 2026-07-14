@@ -819,8 +819,7 @@ function renderRun(el) {
     ${showOutput ? renderOutputCard({ payload: { preview_url: previewUrl, output_path: run.output_path || `output/${run.slug}/` } }) : ''}
     <div id="phases">${groups.map(renderPhase).join('')}</div>
     ${state.revisions.length ? renderRevisionLog() : ''}
-    ${['awaiting_review', 'approved', 'revising'].includes(run.status) ? renderReview(run, previewUrl) : ''}
-    ${state.reviseOpen ? renderRevisePanel(run) : ''}
+    ${['awaiting_review', 'approved', 'revising'].includes(run.status) ? renderReviewDock(run, previewUrl) : ''}
   `;
   wireRun(run);
   // Auto-scroll active logs
@@ -885,6 +884,13 @@ function renderOutputCard(ev) {
   </div>`;
 }
 
+function renderReviewDock(run, previewUrl) {
+  return `<div class="review-dock${state.reviseOpen ? ' revise-open' : ''}">
+    ${state.reviseOpen ? renderRevisePanel(run) : ''}
+    ${renderReview(run, previewUrl)}
+  </div>`;
+}
+
 function renderReview(run, previewUrl) {
   const approved = run.status === 'approved';
   const revising = run.status === 'revising';
@@ -943,7 +949,15 @@ function wireRun(run) {
     renderThreads(); renderRun(document.getElementById('main-inner'));
   };
   const revise = document.getElementById('revise');
-  if (revise) revise.onclick = () => { state.reviseOpen = !state.reviseOpen; renderRun(document.getElementById('main-inner')); };
+  if (revise) revise.onclick = () => {
+    state.reviseOpen = !state.reviseOpen;
+    renderRun(document.getElementById('main-inner'));
+    if (state.reviseOpen) {
+      const panel = document.querySelector('.revise-panel textarea');
+      panel?.focus();
+      panel?.closest('.review-dock')?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  };
   document.querySelectorAll('.tab').forEach((t) => { t.onclick = () => { state.reviseScope = t.dataset.scope; renderRun(document.getElementById('main-inner')); }; });
   const cancel = document.getElementById('rev-cancel');
   if (cancel) cancel.onclick = () => { state.reviseOpen = false; renderRun(document.getElementById('main-inner')); };
