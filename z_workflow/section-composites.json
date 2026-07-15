@@ -37,7 +37,7 @@
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right cards" },
         { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + See all testimonials link + dual zwc-nav-box-wrap" },
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured pre-banner-section (blue-shadow-with-texture.png) — NOT hero radial gradient" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Pick from end-banner-types.json (state.similarity.end_banner) — must differ from hero + mid-cta" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
       "cta_strings_required": [
@@ -99,7 +99,7 @@
         { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta": "Build Sales Dashboards Now", "pattern_notes": "Add class bg-white — flat white band; NOT same bg as hero or closing" },
         { "type": "features", "class": "box-icon-section", "best": "sales-dashboard-examples", "repeat_from_brief": true },
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured pre-banner-section (blue-shadow-with-texture.png) — NOT hero radial gradient" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Pick from end-banner-types.json (state.similarity.end_banner) — must differ from hero + mid-cta" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
       "output_inventory_checks": {
@@ -159,7 +159,7 @@
         { "type": "cta", "class": "pre-banner-section", "best": "Executive-Dashboards", "banner_slot": "mid-cta", "bg_treatment": "bg-white", "id": "one-click-cta", "cta": "Build Finance Dashboards Now", "pattern_notes": "Add class bg-white — flat white band" },
         { "type": "features", "class": "scroll-section", "best": "sales-dashboard-examples", "repeat_from_brief": true, "child_class": "integrations-grid" },
         { "type": "steps", "class": "how-it-works-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured closing band — distinct from hero gradient and white one-click" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "end-banner-types.json pool — distinct from hero + white one-click" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
       "output_inventory_checks": {
@@ -220,7 +220,7 @@
         { "type": "steps", "class": "steps-section", "best": "Executive-Dashboards", "repeat_from_brief": true },
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "Trusted by teams worldwide heading + rating-left/rating-right — no Dresner" },
         { "type": "testimonials", "class": "testimonials-section", "best": "BI-Marketing", "pattern_notes": "h2.t-left + dual zwc-nav-box-wrap — no See all link in brief" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "Textured closing band — distinct from hero gradient" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "cta": "START FOR FREE", "pattern_notes": "end-banner-types.json pool — distinct from hero" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "repeat_from_brief": true }
       ],
       "output_inventory_checks": {
@@ -261,7 +261,7 @@
         "tools at a glance",
         "try zoho analytics for free today"
       ],
-      "writer_page_hints": "7+ pages · sidebar TOC · comparison tables · 5 tool deep-dives · 5 selection steps · 6 FAQs. Topic may be cloud analytics OR AI-powered analytics — same section order + CTA bank.",
+      "writer_page_hints": "7+ pages · ONE .tabsection holds all article .cont-sec (tables/tools/steps nested — NOT sibling sections). Gold STRUCTURE: output/cloud-analytics (banner → tabsection → faq only). CSS: gold-snippets/article-toc-layout.css.",
       "expected_page_count": 7,
       "required_strings": [
         "Try Zoho Analytics for free today",
@@ -283,12 +283,12 @@
       },
       "section_order": [
         { "type": "hero", "class": "banner", "best": "collaborative-bi", "banner_slot": "hero", "bg_treatment": "dark-card-hero", "cta": "Try Zoho Analytics for free today" },
-        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "pattern_notes": "left-tab sidebar + cont-sec blocks" },
-        { "type": "comparison", "class": "comparison-table-section", "best": "Business-Intelligence", "layout": "tools-at-a-glance" },
-        { "type": "content-blocks", "class": "tool-block", "best": "collaborative-bi", "repeat_count": 5 },
-        { "type": "steps", "class": "cont-sec", "best": "collaborative-bi", "repeat_count": 5 },
-        { "type": "comparison", "class": "comparison-table", "best": "Business-Intelligence", "layout": "key-features" },
-        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card" },
+        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "css_gold": "output/cloud-analytics", "pattern_notes": "COPY CSS from output/cloud-analytics/style.css. sticky .left-tab 340px + .cont-sec margin-left 100px. h2 32px outside scroll; peach .banner LAST CHILD inside ul#tabs (scrolls with TOC). links 16px padding 12px 15px. NEVER FAQ in TOC. Live: cloud-reporting-tools.html" },
+        { "type": "comparison", "class": "comparison-table-section", "best": "Business-Intelligence", "layout": "tools-at-a-glance", "pattern_notes": "Nest as .cont-sec .table-wrap > table.comparison-table.comparison-table-7col (min-width 1200px, overflow-x scroll on wrap). Navy header, zebra, word-break:normal — not a sibling section. Gold: output/cloud-analytics" },
+        { "type": "content-blocks", "class": "tool-block", "best": "collaborative-bi", "repeat_count": 5, "pattern_notes": "Nest tool-block deep-dives inside tabsection .cont-sec#tools" },
+        { "type": "steps", "class": "cont-sec", "best": "collaborative-bi", "repeat_count": 5, "pattern_notes": "Keep how-to-choose as .cont-sec inside tabsection" },
+        { "type": "comparison", "class": "comparison-table", "best": "Business-Intelligence", "layout": "key-features", "pattern_notes": "Nest key-features table as .cont-sec inside tabsection" },
+        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card", "pattern_notes": "Closing CTA may be .pre-banner inside last cont-sec or #conclusion" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "child_class": "z-accordian", "block_count": 6 }
       ],
       "cta_strings_required": [
@@ -299,12 +299,27 @@
       ],
       "mandatory_css": [
         ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
-        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".left-tab { flex: 0 0 340px; width: 340px; }",
+        ".cont-sec { margin: 0 0 45px 100px; }"
       ],
+      "output_inventory_checks": {
+        "required_classes": ["banner", "tabsection", "left-tab", "right-content", "faq-section", "z-accordian"],
+        "min_cont_sec": 5,
+        "require_article_toc_layout": true,
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true
+      },
       "gold_standard_outputs": [
+        "output/cloud-analytics",
         "output/cloud-analytics-tools"
       ],
       "primary_reference": "collaborative-bi",
+      "toc_layout_gold": "output/cloud-analytics",
+      "toc_css_snippet": "z_workflow/gold-snippets/article-toc-layout.css",
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "agency-landing": {
@@ -350,7 +365,7 @@
         { "type": "testimonials", "class": "testimonials-section", "best": "Marketing-Agencies", "pattern_notes": "h2.t-left + See all testimonials + zwc-nav-box ×3" },
         { "type": "recognition", "class": "reported-section", "best": "BI-Marketing", "pattern_notes": "aem-report h5 + rating-left/rating-right" },
         { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "cta": "Book a free demo", "pattern_notes": "end-banner-types.json — hero ≠ closing colour treatment" },
         { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true }
       ],
       "cta_strings_required": [
@@ -407,7 +422,7 @@
         { "type": "intro", "class": "agency-intro-section", "best": "Marketing-Agencies" },
         { "type": "content-blocks", "class": "dashboard-wrapper", "best": "Executive-Dashboards", "repeat_from_brief": true, "layout": "zigzag-writer-tables", "block_count": 4 },
         { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "cta": "Book a free demo", "pattern_notes": "end-banner-types.json — hero ≠ closing colour treatment" },
         { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "block_count": 6 }
       ],
       "cta_strings_required": [
@@ -461,7 +476,7 @@
         { "type": "benefits", "class": "icon-border-section", "best": "Marketing-Agencies", "repeat_count": 3 },
         { "type": "comparison", "class": "integrations-grid-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "layout": "3col-grid", "block_count": 6 },
         { "type": "cta", "class": "cta-intro-section", "best": "Marketing-Agencies" },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "cta": "Book a free demo", "pattern_notes": "blue-shadow-with-texture.png — hero gradient ≠ this textured band" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "cta": "Book a free demo", "pattern_notes": "end-banner-types.json — hero ≠ closing colour treatment" },
         { "type": "faq", "class": "faq-section", "best": "Marketing-Agencies", "repeat_from_brief": true, "block_count": 7 }
       ],
       "cta_strings_required": [
@@ -606,27 +621,9 @@
           "Toni Wall"
         ]
       },
-      "output_inventory_checks": {
-        "selectors": {
-          "example_row": { "selector": ".example-row", "min": 5 },
-          "impl_step": { "selector": ".impl-step", "min": 7 },
-          "feature_block": { "selector": ".feature-block", "min": 7 },
-          "persona_block": { "selector": ".persona-block", "min": 4 },
-          "benefit_block": { "selector": ".benefit-block", "min": 4 },
-          "za_inner_testimonials": { "selector": ".za-inner-testimonials", "min": 2 },
-          "z_accordian_box": { "selector": ".z-accordianBox", "min": 9 }
-        },
-        "required_classes": ["banner", "tabsection", "faq-section", "z-accordian"],
-        "min_cont_sec": 11,
-        "require_cta_visibility_override": true,
-        "require_brand_cta_token": true,
-        "require_zoho_placeholder": true,
-        "require_nav_placeholder": true,
-        "require_footer_placeholder": true
-      },
       "section_order": [
         { "type": "hero", "class": "banner", "best": "collaborative-bi", "banner_slot": "hero", "bg_treatment": "dark-card-hero", "cta": "Start Free Trial" },
-        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "pattern_notes": "left-tab sidebar + cont-sec blocks" },
+        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "css_gold": "output/cloud-analytics", "pattern_notes": "COPY CSS from output/cloud-analytics. sticky left-tab 340px + cont-sec margin-left 100px; peach .banner INSIDE ul#tabs (scrolls with TOC); NEVER FAQ in TOC" },
         { "type": "comparison", "class": "comparison-table-section", "best": "cloud-analytics-tools", "layout": "2-column" },
         { "type": "content-blocks", "class": "example-row", "best": "sales-dashboard-examples", "repeat_from_brief": true, "block_count": 5, "layout": "zigzag" },
         { "type": "steps", "class": "impl-steps", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7 },
@@ -641,8 +638,31 @@
       ],
       "mandatory_css": [
         ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
-        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".left-tab { flex: 0 0 340px; width: 340px; }",
+        ".cont-sec { margin: 0 0 45px 100px; }"
       ],
+      "output_inventory_checks": {
+        "required_classes": ["banner", "tabsection", "left-tab", "faq-section", "z-accordian"],
+        "min_cont_sec": 11,
+        "require_article_toc_layout": true,
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "selectors": {
+          "example_row": { "selector": ".example-row", "min": 5 },
+          "impl_step": { "selector": ".impl-step", "min": 7 },
+          "feature_block": { "selector": ".feature-block", "min": 7 },
+          "persona_block": { "selector": ".persona-block", "min": 4 },
+          "benefit_block": { "selector": ".benefit-block", "min": 4 },
+          "za_inner_testimonials": { "selector": ".za-inner-testimonials", "min": 2 },
+          "z_accordian_box": { "selector": ".z-accordianBox", "min": 9 }
+        }
+      },
+      "toc_layout_gold": "output/cloud-analytics",
+      "toc_css_snippet": "z_workflow/gold-snippets/article-toc-layout.css",
       "gold_standard_outputs": [
         "output/embedded-sales-analytics"
       ],
@@ -683,7 +703,7 @@
         { "type": "testimonials", "class": "za-custories-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "child_class": "report-section" },
         { "type": "recognition", "class": "za-rating-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "block_count": 6 },
         { "type": "recognition", "class": "zwnew-testi-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "block_count": 3 },
-        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "source_type": "reference", "banner_slot": "closing-cta", "bg_treatment": "texture-closing", "pattern_notes": "Textured full-width CTA band — hero za-banner ≠ this pre-banner-section", "cta": "Book my Demo" },
+        { "type": "cta", "class": "pre-banner-section", "best": "Marketing-Agencies", "source_type": "reference", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "pattern_notes": "end-banner-types.json pool — hero za-banner ≠ closing pre-banner", "cta": "Book my Demo" },
         { "type": "faq", "class": "faq-section", "best": "webtemplate/white-label-reporting-tool", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 3 }
       ],
       "output_inventory_checks": {

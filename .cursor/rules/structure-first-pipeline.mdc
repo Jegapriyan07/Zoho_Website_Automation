@@ -78,6 +78,7 @@ Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `
 ## Anti-patterns
 
 - ❌ Hiding `.cta-btn` in output without `.page-container .cta-btn.act-btn { display: inline-block }` override
+- ❌ Adding `:focus` / `:focus-visible` outline rings on CTAs, tabs, steps, or accordion headers — use `outline: none; box-shadow: none`
 - ❌ Tinting `.cta-btn.act-btn` or **See all testimonials** from page `--color-primary` — brand red `#e42527` only (`Rulesbook.md` §2.2.1)
 - ❌ Tinting `.zwc-nav-box` testimonial cards from page theme (cyan/violet/teal) — use fixed extracted peach/mint/blue (`Rulesbook.md` §2.2.2)
 - ❌ Extracting only page 1 of a multi-page Writer doc
@@ -90,6 +91,12 @@ Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `
 - ❌ Inventing section class names when `section-index.json` already has a pattern
 - ❌ Building nav or footer code
 - ❌ Skipping JS for accordion / slick / tabs when those sections are present
-- ❌ Leaving `.pre-banner-section` on white/plain placeholder — copy textured background from mapped reference (`blue-shadow-with-texture.png` for agency landings)
-- ❌ Placing mid-page/closing red CTAs on plain white (`za-bottom-section`, bare `.content-wrap`) — use `pre-banner-section` with textured or dark band; gold standard: `output/ppc-agency-client-dashboard`
+- ❌ TOC scrollspy that jumps ahead early — use `scrollY + headerHeight + 60` with **document** offset (`getBoundingClientRect` / jQuery `.offset().top`), never `element.offsetTop` (gold: `output/cloud-analytics/script.js`, `Reference-Site/page-revamp/script.js`, live `cloud-reporting-tools.html`)
+- ❌ Skipping `z_workflow/gold-snippets/article-toc-layout.css` on comparison-guide / `.tabsection` builds — copy that snippet (gold page: `output/cloud-analytics`)
+- ❌ Article TOC without peach `.banner` **inside** `ul#tabs`, or crushed tables — `.table-wrap { overflow-x:auto }` + `.comparison-table-7col` min-width 1200px + `word-break:normal` (gold: `output/cloud-analytics`)
+- ❌ Narrow TOC + content starting early — **340px** `.left-tab`, `.cont-sec { margin-left: 100px }`, peach CTA scrolls **with** TOC
+- ❌ Putting FAQ / FAQs / `#faqs` in the left-tab TOC — sidebar lists article sections only; FAQ stays as `.faq-section` after `.tabsection` (live `cloud-reporting-tools`)
+- ❌ Leaving closing `#conclusion.pre-banner-section` on plain white — use a type from `z_workflow/end-banner-types.json` (assigned in `state.similarity.end_banner`)
+- ❌ Reusing the same `blue-shadow-with-texture` closing band on every build — rotate EB-01…EB-08 (webtemplate colour patterns)
+- ❌ Placing mid-page/closing red CTAs on plain white `za-bottom-section` — use styled `pre-banner-section` end-banner; mid-cta may be `.bg-white`
 - ❌ Zigzag `.dashboard-wrapper` rows without clip-path panels, row spacing (`100px 0` / `margin-bottom: 50px`), or centered image column

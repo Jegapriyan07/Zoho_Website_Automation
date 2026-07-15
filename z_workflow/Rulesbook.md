@@ -574,6 +574,11 @@ The agent must re-read the source files at these moments:
 - `index.html` → semantic HTML only, no `<style>` tags, no `<script>` tags inside `<body>`
 - `style.css` → all styling, organised as per Section 2.5
 - `script.js` → all interaction, wrapped in document ready
+- **Sticky article TOC (`.tabsection` / `#tabs`):** match live Zoho guides (`cloud-reporting-tools.html`) and `output/cloud-analytics/`.
+  - **Copy CSS from** `z_workflow/gold-snippets/article-toc-layout.css` (enforced by composer + `validate:output`).
+  - **left-tab:** sticky **340px** rail → `h2` “In this article” (**32px** `Zoho_Puvi_Bold`) → scrollable `ul#tabs` (**16px** SemiBold links + peach `.banner` as **last child inside the ul**). `.cont-sec` **`margin-left: 100px`**. **TOC never includes FAQ**. Active: blue bg + 8px radius.
+  - **Scrollspy:** activate next TOC item only when `scrollY + (.product-header-top height || 0) + 60 >= sectionDocumentTop`. Document-relative top only — never `element.offsetTop`. Pause during TOC click smooth-scroll.
+  - **Tables:** `.table-wrap` (`overflow-x: auto`) > `table.comparison-table` — navy `#1a3c6e` header, white uppercase `th`, no black borders, zebra `#f7f9fc`, 12px radius. `min-width: 960px` (3-col) / `.comparison-table-7col` `min-width: 1200px`. Use `word-break: normal` — never crush mid-word.
 
 ### 5.4 Border Radius Scale
 

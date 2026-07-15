@@ -19,6 +19,7 @@ This workflow turns a Zoho Writer brief into a **structured dev handoff** in `ou
 | `.cursor/rules/structure-first-pipeline.mdc` | **Always-on override** — compose from section patterns, never clone whole pages |
 | `section-index.json` | Section type → best reference folder + BEM class |
 | `section-composites.json` | Multi-section archetypes (e.g. dashboard-examples landing) — **read when brief matches** |
+| `gold-snippets/article-toc-layout.css` | **comparison-guide** TOC + tables CSS — copy into `style.css` (gold: `output/cloud-analytics`) |
 | `writer-drop-playbook.md` | **New Writer drop** — exact output checklist, section order, reference patterns |
 | Writer brief | **Only** source for copy, section list, and block counts |
 
@@ -221,6 +222,21 @@ The agent delivers **structure**, not a finished production page. Devs:
 - Block count matches brief (not reference page)
 - Mid-page/closing red CTAs inside `pre-banner-section` with textured background (not plain white band)
 - Breakpoints: **1240 · 1080 · 991 · 767 · 565 · 480 · 350**
+
+### Comparison-guide / article TOC (mandatory when `.tabsection` present)
+
+**Gold page:** `output/cloud-analytics/` · **CSS snippet:** `z_workflow/gold-snippets/article-toc-layout.css` · Live: `cloud-reporting-tools.html`
+
+| Rule | Requirement |
+|------|-------------|
+| Rail | `.left-tab` **340px** sticky |
+| Content | `.cont-sec { margin-left: 100px }` — starts late |
+| TOC scroll | `ul#tabs` `overflow-y:auto; height:calc(100vh - 200px)` |
+| Peach CTA | **Last child inside** `ul#tabs` (scrolls with links) — not outside |
+| Tables | `.table-wrap { overflow-x:auto }` · `min-width:960px` / `.comparison-table-7col` `1200px` · `word-break:normal` |
+| FAQ | After `.tabsection` only — never in TOC |
+
+Composer injects this automatically (`web-tool/server/composer.js`). `validate:output` enforces via `require_article_toc_layout`.
 
 ---
 

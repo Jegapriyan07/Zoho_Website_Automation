@@ -1,0 +1,942 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Global typography and utilities — consistent across all pages */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0;
+}
+
+.p-50 {
+    padding: 50px 0;
+}
+
+.title-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.p-t-0 {
+    padding-top: 0;
+}
+
+.bold-text {
+    font-family: var(--zf-primary-semibold);
+}
+
+:root {
+    --color-primary: #008EF5;
+    --color-secondary: #9914FF;
+    --primary-color: #008EF5;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #eff6ff;
+    --teritary-bg: #f8f9fc;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+}
+
+/* CTA visibility override — zohocustom hides .act-btn until nav loads */
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    opacity: 0.92;
+}
+
+.page-container .cta-btn.act-btn:focus,
+.page-container .cta-btn.act-btn:focus-visible,
+.page-container a:focus,
+.page-container a:focus-visible,
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible,
+.z-accordianBox h4:focus,
+.z-accordianBox h4:focus-visible,
+.tabs li a:focus,
+.tabs li a:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   1. Hero (scoped to section.banner — left-tab .banner is the sidebar CTA)
+   ========================================================================== */
+
+section.banner {
+    background-color: #eff6ff;
+    padding: 120px 0;
+    margin: 32px;
+    margin-top: 0;
+    border-radius: 24px;
+    padding-inline-start: 30px;
+    background-image:
+        radial-gradient(circle at 12% 20%, rgba(0, 142, 245, 0.14) 0, transparent 50%),
+        radial-gradient(circle at 88% 80%, rgba(153, 20, 255, 0.1) 0, transparent 45%);
+}
+
+section.banner .banner-main {
+    gap: 50px;
+    width: 100%;
+}
+
+section.banner .banner-main .left-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+section.banner .banner-main .right-wrapper {
+    width: 50%;
+}
+
+section.banner .banner-main .left-wrapper .banner-content {
+    width: 638px;
+    max-width: 100%;
+}
+
+section.banner .banner-main .left-wrapper h1 {
+    font-size: 40px;
+    line-height: 1.25;
+    font-family: var(--zf-primary-bold);
+    color: var(--primary-font-color);
+    margin-bottom: 16px;
+}
+
+section.banner .banner-main .left-wrapper p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--primary-font-color);
+}
+
+section.banner .banner-main .right-wrapper img {
+    /* TODO: replace with final background asset */
+    border: 7px solid rgb(103 126 174 / 20%);
+    border-radius: 24px 0 0 24px;
+    border-right: none;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   2. Tab section — sticky TOC + article column (cloud-reporting format)
+   Live: 47408.css + zohoanalytics.css cloud-reporting-tools
+   ========================================================================== */
+
+.tabsection > .content-wrap {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tabsection > .content-wrap > div {
+    text-align: left;
+    position: relative;
+}
+
+/*
+ * Left rail + article gutter — live cloud-reporting-tools (47408.css):
+ *  .left-tab { flex: 0 0 340px }  → wide TOC
+ *  .cont-sec { margin-left: 100px } → content starts late
+ *  Combined: article text begins ~440px into the content-wrap (vs ~350px at 250px rail).
+ */
+.left-tab {
+    flex: 0 0 340px;
+    width: 340px;
+    position: sticky !important;
+    top: 100px;
+    z-index: 5;
+    box-sizing: border-box;
+    align-self: flex-start;
+    max-height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+}
+
+#right-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden; /* keep wide tables scrolling inside .table-wrap, not the page */
+}
+
+.page-container .tabsection .left-tab > h2 {
+    flex: 0 0 auto;
+    display: block;
+    width: 100%;
+    max-width: none;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-align: left !important;
+    margin: 0 0 12px;
+    padding: 0;
+    font-family: Zoho_Puvi_Bold, var(--zf-primary-bold);
+    color: #000;
+    font-weight: 400;
+}
+
+/* Scrollable TOC — peach .banner is INSIDE ul#tabs (live inject pattern) */
+.page-container .tabsection .left-tab .tabs,
+.page-container .tabsection .left-tab .tabs.fixed {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    width: 340px;
+    max-width: 100%;
+    position: relative;
+    list-style: none;
+    min-height: 120px;
+    /* Live zohoanalytics.css: height calc(100vh - 200px); overflow:auto — includes CTA */
+    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    transition: all 0.3s ease 0s;
+}
+
+.page-container .tabsection .left-tab .tabs li {
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.75;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-container .tabsection .left-tab .tabs li a {
+    color: #000;
+    padding: 12px 15px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    font-family: var(--zf-primary-semibold);
+    font-size: 16px;
+    line-height: 1.75;
+    outline: none;
+    box-shadow: none;
+    border-radius: 8px;
+}
+
+.page-container .tabsection .left-tab .tabs li a.active {
+    color: #2c66dd;
+    background: rgb(44 102 221 / 10%);
+    border-radius: 8px;
+}
+
+.tabsection span.selected {
+    display: none;
+}
+
+/* Left-tab peach CTA — last child of ul#tabs (scrolls with TOC, live sizes) */
+.page-container .tabsection .left-tab .tabs .banner,
+.page-container .tabsection .left-tab .banner {
+    list-style: none;
+    border-radius: 12px;
+    background-image: linear-gradient(45deg, #ffdbce, #ffd468);
+    padding: 1px;
+    overflow: hidden;
+    background-color: unset;
+    margin: 30px 0 0;
+}
+
+.page-container .tabsection .left-tab .banner .wrapper {
+    background-image: linear-gradient(175deg, #ff88453d 5%, #ff474a2b 67%, #edff4726 112%);
+    backdrop-filter: blur(10px);
+    padding: 30px 24px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: inherit;
+    position: relative;
+    color: #000;
+}
+
+.page-container .tabsection .left-tab .banner .wrapper::after {
+    content: "";
+    position: absolute;
+    width: 169px;
+    height: 170px;
+    /* TODO: replace with final asset — analyticsdark-backdrop.png on live */
+    background-image: url("https://www.zohowebstatic.com/sites/zweb/images/analytics/analyticsdark-backdrop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: -12px;
+    right: -17px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.page-container .tabsection .left-tab .banner .wrapper h3 {
+    font-size: 19px;
+    font-family: var(--zf-primary-semibold);
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+    color: #000;
+}
+
+.page-container .tabsection .left-tab .banner .wrapper .cta-btn.act-btn {
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 15px;
+    margin-top: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.cont-sec {
+    /* Live 47408.css — push article text right of the TOC */
+    margin: 0 0 45px 100px;
+    border-bottom: 1px dashed #9a9a9a;
+    padding: 65px 0 24px;
+    box-sizing: border-box;
+}
+
+.cont-sec:first-child {
+    padding-top: 0;
+}
+
+.cont-sec:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.cont-sec > h2 {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.cont-sec h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.cont-sec > h3:first-of-type {
+    margin-top: 24px;
+}
+
+.cont-sec p {
+    margin-bottom: 15px;
+}
+
+.cont-sec ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+}
+
+.cont-sec ul li {
+    list-style: disc;
+    margin-inline-start: 16px;
+    padding-bottom: 10px;
+}
+
+.cont-sec .tool-block {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.cont-sec .tool-block:first-of-type {
+    margin-top: 28px;
+    padding-top: 0;
+    border-top: none;
+}
+
+.cont-sec .tool-block > h3:first-child {
+    margin-top: 0;
+}
+
+/* Key takeaways box */
+.TLDR {
+    border: 2px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--teritary-bg);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.TLDR h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.TLDR ul {
+    padding-left: 16px;
+    list-style-type: disc;
+    margin-bottom: 0;
+}
+
+.TLDR ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* Inline mid-content CTA */
+.cta-inline-banner {
+    background-image: linear-gradient(41deg, #e8f4ff 7%, #d4eaff 34%, #c8e0ff);
+    border-radius: 16px;
+    margin: 36px 0;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.cta-inline-banner .cta-inline-banner__headline {
+    font-size: 22px;
+    font-family: var(--zf-primary-semibold);
+    margin-bottom: 8px;
+}
+
+/* In-article closing CTA band */
+.cont-sec .pre-banner {
+    background-image: linear-gradient(41deg, #eef5ff 7%, #e8f0ff 34%, #f3e8ff);
+    background-color: #eef5ff;
+    border-radius: 16px;
+    margin: 40px 0 0;
+    padding: 36px 42px;
+    text-align: center;
+}
+
+.cont-sec .pre-banner p {
+    font-size: 22px;
+    font-family: var(--zf-primary-semibold);
+    margin-bottom: 10px;
+}
+
+/* Comparison tables — live cloud-reporting-tools / page-revamp
+ * Wide min-width + .table-wrap overflow-x so cells stay readable (horizontal scroll).
+ * Do NOT crush columns with low min-width + word-break:break-word.
+ */
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 28px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.cont-sec .table-wrap table,
+.cont-sec table.comparison-table {
+    width: 100%;
+    min-width: 960px;
+    border-collapse: collapse;
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0;
+    background: #fff;
+    table-layout: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+/* 7-column “at a glance” — live comparison-table-7col (~1200px) */
+.cont-sec .table-wrap table.comparison-table-7col,
+.cont-sec table.comparison-table-7col {
+    min-width: 1200px;
+    table-layout: fixed;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.cont-sec .table-wrap table.comparison-table-7col th,
+.cont-sec .table-wrap table.comparison-table-7col td,
+.cont-sec table.comparison-table-7col th,
+.cont-sec table.comparison-table-7col td {
+    word-break: normal;
+    overflow-wrap: break-word;
+    vertical-align: middle;
+}
+
+.cont-sec .table-wrap table.comparison-table-7col .col-tool,
+.cont-sec table.comparison-table-7col .col-tool { width: 12%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-best-for,
+.cont-sec table.comparison-table-7col .col-best-for { width: 16%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-deploy,
+.cont-sec table.comparison-table-7col .col-deploy { width: 16%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-security,
+.cont-sec table.comparison-table-7col .col-security { width: 18%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-price,
+.cont-sec table.comparison-table-7col .col-price { width: 12%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-size,
+.cont-sec table.comparison-table-7col .col-size { width: 14%; }
+.cont-sec .table-wrap table.comparison-table-7col .col-ml,
+.cont-sec table.comparison-table-7col .col-ml { width: 12%; }
+
+.cont-sec .table-wrap table thead tr,
+.cont-sec table.comparison-table thead tr {
+    background-color: #1a3c6e;
+}
+
+.cont-sec .table-wrap table th,
+.cont-sec table.comparison-table th {
+    padding: 18px 24px;
+    text-align: left;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    font-family: var(--zf-primary-semibold);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.cont-sec .table-wrap table th:first-child,
+.cont-sec table.comparison-table th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+.cont-sec .table-wrap table th:last-child,
+.cont-sec table.comparison-table th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+.cont-sec .table-wrap table td,
+.cont-sec table.comparison-table td {
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2c3342;
+    border: 0;
+    border-bottom: 1px solid #eef0f4;
+    vertical-align: top;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+}
+
+.cont-sec .table-wrap table tbody tr:nth-child(even),
+.cont-sec table.comparison-table tbody tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+.cont-sec .table-wrap table tbody tr:last-child td,
+.cont-sec table.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cont-sec .table-wrap table tbody tr:last-child td:first-child,
+.cont-sec table.comparison-table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 12px;
+}
+
+.cont-sec .table-wrap table tbody tr:last-child td:last-child,
+.cont-sec table.comparison-table tbody tr:last-child td:last-child {
+    border-radius: 0 0 12px 0;
+}
+
+.cont-sec .table-wrap table td:first-child,
+.cont-sec table.comparison-table td:first-child {
+    font-family: var(--zf-primary-semibold);
+    color: #1a3c6e;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.cont-sec .table-wrap table td:nth-child(2),
+.cont-sec table.comparison-table td:nth-child(2) {
+    color: #2c66dd;
+    font-family: var(--zf-primary-semibold);
+}
+
+/* Testimonial quote card */
+.testimonial-card {
+    margin: 32px 0;
+    padding: 28px 32px;
+    background: var(--teritary-bg);
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.testimonial-card blockquote {
+    margin: 0 0 16px;
+    font-size: 18px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.testimonial-author {
+    margin: 0;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   3. FAQ
+   ========================================================================== */
+
+.faq-section {
+    padding: 90px 0;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.faq-section h2 {
+    text-align: center;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 70px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: left;
+    font-family: var(--zf-primary-semibold);
+    outline: none;
+    box-shadow: none;
+}
+
+.z-accordianBox h4::before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+    margin: auto;
+    height: 25px;
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.z-accordianBox h4.active::before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 25px 0;
+    display: none;
+}
+
+.z-accordianBox h4.active + ul {
+    display: block;
+}
+
+.z-accordianBox > ul > li {
+    list-style: disc;
+    margin-inline-start: 16px;
+    padding-bottom: 8px;
+}
+
+/* Responsive — 1240 · 1080 · 991 · 767 · 565 · 480 · 350 */
+@media (max-width: 1200px) {
+    .left-tab {
+        display: none;
+    }
+
+    .cont-sec {
+        margin-left: 0;
+    }
+
+    .tabsection > .content-wrap {
+        display: block;
+    }
+
+    .tabsection > .content-wrap > div {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1080px) {
+    section.banner .banner-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    section.banner .banner-main .left-wrapper,
+    section.banner .banner-main .right-wrapper,
+    section.banner .banner-main .left-wrapper .banner-content {
+        width: 100%;
+    }
+
+    section.banner {
+        padding-inline: 30px;
+        padding-block: 60px;
+    }
+
+    section.banner .banner-main .right-wrapper img {
+        border-right: 7px solid rgb(103 126 174 / 20%);
+        border-radius: 24px;
+    }
+
+    section.banner .banner-main .left-wrapper h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h2 {
+        font-size: 26px;
+    }
+
+    .page-container h3 {
+        font-size: 18px;
+    }
+
+    .page-container p,
+    .page-container li {
+        font-size: 15px;
+    }
+
+    .f-20,
+    .title-desc {
+        font-size: 17px;
+    }
+
+    section.banner .banner-main .left-wrapper p {
+        font-size: 17px;
+    }
+
+    .tabsection {
+        padding: 60px 0;
+    }
+
+    .cont-sec {
+        padding-top: 50px;
+        margin-left: 0;
+    }
+
+    .cont-sec .tool-block {
+        margin-top: 36px;
+        padding-top: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 {
+        font-size: 22px;
+    }
+
+    .page-container h3 {
+        font-size: 17px;
+    }
+
+    .p-90 {
+        padding: 65px 0;
+    }
+
+    section.banner {
+        margin: 16px;
+        padding-block: 48px;
+    }
+
+    section.banner .banner-main .left-wrapper h1 {
+        font-size: 28px;
+    }
+
+    .cont-sec .table-wrap table,
+    .cont-sec table.comparison-table {
+        min-width: 880px;
+    }
+
+    .cont-sec .table-wrap table.comparison-table-7col,
+    .cont-sec table.comparison-table-7col {
+        min-width: 1100px;
+    }
+
+    .cont-sec .table-wrap table th,
+    .cont-sec table.comparison-table th {
+        padding: 14px 16px;
+        font-size: 12px;
+    }
+
+    .cont-sec .table-wrap table td,
+    .cont-sec table.comparison-table td {
+        padding: 16px;
+        font-size: 14px;
+    }
+
+    .cta-inline-banner {
+        padding: 24px 20px;
+    }
+
+    .cont-sec {
+        padding-top: 40px;
+    }
+
+    .faq-section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 565px) {
+    .p-90 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .cta-inline-banner .cta-inline-banner__headline {
+        font-size: 18px;
+    }
+
+    .cont-sec .pre-banner {
+        padding: 28px 20px;
+    }
+
+    .cont-sec .pre-banner p {
+        font-size: 18px;
+    }
+
+    .z-accordianBox h4 {
+        padding-right: 40px;
+        font-size: 16px;
+    }
+
+    .TLDR {
+        padding: 18px;
+    }
+
+    .TLDR h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container .cta-btn.act-btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    section.banner .banner-main .left-wrapper h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 350px) {
+    section.banner {
+        margin: 8px;
+        padding-inline: 16px;
+    }
+
+    .TLDR {
+        padding: 16px;
+    }
+
+    .cont-sec .pre-banner {
+        padding: 24px 16px;
+    }
+}

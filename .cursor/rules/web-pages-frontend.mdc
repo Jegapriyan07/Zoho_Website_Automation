@@ -25,7 +25,7 @@ When developing any **new page**, you **must apply every section** of this instr
 6. **CSS** — Only `style.css`; check `zohocustom.css` for font/title/p/a styles; do not set styles for `.content-wrap` or `.act-btn`; desktop first with all six breakpoints; prefer `var(--...)` tokens; apply the global typography and spacing system.
 7. **Spacing system** — Use the standard spacing values for section padding, card padding, and grid gaps. Do not invent arbitrary values.
 8. **JavaScript** — Add `script.js` only if the design has interactivity; `DOMContentLoaded` or jQuery; short page-specific init may be inline at the bottom of `<body>`.
-9. **Accessibility & responsiveness** — Keyboard focus, visible focus states, no horizontal scroll, responsive images.
+9. **Accessibility & responsiveness** — Controls remain keyboard-focusable; **no visible focus rings** on buttons/CTAs/tabs (team scaffold rule: `outline: none` on `:focus` / `:focus-visible`). No horizontal scroll; responsive images.
 10. **Validation checklist** — Before considering the page complete, run through the full checklist.
 11. **Post-development** — Open the page in a browser tab so the user can verify the result.
 
@@ -437,12 +437,13 @@ Use CSS counters — do not add number markup in HTML:
 - Never use inline event handlers (`onclick`, `onchange`, `onsubmit`). Always use `addEventListener`.
 - Use `const`/`let`; never `var`. Load `script.js` at the end of `<body>`.
 - Wrap jQuery-dependent code in `$(document).ready()`. Wrap vanilla JS init in `DOMContentLoaded`.
+- **Sticky article TOC:** match live `cloud-reporting-tools` / `47408.css`. Rail **340px**. Heading **32px** Puvi Bold. Links **16px** SemiBold, `padding: 12px 15px`. `.cont-sec { margin-left: 100px }` so content starts late. `ul#tabs` scrolls (`height: calc(100vh - 200px)`); peach CTA is **last child inside** `ul#tabs` (not outside). **No FAQ in TOC**. Gold: `output/cloud-analytics/`.
 
 ---
 
 ## Accessibility & responsiveness
 
-- All interactive controls (buttons, tabs, accordion triggers) must be keyboard-focusable with a visible focus state.
+- All interactive controls (buttons, tabs, accordion triggers) must remain keyboard-focusable, but **do not show focus outlines / rings** on click or keyboard focus (`outline: none; box-shadow: none` on `:focus` and `:focus-visible`). Do not invent blue/red focus borders for CTAs, steps, or accordions.
 - WCAG AA contrast for all text. Touch targets ≥ 44×44px on mobile.
 - No horizontal scroll at any viewport width.
 - All images: `max-width: 100%; height: auto;`. All `<img>` have descriptive `alt` text.

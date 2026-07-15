@@ -31,8 +31,29 @@ This file is the short checklist. The playbook has full section patterns and ref
 | **Banner slots** | Hero vs mid-cta vs closing-cta use different `bg_treatment` — `banner_audit` in validation.json flags identical hero/closing CSS |
 | **CTA strings** | Every `cta_strings_required` entry visible in HTML |
 | **Mandatory CSS** | Brand CTA override + `--primary-btn-color: #e42527` |
+| **Article TOC layout** | `comparison-guide`: `.left-tab` **340px** + `.cont-sec { margin-left: 100px }` (content starts late). Gold: `output/cloud-analytics` |
 | **Placeholders** | `prezohoweb.zoho.com` only — no `placehold.co` or `./assets/` |
 | **Mid-page CTA band** | Red `.cta-btn.act-btn` inside `pre-banner-section` (or dark showcase band) — **not** plain white `za-bottom-section` |
+
+---
+
+## 1c. Article TOC + late content (comparison-guide)
+
+When the archetype is `comparison-guide` (or any page with `.tabsection` / left-tab):
+
+| Check | Pass |
+|-------|------|
+| Top-level sections | **Only** `banner` → `tabsection` → `faq-section` (gold STRUCTURE) |
+| Nested article body | Tables / tools / steps / CTAs = `.cont-sec` **inside** `#right-content` — never sibling `<section class="comparison-table-section">` |
+| Rail width | `.left-tab { flex: 0 0 340px; width: 340px }` — **do not shrink** |
+| Content gutter | `.cont-sec { margin: 0 0 45px 100px }` — content starts **late** |
+| TOC type | “In this article” **32px** Puvi Bold · links **16px** SemiBold · `padding: 12px 15px` |
+| Peach CTA | **Inside** scrollable `ul#tabs` as last child — not outside the scrollbar |
+| Tables | `.table-wrap { overflow-x: auto }` + min-width 960/1200 — horizontal scroll, no mid-word crush |
+| FAQ | **Not** in TOC — `.faq-section` after tabsection |
+
+Gold page: **`output/cloud-analytics/`** · CSS: **`z_workflow/gold-snippets/article-toc-layout.css`** · live: `cloud-reporting-tools.html`  
+Composer lists nested blocks as “NEST as .cont-sec” (not top-level sections). `validate:output` fails sibling article `<section>`s.
 
 ---
 
@@ -129,7 +150,7 @@ When the brief uses `dashboard-wrapper` content blocks:
 
 ---
 
-## 3b. Trusted Brands builds (★ Build with Trusted Brands)
+## 3b. Trusted Brands builds (★ Trusted Brands checkbox)
 
 When `build_options.trusted_brands` is true in `state.json` (Web Page Builder option):
 
@@ -148,14 +169,32 @@ Pipeline module: `web-tool/trusted-brands/inject.js` — used on **every** build
 
 ---
 
+## 3c. Report Slider builds (★ Report Slider checkbox)
+
+When `build_options.report_slider` is true in `state.json` (Web Page Builder option):
+
+| Gate | Requirement |
+|------|-------------|
+| **Agent must NOT build** | No `reported-section`, `report-slider`, `aem-report`, or `rating-table` in agent output — server injects |
+| **What gets injected** | Empty DOM shell only (matches `report-slider-with-ratings` handoff) — black left box + white ratings column |
+| **Placement** | Immediately **before** `#conclusion` (closing Ready to build… CTA) — **not** before mid-page `#one-click-cta`, not after dashboard mid-page |
+| **Timing** | Injected **before** `validate:output` |
+| **Hydration** | Zoho deployment fills empty `.report-slider` + `.rating-table` |
+| **Gold standard** | Empty shell HTML from writer handoff / Live `reported-section` structure |
+
+Pipeline module: `web-tool/report-slider/inject.js` — used on **every** build path (Writer URL, DOCX upload, revise).
+
+UI: both options are independent checkboxes; user clicks **Build page** once.
+
 ## 4. Before APPROVE
 
 1. Grep output for every CTA string from brief + `See all testimonials`
 2. Open in browser — buttons must be **visible**, not just in DOM
 3. Section count vs composite / `source_map`
-4. **Pre-banner** — closing/demo CTA section shows textured background (not white); grep `blue-shadow-with-texture` or radial-gradient in `style.css`
+4. **End banner** — `#conclusion` uses `state.similarity.end_banner` from `end-banner-types.json` (not plain white; not the same EB type on every build)
 5. **Dashboard zigzag** — `.dashboard-wrapper .main-wrapper` has `padding: 100px 0`, `gap: 40px`, clean rectangle `::before` panels (NO clip-path); image column vertically centered
-6. Checklist in `.cursor/rules/web-pages-frontend.mdc`
+6. **No focus rings** — clicking CTAs / step tabs / accordion headers must not show outline or focus box-shadow (see playbook mandatory CSS)
+7. Checklist in `.cursor/rules/web-pages-frontend.mdc`
 
 ---
 

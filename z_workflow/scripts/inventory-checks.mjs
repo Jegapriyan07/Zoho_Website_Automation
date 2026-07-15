@@ -229,7 +229,11 @@ export function inventoryOutput(html, css) {
     has_brand_cta_token: /--primary-btn-color:\s*#e42527/i.test(css) || /--color-brand-cta:\s*#e42527/i.test(css),
     pre_banner_section: countClass('pre-banner-section'),
     has_pre_banner_background: /\.pre-banner-section/.test(css) &&
-      (/background-image/.test(css) || /blue-shadow-with-texture/.test(css) || /radial-gradient/.test(css)),
+      (/background-image/.test(css) ||
+        /blue-shadow-with-texture/.test(css) ||
+        /radial-gradient|linear-gradient/.test(css) ||
+        /#f8f9fc|#eef5ff|#e7f6f1|#ebe7ff|#053643|#362546/.test(css) ||
+        /#conclusion\.pre-banner-section/.test(css)),
     countSelectorOccurrences
   };
 }
@@ -321,8 +325,28 @@ export function checkBannerSlots(html, css, composite) {
         /id=["']conclusion["'][^>]*\bbg-white\b/i.test(html)) {
       issues.push('Closing CTA (#conclusion) must not use bg-white — use gradient-closing treatment');
     }
-    if (closingSlot.bg_treatment === 'texture-closing' && !/blue-shadow-with-texture|var\(--pre-banner-texture\)/i.test(css)) {
-      issues.push('Closing CTA must use textured pre-banner-section (blue-shadow-with-texture.png) — not a copy of hero radial gradients');
+    // texture-closing / end-banner-pool: any catalogued end-banner treatment is OK
+    // (EB-01 soft-texture, EB-02 flat-neutral, EB-03 dark-teal, EB-04 theme-wash, …)
+    const closingTreatment = closingSlot.bg_treatment || '';
+    const usesEndBannerPool =
+      closingTreatment === 'texture-closing' ||
+      closingTreatment === 'end-banner-pool' ||
+      /closing$/i.test(closingTreatment);
+
+    if (usesEndBannerPool) {
+      const conclusionRule =
+        extractTopLevelRule(css, '#conclusion.pre-banner-section') ||
+        extractTopLevelRule(css, '.pre-banner-section');
+      const hasConcreteBg =
+        /background(-image|-color)?\s*:/i.test(conclusionRule) &&
+        !/background(-color)?\s*:\s*#fff(f{0,3})?\s*;/i.test(conclusionRule) &&
+        !/background(-color)?\s*:\s*white\s*;/i.test(conclusionRule);
+
+      if (!hasConcreteBg) {
+        issues.push(
+          'Closing CTA (#conclusion) needs a real end-banner background from z_workflow/end-banner-types.json — not plain white'
+        );
+      }
     }
   }
 
@@ -355,19 +379,17 @@ export function checkBannerSlots(html, css, composite) {
     );
   }
 
-  const closingHasTexture = /blue-shadow-with-texture|var\(--pre-banner-texture\)/i.test(closingBg || '');
-  const heroRadialOnly =
+  // Closing may use theme radials (EB-04) etc. — only fail when fingerprints are identical
+  // (already checked above). Soft warn if closing looks like a clone of hero tokens.
+  if (
     heroSlot?.bg_treatment === 'gradient-hero' &&
-    /radial-gradient/.test(heroBg || '') &&
-    !/blue-shadow-with-texture|var\(--pre-banner-texture\)/i.test(heroBg || '');
-  const closingRadialOnly =
     closingSlot?.banner_slot === 'closing-cta' &&
-    /radial-gradient/.test(closingBg || '') &&
-    !closingHasTexture;
-
-  if (heroRadialOnly && closingRadialOnly) {
+    heroBg &&
+    closingBg &&
+    heroBg.replace(/\s+/g, '') === closingBg.replace(/\s+/g, '')
+  ) {
     issues.push(
-      'Closing CTA repeats hero-style radial gradients — use textured pre-banner-section (blue-shadow-with-texture.png) for #conclusion'
+      'Closing CTA background matches hero exactly — pick a different end-banner type from end-banner-types.json'
     );
   }
 
@@ -472,25 +494,139 @@ export function checkOutputInventory(inventory, composite, files = {}, briefInve
     issues.push('Missing brand CTA token `--primary-btn-color: #e42527` in style.css');
   }
 
+  // Article TOC layout (comparison-guide / cloud-reporting-tools format)
+  // Gold: output/cloud-analytics — 340px left-tab + 100px cont-sec gutter
+  if (checks.require_article_toc_layout) {
+    const css = files.css || '';
+    const html = files.html || '';
+    if (!/\.left-tab\b/.test(html) && !/class="[^"]*left-tab/.test(html)) {
+      issues.push('Article TOC: missing `.left-tab` in HTML (gold: output/cloud-analytics)');
+    }
+    if (!/id=["']tabs["']/.test(html) && !/class="[^"]*\btabs\b/.test(html)) {
+      issues.push('Article TOC: missing `ul#tabs` / `.tabs` sidebar links');
+    }
+    if (!/Go from data to insights/i.test(html)) {
+      warnings.push('Article TOC: peach sidebar CTA copy ("Go from data to insights…") not found');
+    }
+    // Peach CTA must be inside ul#tabs (live appendChild) — not a sibling after </ul>
+    if (
+      /id=["']tabs["'][\s\S]*?<\/ul>/i.test(html) &&
+      /Go from data to insights/i.test(html) &&
+      !/id=["']tabs["'][\s\S]*?Go from data to insights[\s\S]*?<\/ul>/i.test(html)
+    ) {
+      issues.push(
+        'Article TOC: peach `.banner` CTA must be INSIDE `ul#tabs` (scrolls with TOC) — gold: output/cloud-analytics'
+      );
+    }
+    const has340 =
+      /flex:\s*0\s+0\s+340px/i.test(css) ||
+      (/\.left-tab\s*\{[^}]{0,400}width:\s*340px/i.test(css) &&
+        /width:\s*340px/i.test(css));
+    if (!has340) {
+      issues.push(
+        'Article TOC: `.left-tab` must be 340px wide (live cloud-reporting-tools / output/cloud-analytics) — do not shrink rail'
+      );
+    }
+    const hasGutter =
+      /margin(?:-left)?:\s*[^;]*100px/i.test(css) &&
+      (/\.cont-sec\s*\{[^}]{0,200}100px/i.test(css) ||
+        /margin:\s*0\s+0\s+45px\s+100px/i.test(css));
+    if (!hasGutter) {
+      issues.push(
+        'Article TOC: `.cont-sec` must use `margin-left: 100px` so content starts late (gold: output/cloud-analytics)'
+      );
+    }
+    if (/href=["']#faqs?["']/i.test(html) && /left-tab[\s\S]{0,2500}href=["']#faqs?["']/i.test(html)) {
+      issues.push('Article TOC: do not list FAQ in left-tab sidebar (keep `.faq-section` after tabsection)');
+    }
+    // Gold structure: only banner + tabsection + faq as top-level article shells
+    // (fail when agent follows section_order as sibling <section>s)
+    const badSiblingSection =
+      /<section[^>]*class="[^"]*(?:comparison-table-section|comparison-table|tool-block)[^"]*"/i.test(
+        html
+      ) ||
+      /<section[^>]*class="[^"]*\bcont-sec\b[^"]*"/i.test(html);
+    if (badSiblingSection) {
+      issues.push(
+        'Article TOC STRUCTURE: nest comparison/tools/steps as .cont-sec INSIDE #right-content — do NOT emit sibling <section class="comparison-table-section|tool-block|cont-sec"> (gold: output/cloud-analytics)'
+      );
+    }
+    // Between tabsection open and faq-section open (tag starts), no other <section>
+    const tabOpen = html.search(/<section[^>]*class="[^"]*\btabsection\b/i);
+    const faqOpen = html.search(/<section[^>]*class="[^"]*\bfaq-section\b/i);
+    if (tabOpen >= 0 && faqOpen > tabOpen) {
+      const between = html.slice(tabOpen, faqOpen);
+      // Close of .tabsection = first </section> at depth 0 after open (simple: first close, nested sections rare)
+      const tabEnd = between.indexOf('</section>');
+      if (tabEnd >= 0) {
+        const afterTabClose = between.slice(tabEnd + '</section>'.length);
+        if (/<section\b/i.test(afterTabClose)) {
+          issues.push(
+            'Article TOC STRUCTURE: found <section> between .tabsection and .faq-section — gold has ONLY those two + hero (output/cloud-analytics)'
+          );
+        }
+      }
+    }
+    // Scrollable TOC height (live: calc(100vh - 200px))
+    if (!/100vh\s*-\s*200px/i.test(css) && !/calc\(\s*100vh\s*-\s*200px\s*\)/i.test(css)) {
+      warnings.push(
+        'Article TOC: ul#tabs should use height: calc(100vh - 200px) so peach CTA scrolls inside (gold-snippets/article-toc-layout.css)'
+      );
+    }
+    // Horizontal table scroll (crushing mid-word = fail)
+    if (/\.table-wrap|comparison-table/i.test(html + css)) {
+      if (!/\.table-wrap\s*\{[^}]{0,300}overflow-x:\s*auto/i.test(css)) {
+        issues.push(
+          'Comparison tables: `.table-wrap` must have `overflow-x: auto` (gold: output/cloud-analytics / gold-snippets/article-toc-layout.css)'
+        );
+      }
+      const hasWideMin =
+        /min-width:\s*(960|1[12]\d{2})px/i.test(css) || /min-width:\s*1200px/i.test(css);
+      if (!hasWideMin) {
+        issues.push(
+          'Comparison tables: use min-width ≥960px (3-col) / 1200px (.comparison-table-7col) so cells scroll, not crush'
+        );
+      }
+      if (/word-break:\s*break-word/i.test(css) && !/word-break:\s*normal/i.test(css)) {
+        warnings.push(
+          'Comparison tables: prefer `word-break: normal` (avoid mid-word breaks like live cloud-reporting-tools)'
+        );
+      }
+    }
+  }
+
   for (const snippet of composite.mandatory_css || []) {
     const normCss = (files.css || '').replace(/\s+/g, ' ').toLowerCase();
-    const checks = [];
+    const css = files.css || '';
+    const snippetChecks = [];
     if (/--color-brand-cta:\s*#e42527/i.test(snippet)) {
-      checks.push(/--color-brand-cta:\s*#e42527/i.test(files.css || ''));
+      snippetChecks.push(/--color-brand-cta:\s*#e42527/i.test(css));
     }
     if (/--primary-btn-color:\s*#e42527/i.test(snippet)) {
-      checks.push(/--primary-btn-color:\s*#e42527/i.test(files.css || ''));
+      snippetChecks.push(/--primary-btn-color:\s*#e42527/i.test(css));
     }
     if (/\.page-container\s+\.cta-btn\.act-btn/.test(snippet)) {
-      checks.push(/\.page-container\s+\.cta-btn\.act-btn/.test(files.css || '') &&
-        /display:\s*inline-block/.test(files.css || ''));
+      snippetChecks.push(/\.page-container\s+\.cta-btn\.act-btn/.test(css) &&
+        /display:\s*inline-block/.test(css));
     }
-    if (!checks.length) {
+    if (/\.left-tab/.test(snippet) && /340px/.test(snippet)) {
+      snippetChecks.push(
+        /flex:\s*0\s+0\s+340px/i.test(css) || /\.left-tab\s*\{[^}]{0,400}width:\s*340px/i.test(css)
+      );
+    }
+    if (/\.cont-sec/.test(snippet) && /100px/.test(snippet)) {
+      snippetChecks.push(
+        /margin(?:-left)?:\s*[^;]*100px/i.test(css) &&
+          (/\.cont-sec\s*\{[^}]{0,200}100px/i.test(css) ||
+            /margin:\s*0\s+0\s+45px\s+100px/i.test(css))
+      );
+    }
+    if (!snippetChecks.length) {
       const normSnippet = snippet.replace(/\s+/g, ' ').trim().toLowerCase();
       if (!normCss.includes(normSnippet)) {
         warnings.push(`Mandatory CSS snippet may be missing or altered: ${snippet.slice(0, 60)}…`);
       }
-    } else if (checks.some((ok) => !ok)) {
+    } else if (snippetChecks.some((ok) => !ok)) {
       warnings.push(`Mandatory CSS rule may be missing or altered: ${snippet.slice(0, 60)}…`);
     }
   }
@@ -529,12 +665,23 @@ export function checkOutputInventory(inventory, composite, files = {}, briefInve
   );
   if (needsPreBanner) {
     if (!inventory.pre_banner_section) {
-      issues.push('Missing `.pre-banner-section` — mid-page/closing red CTAs must sit inside a textured CTA band');
+      issues.push('Missing `.pre-banner-section` — mid-page/closing red CTAs must sit inside a styled end-banner band');
     } else if (!inventory.has_pre_banner_background && checks.require_pre_banner_background !== false) {
       const closingSlot = (composite.section_order || []).find((s) => s.banner_slot === 'closing-cta');
-      const needsTexture = closingSlot?.bg_treatment === 'texture-closing';
-      if (needsTexture || !closingSlot) {
-        issues.push('`.pre-banner-section` has no textured background — add gradient + blue-shadow-with-texture.png (not plain white)');
+      // Accept any catalogued end-banner treatment (#f8f9fc, dark gradient, warm pastel, texture, …)
+      const conclusionCss =
+        extractTopLevelRule(files.css || '', '#conclusion.pre-banner-section') ||
+        extractTopLevelRule(files.css || '', '.pre-banner-section');
+      const hasEndBannerBg =
+        /background(-image|-color)?\s*:/i.test(conclusionCss) &&
+        (/#f8f9fc|blue-shadow|linear-gradient|radial-gradient|#053643|#362546|#eef5ff|#e7f6f1|#ebe7ff|rgba\(248,\s*243,\s*192/i.test(
+          conclusionCss
+        ) ||
+          /var\(--pre-banner-texture\)/i.test(conclusionCss));
+      if (closingSlot && !hasEndBannerBg) {
+        issues.push(
+          'Closing `#conclusion.pre-banner-section` needs a catalogued end-banner background (see z_workflow/end-banner-types.json) — not plain white'
+        );
       }
     }
   }

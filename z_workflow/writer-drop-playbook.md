@@ -93,7 +93,25 @@ After parsing, check `section-composites.json` for a match.
 npm run validate:brief -- --file z_workflow/briefs/{slug}.txt
 ```
 
-Archetypes: `dashboard-examples-landing` · `agency-landing` (client dashboard / marketing agency pages)
+Archetypes: `dashboard-examples-landing` · `agency-landing` · `comparison-guide` (cloud / AI / BI long-form guides)
+
+### `comparison-guide`
+
+**Brief signals:** `tools at a glance`, `comparison matrix`, `cloud analytics`, `ai powered data analytics`, `how to choose`
+
+**Gold page:** `output/cloud-analytics/` · **CSS:** `z_workflow/gold-snippets/article-toc-layout.css` · Live: `cloud-reporting-tools.html`
+
+| Rule | Requirement |
+|------|-------------|
+| Top-level HTML | `banner` → **one** `tabsection` → `faq-section` only (copy nesting from `output/cloud-analytics/index.html`) |
+| Nested body | glance table / tool deep-dives / steps / key-features = `.cont-sec` inside `#right-content` — **never** sibling `<section class="comparison-table-section">` |
+| Rail | **340px** sticky `.left-tab` |
+| Content gutter | `.cont-sec { margin-left: 100px }` |
+| Peach CTA | **Inside** `ul#tabs` (last child) — scrolls with TOC |
+| Tables | `.table-wrap { overflow-x:auto }` · 7-col `.comparison-table-7col` min-width 1200px |
+| FAQ | `.faq-section` after tabsection — never in TOC |
+
+Composer injects nest instructions + gold snippet. `cloud-analytics-2` failed when the agent treated `section_order` as sibling sections — that path is now banned/validated.
 
 ### `dashboard-examples-landing`
 
@@ -155,47 +173,39 @@ If no composite matches → use `section-index.json` per section + `team-dna.jso
 
 ### One-click + closing CTA — `pre-banner-section`
 
-**Mid-page and closing red CTAs must sit inside a textured CTA band** — never on plain white with only padding.
+**Mid-page** one-click may be `.bg-white`. **Closing** `#conclusion` must use a **catalogued end-banner colour** from [`end-banner-types.json`](end-banner-types.json) — never plain white, and **not the same look on every build**.
 
-Reference: `Marketing-Agencies`, `output/ppc-agency-client-dashboard`, `output/finance-dashboard-examples`
+Phase 0 sets `state.similarity.end_banner` (slug-hash pick). Copy that type’s `css_skeleton` onto `#conclusion.pre-banner-section`. See [`banner-selection-guide.md`](banner-selection-guide.md).
 
 ```html
 <section class="pre-banner-section p-90 t-center" id="conclusion">
   <div class="content-wrap">
-    <h2>Get started with our white-label reporting tool</h2>
+    <h2>Ready to build your sales dashboard?</h2>
     <div class="cta-btn-wrap">
-      <a href="#" class="cta-btn act-btn">Book my Demo</a>
+      <a href="#" class="cta-btn act-btn">START FOR FREE</a>
     </div>
   </div>
 </section>
 ```
 
-**Required CSS (textured band — adapt gradient to page theme):**
+**Example CSS — EB-04 soft theme wash (one of eight types):**
 
 ```css
-:root {
-  --pre-banner-texture: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
-}
-
-.pre-banner-section {
+#conclusion.pre-banner-section {
   text-align: center;
-  background-color: #dce8ff;
+  background-color: #eef5ff;
   background-image:
-    radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.18) 0, transparent 55%),
-    radial-gradient(circle at 25% 130%, rgba(14, 116, 144, 0.14) 0, transparent 50%),
-    var(--pre-banner-texture);
-  background-position: center, center, center;
-  background-repeat: no-repeat;
-  background-size: cover, cover, 100% auto;
-  min-height: 280px;
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-primary) 22%, transparent) 0, transparent 45%),
+    radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0, transparent 50%);
+  padding: 90px 0;
 }
 ```
 
 | Do | Do not |
 |----|--------|
-| `pre-banner-section` + textured/dark/colored background | Plain `za-bottom-section` on white with CTAs only |
-| Wrap buttons in `.cta-btn-wrap` | Loose `.cta-btn` links with no band |
-| Copy texture from mapped reference (`blue-shadow-with-texture.png` for agency/product landings) | Leave `.pre-banner-section` on white/plain placeholder |
+| Apply `state.similarity.end_banner` treatment (EB-01…EB-08) | Reuse `blue-shadow-with-texture` on every page |
+| Keep closing ≠ hero ≠ mid-cta `.bg-white` | Copy hero radial fingerprint onto `#conclusion` |
+| Reference webtemplate examples listed on the selected type | Leave closing on plain white / `za-bottom-section` |
 
 Dark variant (examples carousel): `Create-Dashboard` `.sampleDashboard-section` — use when brief maps to dark showcase band before closing CTA.
 
@@ -272,7 +282,28 @@ Linked `zohocustom.css` hides CTAs until team nav injects `body.umain`:
 .testimonials-section .content-wrap a .arrow {
     border-color: var(--primary-btn-color);
 }
+
+/* No focus rings on click — required on every scaffold page */
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible,
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible,
+.page-container .steps-tab-btn:focus,
+.page-container .steps-tab-btn:focus-visible,
+.page-container .features-tab-btn:focus,
+.page-container .features-tab-btn:focus-visible,
+.page-container .z-accordianBox h4:focus,
+.page-container .z-accordianBox h4:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
 ```
+
+**No button focus outlines** — do not add `:focus` / `:focus-visible` rings on CTAs, tabs, steps, or accordion headers. Active/selected states (`.active`) are fine; click focus rings are not.
 
 **Brand red is theme-independent** — page `--color-primary` / gradients must not tint CTAs or the testimonials link. See `Rulesbook.md` §2.2.1.
 
@@ -291,32 +322,15 @@ Without this, buttons exist in HTML but are **invisible** in Live Server / local
 5. Images: `https://prezohoweb.zoho.com/` + `<!-- TODO: replace with final asset -->` (see `Rulesbook.md` §2.8)
 6. Nav/footer: comment placeholders only
 
-### `pre-banner-section` — textured CTA band (do not skip)
+### `#conclusion.pre-banner-section` — end-banner pool (do not skip / do not clone)
 
-When the brief has a closing/demo CTA (`Book a free demo`, `START FOR FREE`, etc.), **never leave `.pre-banner-section` on a bare white page**. Copy the background stack from the mapped reference — not the root placeholder URL.
+When the brief has a closing/demo CTA (`START FOR FREE`, `Book a free demo`, etc.), style `#conclusion` from **`state.similarity.end_banner`** (`end-banner-types.json` EB-01…EB-08). Colours follow webtemplate / reference patterns — **do not default every build to blue-shadow texture**.
 
-| Archetype | Reference | Background asset |
-|-----------|-----------|------------------|
-| Agency / PPC client dashboard | `Marketing-Agencies` | `blue-shadow-with-texture.png` on `prezohoweb.zoho.com` |
-| Dashboard-examples | `Executive-Dashboards` / finance output | Radial gradients + `--primary-bg` (see `output/finance-dashboard-examples/style.css`) |
-
-**Minimum CSS (agency):**
-
-```css
-.pre-banner-section {
-    background-color: #dce8ff;
-    background-image:
-        radial-gradient(circle at 88% -20%, rgba(153, 20, 255, 0.14) 0, transparent 55%),
-        radial-gradient(circle at 25% 130%, rgba(0, 142, 245, 0.12) 0, transparent 50%),
-        url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 320px;
-}
+```bash
+npm run select:end-banner -- --slug <page> --archetype <id>
 ```
 
-Use `.pre-banner-list` for ★ bullet lines. **Browser gate:** pre-banner must show a visible textured band before APPROVE.
+Use `.pre-banner-list` for ★ bullet lines when the brief has them. **Browser gate:** closing band must show a clean, non-white treatment that matches the selected EB type — and must differ from hero + mid-cta.
 
 ### `dashboard-wrapper` zigzag — spacing (do not skip)
 
