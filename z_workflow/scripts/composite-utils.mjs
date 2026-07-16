@@ -102,6 +102,22 @@ export function resolveArchetype(briefText, forcedId) {
     if (wl) return wl;
   }
 
+  const isSpreadsheetReportingLanding =
+    norm.includes('replace excel reporting with zoho analytics') ||
+    norm.includes('excel spreadsheet reporting') ||
+    (norm.includes('spreadsheet reporting') && norm.includes('excel vs zoho analytics')) ||
+    (norm.includes('limits of traditional spreadsheets') &&
+      norm.includes('migrate your excel sheets')) ||
+    (norm.includes('why move beyond excel for reporting') &&
+      norm.includes('excel reporting faqs'));
+  const isEmbeddedSalesDoc =
+    norm.includes('embedded analytics for sales') ||
+    norm.includes('what is embedded analytics in sales');
+  if (isSpreadsheetReportingLanding && !isEmbeddedSalesDoc) {
+    const spreadsheet = ranked.find((r) => r.id === 'spreadsheet-reporting-landing');
+    if (spreadsheet) return spreadsheet;
+  }
+
   const isEmbeddedSalesAnalytics =
     norm.includes('embedded analytics for sales') ||
     (norm.includes('embedded analytics in sales') &&

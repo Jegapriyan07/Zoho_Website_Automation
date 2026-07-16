@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-16T11:34:19.150Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-wam08785311c0996042449ad9201f6afa4cc1-1784201658961.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrnflkkr.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 16602,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 5,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 16640
+  },
+  "archetype_guess": "integration-campaign-books",
+  "writer_doc_title": "What is business intelligence? - LP",
+  "source_url": "https://writer.zoho.in/writer/open/wam08785311c0996042449ad9201f6afa4cc1",
+  "document_id": "wam08785311c0996042449ad9201f6afa4cc1"
+}

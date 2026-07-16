@@ -30,7 +30,7 @@ Existing pipeline (../z_workflow/scripts, ../output, ../Reference-Site …)
 
 | Phase | How the tool runs it |
 |-------|----------------------|
-| **0** Extract | `scripts/extract-writer.mjs` (Puppeteer, per-employee Chrome profile) |
+| **0** Extract | **Writer OAuth API** (fast, ~5s) → fallback `extract-writer.mjs` (Puppeteer) |
 | **0** validate:brief | `scripts/validate-brief.mjs` |
 | **0** match | `scripts/match-sites.mjs` |
 | **1/2/6** compose | **Agent/LLM** via `COMPOSER_CMD` (no deterministic script exists — the Rulesbook forbids reinventing composition) |
@@ -65,17 +65,26 @@ a **dev login** appears so you can exercise the UI and the deterministic phases.
 (Extraction will hit a real Zoho login wall unless the server Chrome profile is
 signed in — which is the correct hard-stop behaviour.)
 
-### First-time Zoho sign-in for server-side extraction
+### Writer access (URL builds)
 
-Writer extraction runs headless with a **persistent Chrome profile per employee**
-(`data/chrome-profiles/<userId>`). To seed the login once, run the pipeline's
-extractor headed against that profile dir:
+When you **Sign in with Zoho**, the app stores OAuth tokens with Writer API scope.
+URL builds download the document via the **Writer REST API** (same speed as DOCX upload)
+— no Chrome window, no second login.
+
+If the API is unavailable (dev login, missing scope, external doc), the tool falls back to
+Puppeteer with a **persistent Chrome profile** per employee (`data/chrome-profiles/<userId>`).
+
+**One-time re-login:** if you signed in before this update, sign out and sign in again so
+OAuth includes `ZohoWriter.documentEditor.ALL`.
+
+Optional browser fallback setup (only needed when API fails):
 
 ```bash
 cd ..
-node z_workflow/scripts/extract-writer.mjs --url "<writer-url>" --headed \
-  --user-data-dir "web-tool/data/chrome-profiles/<userId>" --skip-validate
+node z_workflow/scripts/warm-writer-session.mjs --user-data-dir "web-tool/data/chrome-profiles/<userId>"
 ```
+
+Or click **Connect Writer session** in the New build screen.
 
 ## Data model
 

@@ -1,6 +1,7 @@
 import { config, redirectUri, zohoConfigured, isDevAuthAllowed } from './config.js';
 import { encrypt, decrypt, signSession, verifySession, randomToken } from './crypto.js';
 import { Users } from './store.js';
+import { getWriterSessionStatus } from './writer-session.js';
 
 const SESSION_COOKIE = 'zwpb_session';
 const OAUTH_STATE_COOKIE = 'zwpb_oauth_state';
@@ -136,7 +137,21 @@ export function registerAuthRoutes(app) {
       dev_login: isDevAuthAllowed(),
       user: req.user
         ? { id: req.user.id, email: req.user.email, display_name: req.user.display_name }
-        : null
+        : null,
+      writer_session: req.user ? getWriterSessionStatus(req.user) : null
+    });
+  });
+
+  app.get('/auth/writer-session/status', requireAuth, (req, res) => {
+    res.json(getWriterSessionStatus(req.user));
+  });
+
+  app.post('/auth/writer-session/warm-up', requireAuth, (req, res) => {
+    const status = getWriterSessionStatus(req.user);
+    return res.status(409).json({
+      error: 'oauth_required',
+      message: 'Single-login mode uses Zoho OAuth only. Sign out and sign in with Zoho.',
+      ...status
     });
   });
 

@@ -114,6 +114,18 @@ Closing  → C-01  pre-banner-section textured (before FAQ)
 ```
 **Hero and closing must look different** — za-banner vs pre-banner-section.
 
+### `spreadsheet-reporting-landing`
+
+```
+Hero       → H-07  banner-section radial gradient
+Mid-page   → progress-section + limits-section + dashboard-wrapper zigzag + comparison-table-section + excel-migration-section
+Trial CTA  → pre-banner-section (first full-width band after migration)
+Social     → za-custories-section (customer stories placeholder) + reported-section (report_slider inject)
+Closing    → pre-banner-section.light #conclusion (pricing band — end-banner-types.json pool)
+FAQ        → faq-section
+```
+**Three distinct treatments** — hero gradient ≠ first pre-banner ≠ closing `.light` pricing band. Trusted brands injected after hero.
+
 ### `integration-campaign` (zoho-books, coupon)
 
 ```

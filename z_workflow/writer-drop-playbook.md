@@ -93,7 +93,29 @@ After parsing, check `section-composites.json` for a match.
 npm run validate:brief -- --file z_workflow/briefs/{slug}.txt
 ```
 
-Archetypes: `dashboard-examples-landing` · `agency-landing` · `comparison-guide` (cloud / AI / BI long-form guides)
+Archetypes: `dashboard-examples-landing` · `agency-landing` · `comparison-guide` (cloud / AI / BI long-form guides) · `white-label-reporting-landing` · `spreadsheet-reporting-landing` (Excel reporting LP)
+
+### `spreadsheet-reporting-landing`
+
+**Brief signals:** `Replace Excel Reporting`, `Why Move Beyond Excel`, `limits of traditional spreadsheets`, `Excel vs Zoho Analytics`, `Migrate Your Excel Sheets`, `Excel Reporting FAQs`
+
+**Gold live page:** `https://www.zoho.com/analytics/spreadsheet-reporting.html` · **Webtemplate:** `webtemplate/spreadsheet-reporting`
+
+| # | Section | BEM class | Notes |
+|---|---------|-----------|-------|
+| 1 | Hero | `banner-section` | Try Zoho Analytics for free + Watch demo |
+| 2 | Why beyond Excel | `progress-section` | Grid view / Pivot / Charts timeline cards |
+| 3 | Spreadsheet limits | `limits-section` | Multi-column bullet grid |
+| 4 | Zoho capabilities | `dashboard-wrapper` | Zigzag feature rows ×N from brief (rectangle panels) |
+| 5 | Comparison | `comparison-table-section` | Excel vs Zoho 2-col table |
+| 6 | Migration | `excel-migration-section` | Zigzag migrate band |
+| 7 | Trial CTA | `pre-banner-section` | Start your free trial today! |
+| 8 | Customer stories | `za-custories-section` | Placeholder when brief lists Customer stories |
+| 9 | Recognition | `reported-section` | **SKIP** when report_slider injected |
+| 10 | Pricing CTA | `pre-banner-section.light` `#conclusion` | Advanced analytics made affordable |
+| 11 | FAQ | `faq-section` | Excel Reporting FAQs |
+
+**Pipeline injections:** Trusted brands after hero · Report slider before `#conclusion` pricing band.
 
 ### `comparison-guide`
 

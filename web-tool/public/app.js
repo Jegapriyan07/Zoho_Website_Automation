@@ -3,6 +3,8 @@ const appEl = document.getElementById('app');
 
 const state = {
   auth: null,
+  writerSession: null,
+  loginPrompt: null,
   runs: [],
   view: 'new', // 'new' | 'run'
   activeRunId: null,
@@ -321,12 +323,78 @@ const HARD_STOP_TITLES = {
 async function boot() {
   try {
     state.auth = await (await fetch('/auth/status')).json();
+    state.writerSession = state.auth.writer_session || null;
   } catch {
     state.auth = { authenticated: false };
   }
   if (!state.auth.authenticated) return renderLogin();
+  await refreshWriterSession();
   await loadRuns();
   renderShell();
+  document.addEventListener('writer-session-ready', () => refreshWriterSessionBanner());
+}
+
+async function refreshWriterSession() {
+  try {
+    state.writerSession = await (await fetch('/auth/writer-session/status')).json();
+  } catch { /* ignore */ }
+}
+
+function renderWriterSessionBanner() {
+  const ws = state.writerSession || {};
+
+  if (ws.warmup?.status === 'failed') {
+    return `
+      <div class="writer-session-banner failed" id="writer-session-banner">
+        <span class="ws-dot warn" aria-hidden="true"></span>
+        <span>${esc(ws.warmup.error || 'Writer session setup failed.')}</span>
+      </div>`;
+  }
+
+  if (ws.api_ready) {
+    return `
+      <div class="writer-session-banner ready" id="writer-session-banner">
+        <span class="ws-dot ready" aria-hidden="true"></span>
+        <span>Writer API connected — paste a Writer URL and build (fast extraction, no Chrome).</span>
+      </div>`;
+  }
+
+  const hint = ws.zoho_configured
+    ? 'Single-login mode is enabled. Sign out and sign in with Zoho to link Writer API access.'
+    : 'Zoho OAuth is not configured on this server. Configure ZOHO_CLIENT_ID and ZOHO_CLIENT_SECRET.';
+
+  return `
+    <div class="writer-session-banner warn" id="writer-session-banner">
+      <span class="ws-dot warn" aria-hidden="true"></span>
+      <span>${hint}</span>
+    </div>`;
+}
+
+async function refreshWriterSessionBanner() {
+  await refreshWriterSession();
+  if (state.view === 'new') {
+    const el = document.getElementById('main-inner');
+    if (el) renderNewBuild(el);
+  }
+}
+window.refreshWriterSessionBanner = refreshWriterSessionBanner;
+
+function renderLoginPromptBanner() {
+  let el = document.getElementById('login-prompt-banner');
+  if (!state.loginPrompt) {
+    if (el) el.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'login-prompt-banner';
+    el.className = 'login-prompt-banner';
+    document.body.prepend(el);
+  }
+  el.innerHTML = `
+    <span class="ws-dot warn" aria-hidden="true"></span>
+    <span>${esc(state.loginPrompt)}</span>
+  `;
 }
 
 async function loadRuns() {
@@ -342,7 +410,8 @@ function renderLogin() {
       <div class="login-card">
         <span class="zoho-mark" aria-hidden="true"></span>
         <h1>Web Page Builder</h1>
-        <p>Internal tool — sign in to build pages from a Writer document.</p>
+        <p>Internal tool — sign in with Zoho to build pages from Writer documents.</p>
+        <p class="login-sub">Your Zoho login also connects Writer access — no separate sign-in when pasting a URL.</p>
         <a class="btn-zoho" href="/auth/zoho/login">Sign in with Zoho</a>
         ${dev ? `
           <div class="dev-login">
@@ -373,6 +442,7 @@ function renderShell() {
           <span class="product-badge">Internal</span>
         </div>
         <div class="topbar-actions">
+          ${state.writerSession?.api_ready ? '<span class="writer-pill ready" title="Writer API connected">Writer ✓</span>' : ''}
           <span class="topbar-user">${esc(state.auth.user?.display_name || state.auth.user?.email || '')}</span>
           <button class="topbar-signout" id="logout">Sign out</button>
         </div>
@@ -390,6 +460,7 @@ function renderShell() {
     </div>`;
   document.getElementById('new-build').onclick = () => { closeStream(); state.view = 'new'; state.activeRunId = null; renderMain(); renderThreads(); };
   document.getElementById('logout').onclick = async () => { await api('/auth/logout', { method: 'POST' }); location.reload(); };
+  renderLoginPromptBanner();
   renderThreads();
   renderMain();
 }
@@ -447,6 +518,7 @@ function renderNewBuild(el) {
         <h1>New build</h1>
         <p>Build a landing page from a Zoho Writer doc or by uploading a <strong>.docx</strong> file.</p>
       </div>
+      ${renderWriterSessionBanner()}
 
       <!-- Step 1: Source tabs -->
       <div class="step-section">
@@ -748,7 +820,7 @@ function connectStream(id) {
   ['log', 'phase_start', 'phase_done', 'hard_stop', 'output', 'status', 'extract_result',
    'validate_brief_ok', 'match_result', 'design_tokens', 'blueprint', 'files_written',
    'validate_output_ok', 'awaiting_review', 'run_failed', 'approved', 'revise_start',
-   'revise_requested', 'run_created', 'run_failed'].forEach((t) => es.addEventListener(t, onEvt));
+   'revise_requested', 'run_created', 'run_failed', 'login_prompt'].forEach((t) => es.addEventListener(t, onEvt));
   es.onmessage = onEvt;
   es.onerror = () => { /* browser auto-retries */ };
 }
@@ -756,6 +828,10 @@ function connectStream(id) {
 function closeStream() { if (state.es) { state.es.close(); state.es = null; } }
 
 function handleEvent(ev) {
+  if (ev.type === 'login_prompt') {
+    state.loginPrompt = ev.payload?.message || ev.message || 'Sign in to Zoho in the Chrome window.';
+    renderLoginPromptBanner();
+  }
   if (ev.type === 'status') {
     if (state.run) state.run.status = ev.status;
     const r = state.runs.find((x) => x.id === state.activeRunId); if (r) r.status = ev.status;

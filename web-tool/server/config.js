@@ -3,13 +3,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
 
-dotenv.config();
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // web-tool/ lives inside the pipeline repo. Root is the parent of web-tool/.
 const WEB_TOOL_DIR = path.resolve(__dirname, '..');
 const AUTO_PIPELINE_ROOT = path.resolve(WEB_TOOL_DIR, '..');
+
+// Always load web-tool/.env (not process.cwd()), so OAuth works even if the
+// server is started from the repo root or another working directory.
+dotenv.config({ path: path.join(WEB_TOOL_DIR, '.env') });
 
 // Puppeteer looks up its downloaded Chrome via PUPPETEER_CACHE_DIR. Some launch
 // environments (e.g. Cursor's sandbox) inject a *temporary* cache path that gets
@@ -33,7 +35,8 @@ export const config = {
     clientId: process.env.ZOHO_CLIENT_ID || '',
     clientSecret: process.env.ZOHO_CLIENT_SECRET || '',
     accountsBase: (process.env.ZOHO_ACCOUNTS_BASE || 'https://accounts.zoho.com').replace(/\/$/, ''),
-    scope: process.env.ZOHO_SCOPE || 'ZohoWriter.documents.READ,AaaServer.profile.READ'
+    // ZohoWriter.documents.READ is not a real Zoho scope (causes "Invalid OAuth Scope").
+    scope: (process.env.ZOHO_SCOPE || 'ZohoWriter.documentEditor.ALL,AaaServer.profile.READ').replace(/\s+/g, '')
   },
 
   pipelineRoot: process.env.PIPELINE_ROOT
@@ -98,7 +101,9 @@ export function zohoConfigured() {
 }
 
 export function isDevAuthAllowed() {
-  // When Zoho isn't configured we permit a local "dev login" so the tool is
-  // runnable/testable without real OAuth credentials. Never enabled in prod.
-  return !zohoConfigured() && config.appBaseUrl.includes('localhost');
+  // Single-login mode: disable local dev login by default.
+  // Enable only when explicitly requested for development.
+  return process.env.ALLOW_DEV_LOGIN === '1' &&
+    !zohoConfigured() &&
+    config.appBaseUrl.includes('localhost');
 }

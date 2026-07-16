@@ -1,0 +1,58 @@
+{
+  "pass": false,
+  "file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\bi-software.txt",
+  "archetype": "agency-landing",
+  "archetype_score": 1,
+  "required_found": [],
+  "required_missing": [
+    "Book a free demo",
+    "How client dashboard tool works",
+    "Step 1",
+    "Step 4",
+    "Hear from our happy customers",
+    "See all testimonials",
+    "Dresner Advisory",
+    "GetApp",
+    "Ready to give every client a dashboard"
+  ],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 17,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "Capterra"
+    ],
+    "char_count": 17450,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [
+    "Missing required strings (9): Book a free demo · How client dashboard tool works · Step 1 · Step 4 · Hear from our happy customers · See all testimonials · Dresner Advisory · GetApp · Ready to give every client a dashboard",
+    "Missing testimonials heading (e.g. \"Hear from our happy customers\")",
+    "Missing \"See all testimonials\" link text",
+    "Missing Dresner Advisory recognition block",
+    "Missing how-it-works heading"
+  ],
+  "warnings": [
+    "Fewer steps than template (found 0, template ~4) — composing what the doc contains",
+    "Fewer rating platforms than template (found 1, template ~5)",
+    "Only 0 --- PAGE N --- markers (expected ~9)"
+  ],
+  "validated_at": "2026-07-16T09:17:17.501Z"
+}

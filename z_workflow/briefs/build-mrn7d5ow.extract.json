@@ -1,0 +1,87 @@
+{
+  "extracted_at": "2026-07-16T07:51:06.489Z",
+  "source_url": "https://writer.zoho.in/writer/open/2rsp43f65edcb495d4487ab12eb19851bf971",
+  "output_file": "z_workflow/briefs/build-mrn7d5ow.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "Excel spreadsheet reporting - LP",
+  "page_count": 7,
+  "footer_chars": null,
+  "merged_length": 8757,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1256
+    },
+    {
+      "page": 2,
+      "len": 1620
+    },
+    {
+      "page": 3,
+      "len": 1476
+    },
+    {
+      "page": 4,
+      "len": 1263
+    },
+    {
+      "page": 5,
+      "len": 1383
+    },
+    {
+      "page": 6,
+      "len": 701
+    },
+    {
+      "page": 7,
+      "len": 962
+    }
+  ],
+  "quality": {
+    "warnings": [],
+    "errors": [
+      "Writer float-image / section-reference blocks (28 found, 7 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 5,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 8757
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 5,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 8758
+  },
+  "archetype_guess": "embedded-sales-analytics"
+}

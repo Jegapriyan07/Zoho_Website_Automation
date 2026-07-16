@@ -670,6 +670,85 @@
       "primary_reference": "collaborative-bi",
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
+    "spreadsheet-reporting-landing": {
+      "description": "Excel / spreadsheet reporting product landing — progress features, limits grid, zigzag capabilities, comparison table, migration, dual closing CTAs, FAQ",
+      "brief_signals": [
+        "excel spreadsheet reporting",
+        "replace excel reporting",
+        "excel reporting alternative",
+        "spreadsheet reporting",
+        "why move beyond excel for reporting",
+        "limits of traditional spreadsheets",
+        "what zoho analytics can do that excel can't",
+        "excel vs zoho analytics",
+        "migrate your excel sheets",
+        "grid view (spreadsheet-style reporting)",
+        "excel reporting faqs",
+        "watch demo"
+      ],
+      "writer_page_hints": "1-page DOCX · ~8800 chars. Trusted brands + report slider injected by pipeline (marquee + reported-section). Customer stories = placeholder. Two pre-banner bands before FAQ (trial CTA, then pricing). Gold live page: spreadsheet-reporting.html.",
+      "required_strings": [
+        "Replace Excel Reporting with Zoho Analytics",
+        "Why Move Beyond Excel for Reporting?",
+        "The limits of traditional spreadsheets",
+        "What Zoho Analytics Can Do That Excel Can",
+        "Excel vs Zoho Analytics: A quick comparison",
+        "Migrate Your Excel Sheets in Minutes",
+        "Try Zoho Analytics for free",
+        "Excel Reporting FAQs"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 4,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false
+      },
+      "section_order": [
+        { "type": "hero", "class": "banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "source_url": "https://www.zoho.com/analytics/spreadsheet-reporting.html", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Try Zoho Analytics for free", "pattern_notes": "Split hero text + image; primary CTA Try Zoho Analytics for free; secondary Watch demo" },
+        { "type": "features", "class": "progress-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 3, "layout": "numbered-steps-timeline", "pattern_notes": "Why Move Beyond Excel — Grid view / Pivot and summary / Charts and dashboards" },
+        { "type": "general", "class": "limits-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "layout": "multi-column-bullet-grid", "pattern_notes": "The limits of traditional spreadsheets — bullet grid from brief" },
+        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "layout": "zigzag", "block_count": 6, "pattern_notes": "What Zoho Analytics Can Do That Excel Can't — alternating .main-wrapper rows with rectangle ::before panels (NO clip-path)" },
+        { "type": "comparison", "class": "comparison-table-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "layout": "2-column", "pattern_notes": "Excel vs Zoho table — .table-wrap { overflow-x:auto }; copy Feature/Excel/Zoho rows from brief" },
+        { "type": "content-blocks", "class": "excel-migration-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "layout": "zigzag", "pattern_notes": "Migrate Your Excel Sheets in Minutes — zigzag band (distinct CSS from .dashboard-wrapper)" },
+        { "type": "cta", "class": "pre-banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "banner_slot": "mid-cta", "cta": "Start your free trial today!", "pattern_notes": "First full-width CTA band after migration — before customer stories / ratings" },
+        { "type": "testimonials", "class": "za-custories-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "pattern_notes": "Customer stories placeholder when brief lists Customer stories — empty cards OK for dev handoff" },
+        { "type": "recognition", "class": "reported-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "pattern_notes": "SKIP when report_slider injected — BARC/Gartner shell only" },
+        { "type": "cta", "class": "pre-banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "html_modifier": "light", "cta": "Start your free trial today!", "pattern_notes": "Pricing band (Advanced analytics made affordable) — add class light; pick end-banner-types.json treatment distinct from hero" },
+        { "type": "faq", "class": "faq-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 4, "child_class": "z-accordian" }
+      ],
+      "output_inventory_checks": {
+        "required_classes": [
+          "banner-section",
+          "progress-section",
+          "limits-section",
+          "dashboard-wrapper",
+          "comparison-table-section",
+          "excel-migration-section",
+          "pre-banner-section",
+          "faq-section"
+        ],
+        "require_distinct_hero_closing_bg": true,
+        "require_pre_banner_background": true,
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true
+      },
+      "cta_strings_required": [
+        "Try Zoho Analytics for free",
+        "Watch demo",
+        "Start your free trial today!"
+      ],
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+      ],
+      "primary_reference": "webtemplate/spreadsheet-reporting",
+      "primary_url": "https://www.zoho.com/analytics/spreadsheet-reporting.html",
+      "gold_standard_outputs": [],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
     "white-label-reporting-landing": {
       "description": "White label reporting product landing — feature insights, build steps, build-vs-buy, benefits, FAQ",
       "brief_signals": [

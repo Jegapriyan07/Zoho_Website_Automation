@@ -6,6 +6,9 @@ import { loadUser, registerAuthRoutes } from './auth-zoho.js';
 import { registerApiRoutes } from './routes-api.js';
 
 const app = express();
+const BUILD_ID = String(Date.now());
+const INDEX_HTML_PATH = path.join(config.publicDir, 'index.html');
+
 app.disable('x-powered-by');
 app.use(express.json({ limit: '1mb' }));
 app.use(loadUser);
@@ -13,13 +16,30 @@ app.use(loadUser);
 registerAuthRoutes(app);
 registerApiRoutes(app);
 
-// Static SPA
-app.use(express.static(config.publicDir));
+function sendSpaIndex(res) {
+  let html = fs.readFileSync(INDEX_HTML_PATH, 'utf8');
+  html = html.replace(/__APP_VERSION__/g, BUILD_ID);
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.type('html').send(html);
+}
+
+// Static assets — never auto-serve index.html (we inject BUILD_ID for cache busting)
+app.use(express.static(config.publicDir, {
+  index: false,
+  setHeaders(res, filePath) {
+    if (/\.(js|html)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    }
+  }
+}));
+
+app.get('/', (req, res) => sendSpaIndex(res));
+
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api') || req.path.startsWith('/auth') || req.path.startsWith('/preview')) {
     return next();
   }
-  res.sendFile(path.join(config.publicDir, 'index.html'));
+  sendSpaIndex(res);
 });
 
 function preflight() {
@@ -43,6 +63,7 @@ function preflight() {
 app.listen(config.port, () => {
   console.log(`\nZoho Web Page Builder Tool`);
   console.log(`  ▶ ${config.appBaseUrl}`);
+  console.log(`  build: ${BUILD_ID}`);
   console.log(`  pipeline root: ${config.pipelineRoot}`);
   for (const w of preflight()) console.log(`  ! ${w}`);
   console.log('');

@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-16T09:17:17.346Z",
+  "source_file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\docx-uploads\\upload-1784193436994.docx",
+  "output_file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrnapeud.txt",
+  "extraction_method": "docx",
+  "page_count": 1,
+  "merged_length": 17423,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 17,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "Capterra"
+    ],
+    "char_count": 17450
+  },
+  "archetype_guess": "agency-landing",
+  "writer_doc_title": "BI Software Landing Page"
+}

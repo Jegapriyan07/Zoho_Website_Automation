@@ -8,6 +8,7 @@ import { runComposer, outputDirFor } from './composer.js';
 import { injectTrustedBrandsFile } from '../trusted-brands/inject.js';
 import { DEFAULT_BRAND_LIST } from '../trusted-brands/brands-data.js';
 import { injectReportSliderFile } from '../report-slider/inject.js';
+import { extractWriterViaApi } from './writer-api.js';
 
 // ── Phase orchestrator ─────────────────────────────────────────
 // Drives the existing pipeline scripts in the documented order and streams
@@ -257,103 +258,7 @@ function isPartialExtraction(sidecar) {
   return thinPages.length >= 3 || charRatio < 0.75 || extractionErrors.length > 0;
 }
 
-async function phase0Extract(run, user, briefPath) {
-  emit(run, 0, 'phase_start', { title: 'Phase 0 — Acquire brief · Catalog · Match' });
-  setStatus(run, 'extracting');
-  log(run, 0, `Extracting Writer document: ${run.writer_doc_url}`);
-
-  const profileDir = path.join(config.dataDir, 'chrome-profiles', user.id);
-  fs.mkdirSync(profileDir, { recursive: true });
-
-  // 1) Try headless first (fast path when session cookies are already on disk).
-  let { code, out, err } = await runExtractScript(run, {
-    url: run.writer_doc_url,
-    briefPath,
-    profileDir,
-    headed: false
-  });
-
-  let combined = `${out}\n${err}`;
-
-  // 2) Headless often hits Zoho login or navigation timeouts — retry with a
-  //    visible Chrome window so the user can sign in without running a separate
-  //    terminal command. This uses the SAME profile folder as the web tool.
-  if (isRetryableExtractFailure(combined) || (code !== 0 && !fs.existsSync(briefPath))) {
-    const reason = isLoginWallOutput(combined)
-      ? 'Zoho login wall'
-      : /timeout/i.test(combined)
-        ? 'navigation timeout'
-        : 'headless extraction failed';
-    log(
-      run, 0,
-      `Headless extraction hit ${reason}. Opening Chrome — sign in to Zoho if prompted, then wait…`
-    );
-    emit(run, 0, 'login_prompt', {
-      message:
-        'Chrome is opening on this machine. Sign in to Zoho if prompted. ' +
-        'The build continues automatically once the Writer document loads.'
-    });
-
-    ({ code, out, err } = await runExtractScript(run, {
-      url: run.writer_doc_url,
-      briefPath,
-      profileDir,
-      headed: true
-    }));
-    combined = `${out}\n${err}`;
-  }
-
-  if (isLoginWallOutput(combined)) {
-    hardStop(
-      run, 0, 'login_wall',
-      'Zoho login wall hit during extraction. Sign-in timed out or was not completed in the Chrome window. Retry the build and finish Zoho sign-in when prompted.'
-    );
-    return null;
-  }
-  if (code !== 0 || !fs.existsSync(briefPath)) {
-    hardStop(run, 0, 'extraction_failed', `Writer extraction failed.\n${err || out}`.trim());
-    return null;
-  }
-
-  // 3) Section-reference blocks often hydrate only in a visible Chrome window.
-  //    Retry once with --headed before failing the build.
-  let sidecar = readJsonSafe(briefPath.replace(/\.txt$/, '.extract.json'));
-  if (isPartialExtraction(sidecar)) {
-    log(
-      run, 0,
-      'Partial extraction detected — reopening Chrome in headed mode for section-reference hydration…'
-    );
-    emit(run, 0, 'login_prompt', {
-      message:
-        'Extraction was incomplete. Chrome is reopening — keep the Writer tab in Edit mode until extraction finishes.'
-    });
-
-    ({ code, out, err } = await runExtractScript(run, {
-      url: run.writer_doc_url,
-      briefPath,
-      profileDir,
-      headed: true
-    }));
-    combined = `${out}\n${err}`;
-
-    if (code !== 0 || !fs.existsSync(briefPath)) {
-      hardStop(run, 0, 'extraction_failed', `Writer headed retry failed.\n${err || out}`.trim());
-      return null;
-    }
-    sidecar = readJsonSafe(briefPath.replace(/\.txt$/, '.extract.json'));
-  }
-
-  const briefText = fs.readFileSync(briefPath, 'utf8');
-
-  // Confidential-content hard stop.
-  if (/\b(confidential|do not distribute|do not share|internal use only|nda)\b/i.test(briefText)) {
-    hardStop(
-      run, 0, 'confidential_content',
-      'Confidential-content markers detected in the brief. Halting per workflow §3.1.'
-    );
-    return null;
-  }
-
+function finalizeExtractResult(run, briefPath, briefText, sidecar, method) {
   const thinPages = (sidecar?.per_page_lengths || []).filter((p) => p.len < 120);
   const charRatio =
     sidecar?.footer_chars && sidecar?.merged_length
@@ -380,10 +285,121 @@ async function phase0Extract(run, user, briefPath) {
     pages: sidecar?.page_count ?? null,
     chars: sidecar?.merged_length ?? null,
     footer_chars: sidecar?.footer_chars ?? null,
-    archetype_guess: sidecar?.archetype_guess ?? null
+    archetype_guess: sidecar?.archetype_guess ?? null,
+    extraction_method: method || sidecar?.extraction_method || null
   });
 
   return { briefText, sidecar };
+}
+
+async function phase0ExtractViaApi(run, user, briefPath) {
+  try {
+    const result = await extractWriterViaApi({
+      user,
+      writerUrl: run.writer_doc_url,
+      briefPath
+    });
+    if (!result) return null;
+    log(
+      run, 0,
+      `Writer API extraction: ${result.sidecar?.page_count ?? '?'} page(s), ${result.sidecar?.merged_length ?? result.briefText.length} chars`
+    );
+    return result;
+  } catch (e) {
+    if (e.code === 'writer_api_auth') {
+      log(run, 0, `${e.message} — falling back to browser extraction.`);
+      return null;
+    }
+    log(run, 0, `Writer API unavailable (${e.message}) — falling back to browser extraction.`);
+    return null;
+  }
+}
+
+async function phase0ExtractViaBrowser(run, user, briefPath) {
+  const profileDir = chromeProfileDir(user.id);
+  const sessionReady = isBrowserSessionReady(user.id);
+
+  // Skip the doomed headless attempt when no Chrome cookies exist yet (~6 min saved).
+  let headed = !sessionReady;
+  if (headed) {
+    log(
+      run, 0,
+      'Writer browser session not seeded — opening Chrome for one-time Zoho sign-in…'
+    );
+    emit(run, 0, 'login_prompt', {
+      message:
+        'Chrome is opening for a one-time Zoho sign-in. Future builds reuse this session automatically.'
+    });
+  }
+
+  let { code, out, err } = await runExtractScript(run, {
+    url: run.writer_doc_url,
+    briefPath,
+    profileDir,
+    headed
+  });
+
+  let combined = `${out}\n${err}`;
+
+  if (
+    !headed &&
+    (isRetryableExtractFailure(combined) || (code !== 0 && !fs.existsSync(briefPath)))
+  ) {
+    const reason = isLoginWallOutput(combined)
+      ? 'Zoho login wall'
+      : /timeout/i.test(combined)
+        ? 'navigation timeout'
+        : 'headless extraction failed';
+    log(
+      run, 0,
+      `Headless extraction hit ${reason}. Opening Chrome — sign in to Zoho if prompted, then wait…`
+    );
+    emit(run, 0, 'login_prompt', {
+      message:
+        'Chrome is opening on this machine. Sign in to Zoho if prompted. ' +
+        'The build continues automatically once the Writer document loads.'
+    });
+
+    ({ code, out, err } = await runExtractScript(run, {
+      url: run.writer_doc_url,
+      briefPath,
+      profileDir,
+      headed: true
+    }));
+    combined = `${out}\n${err}`;
+  }
+
+  return { code, out, err, combined, profileDir };
+}
+
+async function phase0Extract(run, user, briefPath) {
+  emit(run, 0, 'phase_start', { title: 'Phase 0 — Acquire brief · Catalog · Match' });
+  setStatus(run, 'extracting');
+  log(run, 0, `Extracting Writer document: ${run.writer_doc_url}`);
+
+  // Fast path: OAuth Writer API download (~5s, same as DOCX upload).
+  const apiResult = await phase0ExtractViaApi(run, user, briefPath);
+  if (apiResult) {
+    const briefText = apiResult.briefText;
+    if (/\b(confidential|do not distribute|do not share|internal use only|nda)\b/i.test(briefText)) {
+      hardStop(
+        run, 0, 'confidential_content',
+        'Confidential-content markers detected in the brief. Halting per workflow §3.1.'
+      );
+      return null;
+    }
+    return finalizeExtractResult(run, briefPath, briefText, apiResult.sidecar, 'writer_api');
+  }
+
+  hardStop(
+    run, 0, 'extraction_failed',
+    [
+      'Writer API extraction is required in single-login mode.',
+      'This account is not linked to Zoho Writer API access.',
+      'Sign out, click "Sign in with Zoho", then retry the build.'
+    ].join('\n')
+  );
+  return null;
 }
 
 function finalizeRunSlug(run, briefPath, briefText, sidecar) {

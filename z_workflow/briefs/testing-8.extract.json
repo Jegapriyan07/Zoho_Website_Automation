@@ -1,0 +1,36 @@
+{
+  "extracted_at": "2026-07-16T11:48:27.877Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-qqpdy3997422f71654b0a84c1715933337c61-1784202507668.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrng3roq.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 6981,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 5,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 6991
+  },
+  "archetype_guess": "dashboard-examples-landing-sales",
+  "writer_doc_title": "testing",
+  "source_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
+  "document_id": "qqpdy3997422f71654b0a84c1715933337c61"
+}

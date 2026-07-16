@@ -1,0 +1,29 @@
+{
+  "extracted_at": "2026-07-16T09:32:18.105Z",
+  "source_file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\docx-uploads\\upload-1784194337869.docx",
+  "output_file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrnb8pya.txt",
+  "extraction_method": "docx",
+  "page_count": 1,
+  "merged_length": 8855,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 4,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 8890
+  },
+  "archetype_guess": "spreadsheet-reporting-landing",
+  "writer_doc_title": "Excel spreadsheet reporting - LP"
+}

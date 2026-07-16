@@ -1,0 +1,23 @@
+{
+  "pass": false,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\za-bi-app-main-page-3.txt",
+  "archetype": null,
+  "errors": [
+    "No matching archetype in section-composites.json — add brief_signals or pass --archetype"
+  ],
+  "warnings": [],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3060
+  },
+  "validated_at": "2026-07-16T13:14:34.194Z"
+}

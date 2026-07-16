@@ -2,3 +2,12 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+# Secrets — never commit real credentials
+.env
+.env.example
+**/.env
+**/.env.example
+**/.env.*
+*.pem
+*.key

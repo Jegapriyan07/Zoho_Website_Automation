@@ -23,6 +23,7 @@ import {
   extractionQualityChecks,
   inventoryBrief
 } from './writer-extract-core.mjs';
+import { launchPuppeteer } from './puppeteer-launch.mjs';
 import { resolveArchetype } from './composite-utils.mjs';
 import { ROOT, WORKFLOW, isScriptMain } from './workflow-paths.mjs';
 
@@ -89,7 +90,7 @@ export function isZohoSessionReady(userDataDir) {
   return fs.existsSync(zohoSessionMarkerPath(userDataDir));
 }
 
-function buildLaunchOptions(puppeteer, { headed, userDataDir }) {
+function buildLaunchOptions({ headed, userDataDir }) {
   return {
     headless: headed ? false : true,
     userDataDir,
@@ -216,7 +217,7 @@ export async function extractFromWriterUrl(options) {
   const userDataDir = path.resolve(options.userDataDir || defaultUserDataDir());
   fs.mkdirSync(userDataDir, { recursive: true });
 
-  const browser = await puppeteer.launch(buildLaunchOptions(puppeteer, { headed: options.headed, userDataDir }));
+  const browser = await launchPuppeteer(puppeteer, buildLaunchOptions({ headed: options.headed, userDataDir }));
 
   try {
     const page = await browser.newPage();

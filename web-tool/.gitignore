@@ -1,3 +1,9 @@
 node_modules/
 .env
+.env.example
+.env.*
 data/
+*.pem
+*.key
+cookies*.json
+auth-state*.json

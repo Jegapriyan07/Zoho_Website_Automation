@@ -144,6 +144,17 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
     base.push('- Scroll reveal: data-onscroll + .zwe-om via IntersectionObserver in script.js');
   }
 
+  const needsExcelMigration =
+    archetype === 'spreadsheet-reporting-landing' ||
+    composite?.section_order?.some((s) => s.class === 'excel-migration-section');
+  if (needsExcelMigration) {
+    base.push('');
+    base.push('EXCEL MIGRATION ZIGZAG (spreadsheet-reporting-landing):');
+    base.push('- Section class: .excel-migration-section — separate from .dashboard-wrapper CSS');
+    base.push('- Zigzag text/image rows for Migrate Your Excel Sheets copy + bullet list from brief');
+    base.push('- Live reference: https://www.zoho.com/analytics/spreadsheet-reporting.html');
+  }
+
   if (trustedBrands) {
     base.push('');
     base.push('TRUSTED BRANDS (pipeline-injected — do NOT build in Phase 6):');

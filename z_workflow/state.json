@@ -1,145 +1,118 @@
 {
-  "run_id": "run_embedded-sales-4",
-  "page_slug": "embedded-sales-4",
-  "writer_url": "https://writer.zoho.in/writer/open/pnptj713e7a0e930043d685e5e02458925cda",
+  "run_id": "run_3NJO2wbeyQZp",
+  "page_slug": "testing-8",
+  "writer_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
   "writer_brief": {
-    "raw_content_file": "z_workflow/briefs/embedded-sales-4.txt",
-    "page_title": "Embedded Analytics for Sales",
-    "page_type": "comparison-guide",
+    "raw_content_file": "z_workflow/briefs/testing-8.txt",
+    "page_title": "Sales dashboard examples - Landing page",
+    "page_type": "dashboard-examples-landing",
     "product_name": "Zoho Analytics",
-    "archetype": "embedded-sales-analytics",
+    "archetype": "dashboard-examples-landing-sales",
     "sections_required": [
       "hero",
-      "toc-content",
-      "comparison",
       "content-blocks",
-      "steps",
+      "cta",
       "features",
-      "testimonials",
+      "steps",
       "cta",
       "faq"
     ],
-    "feature_block_count": 7,
-    "faq_count": 9,
-    "step_count": 7,
-    "benefit_block_count": 4,
-    "example_row_count": 5,
-    "char_count": 21672,
+    "feature_block_count": 6,
+    "faq_count": 5,
+    "step_count": 4,
+    "benefit_block_count": 0,
+    "example_row_count": 8,
+    "char_count": 6991,
     "source": "local-docx",
-    "source_url": "https://writer.zoho.in/writer/open/pnptj713e7a0e930043d685e5e02458925cda",
+    "source_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
     "inventory": {
-      "step_count": 0,
-      "step_numbers": [],
-      "faq_count": 9,
-      "page_markers": [
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ],
-      "image_placeholder_count": 7,
+      "step_count": 4,
+      "step_numbers": [1, 2, 3, 4],
+      "faq_count": 5,
+      "page_markers": [],
+      "image_placeholder_count": 0,
       "has_testimonials_heading": false,
       "has_see_all_testimonials": false,
       "has_dresner": false,
       "has_how_it_works": false,
       "rating_platforms": [],
-      "char_count": 21672,
-      "example_row_count": 5,
+      "char_count": 6991,
+      "example_row_count": 8,
       "example_row_missing": [],
-      "impl_step_count": 7,
+      "impl_step_count": 4,
       "impl_step_missing": [],
-      "feature_block_count": 7,
+      "feature_block_count": 6,
       "feature_block_missing": [],
-      "persona_block_count": 4,
+      "persona_block_count": 0,
       "persona_block_missing": [],
-      "benefit_block_count": 4,
+      "benefit_block_count": 0,
       "benefit_block_missing": [],
-      "customer_story_count": 2,
+      "customer_story_count": 0,
       "customer_story_missing": []
     }
   },
   "similarity": {
     "structure_mode": "compose",
-    "archetype": "embedded-sales-analytics",
-    "primary_source": "collaborative-bi",
+    "archetype": "dashboard-examples-landing-sales",
+    "primary_source": "Executive-Dashboards",
     "source_map": [
       {
         "brief_section": "hero",
-        "source_folder": "collaborative-bi",
-        "bem_class": "banner",
+        "source_folder": "Executive-Dashboards",
+        "bem_class": "banner-section",
         "source_type": "reference",
-        "layout_style": "H-06 dark-card split text left, image right",
-        "bg_treatment": "dark-card-hero",
+        "layout_style": "split text left, image right",
+        "bg_treatment": "gradient-hero",
         "banner_slot": "hero",
-        "cta": "Start Free Trial"
-      },
-      {
-        "brief_section": "toc-content",
-        "source_folder": "collaborative-bi",
-        "bem_class": "tabsection",
-        "source_type": "reference",
-        "css_gold": "output/cloud-analytics",
-        "layout_style": "sticky left-tab 340px + cont-sec margin-left 100px; peach banner inside ul#tabs; no FAQ in TOC"
-      },
-      {
-        "brief_section": "comparison",
-        "source_folder": "cloud-analytics-tools",
-        "bem_class": "comparison-table-section",
-        "source_type": "reference",
-        "layout_style": "2-column comparison table"
+        "cta": "Explore Examples"
       },
       {
         "brief_section": "content-blocks",
         "source_folder": "Executive-Dashboards",
-        "bem_class": "example-row",
+        "bem_class": "dashboard-wrapper",
         "source_type": "reference",
         "layout_style": "dashboard-wrapper zigzag alternating left/right — NO clip-path, 55% panels, border-radius 30px",
-        "repeat_count": 5,
-        "adaptation_notes": "Section uses example-row + dashboard-wrapper; rows follow testing-3 gold zigzag"
-      },
-      {
-        "brief_section": "steps",
-        "source_folder": "cloud-analytics-tools",
-        "bem_class": "impl-steps",
-        "source_type": "reference",
-        "repeat_count": 7,
-        "layout_style": "numbered implementation steps list"
-      },
-      {
-        "brief_section": "features",
-        "source_folder": "cloud-analytics-tools",
-        "bem_class": "feature-block",
-        "source_type": "reference",
-        "repeat_count": 7,
-        "layout_style": "feature card grid"
-      },
-      {
-        "brief_section": "testimonials",
-        "source_folder": "cloud-analytics-tools",
-        "bem_class": "za-inner-testimonials",
-        "source_type": "reference",
-        "repeat_count": 2,
-        "layout_style": "customer story quote cards"
+        "repeat_count": 8,
+        "adaptation_notes": "Rows follow testing-3 gold zigzag; 8 sales dashboard types from brief"
       },
       {
         "brief_section": "cta",
-        "source_folder": "Reference-Site/Embedded Analytics",
-        "bem_class": "pre-banner",
+        "source_folder": "Executive-Dashboards",
+        "bem_class": "pre-banner-section",
         "source_type": "reference",
-        "banner_slot": "inline-cta",
-        "bg_treatment": "dark-violet-closing",
+        "banner_slot": "mid-cta",
+        "bg_treatment": "bg-white",
+        "id": "one-click-cta",
+        "cta": "Build Sales Dashboards Now",
+        "adaptation_notes": "Flat white mid CTA after zigzag — NOT same bg as hero or closing"
+      },
+      {
+        "brief_section": "features",
+        "source_folder": "Executive-Dashboards",
+        "bem_class": "box-icon-section",
+        "source_type": "reference",
+        "repeat_count": 6,
+        "layout_style": "CRM integration cards grid"
+      },
+      {
+        "brief_section": "steps",
+        "source_folder": "Executive-Dashboards",
+        "bem_class": "steps-section",
+        "source_type": "reference",
+        "repeat_count": 4,
+        "layout_style": "tabbed auto-advance STEP 1–4"
+      },
+      {
+        "brief_section": "cta",
+        "source_folder": "Reference-Site/Generative-ai",
+        "bem_class": "pre-banner-section",
+        "source_type": "reference",
+        "banner_slot": "closing-cta",
+        "bg_treatment": "soft-mint-closing",
         "id": "conclusion",
-        "html_modifier": "sep",
-        "cta": "Start Free Trial",
-        "end_banner_id": "EB-05",
-        "adaptation_notes": "#conclusion.pre-banner-section.sep EB-05 dark violet→navy; light text; also carries pre-banner class for archetype"
+        "cta": "START FOR FREE",
+        "end_banner_id": "EB-07",
+        "adaptation_notes": "#conclusion EB-07 soft mint wash; dark text; reported-section injected before by pipeline"
       },
       {
         "brief_section": "faq",
@@ -147,207 +120,173 @@
         "bem_class": "faq-section",
         "source_type": "reference",
         "child_class": "z-accordian",
-        "repeat_count": 9,
+        "repeat_count": 5,
         "layout_style": "z-accordian accordion after closing CTA"
       }
     ],
     "end_banner": {
-      "id": "EB-05",
-      "name": "dark-violet",
-      "label": "Dark violet → navy closing",
-      "bg_treatment": "dark-violet-closing",
-      "html_modifier": "sep",
-      "text_color": "light",
-      "reference": "Reference-Site/Embedded Analytics",
+      "id": "EB-07",
+      "name": "soft-mint",
+      "label": "Soft mint / cool green wash",
+      "bg_treatment": "soft-mint-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/Generative-ai",
       "webtemplate_examples": [
-        "https://www.zoho.com/analytics/embedded-analytics-architecture.html",
-        "https://www.zoho.com/analytics/cloud-vs-on-prem-bi.html"
+        "https://www.zoho.com/analytics/auto-reporting-tool.html"
       ],
       "css_markers": [
-        "#362546",
-        "#050520"
+        "#e7f6f1",
+        "#d4efe8"
       ],
-      "css_skeleton": "background-image: linear-gradient(135deg, #362546 0%, #050520 100%);\ncolor: #fff;\npadding: 90px 0;\ntext-align: center;",
+      "css_skeleton": "background-color: #e7f6f1;\nbackground-image:\n  radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),\n  radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);\npadding: 90px 0;\ntext-align: center;",
       "html_note": "",
       "pool": [
-        "EB-05",
-        "EB-03",
-        "EB-02"
+        "EB-04",
+        "EB-02",
+        "EB-08",
+        "EB-07",
+        "EB-06",
+        "EB-01"
       ]
     }
   },
   "phase_1": {
     "status": "complete",
-    "team_flavour": "Long-form embedded sales guide — H-06 dark-card hero on soft primary-bg; sticky article TOC with peach in-rail CTA; zigzag dashboard examples (no clip-path); closing EB-05 dark violet→navy on #conclusion with light text; brand CTA red immutable.",
+    "team_flavour": "Sales dashboard-examples landing — gradient-hero banner-section dual radial on --primary-bg; dashboard-wrapper zigzag (55% rectangle panels, no clip-path); mid one-click CTA flat white; CRM box-icon grid; steps tabs; closing EB-07 soft mint wash on #conclusion with dark text; brand CTA red immutable.",
     "design_tokens": {
-      "--color-primary": "#2C66DD",
-      "--color-secondary": "#008EF5",
-      "--primary-color": "#2C66DD",
-      "--secondary-color": "#008EF5",
+      "--color-primary": "#008EF5",
+      "--color-secondary": "#9914FF",
+      "--primary-color": "#008EF5",
+      "--secondary-color": "#9914FF",
       "--primary-font-color": "#262626",
       "--secondary-font-color": "#ffffff",
-      "--primary-bg": "#eff1f5",
+      "--primary-bg": "#f0f7ff",
       "--teritary-bg": "#f8f9fc",
       "--color-brand-cta": "#e42527",
       "--primary-btn-color": "#e42527",
-      "--testimonial-peach-bg": "#FFF4E8",
-      "--testimonial-peach-border": "#F0DCC8",
-      "--testimonial-mint-bg": "#EEF8F4",
-      "--testimonial-mint-border": "#C8E8D8",
-      "hero_bg": "dark-card-hero — H-06 soft radials on #eff1f5 inset card",
-      "closing_cta_bg": "dark-violet-closing — EB-05 linear-gradient(135deg, #362546 0%, #050520 100%) on #conclusion.pre-banner-section (light text; no blue-shadow texture)"
+      "hero_bg": "gradient-hero — banner-section dual radial wash on --primary-bg",
+      "mid_cta_bg": "flat-white — #one-click-cta.pre-banner-section.bg-white",
+      "closing_cta_bg": "soft-mint-closing — EB-07 #e7f6f1 + emerald radials on #conclusion.pre-banner-section (dark text; no blue-shadow texture)"
     }
   },
   "phase_2": {
     "status": "complete",
     "webpage_blueprint": {
-      "page_slug": "embedded-sales-4",
-      "page_title": "Embedded Analytics for Sales | Zoho Analytics",
-      "archetype": "embedded-sales-analytics",
-      "structure": "banner → tabsection(#right-content nests comparison/example-row/impl-steps/feature-block/za-inner-testimonials/#conclusion as .cont-sec) → faq-section",
+      "page_slug": "testing-8",
+      "page_title": "Sales Dashboard Examples | Zoho Analytics",
+      "archetype": "dashboard-examples-landing-sales",
+      "structure": "banner-section → [trusted-brands injected] → dashboard-wrapper → pre-banner-section#one-click-cta.bg-white → box-icon-section → steps-section → [reported-section injected] → pre-banner-section#conclusion → faq-section",
       "sections": [
         {
           "id": "hero",
-          "source_site": "collaborative-bi",
-          "source_section_id": "banner",
+          "source_site": "Executive-Dashboards",
+          "source_section_id": "banner-section",
           "source_type": "reference",
           "repeat_count": 1,
-          "layout_style": "H-06 dark-card split text left, image right",
-          "bg_treatment": "dark-card-hero",
+          "layout_style": "split text left, image right",
+          "bg_treatment": "gradient-hero",
           "banner_slot": "hero",
-          "h1": "Embedded Analytics for Sales",
-          "p": "Sales teams make decisions while pipelines, forecasts, and customer activity keep changing...",
-          "cta": [
-            "Start Free Trial"
-          ],
-          "adaptation_notes": "Top-level <section class=\"banner\">; CTA Start Free Trial"
+          "h1": "Explore 50+ Sales Dashboard Examples & Templates",
+          "cta": ["Explore Examples"],
+          "adaptation_notes": "Trusted brands injected after hero by pipeline — not in agent output"
         },
         {
-          "id": "toc-content",
-          "source_site": "collaborative-bi",
-          "source_section_id": "tabsection",
-          "source_type": "reference",
-          "css_gold": "output/cloud-analytics",
-          "repeat_count": 11,
-          "layout_style": "sticky 340px left-tab + cont-sec gutters; peach .banner inside ul#tabs; never FAQ in TOC",
-          "adaptation_notes": "11+ .cont-sec for inventory; article sections only in TOC"
-        },
-        {
-          "id": "comparison",
-          "source_site": "cloud-analytics-tools",
-          "source_section_id": "comparison-table-section",
-          "source_type": "reference",
-          "h2": "Embedded Analytics vs Traditional Sales Reporting",
-          "layout_style": "2-column table"
-        },
-        {
-          "id": "examples",
+          "id": "content-blocks",
           "source_site": "Executive-Dashboards / output/testing-3",
-          "source_section_id": "example-row",
+          "source_section_id": "dashboard-wrapper",
           "source_type": "reference",
-          "repeat_count": 5,
-          "layout_style": "dashboard-wrapper zigzag, 55% ::before panels, border-radius 30px, NO clip-path, data-onscroll + zwe-om",
-          "blocks": [
-            "In-CRM Performance Dashboards",
-            "Deal Velocity Reports",
-            "Sales Forecasting Modules",
-            "Client Dashboards by Sales Tech Vendors",
-            "Internal Incentive Tracking"
-          ]
+          "repeat_count": 8,
+          "h2": "Sales Dashboard Examples by Type",
+          "layout_style": "zigzag alternating left/right, 55% ::before rectangle panels, border-radius 30px, NO clip-path, data-onscroll + zwe-om"
         },
         {
-          "id": "implement",
-          "source_site": "cloud-analytics-tools",
-          "source_section_id": "impl-steps",
+          "id": "one-click-cta",
+          "source_site": "Executive-Dashboards",
+          "source_section_id": "pre-banner-section",
           "source_type": "reference",
-          "repeat_count": 7,
-          "h2": "How to Implement Embedded Analytics in a CRM or Sales Application"
+          "banner_slot": "mid-cta",
+          "bg_treatment": "bg-white",
+          "h2": "Create these dashboards in one-click",
+          "cta": ["Build Sales Dashboards Now"]
         },
         {
           "id": "features",
-          "source_site": "cloud-analytics-tools",
-          "source_section_id": "feature-block",
+          "source_site": "Executive-Dashboards",
+          "source_section_id": "box-icon-section",
           "source_type": "reference",
-          "repeat_count": 7,
-          "h2": "Key Features for Embedded Sales Analytics"
+          "repeat_count": 6,
+          "h2": "Connect popular CRMs you already use",
+          "layout_style": "6 CRM integration cards"
         },
         {
-          "id": "customer-stories",
-          "source_site": "cloud-analytics-tools",
-          "source_section_id": "za-inner-testimonials",
+          "id": "steps",
+          "source_site": "Executive-Dashboards",
+          "source_section_id": "steps-section",
           "source_type": "reference",
-          "repeat_count": 2,
-          "blocks": [
-            "Ivan Carillo",
-            "Toni Wall"
-          ]
+          "repeat_count": 4,
+          "h2": "How to create sales dashboards using Zoho Analytics",
+          "layout_style": "tabbed auto-advance STEP 1–4"
         },
         {
           "id": "conclusion",
-          "source_site": "Reference-Site/Embedded Analytics",
-          "source_section_id": "pre-banner",
+          "source_site": "Reference-Site/Generative-ai",
+          "source_section_id": "pre-banner-section",
           "source_type": "reference",
-          "banner_slot": "inline-cta",
-          "bg_treatment": "dark-violet-closing",
-          "end_banner_id": "EB-05",
-          "html_modifier": "sep",
-          "cta": [
-            "Start Free Trial",
-            "Schedule a Demo"
-          ],
-          "adaptation_notes": "<section class=\"pre-banner pre-banner-section sep\" id=\"conclusion\"> EB-05 light text"
+          "banner_slot": "closing-cta",
+          "bg_treatment": "soft-mint-closing",
+          "end_banner_id": "EB-07",
+          "h2": "Ready to build your sales dashboard?",
+          "cta": ["START FOR FREE"],
+          "adaptation_notes": "#conclusion EB-07 dark text; reported-section injected immediately before by pipeline"
         },
         {
           "id": "faq",
           "source_site": "Executive-Dashboards",
           "source_section_id": "faq-section",
           "source_type": "reference",
-          "repeat_count": 9,
+          "repeat_count": 5,
           "child_class": "z-accordian",
-          "h2": "Frequently asked questions"
+          "h2": "FAQs"
         }
       ]
     }
   },
   "phase_6": {
     "status": "complete",
-    "output_path": "output/embedded-sales-4/",
+    "output_path": "output/testing-8/",
     "files_written": [
-      "output/embedded-sales-4/index.html",
-      "output/embedded-sales-4/style.css",
-      "output/embedded-sales-4/script.js"
+      "output/testing-8/index.html",
+      "output/testing-8/style.css",
+      "output/testing-8/script.js"
     ],
     "behaviors": [
-      "tabsection sticky TOC scrollspy (scrollY + headerHeight + 60)",
       "faq-section z-accordian toggle",
-      "dashboard-wrapper data-onscroll → zwe-om IntersectionObserver"
+      "dashboard-wrapper data-onscroll → zwe-om IntersectionObserver",
+      "steps-section tabbed auto-advance"
     ],
     "cta_strings_present": [
-      "Start Free Trial",
-      "Schedule a Demo"
+      "Explore Examples",
+      "Build Sales Dashboards Now",
+      "START FOR FREE"
     ],
     "section_classes_written": [
-      "banner",
-      "tabsection",
-      "comparison-table-section",
-      "example-row",
+      "banner-section",
       "dashboard-wrapper",
-      "impl-steps",
-      "feature-block",
-      "za-inner-testimonials",
-      "pre-banner",
       "pre-banner-section",
+      "box-icon-section",
+      "steps-section",
       "faq-section"
     ],
-    "approved": true,
+    "approved": false,
     "promoted": false,
-    "revise_rounds": 1,
-    "end_banner_id": "EB-05",
-    "structure_notes": "REVISE1: article body nested as .cont-sec inside #right-content (gold cloud-analytics — only banner+tabsection+faq top-level sections); comparison min-width 960px; zigzag+EB-05 unchanged"
+    "revise_rounds": 0,
+    "end_banner_id": "EB-07",
+    "structure_notes": "Composed dashboard-examples-landing-sales; no trusted brands / reported-section in agent output (pipeline injects); hero gradient ≠ mid white #one-click-cta ≠ EB-07 #conclusion soft mint; 8 zigzag rows gold testing-3 pattern; no focus rings"
   },
   "build_options": {
-    "trusted_brands": false,
-    "report_slider": false,
-    "end_banner_id": "EB-05"
+    "trusted_brands": true,
+    "report_slider": true,
+    "end_banner_id": "EB-07"
   }
 }
