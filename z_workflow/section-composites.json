@@ -540,7 +540,7 @@
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "embedded-sales-analytics": {
-      "description": "Long-form embedded analytics in sales guide — hero, sidebar TOC, comparison, examples, implementation steps, features, personas, benefits, testimonials, CTA, FAQ",
+      "description": "Long-form embedded analytics in sales guide — hero, ONE tabsection (all article .cont-sec nested), FAQ. Gold STRUCTURE: output/cloud-analytics (banner → tabsection → faq only).",
       "brief_signals": [
         "embedded analytics for sales",
         "embedded analytics in sales",
@@ -553,7 +553,7 @@
         "start free trial",
         "schedule a demo"
       ],
-      "writer_page_hints": "12 pages · ~19482 Chars. Sidebar-style long article. Customer Stories on page 8–9. 9 FAQs pages 9–11. No Dresner/testimonials marquee.",
+      "writer_page_hints": "12 pages · ~19482 Chars. ONE .tabsection holds ALL article .cont-sec (comparison/examples/steps/features/stories/CTA nested — NEVER sibling <section>s). Gold STRUCTURE: output/cloud-analytics (banner → tabsection → faq only). CSS: gold-snippets/article-toc-layout.css. Customer Stories on page 8–9. 9 FAQs pages 9–11. No Dresner/testimonials marquee.",
       "expected_page_count": 12,
       "required_strings": [
         "Embedded Analytics for Sales",
@@ -623,13 +623,13 @@
       },
       "section_order": [
         { "type": "hero", "class": "banner", "best": "collaborative-bi", "banner_slot": "hero", "bg_treatment": "dark-card-hero", "cta": "Start Free Trial" },
-        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "css_gold": "output/cloud-analytics", "pattern_notes": "COPY CSS from output/cloud-analytics. sticky left-tab 340px + cont-sec margin-left 100px; peach .banner INSIDE ul#tabs (scrolls with TOC); NEVER FAQ in TOC" },
-        { "type": "comparison", "class": "comparison-table-section", "best": "cloud-analytics-tools", "layout": "2-column" },
-        { "type": "content-blocks", "class": "example-row", "best": "sales-dashboard-examples", "repeat_from_brief": true, "block_count": 5, "layout": "zigzag" },
-        { "type": "steps", "class": "impl-steps", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7 },
-        { "type": "features", "class": "feature-block", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7 },
-        { "type": "testimonials", "class": "za-inner-testimonials", "best": "cloud-analytics-tools", "block_count": 2 },
-        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card", "cta": "Start Free Trial" },
+        { "type": "toc-content", "class": "tabsection", "best": "collaborative-bi", "css_gold": "output/cloud-analytics", "pattern_notes": "COPY CSS from output/cloud-analytics + gold-snippets/article-toc-layout.css. sticky left-tab 340px + cont-sec margin-left 100px; peach .banner LAST CHILD inside ul#tabs with copy \"Go from data to insights in minutes using Zoho Analytics\"; NEVER FAQ in TOC. Top-level roots ONLY: banner → tabsection → faq-section" },
+        { "type": "comparison", "class": "comparison-table", "best": "cloud-analytics-tools", "layout": "2-column", "pattern_notes": "NEST as .cont-sec .table-wrap > table (min-width 960px, overflow-x:auto on wrap) INSIDE #right-content — NEVER <section class=\"comparison-table-section\"> sibling" },
+        { "type": "content-blocks", "class": "example-row", "best": "sales-dashboard-examples", "repeat_from_brief": true, "block_count": 5, "layout": "zigzag", "pattern_notes": "NEST example-row / dashboard-wrapper zigzag rows as .cont-sec INSIDE #right-content — not a sibling section" },
+        { "type": "steps", "class": "impl-steps", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7, "pattern_notes": "NEST impl-steps as .cont-sec INSIDE #right-content" },
+        { "type": "features", "class": "feature-block", "best": "cloud-analytics-tools", "repeat_from_brief": true, "block_count": 7, "pattern_notes": "NEST feature-blocks as .cont-sec INSIDE #right-content" },
+        { "type": "testimonials", "class": "za-inner-testimonials", "best": "cloud-analytics-tools", "block_count": 2, "pattern_notes": "NEST customer stories as .cont-sec INSIDE #right-content" },
+        { "type": "cta", "class": "pre-banner", "best": "collaborative-bi", "banner_slot": "inline-cta", "bg_treatment": "inline-card", "cta": "Start Free Trial", "pattern_notes": "Closing CTA as .cont-sec#conclusion.pre-banner-section INSIDE #right-content (before faq) — never sibling <section> between tabsection and faq" },
         { "type": "faq", "class": "faq-section", "best": "Executive-Dashboards", "child_class": "z-accordian", "block_count": 9 }
       ],
       "cta_strings_required": [
@@ -643,7 +643,7 @@
         ".cont-sec { margin: 0 0 45px 100px; }"
       ],
       "output_inventory_checks": {
-        "required_classes": ["banner", "tabsection", "left-tab", "faq-section", "z-accordian"],
+        "required_classes": ["banner", "tabsection", "left-tab", "right-content", "faq-section", "z-accordian"],
         "min_cont_sec": 11,
         "require_article_toc_layout": true,
         "require_cta_visibility_override": true,
@@ -664,6 +664,7 @@
       "toc_layout_gold": "output/cloud-analytics",
       "toc_css_snippet": "z_workflow/gold-snippets/article-toc-layout.css",
       "gold_standard_outputs": [
+        "output/cloud-analytics",
         "output/embedded-sales-analytics"
       ],
       "primary_reference": "collaborative-bi",

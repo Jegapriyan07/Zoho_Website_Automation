@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\ai-powered-data-analytics-software-gem-1.txt",
+  "archetype": "comparison-guide",
+  "archetype_score": 12,
+  "required_found": [
+    "Try Zoho Analytics for free today",
+    "Start testing with your data",
+    "Start free trial",
+    "Join us - It's free to start",
+    "Step 1",
+    "Step 5",
+    "FAQs",
+    "tools at a glance"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 5,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "faq_count": 14,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 22002,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 5,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~7)"
+  ],
+  "validated_at": "2026-07-14T11:25:00.295Z"
+}

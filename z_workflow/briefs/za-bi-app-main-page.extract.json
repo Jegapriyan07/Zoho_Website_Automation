@@ -1,0 +1,64 @@
+{
+  "extracted_at": "2026-07-15T13:09:50.257Z",
+  "source_url": "https://writer.zoho.in/writer/open/u3ol53e26a8196b294ee6847bae16cdfa28e2",
+  "output_file": "z_workflow/briefs/build-mrm3b7zw.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "ZA BI APP Main Page",
+  "page_count": 3,
+  "footer_chars": 2970,
+  "merged_length": 3064,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 1714
+    },
+    {
+      "page": 2,
+      "len": 1222
+    },
+    {
+      "page": 3,
+      "len": 96
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Thin pages (may be lazy-loaded): 3",
+      "Writer float-image / section-reference blocks (12 found, 3 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 0,
+      "page_markers": [
+        2,
+        3
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 3064
+    }
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [
+      2,
+      3
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3065
+  },
+  "archetype_guess": null
+}

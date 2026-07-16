@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "description": "Closing end-banner (pre-FAQ / #conclusion) color treatments. Pick one per build — never reuse the same look on every page. Sources: Reference-Site + webtemplate live sections.",
+  "selection": {
+    "mode": "slug-hash",
+    "notes": "Deterministic rotate via page slug so each build gets a stable but varied type. Agency landings may prefer EB-01; dark BI may prefer EB-03/EB-05."
+  },
+  "types": [
+    {
+      "id": "EB-01",
+      "name": "soft-texture",
+      "label": "Soft textured band",
+      "bg_treatment": "texture-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/Marketing-Agencies",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/analytics-for-agencies.html",
+        "https://www.zoho.com/analytics/ai-powered-embedded-analytics.html"
+      ],
+      "css_markers": ["blue-shadow-with-texture", "--pre-banner-texture"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-color: #dce8ff;\nbackground-image:\n  radial-gradient(circle at 88% -20%, color-mix(in srgb, var(--color-primary) 18%, transparent) 0, transparent 55%),\n  radial-gradient(circle at 25% 130%, color-mix(in srgb, var(--color-secondary) 14%, transparent) 0, transparent 50%),\n  var(--pre-banner-texture);\nbackground-size: auto, auto, 100% auto;\nbackground-position: center;\nbackground-repeat: no-repeat;\npadding: 90px 0;\ntext-align: center;"
+    },
+    {
+      "id": "EB-02",
+      "name": "flat-neutral",
+      "label": "Clean flat #f8f9fc",
+      "bg_treatment": "flat-neutral",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/Executive-Dashboards",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/auto-reporting-tool.html",
+        "https://www.zoho.com/analytics/business-intelligence-reporting-tools.html"
+      ],
+      "css_markers": ["#f8f9fc"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background: #f8f9fc;\npadding: 90px 0;\ntext-align: center;"
+    },
+    {
+      "id": "EB-03",
+      "name": "dark-teal",
+      "label": "Dark teal gradient band",
+      "bg_treatment": "dark-gradient-closing",
+      "html_modifier": "banner-gradient",
+      "html_note": "Wrap closing content in .banner-gradient > .pre-banner OR style #conclusion with dark gradient + light text",
+      "text_color": "light",
+      "reference": "Reference-Site/RealTime-BI",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/bi-dashboard.html",
+        "https://www.zoho.com/analytics/dashboards.html"
+      ],
+      "css_markers": ["#053643", "#03242D", "linear-gradient(180deg"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-image: linear-gradient(180deg, #053643, #03242D);\ncolor: #fff;\npadding: 90px 0;\ntext-align: center;\n/* heading + body inherit light text */"
+    },
+    {
+      "id": "EB-04",
+      "name": "soft-theme-wash",
+      "label": "Soft theme color wash (no texture asset)",
+      "bg_treatment": "theme-wash-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/data visualization software",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/embed-api.html",
+        "https://www.zoho.com/analytics/embedded-analytics.html"
+      ],
+      "css_markers": ["radial-gradient", "background-color"],
+      "requires_any_marker": true,
+      "notes": "Use page --color-primary / --color-secondary in soft radials on a light base. Must NOT equal hero fingerprint. No blue-shadow texture required.",
+      "css_skeleton": "background-color: #eef5ff;\nbackground-image:\n  radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-primary) 22%, transparent) 0, transparent 45%),\n  radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0, transparent 50%);\npadding: 90px 0;\ntext-align: center;"
+    },
+    {
+      "id": "EB-05",
+      "name": "dark-violet",
+      "label": "Dark violet → navy closing",
+      "bg_treatment": "dark-violet-closing",
+      "html_modifier": "sep",
+      "text_color": "light",
+      "reference": "Reference-Site/Embedded Analytics",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/embedded-analytics-architecture.html",
+        "https://www.zoho.com/analytics/cloud-vs-on-prem-bi.html"
+      ],
+      "css_markers": ["#362546", "#050520"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-image: linear-gradient(135deg, #362546 0%, #050520 100%);\ncolor: #fff;\npadding: 90px 0;\ntext-align: center;"
+    },
+    {
+      "id": "EB-06",
+      "name": "warm-pastel",
+      "label": "Warm pastel diagonal (comparison light)",
+      "bg_treatment": "warm-pastel-closing",
+      "html_modifier": "light",
+      "text_color": "dark",
+      "reference": "Reference-Site/comparison page",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/business-intelligence-reporting-tools.html"
+      ],
+      "css_markers": ["rgba(248, 243, 192", "rgba(255, 218, 221", "linear-gradient(34deg"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-image: linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%);\npadding: 90px 0;\ntext-align: center;\n/* Add class \"light\" on section when matching comparison-page pattern */"
+    },
+    {
+      "id": "EB-07",
+      "name": "soft-mint",
+      "label": "Soft mint / cool green wash",
+      "bg_treatment": "soft-mint-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/Generative-ai",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/auto-reporting-tool.html"
+      ],
+      "css_markers": ["#e7f6f1", "#d4efe8"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-color: #e7f6f1;\nbackground-image:\n  radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),\n  radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);\npadding: 90px 0;\ntext-align: center;"
+    },
+    {
+      "id": "EB-08",
+      "name": "cool-lilac",
+      "label": "Cool lilac / periwinkle wash",
+      "bg_treatment": "cool-lilac-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/BI-Marketing",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/embedded-analytics.html"
+      ],
+      "css_markers": ["#ebe7ff", "#dfe9ff"],
+      "forbidden_on_same_page_as": [],
+      "css_skeleton": "background-color: #ebe7ff;\nbackground-image:\n  radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.18) 0, transparent 48%),\n  radial-gradient(circle at 85% 70%, rgba(14, 165, 233, 0.14) 0, transparent 50%);\npadding: 90px 0;\ntext-align: center;"
+    }
+  ],
+  "archetype_prefs": {
+    "agency-landing": ["EB-01", "EB-08", "EB-02"],
+    "ppc-agency-client-dashboard": ["EB-01", "EB-08", "EB-07"],
+    "dashboard-examples-landing": ["EB-02", "EB-04", "EB-07", "EB-08", "EB-06", "EB-01"],
+    "dashboard-examples-landing-sales": ["EB-04", "EB-02", "EB-08", "EB-07", "EB-06", "EB-01"],
+    "dashboard-examples-landing-finance": ["EB-07", "EB-02", "EB-04", "EB-08", "EB-01"],
+    "dashboard-examples-landing-hr": ["EB-08", "EB-02", "EB-07", "EB-04"],
+    "embedded-sales-analytics": ["EB-05", "EB-03", "EB-02"],
+    "comparison-guide": ["EB-06", "EB-02", "EB-04"],
+    "white-label-reporting-landing": ["EB-01", "EB-04", "EB-02"],
+    "integration-campaign": ["EB-03", "EB-05", "EB-01"],
+    "_default": ["EB-02", "EB-04", "EB-07", "EB-08", "EB-06", "EB-01", "EB-03", "EB-05"]
+  }
+}

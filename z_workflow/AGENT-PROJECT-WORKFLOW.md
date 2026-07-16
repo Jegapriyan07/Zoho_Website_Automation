@@ -316,9 +316,9 @@ Gold standard: `output/client-dashboard-software/style.css`
 
 ### 9.2 Pre-banner CTA bands
 
-Red CTAs before FAQ/page end must sit in `pre-banner-section` with textured/dark background — **not** plain white `za-bottom-section`.
+Red CTAs before FAQ/page end must sit in `#conclusion.pre-banner-section` with a catalogued end-banner treatment — **not** plain white `za-bottom-section`.
 
-Use `blue-shadow-with-texture.png` from `prezohoweb.zoho.com` for agency landings.
+Pick from `z_workflow/end-banner-types.json` (Phase 0 writes `state.similarity.end_banner`). Do not reuse the same texture/gradient on every build.
 
 Gold standards: `output/ppc-agency-client-dashboard`, `output/white-label-reporting`
 

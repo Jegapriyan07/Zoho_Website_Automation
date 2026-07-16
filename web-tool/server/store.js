@@ -204,7 +204,7 @@ export const Users = {
 // ── Runs ───────────────────────────────────────────────────────
 
 export const Runs = {
-  create({ user_id, writer_doc_url, slug, page_title, trusted_brands, template_id }) {
+  create({ user_id, writer_doc_url, slug, page_title, trusted_brands, report_slider, template_id }) {
     const rows = load('runs');
     const run = {
       id: newId('run'),
@@ -218,6 +218,7 @@ export const Runs = {
       revise_rounds: 0,
       approved: false,
       trusted_brands: trusted_brands === true, // whether to inject the brand marquee
+      report_slider: report_slider === true,   // whether to inject analysts quotes + ratings
       template_id: template_id || null,         // optional page-structure template hint
       created_at: now(),
       updated_at: now()

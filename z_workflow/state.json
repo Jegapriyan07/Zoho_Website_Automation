@@ -1,287 +1,353 @@
 {
-  "run_id": "run_bwkDzrPTCLW_",
-  "page_slug": "integration-page",
-  "writer_url": "https://writer.zoho.in/writer/open/3m0rq5f8713942bba431395723ec18a983f83",
+  "run_id": "run_embedded-sales-4",
+  "page_slug": "embedded-sales-4",
+  "writer_url": "https://writer.zoho.in/writer/open/pnptj713e7a0e930043d685e5e02458925cda",
   "writer_brief": {
-    "raw_content_file": "z_workflow/briefs/integration-page.txt",
-    "page_title": "integration page",
-    "page_type": "white-label-reporting-landing",
+    "raw_content_file": "z_workflow/briefs/embedded-sales-4.txt",
+    "page_title": "Embedded Analytics for Sales",
+    "page_type": "comparison-guide",
     "product_name": "Zoho Analytics",
-    "archetype": "integration-campaign-books",
+    "archetype": "embedded-sales-analytics",
     "sections_required": [
       "hero",
-      "key-features",
-      "build-steps",
-      "build-vs-buy",
-      "benefits",
-      "mid-cta",
-      "closing-cta",
+      "toc-content",
+      "comparison",
+      "content-blocks",
+      "steps",
+      "features",
+      "testimonials",
+      "cta",
       "faq"
     ],
-    "feature_count": 5,
-    "step_count": 6,
-    "build_option_count": 3,
-    "benefit_count": 4,
-    "faq_count": 3,
-    "char_count": 9940,
+    "feature_block_count": 7,
+    "faq_count": 9,
+    "step_count": 7,
+    "benefit_block_count": 4,
+    "example_row_count": 5,
+    "char_count": 21672,
     "source": "local-docx",
-    "source_url": "https://writer.zoho.in/writer/open/3m0rq5f8713942bba431395723ec18a983f83",
+    "source_url": "https://writer.zoho.in/writer/open/pnptj713e7a0e930043d685e5e02458925cda",
     "inventory": {
       "step_count": 0,
       "step_numbers": [],
-      "faq_count": 2,
+      "faq_count": 9,
       "page_markers": [
         2,
         3,
         4,
-        5
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ],
-      "image_placeholder_count": 0,
+      "image_placeholder_count": 7,
       "has_testimonials_heading": false,
       "has_see_all_testimonials": false,
       "has_dresner": false,
       "has_how_it_works": false,
       "rating_platforms": [],
-      "char_count": 10977,
-      "example_row_count": 0,
+      "char_count": 21672,
+      "example_row_count": 5,
       "example_row_missing": [],
-      "impl_step_count": 0,
+      "impl_step_count": 7,
       "impl_step_missing": [],
-      "feature_block_count": 0,
+      "feature_block_count": 7,
       "feature_block_missing": [],
-      "persona_block_count": 0,
+      "persona_block_count": 4,
       "persona_block_missing": [],
-      "benefit_block_count": 0,
+      "benefit_block_count": 4,
       "benefit_block_missing": [],
-      "customer_story_count": 0,
+      "customer_story_count": 2,
       "customer_story_missing": []
     }
   },
   "similarity": {
     "structure_mode": "compose",
-    "archetype": "integration-campaign-books",
-    "primary_source": "data visualization software",
+    "archetype": "embedded-sales-analytics",
+    "primary_source": "collaborative-bi",
     "source_map": [
       {
         "brief_section": "hero",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "banner-section",
+        "source_folder": "collaborative-bi",
+        "bem_class": "banner",
         "source_type": "reference",
-        "layout_style": "split text left, right-content dashboard preview with clip-path panel",
-        "bg_treatment": "dotted-texture",
-        "cta": "Book my Demo"
+        "layout_style": "H-06 dark-card split text left, image right",
+        "bg_treatment": "dark-card-hero",
+        "banner_slot": "hero",
+        "cta": "Start Free Trial"
       },
       {
-        "brief_section": "key-features",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "dashboard-wrapper",
+        "brief_section": "toc-content",
+        "source_folder": "collaborative-bi",
+        "bem_class": "tabsection",
         "source_type": "reference",
+        "css_gold": "output/cloud-analytics",
+        "layout_style": "sticky left-tab 340px + cont-sec margin-left 100px; peach banner inside ul#tabs; no FAQ in TOC"
+      },
+      {
+        "brief_section": "comparison",
+        "source_folder": "cloud-analytics-tools",
+        "bem_class": "comparison-table-section",
+        "source_type": "reference",
+        "layout_style": "2-column comparison table"
+      },
+      {
+        "brief_section": "content-blocks",
+        "source_folder": "Executive-Dashboards",
+        "bem_class": "example-row",
+        "source_type": "reference",
+        "layout_style": "dashboard-wrapper zigzag alternating left/right — NO clip-path, 55% panels, border-radius 30px",
         "repeat_count": 5,
-        "layout_style": "zigzag alternating text/image rows with plain rectangle panels (55% width, border-radius 30px, no clip-path)"
+        "adaptation_notes": "Section uses example-row + dashboard-wrapper; rows follow testing-3 gold zigzag"
       },
       {
-        "brief_section": "build-steps",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "steps-section",
+        "brief_section": "steps",
+        "source_folder": "cloud-analytics-tools",
+        "bem_class": "impl-steps",
         "source_type": "reference",
-        "repeat_count": 6,
-        "layout_style": "tabbed steps with auto-advance progress"
+        "repeat_count": 7,
+        "layout_style": "numbered implementation steps list"
       },
       {
-        "brief_section": "build-vs-buy",
-        "source_folder": "sales-dashboard-examples",
-        "bem_class": "box-icon-section",
+        "brief_section": "features",
+        "source_folder": "cloud-analytics-tools",
+        "bem_class": "feature-block",
         "source_type": "reference",
-        "repeat_count": 3,
-        "layout_style": "3-column comparison cards"
+        "repeat_count": 7,
+        "layout_style": "feature card grid"
       },
       {
-        "brief_section": "benefits",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "meet-section",
+        "brief_section": "testimonials",
+        "source_folder": "cloud-analytics-tools",
+        "bem_class": "za-inner-testimonials",
         "source_type": "reference",
-        "repeat_count": 4,
-        "layout_style": "2x2 benefit grid"
+        "repeat_count": 2,
+        "layout_style": "customer story quote cards"
       },
       {
-        "brief_section": "mid-cta",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "pre-banner-section",
+        "brief_section": "cta",
+        "source_folder": "Reference-Site/Embedded Analytics",
+        "bem_class": "pre-banner",
         "source_type": "reference",
-        "layout_style": "flat white mid-page CTA band",
-        "bg_treatment": "bg-white",
-        "cta": "Get a Price Quote"
-      },
-      {
-        "brief_section": "closing-cta",
-        "source_folder": "Marketing-Agencies",
-        "bem_class": "pre-banner-section",
-        "source_type": "reference",
-        "layout_style": "textured closing CTA band",
-        "bg_treatment": "texture-closing",
-        "cta": "Book my Demo"
+        "banner_slot": "inline-cta",
+        "bg_treatment": "dark-violet-closing",
+        "id": "conclusion",
+        "html_modifier": "sep",
+        "cta": "Start Free Trial",
+        "end_banner_id": "EB-05",
+        "adaptation_notes": "#conclusion.pre-banner-section.sep EB-05 dark violet→navy; light text; also carries pre-banner class for archetype"
       },
       {
         "brief_section": "faq",
         "source_folder": "Executive-Dashboards",
         "bem_class": "faq-section",
         "source_type": "reference",
-        "repeat_count": 3,
-        "child_class": "z-accordian"
+        "child_class": "z-accordian",
+        "repeat_count": 9,
+        "layout_style": "z-accordian accordion after closing CTA"
       }
-    ]
+    ],
+    "end_banner": {
+      "id": "EB-05",
+      "name": "dark-violet",
+      "label": "Dark violet → navy closing",
+      "bg_treatment": "dark-violet-closing",
+      "html_modifier": "sep",
+      "text_color": "light",
+      "reference": "Reference-Site/Embedded Analytics",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/embedded-analytics-architecture.html",
+        "https://www.zoho.com/analytics/cloud-vs-on-prem-bi.html"
+      ],
+      "css_markers": [
+        "#362546",
+        "#050520"
+      ],
+      "css_skeleton": "background-image: linear-gradient(135deg, #362546 0%, #050520 100%);\ncolor: #fff;\npadding: 90px 0;\ntext-align: center;",
+      "html_note": "",
+      "pool": [
+        "EB-05",
+        "EB-03",
+        "EB-02"
+      ]
+    }
   },
   "phase_1": {
     "status": "complete",
-    "team_flavour": "Zoho Books + Zoho Analytics integration campaign — Coupon page green radial banner-section hero, desk-connect-section two-column comparison, sampleDashboard-section dark slick carousel, threeSimpleSteps-section numbered timeline with SVG animated line, everything-opens-section 6-item icon grid on beige, testimonials-section placeholder marquee cards, recognition-cards-section 3 analyst cards, pre-banner-section pre-banner-cta textured closing band, z-accordian FAQ, brand red CTAs.",
+    "team_flavour": "Long-form embedded sales guide — H-06 dark-card hero on soft primary-bg; sticky article TOC with peach in-rail CTA; zigzag dashboard examples (no clip-path); closing EB-05 dark violet→navy on #conclusion with light text; brand CTA red immutable.",
     "design_tokens": {
-      "--color-primary": "#008EF5",
-      "--color-secondary": "#9914FF",
-      "--primary-color": "#008EF5",
-      "--secondary-color": "#9914FF",
+      "--color-primary": "#2C66DD",
+      "--color-secondary": "#008EF5",
+      "--primary-color": "#2C66DD",
+      "--secondary-color": "#008EF5",
       "--primary-font-color": "#262626",
       "--secondary-font-color": "#ffffff",
-      "--primary-bg": "#F5F3FF",
-      "--teritary-bg": "#F8F9FC",
+      "--primary-bg": "#eff1f5",
+      "--teritary-bg": "#f8f9fc",
       "--color-brand-cta": "#e42527",
       "--primary-btn-color": "#e42527",
-      "hero_bg": "green radial gradient banner-section with square-texture overlay — Coupon page pattern",
-      "comparison_bg": "white desk-connect-section two-column table with gold highlight border",
-      "carousel_bg": "#262626 dark sampleDashboard-section",
-      "features_bg": "#F9F6F0 everything-opens-section with slant dividers",
-      "closing_cta_bg": "pre-banner-cta dark green #005d40 with noise-bg texture overlay"
+      "--testimonial-peach-bg": "#FFF4E8",
+      "--testimonial-peach-border": "#F0DCC8",
+      "--testimonial-mint-bg": "#EEF8F4",
+      "--testimonial-mint-border": "#C8E8D8",
+      "hero_bg": "dark-card-hero — H-06 soft radials on #eff1f5 inset card",
+      "closing_cta_bg": "dark-violet-closing — EB-05 linear-gradient(135deg, #362546 0%, #050520 100%) on #conclusion.pre-banner-section (light text; no blue-shadow texture)"
     }
   },
   "phase_2": {
     "status": "complete",
     "webpage_blueprint": {
-      "page_slug": "integration-page",
-      "page_title": "Zoho Books + Zoho Analytics Integration | Zoho Analytics",
-      "archetype": "integration-campaign-books",
+      "page_slug": "embedded-sales-4",
+      "page_title": "Embedded Analytics for Sales | Zoho Analytics",
+      "archetype": "embedded-sales-analytics",
+      "structure": "banner → tabsection(#right-content nests comparison/example-row/impl-steps/feature-block/za-inner-testimonials/#conclusion as .cont-sec) → faq-section",
       "sections": [
         {
           "id": "hero",
-          "source_site": "Coupon page",
-          "source_section_id": "banner-section",
+          "source_site": "collaborative-bi",
+          "source_section_id": "banner",
           "source_type": "reference",
           "repeat_count": 1,
-          "layout_style": "centered hero with illustration below CTA",
-          "bg_treatment": "green-radial-texture",
-          "h1": "Turn your Zoho Books data into powerful financial insights",
-          "cta": "Claim my $100 credit"
+          "layout_style": "H-06 dark-card split text left, image right",
+          "bg_treatment": "dark-card-hero",
+          "banner_slot": "hero",
+          "h1": "Embedded Analytics for Sales",
+          "p": "Sales teams make decisions while pipelines, forecasts, and customer activity keep changing...",
+          "cta": [
+            "Start Free Trial"
+          ],
+          "adaptation_notes": "Top-level <section class=\"banner\">; CTA Start Free Trial"
+        },
+        {
+          "id": "toc-content",
+          "source_site": "collaborative-bi",
+          "source_section_id": "tabsection",
+          "source_type": "reference",
+          "css_gold": "output/cloud-analytics",
+          "repeat_count": 11,
+          "layout_style": "sticky 340px left-tab + cont-sec gutters; peach .banner inside ul#tabs; never FAQ in TOC",
+          "adaptation_notes": "11+ .cont-sec for inventory; article sections only in TOC"
         },
         {
           "id": "comparison",
-          "source_site": "Coupon page",
-          "source_section_id": "desk-connect-section",
+          "source_site": "cloud-analytics-tools",
+          "source_section_id": "comparison-table-section",
           "source_type": "reference",
-          "repeat_count": 1,
-          "layout_style": "two-column comparison table",
-          "h2": "Zoho Books tracks your finance. Zoho Analytics tells you what to do about them."
+          "h2": "Embedded Analytics vs Traditional Sales Reporting",
+          "layout_style": "2-column table"
         },
         {
-          "id": "carousel",
-          "source_site": "Coupon page",
-          "source_section_id": "sampleDashboard-section",
+          "id": "examples",
+          "source_site": "Executive-Dashboards / output/testing-3",
+          "source_section_id": "example-row",
           "source_type": "reference",
-          "repeat_count": 4,
-          "layout_style": "slick centerMode carousel on dark band",
-          "h2": "What your Zoho Books data looks like inside Zoho Analytics"
+          "repeat_count": 5,
+          "layout_style": "dashboard-wrapper zigzag, 55% ::before panels, border-radius 30px, NO clip-path, data-onscroll + zwe-om",
+          "blocks": [
+            "In-CRM Performance Dashboards",
+            "Deal Velocity Reports",
+            "Sales Forecasting Modules",
+            "Client Dashboards by Sales Tech Vendors",
+            "Internal Incentive Tracking"
+          ]
         },
         {
-          "id": "steps",
-          "source_site": "Coupon page",
-          "source_section_id": "threeSimpleSteps-section",
+          "id": "implement",
+          "source_site": "cloud-analytics-tools",
+          "source_section_id": "impl-steps",
           "source_type": "reference",
-          "repeat_count": 3,
-          "layout_style": "numbered steps timeline with SVG animated line",
-          "h2": "Connected and live in under an hour."
+          "repeat_count": 7,
+          "h2": "How to Implement Embedded Analytics in a CRM or Sales Application"
         },
         {
           "id": "features",
-          "source_site": "Coupon page",
-          "source_section_id": "everything-opens-section",
+          "source_site": "cloud-analytics-tools",
+          "source_section_id": "feature-block",
           "source_type": "reference",
-          "repeat_count": 6,
-          "layout_style": "3-column icon grid on beige background",
-          "h2": "Everything that opens up once you connect Zoho Books."
+          "repeat_count": 7,
+          "h2": "Key Features for Embedded Sales Analytics"
         },
         {
-          "id": "testimonials",
-          "source_site": "Coupon page",
-          "source_section_id": "testimonials-section",
+          "id": "customer-stories",
+          "source_site": "cloud-analytics-tools",
+          "source_section_id": "za-inner-testimonials",
           "source_type": "reference",
-          "repeat_count": 3,
-          "layout_style": "placeholder marquee cards — INSERT TESTIMONIALS HERE",
-          "h2": "What teams are saying after connecting."
+          "repeat_count": 2,
+          "blocks": [
+            "Ivan Carillo",
+            "Toni Wall"
+          ]
         },
         {
-          "id": "recognition",
-          "source_site": "Coupon page",
-          "source_section_id": "recognition-cards-section",
+          "id": "conclusion",
+          "source_site": "Reference-Site/Embedded Analytics",
+          "source_section_id": "pre-banner",
           "source_type": "reference",
-          "repeat_count": 3,
-          "layout_style": "3 recognition cards row"
-        },
-        {
-          "id": "cta",
-          "source_site": "Coupon page",
-          "source_section_id": "pre-banner-section",
-          "source_type": "reference",
-          "repeat_count": 1,
-          "layout_style": "pre-banner-cta textured closing band",
-          "bg_treatment": "texture-closing-green",
-          "element_id": "conclusion",
-          "h2": "Get $100 in credits. Have your first reports running today.",
-          "cta": "Claim my $100 credit"
+          "banner_slot": "inline-cta",
+          "bg_treatment": "dark-violet-closing",
+          "end_banner_id": "EB-05",
+          "html_modifier": "sep",
+          "cta": [
+            "Start Free Trial",
+            "Schedule a Demo"
+          ],
+          "adaptation_notes": "<section class=\"pre-banner pre-banner-section sep\" id=\"conclusion\"> EB-05 light text"
         },
         {
           "id": "faq",
-          "source_site": "Coupon page",
+          "source_site": "Executive-Dashboards",
           "source_section_id": "faq-section",
           "source_type": "reference",
-          "repeat_count": 6,
-          "layout_style": "z-accordian accordion",
+          "repeat_count": 9,
           "child_class": "z-accordian",
-          "h2": "FAQs from your Zoho Books peers"
+          "h2": "Frequently asked questions"
         }
       ]
     }
   },
   "phase_6": {
     "status": "complete",
-    "output_path": "output/integration-page/",
+    "output_path": "output/embedded-sales-4/",
     "files_written": [
-      "output/integration-page/index.html",
-      "output/integration-page/style.css",
-      "output/integration-page/script.js"
+      "output/embedded-sales-4/index.html",
+      "output/embedded-sales-4/style.css",
+      "output/embedded-sales-4/script.js"
     ],
     "behaviors": [
-      "sampleDashboard-section slick centerMode carousel",
-      "threeSimpleSteps-section IntersectionObserver animated SVG line",
+      "tabsection sticky TOC scrollspy (scrollY + headerHeight + 60)",
       "faq-section z-accordian toggle",
-      "testimonials-section marquee animation"
+      "dashboard-wrapper data-onscroll → zwe-om IntersectionObserver"
     ],
     "cta_strings_present": [
-      "Claim my $100 credit"
+      "Start Free Trial",
+      "Schedule a Demo"
     ],
     "section_classes_written": [
-      "banner-section",
-      "desk-connect-section",
-      "sampleDashboard-section",
-      "threeSimpleSteps-section",
-      "everything-opens-section",
-      "testimonials-section",
-      "recognition-cards-section",
+      "banner",
+      "tabsection",
+      "comparison-table-section",
+      "example-row",
+      "dashboard-wrapper",
+      "impl-steps",
+      "feature-block",
+      "za-inner-testimonials",
+      "pre-banner",
       "pre-banner-section",
       "faq-section"
     ],
     "approved": true,
     "promoted": false,
-    "revise_rounds": 0,
-    "revise_notes": ""
+    "revise_rounds": 1,
+    "end_banner_id": "EB-05",
+    "structure_notes": "REVISE1: article body nested as .cont-sec inside #right-content (gold cloud-analytics — only banner+tabsection+faq top-level sections); comparison min-width 960px; zigzag+EB-05 unchanged"
   },
   "build_options": {
-    "trusted_brands": true
+    "trusted_brands": false,
+    "report_slider": false,
+    "end_banner_id": "EB-05"
   }
 }

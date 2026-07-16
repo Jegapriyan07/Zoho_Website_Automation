@@ -1,0 +1,34 @@
+{
+  "extracted_at": "2026-07-14T07:31:15.042Z",
+  "source_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\docx-uploads\\upload-1784014274786.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrkc1cej.txt",
+  "extraction_method": "docx",
+  "page_count": 1,
+  "merged_length": 5745,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 5,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 5786
+  },
+  "archetype_guess": "dashboard-examples-landing-finance",
+  "writer_doc_title": "writer-test-finance-dashboard-examples"
+}

@@ -1,0 +1,122 @@
+{
+  "extracted_at": "2026-07-14T13:04:51.692Z",
+  "source_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
+  "output_file": "z_workflow/briefs/build-mrknm9sh.txt",
+  "user_data_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\chrome-profiles\\user_5Blo74cyWOQY",
+  "writer_doc_title": "testing",
+  "page_count": 10,
+  "footer_chars": 298,
+  "merged_length": 7926,
+  "per_page_lengths": [
+    {
+      "page": 1,
+      "len": 771
+    },
+    {
+      "page": 2,
+      "len": 804
+    },
+    {
+      "page": 3,
+      "len": 1093
+    },
+    {
+      "page": 4,
+      "len": 1276
+    },
+    {
+      "page": 5,
+      "len": 769
+    },
+    {
+      "page": 6,
+      "len": 691
+    },
+    {
+      "page": 7,
+      "len": 678
+    },
+    {
+      "page": 8,
+      "len": 679
+    },
+    {
+      "page": 9,
+      "len": 810
+    },
+    {
+      "page": 10,
+      "len": 115
+    },
+    {
+      "page": 11,
+      "len": 78
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "Thin pages (may be lazy-loaded): 10, 11",
+      "Writer float-image / section-reference blocks (40 found, 10 hydrated) — embedded images/sections may be missing from extract. Open doc in Edit mode if content looks thin."
+    ],
+    "errors": [],
+    "inventory": {
+      "step_count": 4,
+      "step_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "faq_count": 6,
+      "page_markers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 7926
+    }
+  },
+  "inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 6,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 7927
+  },
+  "archetype_guess": "dashboard-examples-landing-sales"
+}

@@ -30,12 +30,23 @@ export function registerApiRoutes(app) {
 
   // ── New build ────────────────────────────────────────────────
   api.post('/runs', (req, res) => {
-    const { writer_doc_url, trusted_brands, template_id } = req.body || {};
+    const { writer_doc_url, trusted_brands, report_slider, template_id } = req.body || {};
     if (!writer_doc_url || !isWriterUrl(writer_doc_url)) {
       return res.status(400).json({ error: 'invalid_writer_url', message: 'Provide a writer.zoho.* document URL.' });
     }
-    const run = Runs.create({ user_id: req.user.id, writer_doc_url, trusted_brands: trusted_brands === true, template_id: template_id || null });
-    RunEvents.append(run.id, 'system', 'run_created', { writer_doc_url, trusted_brands: run.trusted_brands, template_id: run.template_id });
+    const run = Runs.create({
+      user_id: req.user.id,
+      writer_doc_url,
+      trusted_brands: trusted_brands === true,
+      report_slider: report_slider === true,
+      template_id: template_id || null
+    });
+    RunEvents.append(run.id, 'system', 'run_created', {
+      writer_doc_url,
+      trusted_brands: run.trusted_brands,
+      report_slider: run.report_slider,
+      template_id: run.template_id
+    });
     // Kick off async; console streams via SSE.
     setImmediate(() => startRun(run.id));
     res.status(201).json({ run });
@@ -60,7 +71,7 @@ export function registerApiRoutes(app) {
 
   // ── DOCX file upload build ───────────────────────────────
   // POST /api/runs/docx  multipart/form-data  field: "docx"
-  // Optional text fields: trusted_brands ("true"), doc_title
+  // Optional text fields: trusted_brands ("true"), report_slider ("true"), doc_title
   api.post('/runs/docx', async (req, res) => {
     try {
       const upload = await parseMultipart(req, { maxBytes: 52_428_800 });
@@ -70,6 +81,7 @@ export function registerApiRoutes(app) {
       }
 
       const trusted_brands = upload.fields?.trusted_brands === 'true';
+      const report_slider = upload.fields?.report_slider === 'true';
       const template_id = upload.fields?.template_id || null;
       const docTitle = upload.fields?.doc_title || path.basename(upload.originalname, '.docx');
 
@@ -84,12 +96,14 @@ export function registerApiRoutes(app) {
         user_id: req.user.id,
         writer_doc_url: `docx://${upload.originalname}`,
         trusted_brands,
+        report_slider,
         template_id
       });
       RunEvents.append(run.id, 'system', 'run_created', {
         writer_doc_url: `docx://${upload.originalname}`,
         source: 'docx_upload',
         trusted_brands,
+        report_slider,
         template_id
       });
 

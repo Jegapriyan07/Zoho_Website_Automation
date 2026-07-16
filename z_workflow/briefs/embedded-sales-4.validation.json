@@ -1,0 +1,62 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\embedded-sales-4.txt",
+  "archetype": "embedded-sales-analytics",
+  "archetype_score": 20,
+  "required_found": [
+    "Embedded Analytics for Sales",
+    "What Is Embedded Analytics in Sales?",
+    "Embedded Analytics vs Traditional Sales Reporting",
+    "Examples of Embedded Analytics in Sales",
+    "How to Implement Embedded Analytics in a CRM or Sales Application",
+    "Key Features for Embedded Sales Analytics",
+    "Customer Stories",
+    "Start Free Trial",
+    "Schedule a Demo",
+    "Frequently asked questions"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 5,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "image_placeholder_count": 7,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 21672,
+    "example_row_count": 5,
+    "example_row_missing": [],
+    "impl_step_count": 7,
+    "impl_step_missing": [],
+    "feature_block_count": 7,
+    "feature_block_missing": [],
+    "persona_block_count": 4,
+    "persona_block_missing": [],
+    "benefit_block_count": 4,
+    "benefit_block_missing": [],
+    "customer_story_count": 2,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [
+    "Fewer FAQ items than template (found 5, template ~9) — composing what the doc contains",
+    "Only 11 --- PAGE N --- markers (expected ~12)"
+  ],
+  "validated_at": "2026-07-15T12:14:11.188Z"
+}

@@ -2,16 +2,16 @@
   "pass": true,
   "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\cloud-analytics-tools.txt",
   "archetype": "comparison-guide",
-  "archetype_score": 14,
+  "archetype_score": 16,
   "required_found": [
-    "Cloud Analytics Tools Guide for 2026",
     "Try Zoho Analytics for free today",
     "Start testing with your data",
     "Start free trial",
     "Join us - It's free to start",
     "Step 1",
     "Step 5",
-    "FAQs"
+    "FAQs",
+    "tools at a glance"
   ],
   "required_missing": [],
   "inventory": {
@@ -64,5 +64,5 @@
   },
   "errors": [],
   "warnings": [],
-  "validated_at": "2026-07-07T07:47:32.348Z"
+  "validated_at": "2026-07-14T11:25:01.001Z"
 }

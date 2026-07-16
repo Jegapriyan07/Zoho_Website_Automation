@@ -67,7 +67,9 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
     composite?.section_order?.some((s) => s.class === 'tabsection' || s.type === 'toc-content')
   );
   const nestArticleInTabsection =
-    hasTabsection || archetype === 'comparison-guide';
+    hasTabsection ||
+    archetype === 'comparison-guide' ||
+    archetype === 'embedded-sales-analytics';
 
   if (archetype && composite?.section_order?.length) {
     base.push('');

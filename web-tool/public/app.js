@@ -503,24 +503,35 @@ function renderNewBuild(el) {
       <!-- Step 3: Build Actions -->
       <div class="step-section build-step">
         <h3 class="step-title">3. Build your page</h3>
-        
-        <!-- URL Action Buttons -->
+
+        <div class="build-options" role="group" aria-label="Optional inject blocks">
+          <label class="build-option" title="Inject animated brand logo marquee after hero">
+            <input type="checkbox" id="opt-trusted-brands" />
+            <span class="build-option-text">
+              <strong>★ Trusted Brands</strong>
+              <small>Logo marquee + customer counts after hero</small>
+            </span>
+          </label>
+          <label class="build-option" title="Inject empty analysts quotes + ratings shell before closing CTA">
+            <input type="checkbox" id="opt-report-slider" />
+            <span class="build-option-text">
+              <strong>★ Report Slider</strong>
+              <small>Black/white placeholder shell before Ready to build… banner</small>
+            </span>
+          </label>
+        </div>
+
+        <!-- URL Action Button -->
         <div id="actions-url" class="build-btn-group">
-          <button class="build-btn build-btn-brands" id="go-brands" title="Include animated brand logo marquee after hero">
-            ★ Build with Trusted Brands
-          </button>
-          <button class="build-btn build-btn-plain" id="go-plain">
-            Build without Trusted Brands
+          <button class="build-btn build-btn-brands" id="go-build" title="Start build with selected options">
+            Build page
           </button>
         </div>
 
-        <!-- DOCX Action Buttons -->
+        <!-- DOCX Action Button -->
         <div id="actions-docx" class="build-btn-group" style="display:none">
-          <button class="build-btn build-btn-brands" id="go-brands-docx" title="Include animated brand logo marquee after hero" disabled>
-            ★ Build with Trusted Brands
-          </button>
-          <button class="build-btn build-btn-plain" id="go-plain-docx" disabled>
-            Build without Trusted Brands
+          <button class="build-btn build-btn-brands" id="go-build-docx" title="Start build with selected options" disabled>
+            Build page
           </button>
         </div>
       </div>
@@ -588,39 +599,50 @@ function renderNewBuild(el) {
   // ── Writer URL flow ────────────────────────────
   const input    = document.getElementById('writer-url');
   const err      = document.getElementById('url-err');
-  const goBrands = document.getElementById('go-brands');
-  const goPlain  = document.getElementById('go-plain');
+  const goBuild  = document.getElementById('go-build');
+  const optTb    = document.getElementById('opt-trusted-brands');
+  const optRs    = document.getElementById('opt-report-slider');
 
-  const startBuild = async (trusted_brands) => {
+  const readBuildOptions = () => ({
+    trusted_brands: Boolean(optTb?.checked),
+    report_slider: Boolean(optRs?.checked)
+  });
+
+  const startBuild = async () => {
     err.textContent = '';
     const url = input.value.trim();
     if (!/writer\.zoho\./i.test(url)) { err.textContent = 'Enter a valid writer.zoho.* document URL.'; return; }
-    goBrands.disabled = true; goPlain.disabled = true;
-    goBrands.textContent = trusted_brands ? 'Starting…' : '★ Build with Trusted Brands';
-    goPlain.textContent  = trusted_brands ? 'Build without Trusted Brands' : 'Starting…';
+    const opts = readBuildOptions();
+    goBuild.disabled = true;
+    goBuild.textContent = 'Starting…';
     try {
-      const { run } = await api('/api/runs', { method: 'POST', body: { writer_doc_url: url, trusted_brands, template_id: state.selectedTemplate } });
+      const { run } = await api('/api/runs', {
+        method: 'POST',
+        body: {
+          writer_doc_url: url,
+          trusted_brands: opts.trusted_brands,
+          report_slider: opts.report_slider,
+          template_id: state.selectedTemplate
+        }
+      });
       state.runs.unshift(run);
       openRun(run.id);
     } catch (e) {
       err.textContent = e.data?.message || 'Failed to start build.';
-      goBrands.disabled = false; goPlain.disabled = false;
-      goBrands.textContent = '★ Build with Trusted Brands';
-      goPlain.textContent  = 'Build without Trusted Brands';
+      goBuild.disabled = false;
+      goBuild.textContent = 'Build page';
     }
   };
 
-  goBrands.onclick = () => startBuild(true);
-  goPlain.onclick  = () => startBuild(false);
-  input.onkeydown  = (e) => { if (e.key === 'Enter') startBuild(false); };
+  goBuild.onclick = () => startBuild();
+  input.onkeydown  = (e) => { if (e.key === 'Enter') startBuild(); };
 
   // ── DOCX upload flow ───────────────────────────
   const zone         = document.getElementById('upload-zone');
   const fileInput    = document.getElementById('docx-file');
   const fileLabel    = document.getElementById('upload-filename');
   const docxErr      = document.getElementById('docx-err');
-  const goBrandsDocx = document.getElementById('go-brands-docx');
-  const goPlainDocx  = document.getElementById('go-plain-docx');
+  const goBuildDocx  = document.getElementById('go-build-docx');
 
   let selectedFile = null;
 
@@ -628,7 +650,7 @@ function renderNewBuild(el) {
     if (!f || !f.name.toLowerCase().endsWith('.docx')) {
       docxErr.textContent = 'Please select a .docx file.';
       selectedFile = null;
-      goBrandsDocx.disabled = true; goPlainDocx.disabled = true;
+      goBuildDocx.disabled = true;
       fileLabel.textContent = '';
       zone.classList.remove('has-file');
       return;
@@ -637,7 +659,7 @@ function renderNewBuild(el) {
     docxErr.textContent = '';
     fileLabel.textContent = `📄 ${f.name} (${(f.size / 1024).toFixed(0)} KB)`;
     zone.classList.add('has-file');
-    goBrandsDocx.disabled = false; goPlainDocx.disabled = false;
+    goBuildDocx.disabled = false;
   }
 
   zone.onclick = () => fileInput.click();
@@ -652,17 +674,18 @@ function renderNewBuild(el) {
     setFile(e.dataTransfer.files[0]);
   };
 
-  const startDocxBuild = async (trusted_brands) => {
+  const startDocxBuild = async () => {
     if (!selectedFile) { docxErr.textContent = 'Choose a .docx file first.'; return; }
     docxErr.textContent = '';
-    goBrandsDocx.disabled = true; goPlainDocx.disabled = true;
-    goBrandsDocx.textContent = trusted_brands ? 'Uploading…' : '★ Build with Trusted Brands';
-    goPlainDocx.textContent  = trusted_brands ? 'Build without Trusted Brands' : 'Uploading…';
+    const opts = readBuildOptions();
+    goBuildDocx.disabled = true;
+    goBuildDocx.textContent = 'Uploading…';
 
     try {
       const fd = new FormData();
       fd.append('docx', selectedFile, selectedFile.name);
-      fd.append('trusted_brands', trusted_brands ? 'true' : 'false');
+      fd.append('trusted_brands', opts.trusted_brands ? 'true' : 'false');
+      fd.append('report_slider', opts.report_slider ? 'true' : 'false');
       fd.append('doc_title', selectedFile.name.replace(/\.docx$/i, ''));
       if (state.selectedTemplate) fd.append('template_id', state.selectedTemplate);
 
@@ -674,14 +697,12 @@ function renderNewBuild(el) {
       openRun(data.run.id);
     } catch (e) {
       docxErr.textContent = e.data?.message || e.message || 'Upload failed.';
-      goBrandsDocx.disabled = false; goPlainDocx.disabled = false;
-      goBrandsDocx.textContent = '★ Build with Trusted Brands';
-      goPlainDocx.textContent  = 'Build without Trusted Brands';
+      goBuildDocx.disabled = false;
+      goBuildDocx.textContent = 'Build page';
     }
   };
 
-  goBrandsDocx.onclick = () => startDocxBuild(true);
-  goPlainDocx.onclick  = () => startDocxBuild(false);
+  goBuildDocx.onclick = () => startDocxBuild();
 
   // ── Recent runs list ───────────────────────────
   const recent = document.getElementById('recent-list');
@@ -689,6 +710,7 @@ function renderNewBuild(el) {
     <div class="thread" data-id="${r.id}" style="margin-top:8px">
       <div class="t-title">${esc(r.page_title || r.slug || 'Untitled')}${
         r.trusted_brands ? ' <span class="chip tb-chip">Trusted Brands</span>' : ''}${
+        r.report_slider ? ' <span class="chip rs-chip">Report Slider</span>' : ''}${
         r.writer_doc_url?.startsWith('docx://') ? ' <span class="chip docx-chip">DOCX</span>' : ''}${
         r.template_id ? ` <span class="chip tpl-chip">📐 ${esc(TEMPLATES.find((t)=>t.id===r.template_id)?.name||r.template_id)}</span>` : ''}</div>
       <div class="t-meta"><span class="chip ${r.status}">${r.status.replace(/_/g, ' ')}</span><span>${fmtTime(r.created_at)}</span></div>
@@ -811,6 +833,7 @@ function renderRun(el) {
         <h2>${esc(run.page_title || run.slug || 'Building…')}</h2>
         <div class="url">${esc(run.writer_doc_url)}</div>
         ${run.trusted_brands ? '<span class="chip tb-chip" title="Trusted brands marquee will be injected after the hero section">★ Trusted Brands</span>' : ''}
+        ${run.report_slider ? '<span class="chip rs-chip" title="Empty report-slider shell injected before closing Ready to build banner">★ Report Slider</span>' : ''}
         ${run.template_id ? `<span class="chip tpl-chip" title="Built with ${esc(TEMPLATES.find((t)=>t.id===run.template_id)?.name||run.template_id)} template">📐 ${esc(TEMPLATES.find((t)=>t.id===run.template_id)?.name||run.template_id)}</span>` : ''}
       </div>
       <span class="chip ${run.status}">${run.status.replace(/_/g, ' ')}</span>

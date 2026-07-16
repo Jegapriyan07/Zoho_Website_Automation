@@ -67,6 +67,12 @@ const commands = [
     desc: 'Gate output HTML/CSS against archetype block counts, CTAs, banner_slot diversity, mandatory CSS. Writes validation.json with banner_audit.'
   },
   {
+    id: 'select-end-banner',
+    cmd: 'node z_workflow/scripts/select-end-banner.mjs --slug <page-slug> --archetype <id>',
+    npm: 'npm run select:end-banner -- --slug testing-5 --archetype dashboard-examples-landing-sales',
+    desc: 'Pick closing end-banner type (EB-01…EB-08) from end-banner-types.json — deterministic by slug, archetype pool aware.'
+  },
+  {
     id: 'promote-state',
     cmd: 'node z_workflow/scripts/promote-output.mjs --from-state',
     npm: 'npm run promote -- --from-state',

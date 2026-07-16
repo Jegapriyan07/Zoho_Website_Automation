@@ -1,0 +1,528 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Global typography and utilities */
+.page-container h2 {
+    font-size: 32px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+}
+
+.page-container h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.p-90 { padding: 90px 0; }
+.title-desc {
+    font-size: 20px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+:root {
+    --color-primary: #5B6CFF;
+    --color-secondary: #9914FF;
+    --primary-color: #5B6CFF;
+    --secondary-color: #9914FF;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #F8F9FC;
+    --teritary-bg: #f8f9fc;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+    --pre-banner-texture: url('https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png');
+}
+
+/* CTA visibility override — zohocustom hides .act-btn until team nav loads */
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 16px;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    opacity: 0.92;
+}
+
+.page-container .cta-btn.act-btn:focus {
+    outline: 2px solid var(--primary-btn-color);
+    outline-offset: 2px;
+}
+
+/* Hero — Marketing-Agencies gradient banner */
+.banner {
+    background-color: var(--primary-bg);
+}
+
+.banner .banner-bg {
+    margin-top: -68px;
+    position: relative;
+    margin-inline: 40px;
+    border-radius: 0 0 100px 100px;
+    background-image: linear-gradient(115deg, rgba(203, 214, 255, 1) 0%, rgba(217, 208, 255, 1) 0%, rgba(255, 244, 212, 1) 100%);
+    padding: 120px 0 90px;
+}
+
+.banner-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 100px 100px;
+    opacity: 0.1;
+}
+
+.banner .content-wrap {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.banner .banner-main {
+    gap: 50px;
+    line-height: 0;
+}
+
+.banner .left-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.banner .left-wrapper .main-wrap {
+    max-width: 638px;
+    line-height: normal;
+}
+
+.banner .left-wrapper p {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.banner .right-wrapper {
+    width: 48%;
+    text-align: end;
+}
+
+.banner .right-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.banner-cta-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.banner .cta-btn.act-btn {
+    margin-top: 0;
+}
+
+/* Agency intro — centered pitch */
+.agency-intro-section .content-wrap {
+    max-width: 940px;
+}
+
+.agency-intro-section h2 {
+    margin-bottom: 20px;
+}
+
+.agency-intro-section .title-desc {
+    max-width: 860px;
+}
+
+/* Dashboard zigzag — plain rectangle panels, no clip-path */
+.dashboard-wrapper {
+    background: #ffffff;
+    color: var(--primary-font-color);
+}
+
+.dashboard-wrapper .main-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 100px 0;
+    margin-bottom: 50px;
+    gap: 40px;
+}
+
+.dashboard-wrapper .main-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.dashboard-wrapper .main-wrapper.right-content::before {
+    content: "";
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    z-index: 0;
+    background: var(--teritary-bg);
+    border-radius: 30px;
+    right: 0;
+    top: 0;
+}
+
+.dashboard-wrapper .main-wrapper.left-content::before {
+    content: "";
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    z-index: 0;
+    background: var(--teritary-bg);
+    border-radius: 30px;
+    left: 0;
+    top: 0;
+}
+
+.dashboard-wrapper .main-wrapper .image-wrapper {
+    width: 55%;
+    z-index: 1;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper.right-content .image-wrapper {
+    transform: translateX(30px);
+}
+
+.dashboard-wrapper .main-wrapper.left-content .image-wrapper {
+    transform: translateX(-30px);
+}
+
+.dashboard-wrapper .main-wrapper.right-content.zwe-om .image-wrapper,
+.dashboard-wrapper .main-wrapper.left-content.zwe-om .image-wrapper {
+    transform: translateX(0);
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper {
+    width: 45%;
+    padding: 0 30px;
+    z-index: 1;
+    transform: translateY(20px);
+    transition: 1s ease-in-out;
+}
+
+.dashboard-wrapper .main-wrapper.zwe-om .content-wrapper {
+    transform: translateY(0);
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper h3 {
+    margin: 0 0 20px;
+}
+
+.dashboard-wrapper .main-wrapper .content-wrapper p {
+    margin-bottom: 10px;
+}
+
+.dashboard-wrapper .main-wrapper .dashboard-image {
+    border: 5px solid #000;
+    border-radius: 20px;
+    max-width: 560px;
+    min-height: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.dashboard-wrapper .feature-list {
+    margin: 8px 0 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.dashboard-wrapper .feature-list li {
+    margin-bottom: 8px;
+}
+
+/* CTA intro — heading + body only */
+.cta-intro-section .content-wrap {
+    max-width: 860px;
+    text-align: center;
+}
+
+.cta-intro-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Closing CTA — textured pre-banner (distinct from hero gradient) */
+.pre-banner-section {
+    text-align: center;
+    background-color: #dce8ff;
+    background-image:
+        radial-gradient(circle at 88% -20%, rgba(26, 86, 219, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 25% 130%, rgba(14, 116, 144, 0.14) 0, transparent 50%),
+        var(--pre-banner-texture);
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+    background-size: cover, cover, 100% auto;
+}
+
+.pre-banner-section .cta-btn-wrap {
+    margin-top: 8px;
+}
+
+.pre-banner-section .cta-btn.act-btn {
+    margin-top: 20px;
+}
+
+.pre-banner-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+}
+
+.pre-banner-section ul li {
+    display: inline-block;
+}
+
+.pre-banner-section ul li:not(:last-child) {
+    margin-right: 8px;
+}
+
+/* FAQ accordion */
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.faq-section h2 {
+    text-align: center;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.z-accordianBox h4:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4::before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active::before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 25px 0;
+    display: none;
+    margin: 0;
+}
+
+.z-accordianBox > ul > li {
+    list-style: none;
+}
+
+/* Responsive — 1240 · 1080 · 991 · 767 · 565 · 480 · 350 */
+@media (max-width: 1240px) {
+    .dashboard-wrapper .main-wrapper.right-content::before,
+    .dashboard-wrapper .main-wrapper.left-content::before {
+        width: 55%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 1080px) {
+    .banner .banner-bg {
+        margin-inline: 24px;
+        padding: 100px 0 70px;
+    }
+
+    .banner .banner-main {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h2 { font-size: 26px; }
+    .page-container h3 { font-size: 18px; }
+    .page-container p,
+    .page-container li { font-size: 15px; }
+    .title-desc { font-size: 17px; }
+
+    .banner .banner-bg {
+        border-radius: 0 0 60px 60px;
+        padding: 90px 0 60px;
+    }
+
+    .banner-bg::before {
+        border-radius: 0 0 60px 60px;
+    }
+
+    .banner .banner-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner .left-wrapper,
+    .banner .right-wrapper {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .banner-cta-wrap {
+        justify-content: center;
+    }
+
+    .dashboard-wrapper .main-wrapper {
+        flex-direction: column;
+        gap: 50px;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        background-color: var(--teritary-bg);
+        border-radius: 12px;
+    }
+
+    .dashboard-wrapper .main-wrapper.left-content {
+        flex-direction: column-reverse;
+    }
+
+    .dashboard-wrapper .main-wrapper .image-wrapper {
+        width: 100%;
+        order: 1;
+        transform: none;
+        min-height: auto;
+    }
+
+    .dashboard-wrapper .main-wrapper .content-wrapper {
+        width: 100%;
+        order: 2;
+        padding: 0;
+        transform: none;
+    }
+
+    .dashboard-wrapper .main-wrapper.right-content::before,
+    .dashboard-wrapper .main-wrapper.left-content::before {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 { font-size: 22px; }
+    .page-container h3 { font-size: 17px; }
+
+    .banner .banner-bg {
+        margin-inline: 16px;
+        border-radius: 0 0 40px 40px;
+    }
+
+    .banner-bg::before {
+        border-radius: 0 0 40px 40px;
+    }
+
+    .banner .left-wrapper p {
+        font-size: 16px;
+    }
+
+    .pre-banner-section ul li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 565px) {
+    .p-90 { padding: 40px 0; }
+
+    .z-accordianBox h4 {
+        padding-right: 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container .cta-btn.act-btn {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+
+    .banner .banner-bg {
+        margin-inline: 10px;
+        padding: 80px 0 50px;
+    }
+}
+
+@media (max-width: 350px) {
+    .banner .left-wrapper p {
+        font-size: 15px;
+    }
+
+    .dashboard-wrapper .main-wrapper {
+        padding: 16px;
+        gap: 24px;
+    }
+}

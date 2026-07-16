@@ -37,13 +37,34 @@ Companion: [section-composites.json](section-composites.json) · [writer-drop-pl
 
 | ID | Class | Modifier / bg | Slot | Reference |
 |----|-------|---------------|------|-----------|
-| **C-01** | `pre-banner-section` | `blue-shadow-with-texture.png` + radial overlays | **Closing pre-FAQ** | `Marketing-Agencies`, `output/ppc-agency-client-dashboard`, `output/white-label-reporting-tool` |
-| **C-02** | `pre-banner-section` | Theme radial gradients (matches hero family) | **Closing pre-FAQ** | `output/sales-dashboard-examples` `#conclusion` |
+| **C-01** | `pre-banner-section` | `blue-shadow-with-texture.png` + radial overlays | **Closing pre-FAQ** (one of many) | `Marketing-Agencies`, agency webtemplates |
+| **C-02** | `pre-banner-section` | Soft theme wash (no texture asset) | **Closing pre-FAQ** | `end-banner-types.json` **EB-04** |
+| **C-03** | `pre-banner-section` | Flat `#f8f9fc` | **Closing** or light mid | `Executive-Dashboards`, **EB-02** |
 | **C-04** | `pre-banner-section` | `.bg-white` — flat white | **Mid-page one-click** only | `output/sales-dashboard-examples` `#one-click-cta` |
-| **C-07** | `pre-banner-section` | `.pre-banner-cta` — brand dark + texture | **Closing promo** | `Coupon page`, `output/zoho-books-analytics-integration` |
-| **C-09** | `pre-banner` | `.sep` — dark gradient `#362546` → `#050520` | **Closing** on dark BI pages | `Embedded Analytics` |
-| **C-11** | `pre-banner` (in-content) | Soft gradient card, rounded, inset | **Sidebar / article inline** | `collaborative-bi`, `output/cloud-analytics-tools` |
-| **C-03** | `pre-banner-section` | Flat `#f8f9fc` | Light neutral mid/closing | `Executive-Dashboards`, `Generative-ai` |
+| **C-05** | `pre-banner-section` | Warm pastel diagonal | **Closing** | `comparison page` `.light`, **EB-06** |
+| **C-06** | `pre-banner-section` | Soft mint / cool lilac washes | **Closing** | **EB-07** / **EB-08** |
+| **C-07** | `pre-banner-section` | `.pre-banner-cta` — brand dark + texture | **Closing promo** | `Coupon page` |
+| **C-09** | `pre-banner` / `#conclusion` | Dark teal or violet gradients | **Closing** on dark BI pages | RealTime-BI **EB-03**, Embedded **EB-05** |
+| **C-11** | `pre-banner` (in-content) | Soft gradient card, rounded, inset | **Sidebar / article inline** | `collaborative-bi` |
+
+### Closing end-banner pool (required for every landing)
+
+**Do not reuse the same closing band on every build.** Phase 0 writes `similarity.end_banner` from [`end-banner-types.json`](end-banner-types.json) (slug-hash pick from the archetype pool).
+
+| Type | Look | Webtemplate / reference cue |
+|------|------|----------------------------|
+| **EB-01** | Soft texture + radials | Agencies / textured CTA pages |
+| **EB-02** | Clean `#f8f9fc` | Auto-reporting, BI reporting tools |
+| **EB-03** | Dark teal `#053643→#03242D` | BI / dashboards dark close |
+| **EB-04** | Soft theme colour wash | Embed / embedded analytics |
+| **EB-05** | Dark violet → navy | Embedded architecture |
+| **EB-06** | Warm pastel diagonal | Comparison light band |
+| **EB-07** | Soft mint | Cool green product close |
+| **EB-08** | Cool lilac | Periwinkle product close |
+
+```
+node z_workflow/scripts/select-end-banner.mjs --slug <page> --archetype <id>
+```
 
 ### Dark showcase (NOT a CTA — no red button band styling)
 
@@ -69,11 +90,11 @@ Closing  → C-01  pre-banner-section textured (before FAQ)
 ```
 Hero       → H-07  banner-section radial gradient
 Mid-page   → C-04  pre-banner-section.bg-white  (#one-click-cta)
-Closing    → C-01  pre-banner-section textured   (#conclusion) — large common band, NOT hero gradient
+Closing    → end-banner-types.json pick (EB-02 / EB-04 / EB-06 / EB-07 / EB-08 / EB-01 …)
 Optional   → D-03  sticky-card-section (finance) or dashboard-wrapper zigzag (sales)
 Social     → reported-section + testimonials-section (before steps/closing)
 ```
-**Three distinct treatments on one page** — hero soft gradient ≠ white one-click ≠ textured closing band (like white-label / agency).
+**Three distinct treatments on one page** — hero ≠ white one-click ≠ closing end-banner (from the pool; not the same texture every build).
 
 ### `comparison-guide` / `embedded-sales-analytics`
 
@@ -124,7 +145,8 @@ Closing    → C-07  pre-banner-section.pre-banner-cta
 |-------|-------|
 | Same `pre-banner-section` texture on hero and closing | Hero = `banner-section` / `banner`; closing = textured `pre-banner-section` |
 | Both mid + closing use `.bg-white` | Mid = `.bg-white`; closing = textured band (C-01) |
-| Closing CTA copies hero radial gradient | Hero = `banner-section` gradient; closing = `pre-banner-section` + `blue-shadow-with-texture.png` |
+| Closing CTA copies hero radial gradient | Hero = `banner-section` gradient; closing = selected `end-banner-types.json` treatment |
+| Same `blue-shadow-with-texture` closing on every build | Rotate EB-01…EB-08 via `select-end-banner.mjs` / `state.similarity.end_banner` |
 | `sampleDashboard-section` styling on CTA band | Dark showcase for carousel only; CTA uses `pre-banner-section` |
 | Copy Marketing-Agencies closing band onto long-form hero | Long-form hero = H-06 dark card; inline = C-11 |
 | `za-bottom-section` plain white before FAQ | `pre-banner-section` with background treatment |

@@ -7,6 +7,7 @@
     "audit": "node z_workflow/scripts/site-audit.mjs",
     "audit:webtemplate": "node z_workflow/scripts/audit-webtemplate-sitemap.mjs --resume --concurrency 8",
     "find:webtemplate": "node z_workflow/scripts/find-webtemplate-section.mjs",
+    "select:end-banner": "node z_workflow/scripts/select-end-banner.mjs",
     "match": "node z_workflow/scripts/match-sites.mjs",
     "match:validate": "node z_workflow/scripts/match-sites.mjs --validate",
     "extract:writer": "node z_workflow/scripts/extract-writer.mjs",

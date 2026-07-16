@@ -735,3 +735,24 @@ section.pre-banner .cta-btn-wrap .cta-btn.act-btn {
         font-size: 14px;
     }
 }
+
+/* Auto-patched: comparison table horizontal scroll */
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Auto-patched: comparison tables must scroll, not crush */
+.cont-sec .table-wrap table,
+.table-wrap table,
+.comparison-table table,
+table.comparison-table {
+    min-width: 960px;
+    word-break: normal;
+}
+.cont-sec .table-wrap table.comparison-table-7col,
+table.comparison-table-7col {
+    min-width: 1200px;
+}

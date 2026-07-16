@@ -1,0 +1,29 @@
+{
+  "extracted_at": "2026-07-14T08:34:00.333Z",
+  "source_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\web-tool\\data\\docx-uploads\\upload-1784018040122.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrkea1qb.txt",
+  "extraction_method": "docx",
+  "page_count": 1,
+  "merged_length": 3840,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 6,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3880
+  },
+  "archetype_guess": "client-dashboard-software-landing",
+  "writer_doc_title": "writer-test-client-dashboard-software"
+}

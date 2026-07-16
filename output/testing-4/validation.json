@@ -1,0 +1,107 @@
+{
+  "pass": true,
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\testing-4",
+  "slug": "testing-4",
+  "archetype": "dashboard-examples-landing-sales",
+  "inventory": {
+    "example_row": 0,
+    "impl_step": 0,
+    "feature_block": 0,
+    "persona_block": 0,
+    "benefit_block": 0,
+    "za_inner_testimonials": 0,
+    "z_accordian_box": 5,
+    "cont_sec": 0,
+    "banner": 3,
+    "tabsection": 0,
+    "faq_section": 1,
+    "cta_button_count": 3,
+    "cta_texts": [
+      "Explore Examples",
+      "Build Sales Dashboards Now",
+      "START FOR FREE"
+    ],
+    "h1_count": 1,
+    "has_page_container": true,
+    "has_nav_placeholder": true,
+    "has_footer_placeholder": true,
+    "has_zoho_placeholder": true,
+    "has_placehold_co": false,
+    "has_local_assets": false,
+    "has_cta_visibility_override": true,
+    "has_brand_cta_token": true,
+    "pre_banner_section": 2,
+    "has_pre_banner_background": true
+  },
+  "brief_inventory": {
+    "step_count": 4,
+    "step_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "faq_count": 6,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 7927,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 4,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "banner_audit": {
+    "hero_bg_fingerprint": "background-color:#fff;background-image:url('https://prezohoweb.zoho.com/')",
+    "closing_bg_fingerprint": "background-color:#dce8ff;background-image:radial-gradient(circle at 88% -20%, rgba(0, 142, 245, 0.18) 0, transparent 55%), radial-gradient(circle at 25% 130%, rgba(153, 20, 255, 0.14) 0, transparent 50%), var(--pre-banner-texture)",
+    "mid_white_bg_fingerprint": "background:#fff",
+    "slots": [
+      {
+        "type": "hero",
+        "class": "banner-section",
+        "banner_slot": "hero",
+        "bg_treatment": "gradient-hero"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner-section",
+        "banner_slot": "mid-cta",
+        "bg_treatment": "bg-white",
+        "id": "one-click-cta"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner-section",
+        "banner_slot": "closing-cta",
+        "bg_treatment": "texture-closing",
+        "id": "conclusion"
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-07-14T13:11:58.720Z"
+}

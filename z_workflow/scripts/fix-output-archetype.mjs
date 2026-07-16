@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Deterministic post-compose patches so autonomous builds pass validate:output
- * when the agent picked the wrong section class (e.g. banner-section vs za-banner-section).
+ * when the agent picked the wrong section class (e.g. banner-section vs za-banner-section)
+ * or emitted Article TOC body as sibling <section>s (gold: banner → tabsection → faq only).
  *
  * Usage:
  *   node z_workflow/scripts/fix-output-archetype.mjs --slug whitelabel
@@ -15,6 +16,9 @@ import { validateOutputDir } from './validate-output.mjs';
 import { ROOT, STATE_FILE, isScriptMain } from './workflow-paths.mjs';
 
 const HERO_ALTERNATES = ['banner-section', 'banner', 'za-banner-section', 'za-banner-sticky-wrap'];
+
+const PEACH_CTA_H3 = 'Go from data to insights in minutes using Zoho Analytics';
+const PEACH_CTA_LABEL = 'Access Zoho Analytics';
 
 function parseArgs(argv) {
   const args = { slug: null, archetype: null, noValidate: false };
@@ -45,6 +49,244 @@ function resolveArchetypeForDir(slug, forcedArchetype) {
     if (r) return { id: r.id, composite: r.composite };
   }
   return null;
+}
+
+function needsArticleTocLayout(composite) {
+  return Boolean(
+    composite?.output_inventory_checks?.require_article_toc_layout ||
+      composite?.section_order?.some((s) => s.class === 'tabsection' || s.type === 'toc-content')
+  );
+}
+
+/** Find end index (exclusive) of the element that opens at openIdx (tag name from openTag). */
+function findMatchingClose(html, openIdx, tagName) {
+  const openRe = new RegExp(`<${tagName}\\b[^>]*>`, 'gi');
+  const closeRe = new RegExp(`</${tagName}>`, 'gi');
+  openRe.lastIndex = openIdx;
+  const openMatch = openRe.exec(html);
+  if (!openMatch || openMatch.index !== openIdx) return -1;
+
+  let depth = 1;
+  let cursor = openIdx + openMatch[0].length;
+  while (depth > 0 && cursor < html.length) {
+    openRe.lastIndex = cursor;
+    closeRe.lastIndex = cursor;
+    const nextOpen = openRe.exec(html);
+    const nextClose = closeRe.exec(html);
+    if (!nextClose) return -1;
+    if (nextOpen && nextOpen.index < nextClose.index) {
+      depth += 1;
+      cursor = nextOpen.index + nextOpen[0].length;
+    } else {
+      depth -= 1;
+      cursor = nextClose.index + nextClose[0].length;
+      if (depth === 0) return cursor;
+    }
+  }
+  return -1;
+}
+
+function unwrapOuterContentWrap(inner) {
+  const trimmed = inner.replace(/^\s+/, '');
+  const m = trimmed.match(/^<div\s+class=["']content-wrap["'][^>]*>/i);
+  if (!m) return inner;
+  const openIdx = inner.indexOf(m[0]);
+  const end = findMatchingClose(inner, openIdx, 'div');
+  if (end < 0) return inner;
+  const afterOpen = openIdx + m[0].length;
+  const beforeClose = end - '</div>'.length;
+  return inner.slice(afterOpen, beforeClose);
+}
+
+function sectionHtmlToContSec(sectionHtml) {
+  const openMatch = sectionHtml.match(/^(\s*)<section(\s[^>]*)?>/i);
+  if (!openMatch) return null;
+  const indent = openMatch[1] || '\n        ';
+  let attrs = openMatch[2] || '';
+  const openEnd = openMatch[0].length;
+  if (!/<\/section>\s*$/i.test(sectionHtml)) return null;
+  let inner = sectionHtml.slice(openEnd).replace(/<\/section>\s*$/i, '');
+
+  if (/class\s*=\s*["']/.test(attrs)) {
+    attrs = attrs.replace(/class\s*=\s*["']([^"']*)["']/i, (_, classes) => {
+      const parts = classes.split(/\s+/).filter(Boolean);
+      if (!parts.includes('cont-sec')) parts.unshift('cont-sec');
+      return `class="${parts.join(' ')}"`;
+    });
+  } else {
+    attrs = ` class="cont-sec"${attrs}`;
+  }
+
+  inner = unwrapOuterContentWrap(inner);
+  return `${indent}<div${attrs}>${inner}${indent}</div>`;
+}
+
+/**
+ * Nest stray sibling <section>s that sit between .tabsection and .faq-section
+ * into #right-content as .cont-sec divs (gold: output/cloud-analytics).
+ *
+ * Single splice: copy siblings → convert → insert before #right-content close →
+ * drop the original sibling region (tabEnd…faqOpen) entirely.
+ */
+function fixArticleTocStructure(html) {
+  if (!/<section[^>]*class=["'][^"']*\btabsection\b/i.test(html)) {
+    return { html, fixes: [] };
+  }
+
+  const tabOpen = html.search(/<section[^>]*class=["'][^"']*\btabsection\b/i);
+  const faqOpen = html.search(/<section[^>]*class=["'][^"']*\bfaq-section\b/i);
+  if (tabOpen < 0 || faqOpen <= tabOpen) return { html, fixes: [] };
+
+  const tabEnd = findMatchingClose(html, tabOpen, 'section');
+  if (tabEnd < 0 || tabEnd > faqOpen) return { html, fixes: [] };
+
+  if (!/<section\b/i.test(html.slice(tabEnd, faqOpen))) {
+    return { html, fixes: [] };
+  }
+
+  const rightOpen = html.search(/id=["']right-content["']/i);
+  if (rightOpen < 0 || rightOpen < tabOpen || rightOpen > tabEnd) {
+    return { html, fixes: [] };
+  }
+  const rightDivStart = html.lastIndexOf('<div', rightOpen);
+  if (rightDivStart < 0) return { html, fixes: [] };
+  const rightDivEnd = findMatchingClose(html, rightDivStart, 'div');
+  if (rightDivEnd < 0 || rightDivEnd > tabEnd) return { html, fixes: [] };
+
+  const siblings = [];
+  let cursor = tabEnd;
+  while (cursor < faqOpen) {
+    const rel = html.slice(cursor, faqOpen).search(/<section\b/i);
+    if (rel < 0) break;
+    const abs = cursor + rel;
+    const closeAbs = findMatchingClose(html, abs, 'section');
+    if (closeAbs < 0 || closeAbs > faqOpen) break;
+    const converted = sectionHtmlToContSec(html.slice(abs, closeAbs));
+    if (converted) siblings.push(converted);
+    cursor = closeAbs;
+  }
+
+  if (!siblings.length) return { html, fixes: [] };
+
+  const insertChunk = `\n\n                    <!-- auto-nested article body (was sibling <section>s) -->\n${siblings.join('\n')}\n                    `;
+  const closeTagStart = rightDivEnd - '</div>'.length;
+
+  // […#right-content body] + nested + [rest of tabsection close] + [faq onward]
+  // drops original siblings between tabEnd and faqOpen
+  const next =
+    html.slice(0, closeTagStart) +
+    insertChunk +
+    html.slice(closeTagStart, tabEnd) +
+    '\n\n        ' +
+    html.slice(faqOpen);
+
+  return {
+    html: next,
+    fixes: [
+      `Nested ${siblings.length} sibling section(s) into #right-content as .cont-sec (Article TOC gold structure)`
+    ]
+  };
+}
+
+/** Remove FAQ links from the sticky left-tab (FAQ stays as .faq-section after tabsection). */
+function fixStripFaqFromToc(html) {
+  if (!/left-tab[\s\S]{0,2500}href=["']#faqs?["']/i.test(html)) {
+    return { html, fixes: [] };
+  }
+  const next = html.replace(
+    /<li[^>]*>\s*<a[^>]*href=["']#faqs?["'][^>]*>[\s\S]*?<\/a>\s*<\/li>\s*/gi,
+    ''
+  );
+  if (next === html) return { html, fixes: [] };
+  return { html: next, fixes: ['Removed FAQ link(s) from left-tab TOC'] };
+}
+
+function fixPeachSidebarCta(html) {
+  if (/Go from data to insights/i.test(html)) {
+    return { html, fixes: [] };
+  }
+  if (!/id=["']tabs["']/i.test(html)) return { html, fixes: [] };
+
+  const tabsOpen = html.search(/id=["']tabs["']/i);
+  if (tabsOpen < 0) return { html, fixes: [] };
+  const ulStart = html.lastIndexOf('<ul', tabsOpen);
+  if (ulStart < 0) return { html, fixes: [] };
+  const ulEnd = findMatchingClose(html, ulStart, 'ul');
+  if (ulEnd < 0) return { html, fixes: [] };
+
+  const ulBlock = html.slice(ulStart, ulEnd);
+  const bannerH3 = /(<div class="banner">[\s\S]*?<h3>)([\s\S]*?)(<\/h3>)/i;
+  if (bannerH3.test(ulBlock)) {
+    const nextUl = ulBlock.replace(bannerH3, `$1${PEACH_CTA_H3}$3`);
+    // Prefer Access Zoho Analytics on peach CTA when present
+    const nextUl2 = nextUl.replace(
+      /(<div class="banner">[\s\S]*?class="[^"]*cta-btn[^"]*"[^>]*>)([\s\S]*?)(<\/a>)/i,
+      `$1${PEACH_CTA_LABEL}$3`
+    );
+    return {
+      html: html.slice(0, ulStart) + nextUl2 + html.slice(ulEnd),
+      fixes: ['Restored peach sidebar CTA copy ("Go from data to insights…")']
+    };
+  }
+
+  // Inject peach CTA as last child of ul#tabs
+  const inject = `
+                        <div class="banner">
+                            <div class="wrapper">
+                                <h3>${PEACH_CTA_H3}</h3>
+                                <a href="/analytics/signup.html" class="cta-btn act-btn">${PEACH_CTA_LABEL}</a>
+                            </div>
+                        </div>
+`;
+  const beforeClose = ulEnd - '</ul>'.length;
+  return {
+    html: html.slice(0, beforeClose) + inject + html.slice(beforeClose),
+    fixes: ['Inserted peach sidebar CTA inside ul#tabs']
+  };
+}
+
+function fixComparisonTableCss(css, html) {
+  if (!/\.table-wrap|comparison-table/i.test(html + css)) {
+    return { css, fixes: [] };
+  }
+
+  const fixes = [];
+  let next = css;
+
+  if (!/\.table-wrap\s*\{[^}]{0,300}overflow-x:\s*auto/i.test(next)) {
+    next += `
+/* Auto-patched: comparison table horizontal scroll */
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+`;
+    fixes.push('Added `.table-wrap { overflow-x: auto }`');
+  }
+
+  const hasWideMin =
+    /min-width:\s*(960|1[12]\d{2})px/i.test(next) || /min-width:\s*1200px/i.test(next);
+  if (!hasWideMin) {
+    next += `
+/* Auto-patched: comparison tables must scroll, not crush */
+.cont-sec .table-wrap table,
+.table-wrap table,
+.comparison-table table,
+table.comparison-table {
+    min-width: 960px;
+    word-break: normal;
+}
+.cont-sec .table-wrap table.comparison-table-7col,
+table.comparison-table-7col {
+    min-width: 1200px;
+}
+`;
+    fixes.push('Set comparison table min-width ≥960px (1200px for 7-col)');
+  }
+
+  return { css: next, fixes };
 }
 
 function fixHeroClass(html, css, composite) {
@@ -115,15 +357,35 @@ function fixClosingCtaTexture(css, composite) {
   };
 }
 
+function insertBeforeRightContentClose(html, block) {
+  const rightOpen = html.search(/id=["']right-content["']/i);
+  if (rightOpen < 0) return null;
+  const rightDivStart = html.lastIndexOf('<div', rightOpen);
+  if (rightDivStart < 0) return null;
+  const rightDivEnd = findMatchingClose(html, rightDivStart, 'div');
+  if (rightDivEnd < 0) return null;
+  const closeTagStart = rightDivEnd - '</div>'.length;
+  return html.slice(0, closeTagStart) + block + html.slice(closeTagStart);
+}
+
 function fixMissingCtas(html, composite) {
   const required = composite.cta_strings_required || [];
   const fixes = [];
   let next = html;
+  const nestInToc = needsArticleTocLayout(composite);
 
   for (const cta of required) {
     if (next.toLowerCase().includes(cta.toLowerCase())) continue;
 
-    const block = `
+    const block = nestInToc
+      ? `
+                    <div class="cont-sec pre-banner-section bg-white t-center" data-auto-cta="true">
+                        <div class="cta-btn-wrap">
+                            <a href="#" class="cta-btn act-btn" aria-label="${cta}">${cta}</a>
+                        </div>
+                    </div>
+`
+      : `
         <section class="pre-banner-section bg-white p-90 t-center" data-auto-cta="true">
             <div class="content-wrap">
                 <div class="cta-btn-wrap">
@@ -132,6 +394,16 @@ function fixMissingCtas(html, composite) {
             </div>
         </section>
 `;
+
+    if (nestInToc) {
+      const nested = insertBeforeRightContentClose(next, block);
+      if (nested) {
+        next = nested;
+        fixes.push(`Inserted missing CTA inside #right-content: "${cta}"`);
+        continue;
+      }
+    }
+
     const faqIdx = next.search(/<section[^>]*class=["'][^"']*faq-section/i);
     if (faqIdx >= 0) {
       next = next.slice(0, faqIdx) + block + '\n        ' + next.slice(faqIdx);
@@ -200,6 +472,24 @@ export function fixOutputDir(outputDir, options = {}) {
   html = hero.html;
   css = hero.css;
   allFixes.push(...hero.fixes);
+
+  if (needsArticleTocLayout(resolved.composite)) {
+    const toc = fixArticleTocStructure(html);
+    html = toc.html;
+    allFixes.push(...toc.fixes);
+
+    const faqToc = fixStripFaqFromToc(html);
+    html = faqToc.html;
+    allFixes.push(...faqToc.fixes);
+
+    const peach = fixPeachSidebarCta(html);
+    html = peach.html;
+    allFixes.push(...peach.fixes);
+
+    const tables = fixComparisonTableCss(css, html);
+    css = tables.css;
+    allFixes.push(...tables.fixes);
+  }
 
   const texture = fixClosingCtaTexture(css, resolved.composite);
   css = texture.css;

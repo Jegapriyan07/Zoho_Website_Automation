@@ -11,13 +11,14 @@
     "benefit_block": 4,
     "za_inner_testimonials": 3,
     "z_accordian_box": 9,
-    "cont_sec": 5,
-    "banner": 4,
+    "cont_sec": 11,
+    "banner": 5,
     "tabsection": 1,
     "faq_section": 1,
-    "cta_button_count": 3,
+    "cta_button_count": 4,
     "cta_texts": [
       "Start Free Trial",
+      "Access Zoho Analytics",
       "Start Free Trial",
       "Schedule a Demo"
     ],
@@ -90,7 +91,7 @@
   },
   "errors": [],
   "warnings": [
-    "Fewer `.cont-sec` blocks than template (found 5, template ~11)"
+    "Article TOC: ul#tabs should use height: calc(100vh - 200px) so peach CTA scrolls inside (gold-snippets/article-toc-layout.css)"
   ],
-  "validated_at": "2026-07-08T12:03:37.915Z"
+  "validated_at": "2026-07-15T12:53:32.043Z"
 }

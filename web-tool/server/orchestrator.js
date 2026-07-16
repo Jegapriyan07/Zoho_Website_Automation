@@ -7,6 +7,7 @@ import { publish } from './sse.js';
 import { runComposer, outputDirFor } from './composer.js';
 import { injectTrustedBrandsFile } from '../trusted-brands/inject.js';
 import { DEFAULT_BRAND_LIST } from '../trusted-brands/brands-data.js';
+import { injectReportSliderFile } from '../report-slider/inject.js';
 
 // ── Phase orchestrator ─────────────────────────────────────────
 // Drives the existing pipeline scripts in the documented order and streams
@@ -456,6 +457,13 @@ async function phase0Match(run, briefText) {
 function seedState(run, briefPath, validation, primarySource) {
   const rel = path.relative(config.pipelineRoot, briefPath).replace(/\\/g, '/');
   const state = readJsonSafe(STATE_FILE) || {};
+  const archetype = validation?.archetype || null;
+
+  const endBanner = pickEndBannerSync(run.slug, archetype);
+  if (endBanner) {
+    log(run, 0, `End banner selected: ${endBanner.id} · ${endBanner.label} (${endBanner.bg_treatment})`);
+  }
+
   const seeded = {
     ...state,
     run_id: run.id,
@@ -466,14 +474,15 @@ function seedState(run, briefPath, validation, primarySource) {
       source_url: run.writer_doc_url,
       raw_content_file: rel,
       page_title: run.page_title,
-      archetype: validation?.archetype || null,
+      archetype,
       inventory: validation?.inventory || null
     },
     similarity: {
       structure_mode: 'compose',
-      archetype: validation?.archetype || null,
+      archetype,
       primary_source: primarySource || null,
-      source_map: state.similarity?.source_map || []
+      source_map: state.similarity?.source_map || [],
+      end_banner: endBanner
     },
     phase_6: {
       ...(state.phase_6 || {}),
@@ -482,10 +491,45 @@ function seedState(run, briefPath, validation, primarySource) {
       revise_rounds: run.revise_rounds || 0
     },
     build_options: {
-      trusted_brands: run.trusted_brands === true
+      trusted_brands: run.trusted_brands === true,
+      report_slider: run.report_slider === true,
+      end_banner_id: endBanner?.id || null
     }
   };
   fs.writeFileSync(STATE_FILE, JSON.stringify(seeded, null, 2) + '\n');
+}
+
+/** Sync end-banner pick (avoids top-level await in CJS/ESM mix). */
+function pickEndBannerSync(slug, archetype) {
+  try {
+    const catalogPath = path.join(config.pipelineRoot, 'z_workflow', 'end-banner-types.json');
+    const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+    const prefs =
+      (archetype && catalog.archetype_prefs[archetype]) ||
+      catalog.archetype_prefs._default ||
+      catalog.types.map((t) => t.id);
+    let h = 0;
+    const s = String(slug || 'page');
+    for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    const id = prefs[h % prefs.length];
+    const type = catalog.types.find((t) => t.id === id) || catalog.types[0];
+    return {
+      id: type.id,
+      name: type.name,
+      label: type.label,
+      bg_treatment: type.bg_treatment,
+      html_modifier: type.html_modifier || '',
+      text_color: type.text_color || 'dark',
+      reference: type.reference,
+      webtemplate_examples: type.webtemplate_examples || [],
+      css_markers: type.css_markers || [],
+      css_skeleton: type.css_skeleton,
+      html_note: type.html_note || '',
+      pool: prefs
+    };
+  } catch {
+    return null;
+  }
 }
 
 // ── Phase 1/2/6: compose (agent) ───────────────────────────────
@@ -544,6 +588,8 @@ async function composeAndReport(run, briefPath, revise) {
     archetype: archetypeId,
     composite,
     trustedBrands: run.trusted_brands === true,
+    reportSlider: run.report_slider === true,
+    endBanner: state.similarity?.end_banner || pickEndBannerSync(run.slug, archetypeId),
     onLog: (line) => {
       for (const l of String(line).split('\n')) if (l.trim()) log(run, 6, l);
     }
@@ -671,6 +717,56 @@ function injectTrustedBrands(run) {
   return true;
 }
 
+// ── Report Slider injection ────────────────────────────────────
+
+/**
+ * Inject analysts quotes + ratings (reported-section) before testimonials /
+ * closing CTA. Runs BEFORE validate:output so Dresner recognition gates pass.
+ */
+function injectReportSlider(run) {
+  const dir = outputDirFor(run.slug);
+  const htmlPath = path.join(dir, 'index.html');
+  const result = injectReportSliderFile(htmlPath);
+
+  if (!result.ok) {
+    log(run, 6, `Report slider: ${result.reason} — skipping injection.`);
+    return false;
+  }
+
+  log(run, 6, `Report slider shell injected ${result.placement} ✓`);
+
+  if (result.verify?.warnings?.length) {
+    for (const w of result.verify.warnings) log(run, 6, `Report slider warning: ${w}`);
+  }
+
+  if (!result.verify?.ok) {
+    const msg = (result.verify?.errors || []).join('; ');
+    hardStop(run, 6, 'compose_failed', `Report slider verification failed: ${msg}`);
+    return false;
+  }
+
+  log(run, 6, 'Report slider shell verified (empty .report-slider + .rating-table) ✓');
+  return true;
+}
+
+/**
+ * Optional post-compose injects that must run before validate:output.
+ * @returns {boolean} false on hard-stop
+ */
+function applyPreValidateInjects(run) {
+  if (run.report_slider && !injectReportSlider(run)) return false;
+  return true;
+}
+
+/**
+ * Optional injects that run after validate:output passes.
+ * @returns {boolean} false on hard-stop
+ */
+function applyPostValidateInjects(run) {
+  if (run.trusted_brands && !injectTrustedBrands(run)) return false;
+  return true;
+}
+
 function finishAwaitingReview(run) {
   const previewUrl = `/preview/${run.slug}/index.html`;
   Runs.update(run.id, { status: 'awaiting_review', output_path: `output/${run.slug}/` });
@@ -715,6 +811,9 @@ export async function startRun(runId) {
     const composed = await composeAndReport(run, briefPath, null);
     if (!composed) return;
 
+    // Report slider must land before validate:output (Dresner recognition gate).
+    if (!applyPreValidateInjects(run)) return;
+
     let validationResult = await phaseValidateOutput(run);
     if (!validationResult.ok && validationResult.report?.errors?.length) {
       log(run, 'validation', 'Validation failed — attempting one automatic revise…');
@@ -728,13 +827,13 @@ export async function startRun(runId) {
         instruction
       });
       if (reComposed) {
+        if (!applyPreValidateInjects(run)) return;
         validationResult = await phaseValidateOutput(run);
       }
     }
     if (!validationResult.ok) return;
 
-    // Inject trusted brands marquee after the hero/banner section if requested.
-    if (run.trusted_brands && !injectTrustedBrands(run)) return;
+    if (!applyPostValidateInjects(run)) return;
 
     finishAwaitingReview(run);
   } catch (e) {
@@ -762,10 +861,12 @@ export async function reviseRun(runId, revision) {
   const composed = await composeAndReport(run, briefPath, revision);
   if (!composed) return;
 
+  if (!applyPreValidateInjects(run)) return;
+
   const validationResult = await phaseValidateOutput(run);
   if (!validationResult.ok) return;
 
-  if (run.trusted_brands && !injectTrustedBrands(run)) return;
+  if (!applyPostValidateInjects(run)) return;
 
   Runs.update(run.id, { revise_rounds: revision.round });
   finishAwaitingReview(run);
@@ -843,6 +944,9 @@ export async function startRunFromDocx(runId, preExtractedBriefPath, sidecarData
     const composed = await composeAndReport(run, briefPath, null);
     if (!composed) return;
 
+    // Report slider must land before validate:output (Dresner recognition gate).
+    if (!applyPreValidateInjects(run)) return;
+
     // validate output
     let validationResult = await phaseValidateOutput(run);
     if (!validationResult.ok && validationResult.report?.errors?.length) {
@@ -852,12 +956,14 @@ export async function startRunFromDocx(runId, preExtractedBriefPath, sidecarData
         ...validationResult.report.errors.map((e) => `- ${e}`)
       ].join('\n');
       const reComposed = await composeAndReport(run, briefPath, { round: 1, scope: 'general', instruction });
-      if (reComposed) validationResult = await phaseValidateOutput(run);
+      if (reComposed) {
+        if (!applyPreValidateInjects(run)) return;
+        validationResult = await phaseValidateOutput(run);
+      }
     }
     if (!validationResult.ok) return;
 
-    // Trusted brands injection (same as Writer URL path)
-    if (run.trusted_brands && !injectTrustedBrands(run)) return;
+    if (!applyPostValidateInjects(run)) return;
 
     finishAwaitingReview(run);
   } catch (e) {
