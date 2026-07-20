@@ -106,7 +106,7 @@ export function buildMarqueeSnippet(brands, stats = BRAND_STATS) {
      TRUSTED BRANDS SECTION — auto-injected by Web Page Builder
      To remove: delete everything between these comment markers.
      ═══════════════════════════════════════════════════════════════ -->
-<section class="za-brandsCounts" aria-label="Trusted by leading brands">
+<section class="za-brandsCounts" aria-label="Trusted by leading brands" data-tb-variant="marquee">
   <div class="brand-wrapper">
 
     <!-- trusted brands section -->

@@ -1,0 +1,44 @@
+SQLite DB page -  Draft
+
+SQLite Database landing page
+https://www.zoho.com/analytics/amazon-athena.html &lt;Layout&gt;
+H1: Supercharge your SQLite data with advanced analytics in Zoho Analytics
+Seamlessly integrate your SQLite database with Zoho Analytics and gain deep insights in minutes. Convert raw data into interactive dashboards, customizable reports, and AI-driven analytics. Make smarter decisions using near real-time data and intuitive visualizations.
+&lt;ACCESS ZOHO ANALYTICS&gt;
+&lt;TRUSTED BY GREAT BRANDS&gt;
+What is SQLite?
+SQLite is a lightweight, self-contained, and serverless database engine. It is widely used for embedded applications, mobile apps, and small to medium-scale data storage needs. SQLite does not require a separate server process unlike traditional database management systems, making it easy to deploy and maintain. When integrated with Zoho Analytics, deeper insights can be unlocked with your SQLite data by transforming it into meaningful reports and dashboards.
+How does Zoho Analytics and SQLite bring value together?
+Zoho Analytics is a self-service, AI-powered BI platform that enables you to seamlessly integrate your SQLite data, clean, and prepare it for analysis, and gain valuable insights through interactive visualizations. By integrating the two, you can transform raw SQLite data into meaningful reports through interactive visualizations. Together, SQLite and Zoho Analytics empower businesses to efficiently analyze and visualize their data and make informed decisions.
+Data Import
+Bring in data into Zoho Analytics effortlessly
+Bring billions of rows of data seamlessly from your SQLite database into Zoho Analytics in just a few simple steps. You can also schedule your import on an hourly, daily, or weekly basis for automatic data import into Zoho Analytics.
+Zoho Analytics offers flexible data importing options. By using Zoho Databridge, you can import data into Zoho Analytics directly by keeping the data in the desired system.
+Data Preparation
+Enrich the quality of your business decisions
+With Zoho Analytics' in-built AI-assisted data preparation tool, you can cleanse, model, transform, enrich, and blend data from multiple sources before analysis. This makes it easy to get your data ready for a smooth analysis.
+Live Connect
+Set up a live connection with your database
+Zoho Analytics offers a Live Connect feature that allows you to create live data visualizations. This means that your data will not be stored in Zoho Analytics servers, and reports will always be up-to-date with the latest data from your SQLite database.
+Data Blending
+Unified analytics for your daily business apps
+Zoho Analytics lets you connect data from multiple sources, including your CRM, ERP, and marketing platforms. This allows you to model and blend data from different sources and to do a comprehensive analysis.
+Key features that help SQLite database users make smarter decisions
+Incremental fetch
+If your database gets frequently updated and has transactional data, you can import quickly by bringing in only the newly updated records into Zoho Analytics using incremental fetch, providing real-time insights.
+Zia Insights
+Discover hidden insights and summary of your SQLite data in just a single click, using Zia Insights. Regardless of the size and data type, Zia Insights provides meaningful insights that will enhance the quality of your decision-making.
+Predictive Analytics
+Forecasting data metrics and predicting future outcomes becomes easier with our robust and prebuilt data forecasting functionality. Perform what-if analysis to your forecasted data and be prepared for the best and worst case scenarios.
+Conversational Analytics
+Ask questions in natural language to Zia, and get your reports generated in seconds.
+&lt;CUSTOMER TESTIMONY&gt;
+&lt;LEARN MORE ABOUT ZOHO ANALYTICS&gt;
+https://www.zoho.com/analytics/powerbi-alternative-software.html?src=ft
+24/7 customer support
+Webinars to get you started
+Virtual classroom training
+Professional Services Program
+https://www.zoho.com/analytics/amazon-athena.html
+Start exploring your SQLite data like never before with Zoho Analytics!
+&lt;ACCESS ZOHO ANALYTICS&gt;

@@ -1,0 +1,50 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\shopify-analytics-page-draft-6.txt",
+  "archetype": "app-connector-landing",
+  "archetype_score": 42,
+  "required_found": [
+    "Maximize your Shopify store",
+    "Try our native Shopify analytics",
+    "Why choose Zoho Analytics for your Shopify store",
+    "Maximize your sales",
+    "Analyze order transactions",
+    "Optimize your inventory",
+    "Monitor sales trend",
+    "Advanced Shopify analytics - Key features",
+    "Visual analysis",
+    "Data blending",
+    "Join Zoho Analytics today"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3584,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~1)"
+  ],
+  "validated_at": "2026-07-17T09:16:46.844Z"
+}

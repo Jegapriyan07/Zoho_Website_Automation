@@ -1,0 +1,43 @@
+Shopify Analytics Page -  Draft
+
+Shopify Analytics
+https://www.zoho.com/analytics/shopify-advanced-analytics.html?src=top-header
+https://workdrive.zoho.com/folder/uevs0e498efe07ae34371b9ba9ef536be3382
+Title: Maximize your Shopify store’s potential with data-driven insights
+Introduction: The ultimate solution for transforming raw e-commerce data into actionable insights. From real-time dashboards to advanced sales forecasts, Zoho analytics has it all. Optimize your stores performance, enhance customer experience, track KPIs and more - all within an intuitive platform.
+&lt;Trusted by great brands&gt;
+## Try our native Shopify analytics &amp; reporting app!
+- 100+ ready-made Shopify reports &amp; dashboards
+- Sales, order, inventory, customer, and shipment analytics
+- 50+ visualizations for Shopify reporting
+- AI-powered Shopify analytics
+- Starting at just $20/month
+- Schedule emails &amp; smart alerts
+### Why choose Zoho Analytics for your Shopify store?
+Monitor your Shopify store's key metrics like sales, orders, and inventory levels. all in one place. You can easily track your business's pulse with over 100+ pre-built Shopify dashboards. Go beyond basic reporting and customize reports with powerful visualization tools and analyze your data from every angle and make informed decisions to accelerate your store's success.
+### Maximize your sales
+Identify top selling products, spot growth opportunities, analyze sales across products, regions and payment methods with a clear and powerful dashboard. Measure the impact of your offers and discounts on your sales.
+Analyze order transactions
+Get valuable insights into every step of the customer purchase journey with the Shopify orders analytics dashboard. Track orders from placement to delivery and improve order accuracy. Get accurate order forecasts and boost your sales.
+Optimize your inventory
+Ensure that you always have the right products available when your customers need them. Monitor inventory levels in real-time, forecast product demand, and avoid stock outs or overstock situations.
+Monitor sales trend
+Stay ahead of sales performance with real-time insights into revenue trends, order volume, and average order value with the sales overview dashboard. Analyze daily, weekly, or monthly sales data to spot growth opportunities and swiftly adapt to shifts in market conditions.
+Advanced Shopify analytics - Key features
+Visual analysis
+Visualize your data with 100+ pre-built visualizations or build your own reports dashboards in an insightful and interactive way using 50+ visualization tools.
+Collaborative analytics
+Collaborate with your team through secured sharing and fine-tune permissions. Share insights as stories using portals and presentations with anyone.
+Email, export, and print reports
+Export or print your reports for offline access. Schedule your reports and dashboards to be emailed automatically to the selected recipients.
+Data blending
+Connect and blend data from different data sources seamlessly. Bring in data from files and feeds, business apps, and databases.
+Augmented analytics
+Get automated AI insights with a single click with Ask Zia, your conversational assistant. Predict future trends, do cognitive and what-if analysis, and set up smart alerts.
+Embedded analytics
+Build and embed analytics with an easy, low-code/no-code model and set up a branded enterprise-level analytics portal with your organization.
+&lt;Customer testimony&gt;
+&lt;Rated the best&gt;
+&lt;Solutions/How-tos&gt;
+Your Shopify data, transformed into actionable insights
+Join Zoho Analytics today!

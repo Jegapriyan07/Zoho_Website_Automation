@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-17T06:53:38.049Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-olken555f0ff6fe9246e59206d9d680ee5d82-1784271217812.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrol0ham.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 4152,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 4178
+  },
+  "archetype_guess": "database-connector-landing",
+  "writer_doc_title": "SQLite DB page -  Draft",
+  "source_url": "https://writer.zoho.in/writer/open/olken555f0ff6fe9246e59206d9d680ee5d82",
+  "document_id": "olken555f0ff6fe9246e59206d9d680ee5d82"
+}

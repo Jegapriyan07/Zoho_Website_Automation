@@ -1,12 +1,13 @@
 WEB-PAGES SITE AUDIT
 ===================
-Total sites: 43
-Generated: 2026-06-30T05:27:22.239Z
+Total sites: 45
+Generated: 2026-07-20T11:10:07.728Z
 
 SITE INVENTORY:
   AgenticAI                    feature-page           7 sections
   BI Finance                   feature-page           12 sections
   BI-Marketing                 feature-page           14 sections
+  Bi-Software-3                landing-page           9 sections
   Business-Intelligence        product-page           15 sections
   case-study                   case-study             4 sections
   collaborative-bi             feature-page           4 sections
@@ -22,6 +23,7 @@ SITE INVENTORY:
   Enterprise-BI                feature-page           12 sections
   event-review                 integration-campaign   5 sections
   Executive-Dashboards         feature-page           12 sections
+  Firebird                     landing-page           8 sections
   Free Data visualization      product-page           11 sections
   Generative-ai                feature-page           7 sections
   Glossary - Embedded Analytics glossary               12 sections
@@ -53,20 +55,20 @@ TOPIC COVERAGE:
   Feature pages            13
   Comparison pages         2
   Case studies             1
-  Product landing          11
+  Product landing          13
   Glossary / Docs          4
   Integration campaigns    5
   Pricing                  1
 
 SECTION COVERAGE:
-  hero                 37 examples
-  cta                  30 examples
-  carousel             24 examples
-  trust                23 examples
-  testimonials         23 examples
-  faq                  18 examples
-  stats                17 examples
-  features             17 examples
+  hero                 39 examples
+  cta                  31 examples
+  carousel             25 examples
+  trust                24 examples
+  testimonials         24 examples
+  faq                  19 examples
+  stats                18 examples
+  features             18 examples
   recognition          16 examples
   comparison           11 examples
   tabs                 8 examples
@@ -80,13 +82,13 @@ GAPS — will be synthesised from team DNA:
   (none)
 
 RULESBOOK COMPLIANCE SPOT CHECK:
-  → 42/43 sites use Puvi font variables
-  → 41/43 sites have BEM-like class patterns
+  → 44/45 sites use Puvi font variables
+  → 43/45 sites have BEM-like class patterns
   → Inline styles found in: Business-Intelligence, case-study, comparison page, CSV to Dashboard Tools, data-preparations, Demo-Popup, Enterprise, event-review, Glossary - Embedded Analytics, Help-page, Main feature, PowerBI New, Spreadsheet, Webinar-redirection
-  → Numeric font-weight found in: BI Finance, BI-Marketing, case-study, collaborative-bi, comparison page, Coupon page, CSV to Dashboard Tools, data visualization software, Demo-Popup, Embedded Analytics, event-review, Executive-Dashboards, Free Data visualization, Marketing-Agencies, page-revamp, pie-chart, PowerBI New, Pricing page, RealTime-BI, Review-Landing, Solution-template, Spreadsheet, Webinar-redirection, Whitelabel - Glossary
+  → Numeric font-weight found in: BI Finance, BI-Marketing, Bi-Software-3, case-study, collaborative-bi, comparison page, Coupon page, CSV to Dashboard Tools, data visualization software, Demo-Popup, Embedded Analytics, event-review, Executive-Dashboards, Free Data visualization, Marketing-Agencies, page-revamp, pie-chart, PowerBI New, Pricing page, RealTime-BI, Review-Landing, Solution-template, Spreadsheet, Webinar-redirection, Whitelabel - Glossary
 
 FILES:
-  site-catalog.json     ✅ (43 sites)
+  site-catalog.json     ✅ (45 sites)
   section-index.json    ✅ (16 section types)
   team-dna.json         ✅
   zohocustom.css        ✅ (source/zohocustom.css)

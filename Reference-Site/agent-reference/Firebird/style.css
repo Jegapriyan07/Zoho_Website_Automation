@@ -1,0 +1,570 @@
+/* Firebird DB landing — composed from live firebird.html (29667.css)
+   Gold live: https://www.zoho.com/analytics/firebird.html */
+
+:root {
+    --color-primary: #d83d3e;
+    --color-secondary: #fef2f2;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+}
+
+/* Global typography — live Firebird / 29667 */
+.page-container h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -1px;
+    font-family: var(--zf-primary-bold);
+    margin: 0;
+}
+
+.page-container h2 {
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h3 {
+    font-size: 34px;
+    line-height: 44.2px;
+    width: 100%;
+    font-family: var(--zf-primary-bold);
+    margin: 30px 0 20px;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.page-container p {
+    margin: 0 0 20px;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex,
+.dsp-flx {
+    display: flex;
+}
+
+.justify-space {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+/* CTA visibility + brand red */
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+}
+
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* —— Shared section pad (live .zcommon-section) —— */
+.zpan-page-wrapper .zcommon-section {
+    padding: 130px 0;
+}
+
+/* —— 1. Hero —— */
+.za-banner-section {
+    background: #fef2f2;
+}
+
+.za-banner-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.za-banner-cont {
+    width: 45%;
+}
+
+.za-banner-section h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -1px;
+    margin: 0;
+    max-width: 550px;
+    text-align: left;
+}
+
+.za-banner-cont > p {
+    max-width: 580px;
+    margin: 20px 0;
+}
+
+.za-banner-cont > a.act-btn {
+    margin: 20px 0 0;
+}
+
+.za-banner-img {
+    width: 55%;
+    position: relative;
+}
+
+.za-banner-img img {
+    display: block;
+    margin: 0 0 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* —— 2. Red value band — live 29667.css type scale —— */
+.za-features-section {
+    background: #d83d3e;
+    color: #fff;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+    position: relative;
+    padding: 130px 0;
+}
+
+.za-features-section:before {
+    content: "";
+    width: 200%;
+    height: 200px;
+    position: absolute;
+    background: #fef2f2;
+    top: 0;
+    left: -50%;
+    z-index: -1;
+}
+
+/* Beat .page-container h2 / p so sizes match live */
+.page-container .za-features-section h2 {
+    text-align: left;
+    color: #fff;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container .za-features-section .za-feature-title,
+.page-container .za-features-section p.za-feature-title {
+    font-size: 26px;
+    line-height: 40px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-regular);
+    color: #fff;
+    margin: 0 0 20px;
+    text-align: left;
+}
+
+/* —— 3–6. Capability media rows — live firebird.html (centered stack, not Athena side-by-side) —— */
+.zdashboard-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.zdashboard-section .zdashboard-box.dsp-flx.justify-space,
+.zdashboard-section .zdashboard-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.zdashboard-title {
+    width: 42%;
+    max-width: 538px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.zdashboard-title h2,
+.zdashboard-title h2.t-left {
+    margin: 0;
+    text-align: center !important;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-bold);
+}
+
+.zdashboard-desc {
+    width: 66%;
+    max-width: 845px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.zdashboard-desc p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 27.2px;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.zdashboard-img {
+    background: #fafafa;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.zdashboard-img img {
+    width: 100%;
+    max-width: 740px;
+    display: inline-block;
+    height: auto;
+}
+
+.zdb2 {
+    background: #fafafa;
+}
+
+.zdb2 .zdashboard-img {
+    background: #f3f3f3;
+}
+
+/* —— 7. Analyze cards —— */
+.za-analyze-section {
+    padding: 130px 0;
+}
+
+.za-analyze-title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.za-analyze-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.za-analyze-section ul > li {
+    width: 45%;
+    margin: 60px 0 0;
+}
+
+.za-analyze-section ul > li img {
+    display: block;
+    width: 100%;
+    max-width: 479px;
+    height: auto;
+    border-radius: 5px;
+    min-height: 280px;
+    object-fit: cover;
+    background: #f3f3f3;
+}
+
+.za-analyze-section ul > li h3 {
+    max-width: 350px;
+    margin: 30px 0 20px;
+    font-size: 34px;
+    line-height: 44.2px;
+}
+
+.za-analyze-section ul > li > p {
+    max-width: 350px;
+    margin: 0;
+}
+
+/* —— 8. Closing — EB-07 soft mint —— */
+.za-bottom-section {
+    text-align: center;
+}
+
+.za-bottom-section.pre-banner-section#conclusion {
+    background-color: #e7f6f1;
+    background-image:
+        radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),
+        radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);
+    padding: 90px 0;
+}
+
+.page-container .za-bottom-section h2 {
+    max-width: 720px;
+    letter-spacing: -1px;
+    margin: 0 auto 30px;
+    font-size: 46px;
+    line-height: 56px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+}
+
+.page-container .za-bottom-section p {
+    max-width: 470px;
+    margin: 20px auto 30px;
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+/* —— Responsive —— */
+@media (max-width: 1240px) {
+    .za-banner-section h1 {
+        font-size: 42px;
+        max-width: 440px;
+        line-height: 52px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .zpan-page-wrapper .zcommon-section {
+        padding: 100px 0;
+    }
+
+    .za-banner-section h1 {
+        font-size: 36px;
+        max-width: 380px;
+        line-height: 46px;
+    }
+
+    .za-banner-cont > p {
+        max-width: 390px;
+    }
+
+    .page-container .za-features-section .za-feature-title,
+    .page-container .za-features-section p.za-feature-title {
+        font-size: 22px;
+        line-height: 34px;
+    }
+
+    .za-analyze-section ul > li h3 {
+        font-size: 28px;
+        max-width: 240px;
+        line-height: 36px;
+    }
+
+    .za-bottom-section h2 {
+        max-width: 500px;
+        font-size: 36px;
+        line-height: 46px;
+    }
+}
+
+@media (max-width: 991px) {
+    .zpan-page-wrapper .zcommon-section {
+        padding: 60px 0;
+    }
+
+    .page-container h2 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    .page-container h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .page-container p,
+    .page-container li {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .za-banner-box {
+        flex-direction: column;
+    }
+
+    .za-banner-cont {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 40px;
+        max-width: 600px;
+    }
+
+    .za-banner-section h1 {
+        font-size: 36px;
+        margin: 0 auto 15px;
+        text-align: center;
+    }
+
+    .za-banner-cont > p {
+        max-width: 510px;
+        margin: 0 auto 20px;
+    }
+
+    .za-banner-img {
+        width: 100%;
+        text-align: center;
+    }
+
+    .za-banner-img img {
+        margin: 0 auto;
+    }
+
+    .za-features-section {
+        padding: 60px 20px;
+    }
+
+    .page-container .za-features-section h2 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    .page-container .za-features-section .za-feature-title,
+    .page-container .za-features-section p.za-feature-title {
+        font-size: 22px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    .zdashboard-title,
+    .zdashboard-desc {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    .zdashboard-title h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .za-analyze-section ul > li {
+        width: 45%;
+        margin: 30px 0 0;
+    }
+
+    .za-analyze-section ul > li h3 {
+        font-size: 24px;
+        max-width: 200px;
+    }
+
+    .za-bottom-section h2 {
+        max-width: 500px;
+        font-size: 32px;
+        line-height: 42px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h2 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .page-container h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .za-banner-section h1 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .za-banner-img {
+        max-width: 450px;
+    }
+
+    .zdashboard-section {
+        padding: 60px 0;
+    }
+
+    .za-bottom-section h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 565px) {
+    .zpan-page-wrapper .zcommon-section {
+        padding: 40px 0;
+    }
+
+    .za-features-section {
+        padding: 40px 16px;
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .za-analyze-section ul {
+        flex-direction: column;
+    }
+
+    .za-analyze-section ul > li {
+        width: 100%;
+        margin: 15px 0 0;
+    }
+
+    .za-analyze-section ul > li h3,
+    .za-analyze-section ul > li > p {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .za-banner-section h1 {
+        font-size: 26px;
+        line-height: 34px;
+        max-width: 300px;
+    }
+
+    .page-container .za-features-section .za-feature-title,
+    .page-container .za-features-section p.za-feature-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .page-container .za-bottom-section h2 {
+        max-width: 300px;
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .zdashboard-img img {
+        padding: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    .za-banner-section h1 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .za-bottom-section h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}

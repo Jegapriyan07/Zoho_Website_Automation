@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-17T18:01:52.605Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-2rsp43f65edcb495d4487ab12eb19851bf971-1784311311922.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrp8vuj1.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 8855,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 4,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 8890
+  },
+  "archetype_guess": "spreadsheet-reporting-landing",
+  "writer_doc_title": "Excel spreadsheet reporting - LP",
+  "source_url": "https://writer.zoho.in/writer/open/2rsp43f65edcb495d4487ab12eb19851bf971",
+  "document_id": "2rsp43f65edcb495d4487ab12eb19851bf971"
+}

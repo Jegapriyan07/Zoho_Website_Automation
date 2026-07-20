@@ -25,6 +25,65 @@
         });
     }
 
+    function initProgressAccordion() {
+        var section = document.querySelector('.progress-section');
+        if (!section) return;
+
+        var wraps = section.querySelectorAll('.acc-wrap');
+        var images = section.querySelectorAll('.image-part .step-image');
+        if (!wraps.length) return;
+
+        var timer = null;
+        var index = 0;
+
+        function activate(i) {
+            index = i;
+            wraps.forEach(function (w, wi) {
+                w.classList.toggle('current', wi === i);
+            });
+            images.forEach(function (img, ii) {
+                img.classList.toggle('active', ii === i);
+            });
+        }
+
+        function next() {
+            activate((index + 1) % wraps.length);
+        }
+
+        function startAuto() {
+            stopAuto();
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (window.matchMedia('(max-width: 767px)').matches) return;
+            timer = window.setInterval(next, 8000);
+        }
+
+        function stopAuto() {
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        wraps.forEach(function (wrap, i) {
+            wrap.setAttribute('tabindex', '0');
+            wrap.setAttribute('role', 'button');
+            wrap.addEventListener('click', function () {
+                activate(i);
+                startAuto();
+            });
+            wrap.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    activate(i);
+                    startAuto();
+                }
+            });
+        });
+
+        activate(0);
+        startAuto();
+    }
+
     document.querySelectorAll('.z-accordianBox h4').forEach(function (heading) {
         heading.setAttribute('tabindex', '0');
         heading.setAttribute('role', 'button');
@@ -63,9 +122,14 @@
         }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initOnScrollMovement);
-    } else {
+    function boot() {
         initOnScrollMovement();
+        initProgressAccordion();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
     }
 })();

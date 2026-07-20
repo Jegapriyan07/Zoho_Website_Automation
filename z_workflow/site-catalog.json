@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "generated_at": "2026-06-30T05:27:22.239Z",
-  "total_sites": 43,
+  "generated_at": "2026-07-20T11:10:07.728Z",
+  "total_sites": 45,
   "sites": [
     {
       "site_name": "AgenticAI",
@@ -38,7 +38,7 @@
         "testimonials",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "BI Finance",
@@ -63,6 +63,7 @@
         "carousel",
         "icon-grid",
         "zigzag",
+        "sticky-stack",
         "accordion",
         "centered-fullwidth",
         "full-bleed"
@@ -84,7 +85,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "BI-Marketing",
@@ -108,6 +109,7 @@
         "split",
         "carousel",
         "icon-grid",
+        "sticky-stack",
         "centered-fullwidth"
       ],
       "primary_color": "#e0e0e0",
@@ -127,7 +129,46 @@
         "testimonials",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
+    },
+    {
+      "site_name": "Bi-Software-3",
+      "reference_path": "agent-reference/Bi-Software-3",
+      "reference_origin": "agent",
+      "page_topic": "Your search for the Best Business Intelligence (BI) Software for 2026 ends here.",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics + Zoho Desk",
+      "tone": "formal",
+      "sections": [
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "testimonials",
+        "faq"
+      ],
+      "layout_variety": [
+        "split",
+        "carousel",
+        "zigzag",
+        "accordion"
+      ],
+      "primary_color": "#d83d3e",
+      "dark_sections": false,
+      "section_count": 9,
+      "complexity": "moderate",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "software",
+        "hero",
+        "trust",
+        "carousel",
+        "stats",
+        "testimonials",
+        "faq"
+      ],
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Business-Intelligence",
@@ -152,7 +193,8 @@
         "split",
         "2col-comparison",
         "carousel",
-        "icon-grid"
+        "icon-grid",
+        "sticky-stack"
       ],
       "primary_color": "#ffffff",
       "dark_sections": false,
@@ -173,7 +215,7 @@
         "testimonials",
         "tabs"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "case-study",
@@ -198,7 +240,7 @@
         "study",
         "hero"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "collaborative-bi",
@@ -232,7 +274,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "comparison page",
@@ -260,6 +302,7 @@
         "2col-comparison",
         "carousel",
         "zigzag",
+        "sticky-stack",
         "accordion",
         "centered-fullwidth",
         "full-bleed"
@@ -284,7 +327,7 @@
         "testimonials",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Coupon page",
@@ -337,7 +380,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Create-Dashboard",
@@ -373,7 +416,7 @@
         "carousel",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "CSV to Dashboard Tools",
@@ -416,7 +459,7 @@
         "faq",
         "form"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "data visualization software",
@@ -464,7 +507,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "data-preparations",
@@ -506,7 +549,7 @@
         "testimonials",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Demo-Popup",
@@ -528,7 +571,7 @@
         "demo",
         "popup"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Embedded Analytics",
@@ -556,6 +599,7 @@
         "carousel",
         "3-step-timeline",
         "icon-grid",
+        "sticky-stack",
         "tabbed-steps",
         "accordion",
         "3col-grid",
@@ -581,7 +625,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Enterprise",
@@ -601,6 +645,7 @@
         "split",
         "carousel",
         "icon-grid",
+        "sticky-stack",
         "centered-fullwidth"
       ],
       "primary_color": "#F8F9FC",
@@ -616,7 +661,7 @@
         "features",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Enterprise-BI",
@@ -639,7 +684,8 @@
       ],
       "layout_variety": [
         "split",
-        "zigzag"
+        "zigzag",
+        "sticky-stack"
       ],
       "primary_color": "#ffffff",
       "dark_sections": false,
@@ -659,7 +705,7 @@
         "testimonials",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "event-review",
@@ -690,7 +736,7 @@
         "features",
         "tabs"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Executive-Dashboards",
@@ -746,7 +792,38 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
+    },
+    {
+      "site_name": "Firebird",
+      "reference_path": "agent-reference/Firebird",
+      "reference_origin": "agent",
+      "page_topic": "Unleash the power of your Firebird data with Zoho Analytics",
+      "page_type": "landing-page",
+      "product_focus": "Zoho Analytics Embedded",
+      "tone": "professional",
+      "sections": [
+        "hero",
+        "features",
+        "cta"
+      ],
+      "layout_variety": [
+        "split",
+        "centered-fullwidth"
+      ],
+      "primary_color": "#d83d3e",
+      "dark_sections": false,
+      "section_count": 8,
+      "complexity": "moderate",
+      "has_js": true,
+      "css_file": "style.css",
+      "keywords": [
+        "firebird",
+        "hero",
+        "features",
+        "cta"
+      ],
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Free Data visualization",
@@ -789,7 +866,7 @@
         "recognition",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Generative-ai",
@@ -809,6 +886,7 @@
       "layout_variety": [
         "split",
         "carousel",
+        "sticky-stack",
         "centered-fullwidth"
       ],
       "primary_color": "#008EF5",
@@ -825,7 +903,7 @@
         "testimonials",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Glossary - Embedded Analytics",
@@ -858,7 +936,7 @@
         "features",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Glossary - Embedded API",
@@ -890,7 +968,7 @@
         "faq",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Glossary - Embedded BI",
@@ -923,7 +1001,7 @@
         "features",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Help-page",
@@ -945,7 +1023,7 @@
         "help",
         "page"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Homepage",
@@ -962,7 +1040,8 @@
         "recognition"
       ],
       "layout_variety": [
-        "split"
+        "split",
+        "journey-stack"
       ],
       "primary_color": "#0CB24B",
       "dark_sections": false,
@@ -977,7 +1056,7 @@
         "media",
         "recognition"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Homepage-2026",
@@ -993,7 +1072,8 @@
         "recognition"
       ],
       "layout_variety": [
-        "split"
+        "split",
+        "journey-stack"
       ],
       "primary_color": "#0CB24B",
       "dark_sections": false,
@@ -1008,7 +1088,7 @@
         "media",
         "recognition"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Inventory-decision",
@@ -1042,7 +1122,7 @@
         "carousel",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "IPL Dashboard - 2025",
@@ -1075,7 +1155,7 @@
         "content-blocks",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Main feature",
@@ -1103,7 +1183,7 @@
         "feature",
         "hero"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Marketing-Agencies",
@@ -1124,6 +1204,7 @@
       "layout_variety": [
         "split",
         "carousel",
+        "sticky-stack",
         "accordion",
         "centered-fullwidth"
       ],
@@ -1143,7 +1224,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "OrganizationAnalytics",
@@ -1173,7 +1254,7 @@
         "carousel",
         "stats"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "page-revamp",
@@ -1214,7 +1295,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "pie-chart",
@@ -1264,7 +1345,7 @@
         "testimonials",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Pie-chart-maker",
@@ -1297,7 +1378,7 @@
         "features",
         "tabs"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "PowerBI New",
@@ -1347,7 +1428,7 @@
         "testimonials",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Pricing page",
@@ -1379,7 +1460,7 @@
         "faq",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "RealTime-BI",
@@ -1424,7 +1505,7 @@
         "recognition",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Review-Landing",
@@ -1451,7 +1532,7 @@
         "landing",
         "hero"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Solution-template",
@@ -1474,7 +1555,8 @@
       "layout_variety": [
         "split",
         "carousel",
-        "icon-grid"
+        "icon-grid",
+        "sticky-stack"
       ],
       "primary_color": "#ffffff",
       "dark_sections": true,
@@ -1494,7 +1576,7 @@
         "recognition",
         "cta"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Spreadsheet",
@@ -1542,7 +1624,7 @@
         "recognition",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Training",
@@ -1568,7 +1650,7 @@
         "training",
         "testimonials"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Webinar-redirection",
@@ -1612,7 +1694,7 @@
         "trust",
         "testimonials"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     },
     {
       "site_name": "Whitelabel - Glossary",
@@ -1653,7 +1735,7 @@
         "cta",
         "faq"
       ],
-      "last_audited": "2026-06-30"
+      "last_audited": "2026-07-20"
     }
   ]
 }

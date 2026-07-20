@@ -1,6 +1,6 @@
 {
   "pass": true,
-  "file": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\excel-spreadsheet-reporting-lp.txt",
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\excel-spreadsheet-reporting-lp.txt",
   "archetype": "spreadsheet-reporting-landing",
   "archetype_score": 22,
   "required_found": [
@@ -41,5 +41,5 @@
   },
   "errors": [],
   "warnings": [],
-  "validated_at": "2026-07-16T09:30:24.395Z"
+  "validated_at": "2026-07-17T05:01:07.290Z"
 }

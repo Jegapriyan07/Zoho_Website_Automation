@@ -1,0 +1,1401 @@
+/* Global typography — Athena live type scale (27735.css)
+   Gold: z_workflow/gold-snippets/database-connector-type-scale.css */
+.page-container h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -0.1px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h2 {
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h3 {
+    font-size: 24px;
+    line-height: 31.2px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.page-container h4 {
+    font-size: 23px;
+    line-height: 32.2px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.page-container p {
+    margin: 0 0 20px;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0;
+}
+
+.p-50 {
+    padding: 50px 0;
+}
+
+.title-desc,
+.page-container .title-desc,
+.page-container p.title-desc {
+    font-size: 20px;
+    line-height: 32px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.p-t-0 {
+    padding-top: 0;
+}
+
+/* —— Design tokens (Phase 1) —— */
+:root {
+    --color-primary: #343bc4;
+    --color-secondary: #2b0e79;
+    --primary-color: #343bc4;
+    --secondary-color: #390862;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #fafaff;
+    --teritary-bg: #fafafa;
+    --connecting-bg: #2f1477;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+}
+
+/* CTA visibility override + brand red */
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+}
+
+/* NO FOCUS RINGS — team request */
+.page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* —— Layout helpers (Athena / sqlite BEM) —— */
+.zredshiftpage-wrap .content-wrap {
+    max-width: 980px;
+}
+
+.zredshiftpage-wrap h2 {
+    font-size: 36px;
+    line-height: 45px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.dsp-flx {
+    display: flex;
+}
+
+.flx-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-space {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* —— 1. Hero · zbanner-section —— */
+.zbanner-section {
+    padding: 100px 0 200px;
+    background: linear-gradient(135deg, #2b0e79 0%, #390862 100%);
+    color: #fff;
+}
+
+.zbanner-icons > ul {
+    margin: 0 0 40px;
+    display: flex;
+    max-width: 205px;
+    gap: 5px;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.zbanner-icons > ul > li {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.zbanner-icons > ul > li:first-child {
+    transform: translateX(-50px);
+}
+
+.zbanner-icons > ul > li:last-child {
+    transform: translateX(50px);
+    transition-delay: 0.5s;
+}
+
+.middle-animated .zbanner-icons > ul > li:first-child,
+.middle-animated .zbanner-icons > ul > li:last-child {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.zbanner-icons > ul:before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border: 3px solid #2b0e79;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 1s ease;
+}
+
+.zbanner-icons > ul:after {
+    content: "+";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 1s ease;
+}
+
+.middle-animated .zbanner-icons > ul:before,
+.middle-animated .zbanner-icons > ul:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.banner-title {
+    width: 51%;
+}
+
+.banner-desc {
+    width: 42%;
+}
+
+.zbanner-section h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -0.1px;
+    margin: 0 0 15px;
+    font-family: var(--zf-primary-bold);
+    color: #fff;
+}
+
+.zbanner-section .banner-desc p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0 0 20px;
+    color: #fff;
+}
+
+/* —— 2. Trust / counts —— */
+.trust-section {
+    position: relative;
+    top: -100px;
+}
+
+.trust-section:before {
+    content: "";
+    position: absolute;
+    background: var(--primary-bg);
+    width: 100%;
+    height: 110%;
+    left: 0;
+    top: 100px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.trust-sec-wrap {
+    background: #fff;
+    color: #000;
+    margin: auto;
+    padding: 55px 40px 80px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.trust-sec-wrap h2 {
+    font-size: 25px;
+    line-height: 31.25px;
+    font-family: var(--zf-primary-medium);
+    margin: 0 0 5px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    text-align: left;
+}
+
+.trust-sec-wrap::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background: #f0f0f0;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.trust-block {
+    position: relative;
+    padding: 30px 0 0;
+}
+
+.trust-block > div {
+    display: inline-block;
+    position: relative;
+    padding: 10px 0 0 130px;
+}
+
+.trust-block > div:not(:first-child) {
+    margin: 1px 0 0 80px;
+}
+
+.trust-block > div span {
+    color: #000;
+    font-size: 36px;
+    font-family: var(--zf-primary-bold);
+    line-height: normal;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.trust-block > div p {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.trust-block > div:before {
+    content: "";
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fdfdfd;
+    border: 1px solid #f7f6f6;
+    border-radius: 10px;
+}
+
+/* TODO: replace with final icon asset */
+.trust-block > div:after {
+    content: "";
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-image: url("https://prezohoweb.zoho.com/");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.trust-block > div:first-child p::after,
+.trust-block > div:nth-child(2) p::after {
+    content: "";
+    position: absolute;
+    height: 80%;
+    width: 1px;
+    background-color: #f0f0f0;
+    right: -40px;
+    top: 15px;
+}
+
+/* —— 3. Brand logos —— */
+.tbrand-section {
+    background: var(--primary-bg);
+}
+
+.trust-icon {
+    padding: 30px 25px 15px;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+    border-top: 0;
+    margin: -120px 0 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.trust-icon ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trust-icon ul li {
+    display: inline-block;
+    margin: 0 20px 35px 20px;
+    transform: scale(0.8);
+    transition: ease all 0.5s;
+}
+
+.trust-icon ul li:first-child {
+    margin-left: 0;
+}
+
+.trust-icon ul li:last-child {
+    margin-right: 0;
+}
+
+.trust-icon ul li img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* —— 4–5. Value sections —— */
+.zvalue-section {
+    background: var(--primary-bg);
+    padding: 100px 0;
+}
+
+.za-top-wrap {
+    margin: 0 auto;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.za-top-wrap > h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.za-top-wrap > p {
+    font-size: 18px;
+    line-height: 28.8px;
+    margin: 0;
+    padding: 0;
+}
+
+.zvalue-section h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zvalue-section p {
+    font-size: 18px;
+    line-height: 28.8px;
+}
+
+.zvalue-section#value-together p,
+.zvalue-section .zvalue-cont p {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.zvalue-cont {
+    width: 55%;
+}
+
+.zvalue-img {
+    width: 35%;
+}
+
+.zvalue-list > ul {
+    margin: 0 0 40px;
+    display: flex;
+    max-width: 305px;
+    gap: 5px;
+    position: relative;
+    min-height: 305px;
+    list-style: none;
+    padding: 0;
+    /* TODO: replace with final background asset */
+    background-image: url("https://prezohoweb.zoho.com/");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.zvalue-list > ul > li {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #fff;
+    box-shadow: 1px 2px 36px #cccccc78;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.zvalue-list > ul > li:first-child {
+    background-color: #ffe4e3;
+    transform: translate(-30px, -30px);
+}
+
+.zvalue-list > ul > li:last-child {
+    background-color: #e5f3ff;
+    align-self: end;
+    transform: translate(30px, 30px);
+    transition-delay: 0.5s;
+}
+
+.middle-animated .zvalue-list > ul > li:first-child,
+.middle-animated .zvalue-list > ul > li:last-child {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.zvalue-list > ul:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #f8d35b;
+    border-radius: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border: 3px solid #f4c736;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 1s ease;
+}
+
+.zvalue-list > ul:after {
+    content: "+";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 1s ease;
+}
+
+.middle-animated .zvalue-list > ul:before,
+.middle-animated .zvalue-list > ul:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* —— 6–9. Capability zigzags —— */
+.zdashboard-section {
+    padding: 100px 0;
+}
+
+.zdashboard-box {
+    margin: 0 0 50px;
+    align-items: end;
+}
+
+.zdashboard-title {
+    width: 42%;
+}
+
+.zdashboard-title > strong {
+    font-size: 14px;
+    line-height: 21px;
+    display: block;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    font-family: var(--zf-primary-bold);
+    color: var(--color-primary);
+}
+
+.zdashboard-title h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0;
+    text-align: left;
+}
+
+.zdashboard-desc {
+    width: 50%;
+}
+
+.zdashboard-desc p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0;
+}
+
+.zdashboard-img {
+    background: #fafafa;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.zdashboard-img img {
+    width: 100%;
+    max-width: 740px;
+    display: inline-block;
+}
+
+.zdb2 {
+    background: #fafafa;
+}
+
+.zdb2 .zdashboard-img {
+    background: #f3f3f3;
+}
+
+.za-note-wrap {
+    margin: 50px auto 0 auto;
+    max-width: 900px;
+    background: #fff;
+    border: 2px solid #0000001a;
+    border-radius: 10px;
+    padding: 40px 70px 40px 50px;
+}
+
+.za-note-wrap > p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0 0 0 110px;
+    position: relative;
+}
+
+.za-note-wrap > p:before {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 77px;
+    background: #fcf3c0;
+    border-radius: 12px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.7s ease;
+}
+
+/* TODO: replace with final icon asset */
+.za-note-wrap > p::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-image: url("https://prezohoweb.zoho.com/");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.7s ease 0.4s;
+}
+
+.za-note-wrap.zwe-om > p:before,
+.za-note-wrap.zwe-om > p::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* —— 10. Key features —— */
+.zconnecting-section {
+    background: var(--connecting-bg);
+    color: #fff;
+    padding: 100px 0;
+}
+
+.zconnecting-section h2 {
+    color: #fff;
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zconnecting-box {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.zconnecting-box h2 {
+    width: 50%;
+    align-self: center;
+    text-align: left;
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zconnecting-list,
+.ziaicon-list {
+    width: 30%;
+}
+
+.zconnecting-list h4,
+.ziaicon-list h4 {
+    font-family: var(--zf-primary-bold);
+    font-size: 23px;
+    line-height: 32.2px;
+    margin: 0 0 15px;
+    color: #fff;
+}
+
+.zconnecting-list p,
+.ziaicon-list p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 27.2px;
+    color: #fff;
+}
+
+/* Feature icons are images on live (sprite/PNG via h4::before) — scaffold uses visible <img> placeholders */
+.zconnecting-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 0 10px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.ziaicon-list .zconnecting-icon {
+    width: 50px;
+}
+
+.zconnecting-list:nth-child(4) p,
+.zconnecting-list:nth-child(5) p {
+    max-width: 280px;
+}
+
+/* —— 12. Testimonials shell —— */
+.ztesti-section {
+    padding: 40px 0 100px;
+    background: #fff;
+}
+
+.ztesti-section h2 {
+    text-align: center;
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.ztesti-box {
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ztesti-cust-details {
+    width: 28%;
+    text-align: center;
+}
+
+.ztesti-pic {
+    margin: 0 auto 15px;
+    width: 80px;
+    height: 87px;
+}
+
+.ztesti-pic img {
+    width: 80px;
+    height: 87px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #f0f0f0;
+}
+
+.ztesti-cust-details strong {
+    display: block;
+    min-height: 1.4em;
+    font-family: var(--zf-primary-semibold);
+    font-size: 17px;
+    line-height: 25.5px;
+    margin: 0;
+}
+
+.ztesti-cust-details p {
+    margin: 5px 0 0;
+    min-height: 1.4em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666;
+}
+
+.ztesti-cust-desc {
+    width: 65%;
+}
+
+.ztesti-cust-desc h4 {
+    margin: 0;
+    min-height: 4.5em;
+    font-size: 21px;
+    line-height: 29.4px;
+    font-family: var(--zf-primary-regular);
+    color: #333;
+    padding: 40px 0 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* —— 13. Resources — BOX cards (Athena live .zresrc-list) ——
+   Gold snippet: z_workflow/gold-snippets/database-connector-zresrc-cards.css */
+.zresrc-section {
+    padding: 0 0 100px;
+    background: #fff;
+}
+
+.zresrc-section h2 {
+    text-align: center;
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zresrc-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* BOX card — padding + radius + soft shadow (live Athena) */
+.zresrc-list {
+    width: calc(33.333% - 14px);
+    padding: 35px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(208, 208, 208, 0.23);
+    box-sizing: border-box;
+}
+
+.zresrc-box.zresrc-box--4 .zresrc-list {
+    width: calc(50% - 10px);
+}
+
+.zresrc-icon {
+    display: block;
+    width: 42px;
+    height: 40px;
+    margin: 0 0 16px;
+    object-fit: contain;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.zresrc-list h4 {
+    margin: 0 0 15px;
+    font-family: var(--zf-primary-bold);
+    font-size: 21px;
+    line-height: 29.4px;
+    color: var(--primary-font-color, #000);
+}
+
+.zresrc-list p {
+    margin: 0 0 20px;
+    font-size: 17px;
+    line-height: 27.2px;
+    color: #444;
+}
+
+/* Live Athena: blue underlined Learn more + chevron arrow */
+.learn-more-cta {
+    position: relative;
+    display: inline-block;
+    margin-top: 4px;
+    padding-right: 22px;
+    padding-bottom: 2px;
+    font-family: var(--zf-primary-medium, var(--zf-primary-semibold));
+    font-size: 17px;
+    line-height: 25.5px;
+    color: #03a9f5;
+    text-decoration: none;
+    border-bottom: 1.6px solid #03a9f5;
+}
+
+.learn-more-cta:focus,
+.learn-more-cta:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.learn-more-cta::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: 1.6px solid #03a9f5;
+    border-right: 1.6px solid #03a9f5;
+    transform: rotate(45deg);
+}
+
+/* —— 14. Closing CTA · EB-07 soft mint —— */
+.zbottom-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+#conclusion.pre-banner-section {
+    background-color: #e7f6f1;
+    background-image:
+        radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),
+        radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);
+    padding: 100px 0;
+    text-align: center;
+}
+
+#conclusion.pre-banner-section h2 {
+    color: var(--primary-font-color);
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+#conclusion.pre-banner-section p {
+    margin: 0;
+}
+
+/* —— Responsive: 1240 · 1080 · 991 · 767 · 565 · 480 · 350 —— */
+@media (max-width: 1240px) {
+    .zredshiftpage-wrap .content-wrap {
+        max-width: 920px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .zbanner-section h1 {
+        font-size: 44px;
+        line-height: 54px;
+    }
+
+    .trust-block > div span {
+        font-size: 30px;
+    }
+
+    .trust-block > div:not(:first-child) {
+        margin: 1px 0 0 60px;
+    }
+
+    .zdashboard-title {
+        width: 44%;
+    }
+
+    .zconnecting-box h2 {
+        width: 52%;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-container h1,
+    .zbanner-section h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .page-container h2,
+    .zredshiftpage-wrap h2,
+    .zvalue-section h2,
+    .zdashboard-title h2,
+    .zconnecting-box h2,
+    .zconnecting-section h2,
+    .ztesti-section h2,
+    .zresrc-section h2,
+    .zbottom-section h2,
+    #conclusion.pre-banner-section h2 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .page-container h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .page-container h4,
+    .zconnecting-list h4,
+    .ziaicon-list h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .page-container p,
+    .page-container li,
+    .zbanner-section .banner-desc p,
+    .zdashboard-desc p,
+    .zconnecting-list p,
+    .ziaicon-list p,
+    .zresrc-list p {
+        font-size: 16px;
+        line-height: 25.6px;
+    }
+
+    .zvalue-section p,
+    .za-top-wrap > p {
+        font-size: 17px;
+        line-height: 27.2px;
+    }
+
+    .zresrc-list h4 {
+        font-size: 19px;
+        line-height: 26px;
+    }
+
+    .f-20,
+    .title-desc {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .dsp-flx {
+        display: block;
+    }
+
+    .zbanner-section {
+        padding: 60px 0 150px;
+        text-align: center;
+    }
+
+    .zbanner-icons > ul {
+        margin: 0 auto 30px;
+    }
+
+    .banner-title,
+    .banner-desc {
+        width: 100%;
+        max-width: 660px;
+        margin: 0 auto;
+    }
+
+    .trust-sec-wrap {
+        text-align: center;
+        padding: 55px 30px 80px;
+    }
+
+    .trust-sec-wrap h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .trust-block {
+        padding: 0;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .trust-block > div {
+        margin: 0 50px 0 0;
+        text-align: left;
+    }
+
+    .trust-block > div:first-child p::after,
+    .trust-block > div:nth-child(2) p::after {
+        display: none;
+    }
+
+    .trust-block > div:not(:first-child) {
+        margin: 40px 0 0;
+    }
+
+    .trust-block > div span {
+        font-size: 24px;
+    }
+
+    .zvalue-section,
+    .zdashboard-section {
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .zvalue-cont,
+    .zvalue-img {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .zvalue-list > ul {
+        margin: 30px auto 0;
+    }
+
+    .zdashboard-title,
+    .zdashboard-desc {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .zdashboard-desc {
+        margin-top: 20px;
+    }
+
+    .zdashboard-box {
+        margin: 0 0 30px;
+    }
+
+    .zconnecting-section {
+        padding: 60px 0;
+    }
+
+    .zconnecting-box {
+        max-width: 730px;
+        margin: 0 auto;
+        display: flex;
+        gap: 40px 20px;
+    }
+
+    .zconnecting-box h2 {
+        width: 100%;
+        text-align: center;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .zconnecting-list,
+    .ziaicon-list {
+        width: 47%;
+    }
+
+    .ztesti-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ztesti-cust-details,
+    .ztesti-cust-desc {
+        width: 100%;
+    }
+
+    .zresrc-list,
+    .zresrc-box.zresrc-box--4 .zresrc-list {
+        width: calc(50% - 10px);
+    }
+
+    .za-note-wrap > p,
+    .za-top-wrap > p {
+        font-size: 17px;
+    }
+
+    .zbottom-section {
+        padding: 60px 0 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h1,
+    .zbanner-section h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .page-container h2,
+    .zredshiftpage-wrap h2,
+    .zvalue-section h2,
+    .zdashboard-title h2,
+    .zconnecting-box h2,
+    .zconnecting-section h2,
+    .ztesti-section h2,
+    .zresrc-section h2,
+    .zbottom-section h2,
+    #conclusion.pre-banner-section h2 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    .page-container h3 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .zbanner-section h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .trust-block > div {
+        margin: 0 15px;
+        padding: 10px 0 0 110px;
+        text-align: left;
+    }
+
+    .trust-block > div p {
+        font-size: 17px;
+    }
+
+    .trust-block > div:before,
+    .trust-block > div:after {
+        transform: scale(0.8);
+        transform-origin: left top;
+    }
+
+    .trust-sec-wrap {
+        padding-top: 30px;
+    }
+
+    .trust-sec-wrap h2 {
+        font-size: 21px;
+    }
+
+    .trust-icon {
+        padding: 40px 10px 20px;
+    }
+
+    .trust-icon ul li {
+        margin-bottom: 15px;
+    }
+
+    .zdashboard-title,
+    .zdashboard-desc {
+        max-width: 380px;
+    }
+
+    .zconnecting-box h2 {
+        max-width: 340px;
+    }
+
+    .ztesti-section {
+        padding: 60px 0;
+    }
+
+    .zresrc-section {
+        padding: 0 0 60px;
+    }
+
+    .zresrc-list,
+    .zresrc-box.zresrc-box--4 .zresrc-list {
+        width: 100%;
+    }
+
+    .zresrc-list h4 {
+        font-size: 18px;
+    }
+
+    .za-note-wrap {
+        padding: 20px 30px;
+        max-width: 520px;
+    }
+
+    .za-note-wrap > p {
+        font-size: 17px;
+        padding: 90px 0 0 0;
+    }
+}
+
+@media (max-width: 565px) {
+    .zbanner-section,
+    .zvalue-section,
+    .zdashboard-section,
+    .zconnecting-section {
+        padding-top: 40px;
+    }
+
+    .zbanner-section {
+        padding-bottom: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .zbanner-section h1 {
+        font-size: 28px;
+    }
+
+    .banner-title,
+    .banner-desc {
+        max-width: 290px;
+    }
+
+    .trust-sec-wrap {
+        padding: 40px 20px 60px;
+    }
+
+    .trust-block {
+        text-align: left;
+        margin: 40px auto 0;
+        max-width: 200px;
+    }
+
+    .trust-block > div {
+        margin: 0;
+    }
+
+    .trust-block > div:not(:first-child) {
+        margin: 30px 0 0 0;
+    }
+
+    .trust-icon {
+        display: inline-block;
+        width: 100%;
+        padding: 30px 10px 20px;
+    }
+
+    .trust-icon ul li {
+        width: 38%;
+        margin: 0 10px 15px;
+    }
+
+    .zvalue-img {
+        transform: scale(0.8);
+    }
+
+    .zconnecting-box {
+        max-width: 280px;
+    }
+
+    .zconnecting-list,
+    .ziaicon-list {
+        width: 100%;
+    }
+
+    .zbottom-section {
+        padding: 40px 0 30px;
+    }
+
+    #conclusion.pre-banner-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 350px) {
+    .zbanner-section h1 {
+        font-size: 24px;
+    }
+
+    .zbanner-icons > ul > li {
+        width: 80px;
+        height: 80px;
+    }
+
+    .trust-block > div {
+        padding-left: 90px;
+    }
+
+    .zresrc-list h4 {
+        font-size: 16px;
+    }
+}

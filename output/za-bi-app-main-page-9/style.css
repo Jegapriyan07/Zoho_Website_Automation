@@ -1,0 +1,781 @@
+/* Global typography — mobile-apps / zanalytics_solutions scale */
+.page-container h2 {
+  font-size: 38px;
+  line-height: 1.25;
+  text-align: center;
+  font-family: var(--zf-primary-bold);
+}
+
+.page-container h3 {
+  font-size: 23px;
+  line-height: 1.35;
+  width: 100%;
+}
+
+.page-container p,
+.page-container li {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-flex-row { flex-direction: row; }
+.d-flex-column { flex-direction: column; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.p-90 { padding: 90px 0; }
+.p-50 { padding: 50px 0; }
+.title-desc {
+  font-size: 20px;
+  line-height: 1.6;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.m-0 { margin: 0; }
+.m-t-0 { margin-top: 0 !important; }
+.p-b-0 { padding-bottom: 0 !important; }
+.m-t-15 { margin-top: 15px; }
+.m-b-30 { margin-bottom: 30px; }
+.f-20 { font-size: 20px; line-height: 1.6; }
+.p-t-0 { padding-top: 0; }
+.text-center { text-align: center; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ——— Design tokens (Phase 1) ——— */
+:root {
+  --color-primary: #3b81d3;
+  --color-secondary: #03a9f5;
+  --color-brand-cta: #e42527;
+  --primary-btn-color: #e42527;
+  --primary-font-color: #000;
+  --color-hero-bg: #fef2f2;
+  --color-apps-bg: #faf7f4;
+  --color-mobile-bi-card: #f7fff5;
+  --color-dashboards-card: #f5fffd;
+  --color-mobile-bi-border: #def2ce;
+  --color-dashboards-border: #bde6d8;
+  --color-accordion-active: #3b81d3;
+  --pre-banner-texture: url("https://prezohoweb.zoho.com/sites/zweb/images/analytics/blue-shadow-with-texture.png");
+}
+
+/* CTA visibility override + brand red */
+.page-container .cta-btn.act-btn {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  background: var(--primary-btn-color);
+  color: #fff;
+}
+
+/* NO FOCUS RINGS — team request */
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible,
+.page-container a.za-link:focus,
+.page-container a.za-link:focus-visible,
+.page-container a.app-store:focus,
+.page-container a.app-store:focus-visible,
+.page-container a.g-play:focus,
+.page-container a.g-play:focus-visible,
+.page-container .feature-accordian-section h3:focus,
+.page-container .feature-accordian-section h3:focus-visible,
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Scroll reveal */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+[data-animate].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes transX {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ——— 1. Hero — peach #fef2f2 · centered · signup hidden ——— */
+.header-section {
+  position: relative;
+  padding: 40px 0 20px;
+  overflow: hidden;
+  color: var(--primary-font-color);
+  background-color: var(--color-hero-bg);
+}
+
+.header-section.banner-shown {
+  padding-bottom: 20px;
+}
+
+.header-section .content-wrap {
+  max-width: 1170px;
+}
+
+.header-section .table-wrap {
+  padding-top: 70px;
+  display: block;
+  width: 100%;
+}
+
+.header-section .table-wrap.hero-centered > .column.left {
+  width: 100%;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.header-section .signup-box {
+  display: none;
+}
+
+.header-section h1 {
+  max-width: 960px;
+  margin: 0 auto 20px;
+  font-family: var(--zf-primary-bold);
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: center;
+  color: #000;
+}
+
+.header-section h1 + p {
+  max-width: 740px;
+  margin: 0 auto 25px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.7;
+  font-family: var(--zf-primary-bold);
+}
+
+.header-section .header-banner-btns {
+  text-align: center;
+}
+
+.header-section .header-banner-btns .cta-btn.act-btn {
+  padding: 8px 30px;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.header-banner-slider {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+}
+
+.hb-slider {
+  outline: 0;
+}
+
+.header-banner-slider img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 5px solid #d3d5e0;
+  border-radius: 0;
+}
+
+/* ——— 2. Native intro ——— */
+.feature-common-title {
+  max-width: 1040px;
+  margin: 0 auto 15px;
+  text-align: center;
+  padding: 60px 15px 70px;
+}
+
+.feature-common-title h2 {
+  margin: 0 auto 15px;
+  font-size: 38px;
+  line-height: 1.25;
+  font-family: var(--zf-primary-bold);
+}
+
+.feature-common-title p {
+  max-width: 740px;
+  margin: 0 auto 15px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.feature-common-title .standout-line {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.feature-common-title .standout-line b {
+  font-family: var(--zf-primary-bold);
+}
+
+/* ——— 3. Feature accordion ——— */
+.common-section.feature-accordian-section {
+  padding: 0 0 100px;
+}
+
+.zrow-wrap-accordian {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.zrow-wrap-accordian > .image-part {
+  width: 40%;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.zrow-wrap-accordian > .cont-part {
+  width: 60%;
+  padding-left: 50px;
+}
+
+.feature-accordian-section #tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.feature-accordian-section #tabs-nav li {
+  list-style: none;
+  border-bottom: 1px solid #d8d7d7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.feature-accordian-section #tabs-nav li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.feature-accordian-section #tabs-nav h3 {
+  font-size: 23px;
+  font-family: var(--zf-primary-bold);
+  margin: 0 0 15px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 50px;
+  width: auto;
+  transition: color 0.25s ease;
+  color: #000;
+}
+
+.feature-accordian-section #tabs-nav h3.active {
+  color: #3b81d3;
+}
+
+.feature-accordian-section #tabs-nav h3::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #333;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3.active::before {
+  transform: rotate(180deg);
+  top: 12px;
+}
+
+.feature-accordian-section #tabs-nav h3.active::after {
+  top: 15px;
+  transform: rotate(180deg);
+}
+
+.feature-accordian-section #tabs-nav li p {
+  display: none;
+  margin: 0 0 15px;
+  padding-right: 20px;
+}
+
+.feature-accordian-section #tabs-nav li.current p {
+  display: block;
+  animation: fadeIn 0.45s ease;
+}
+
+.tabs-stage > div {
+  display: none;
+  transition: all 0.5s ease;
+  animation: fadeIn 1s;
+}
+
+.tabs-stage > div.current {
+  display: block;
+  animation: transX 0.8s ease;
+  box-shadow: 0 0 13px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feature-accordian-section .tabs-stage > div img {
+  animation: none;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ——— 4. Product apps ——— */
+.third-party-section {
+  padding: 110px 0 125px;
+  margin-bottom: 80px;
+  background: var(--color-apps-bg);
+  position: relative;
+}
+
+.third-party-section::after {
+  content: "";
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  bottom: -27px;
+  /* TODO: replace with final asset */
+  background: url("https://prezohoweb.zoho.com/") no-repeat;
+  background-size: cover;
+}
+
+.party-flex-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding-top: 0;
+  flex-wrap: wrap;
+}
+
+.party-flex-wrap h2 {
+  font-size: 36px;
+  text-align: left;
+  margin: 0 0 15px;
+}
+
+.party-flex-inner {
+  position: relative;
+  overflow: hidden;
+  width: 40%;
+  padding: 80px 90px 80px 60px;
+  margin: 0 10px;
+  transition: 0.5s all ease-out;
+}
+
+.party-flex-inner.shopify {
+  background: var(--color-mobile-bi-card);
+  border: 1px solid var(--color-mobile-bi-border);
+}
+
+.party-flex-inner.service-now {
+  background: var(--color-dashboards-card);
+  border: 1px solid var(--color-dashboards-border);
+}
+
+.party-flex-inner.shopify:hover,
+.party-flex-inner.service-now:hover {
+  box-shadow: rgb(0 0 0 / 15%) 0 20px 20px -6px, rgb(0 0 0 / 5%) 0 33px 9px 0;
+}
+
+.party-flex-inner p {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.party-inner ol {
+  margin: 0 0 20px 6px;
+  padding-left: 18px;
+  text-align: left;
+}
+
+.party-inner ol li {
+  margin: 10px 0;
+  font-family: var(--zf-primary-bold);
+  list-style: auto;
+}
+
+.za-link {
+  border-bottom: 1px solid;
+  position: relative;
+  color: var(--color-secondary);
+  text-decoration: none;
+  display: inline-block;
+  font-family: var(--zf-primary-semibold);
+}
+
+.za-link span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  right: -26px;
+  top: 4px;
+  bottom: 0;
+  margin: auto;
+  background: var(--color-secondary);
+  border-radius: 100%;
+  transition: ease all 0.5s;
+}
+
+.za-link span::before,
+.za-link span::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 7px;
+  background: #fff;
+  transition: 0.5s ease;
+}
+
+.za-link span::before {
+  height: 9px;
+  transform: rotate(45deg);
+  top: 8px;
+  left: 9px;
+}
+
+.za-link span::after {
+  transform: rotate(135deg);
+  bottom: 8px;
+  left: 9px;
+}
+
+.za-link:hover span {
+  right: -30px;
+}
+
+.apps-download-links-wrap {
+  margin: 40px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.apps-download-links-wrap a {
+  display: inline-block;
+  width: 135px;
+  height: 40px;
+  margin-left: 0;
+  /* TODO: replace with final asset */
+  background-image: url("https://prezohoweb.zoho.com/");
+  background-size: contain;
+  background-position: center left;
+  background-repeat: no-repeat;
+  font-size: 0;
+}
+
+.apps-download-links-wrap a.app-store,
+.apps-download-links-wrap a.g-play {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+/* ——— 5. Testimonials placeholder ——— */
+.common-section.testimonial-section {
+  padding: 80px 0 40px;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  margin: 0 auto 20px;
+}
+
+/* ——— 6. Closing CTA — EB-01 Soft textured band ——— */
+#conclusion.pre-banner-section {
+  background-color: #dce8ff;
+  background-image:
+    radial-gradient(circle at 88% -20%, color-mix(in srgb, var(--color-primary) 18%, transparent) 0, transparent 55%),
+    radial-gradient(circle at 25% 130%, color-mix(in srgb, var(--color-secondary) 14%, transparent) 0, transparent 50%),
+    var(--pre-banner-texture);
+  background-size: auto, auto, 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 90px 0;
+  text-align: center;
+}
+
+.bottom-section h2 {
+  max-width: 1040px;
+  margin: 0 auto 25px;
+  font-size: 38px;
+  color: var(--primary-font-color);
+}
+
+.bottom-section .cta-btn.act-btn {
+  padding: 8px 30px;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+/* ——— Responsive: 1240 · 1080 · 991 · 767 · 565 · 480 · 350 ——— */
+@media (max-width: 1240px) {
+  .party-flex-inner {
+    width: 42%;
+    padding: 70px 40px 70px 45px;
+  }
+
+  .zrow-wrap-accordian > .cont-part {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .header-section h1 {
+    font-size: 42px;
+  }
+
+  .party-flex-wrap h2 {
+    font-size: 30px;
+  }
+
+  .zrow-wrap-accordian > .image-part {
+    width: 42%;
+  }
+
+  .zrow-wrap-accordian > .cont-part {
+    width: 58%;
+    padding-left: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-container h2 { font-size: 28px; }
+  .page-container h3 { font-size: 19px; }
+  .page-container p,
+  .page-container li { font-size: 15px; }
+  .f-20, .title-desc { font-size: 17px; }
+
+  .header-section h1 {
+    font-size: 36px;
+  }
+
+  .header-section h1 + p {
+    font-size: 16px;
+  }
+
+  .feature-common-title {
+    padding: 50px 15px 50px;
+  }
+
+  .feature-common-title h2 {
+    font-size: 28px;
+  }
+
+  .zrow-wrap-accordian {
+    flex-direction: column;
+  }
+
+  .zrow-wrap-accordian > .image-part,
+  .zrow-wrap-accordian > .cont-part {
+    width: 100%;
+    padding: 0;
+  }
+
+  .zrow-wrap-accordian > .image-part {
+    margin-bottom: 40px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 20px;
+  }
+
+  .party-flex-inner.shopify,
+  .party-flex-inner.service-now {
+    width: 100%;
+    max-width: 500px;
+    padding: 60px 50px;
+    margin: 0 auto 20px;
+  }
+
+  .third-party-section {
+    padding: 90px 0;
+    margin-bottom: 60px;
+  }
+
+  .bottom-section h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-container h2 { font-size: 24px; }
+  .page-container h3 { font-size: 17px; }
+
+  .header-section .table-wrap {
+    padding-top: 50px;
+  }
+
+  .header-section h1 {
+    font-size: 30px;
+  }
+
+  .header-section.banner-shown {
+    padding-bottom: 10px;
+  }
+
+  .feature-common-title {
+    padding: 40px 15px;
+  }
+
+  .common-section.feature-accordian-section {
+    padding-bottom: 60px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 19px;
+  }
+
+  .party-flex-wrap h2 {
+    font-size: 26px;
+  }
+
+  .party-flex-inner.shopify,
+  .party-flex-inner.service-now {
+    padding: 50px 30px;
+  }
+
+  .third-party-section {
+    padding: 80px 0;
+    margin-bottom: 50px;
+  }
+
+  .bottom-section h2 {
+    font-size: 24px;
+  }
+
+  #conclusion.pre-banner-section {
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 565px) {
+  .header-section h1 {
+    font-size: 26px;
+  }
+
+  .feature-common-title h2 {
+    font-size: 24px;
+  }
+
+  .common-section.testimonial-section {
+    padding: 50px 0 30px;
+  }
+
+  .party-flex-inner.shopify,
+  .party-flex-inner.service-now {
+    text-align: center;
+  }
+
+  .party-flex-wrap h2,
+  .party-flex-inner p,
+  .party-inner ol {
+    text-align: center;
+  }
+
+  .party-inner ol {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  .za-link {
+    left: -10px;
+  }
+
+  .apps-download-links-wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section h1 {
+    font-size: 24px;
+  }
+
+  .header-section h1 + p {
+    font-size: 15px;
+  }
+
+  .page-container p,
+  .page-container li {
+    font-size: 15px;
+  }
+
+  .third-party-section {
+    padding: 50px 0;
+    margin-bottom: 40px;
+  }
+
+  .party-flex-wrap h2 {
+    font-size: 22px;
+  }
+
+  #conclusion.pre-banner-section {
+    padding: 50px 0;
+  }
+
+  .bottom-section h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header-section h1 {
+    font-size: 22px;
+  }
+
+  .header-section .header-banner-btns .cta-btn.act-btn,
+  .bottom-section .cta-btn.act-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 17px;
+    padding-right: 36px;
+  }
+
+  .apps-download-links-wrap a {
+    width: 120px;
+    height: 36px;
+  }
+}

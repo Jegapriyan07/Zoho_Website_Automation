@@ -1,0 +1,134 @@
+/**
+ * Firebird-style DB connector — typography + critical layout from live firebird.html (29667.css)
+ * GOLD STANDARD for archetype `firebird-db-landing`.
+ *
+ * Canonical gold page: output/firebird/ → Reference-Site/agent-reference/Firebird/
+ * Source live: https://www.zoho.com/analytics/firebird.html
+ * CSS: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/29667.css
+ *
+ * COPY into output/{slug}/style.css. Do NOT use Athena zbanner/zconnecting type (h2 36 / feature 23).
+ * Global `.page-container p` is 17px — ALWAYS override `.za-feature-title` at higher specificity (26/40).
+ */
+
+/* —— Global type scale (Firebird live) —— */
+.page-container h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -1px;
+    font-family: var(--zf-primary-bold);
+    margin: 0;
+}
+
+.page-container h2 {
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h3 {
+    font-size: 34px;
+    line-height: 44.2px;
+    width: 100%;
+    font-family: var(--zf-primary-bold);
+    margin: 30px 0 20px;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.page-container p {
+    margin: 0 0 20px;
+}
+
+/* —— Red value band — beat .page-container p —— */
+.page-container .za-features-section h2 {
+    text-align: left;
+    color: #fff;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container .za-features-section .za-feature-title,
+.page-container .za-features-section p.za-feature-title {
+    font-size: 26px;
+    line-height: 40px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-regular);
+    color: #fff;
+    margin: 0 0 20px;
+    text-align: left;
+}
+
+/* —— Capability rows — centered stack (NOT Athena side-by-side) —— */
+.zdashboard-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.zdashboard-section .zdashboard-box.dsp-flx.justify-space,
+.zdashboard-section .zdashboard-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.zdashboard-title {
+    width: 42%;
+    max-width: 538px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.zdashboard-title h2,
+.zdashboard-title h2.t-left {
+    margin: 0;
+    text-align: center !important;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: normal;
+    font-family: var(--zf-primary-bold);
+}
+
+.zdashboard-desc {
+    width: 66%;
+    max-width: 845px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.zdashboard-desc p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 27.2px;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+/* —— Closing —— */
+.page-container .za-bottom-section h2 {
+    max-width: 720px;
+    letter-spacing: -1px;
+    margin: 0 auto 30px;
+    font-size: 46px;
+    line-height: 56px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+}
+
+.page-container .za-bottom-section p {
+    max-width: 470px;
+    margin: 20px auto 30px;
+    font-size: 17px;
+    line-height: 27.2px;
+}

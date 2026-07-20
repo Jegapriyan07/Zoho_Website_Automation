@@ -144,7 +144,12 @@
     "embedded-sales-analytics": ["EB-05", "EB-03", "EB-02"],
     "comparison-guide": ["EB-06", "EB-02", "EB-04"],
     "white-label-reporting-landing": ["EB-01", "EB-04", "EB-02"],
-    "spreadsheet-reporting-landing": ["EB-06", "EB-04", "EB-07", "EB-02", "EB-01"],
+    "spreadsheet-reporting-landing": ["EB-06"],
+    "what-is-business-intelligence": ["EB-04", "EB-02", "EB-07"],
+    "database-connector-landing": ["EB-02", "EB-04", "EB-07", "EB-01"],
+    "firebird-db-landing": ["EB-07", "EB-02", "EB-04", "EB-01"],
+    "app-connector-landing": ["EB-04", "EB-02", "EB-07", "EB-01"],
+    "mobile-apps-landing": ["EB-02", "EB-04", "EB-07", "EB-01"],
     "integration-campaign": ["EB-03", "EB-05", "EB-01"],
     "_default": ["EB-02", "EB-04", "EB-07", "EB-08", "EB-06", "EB-01", "EB-03", "EB-05"]
   }

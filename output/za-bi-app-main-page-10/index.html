@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZA BI APP Main Page — Zoho Analytics Mobile Apps</title>
+  <link rel="stylesheet" href="../../source/zohocustom.css">
+  <link rel="stylesheet" href="../../source/product.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <!-- ░░ NAV — TEAM TEMPLATE · INSERT HERE ░░ -->
+
+    <!-- 1. Hero — peach #fef2f2 · centered · ACCESS ZOHO ANALYTICS · signup hidden -->
+    <section class="header-section banner-shown" data-animate="fade-up">
+      <div class="content-wrap">
+        <div class="table-wrap hero-centered">
+          <div class="column left">
+            <h1>Enjoy the complete native approach with the all new Zoho Analytics Mobile BI apps</h1>
+            <p>Experience unmatched efficiency and a user interface with the all-new Zoho Analytics Mobile Apps, designed as a complete native application for both iOS and Android. Leverage your devices's capabilities and experience smooth, responsive and an optimized performance. Take on the future of mobile analytics with Zoho Analytics Mobile BI apps and redefine the way you engage with your business and intelligence needs.</p>
+            <div class="header-banner-btns">
+              <a href="#" class="cta-btn act-btn">ACCESS ZOHO ANALYTICS</a>
+            </div>
+          </div>
+        </div>
+        <div class="header-banner-slider slide-wrap">
+          <div class="hb-slider">
+            <!-- TODO: replace with final asset -->
+            <img
+              src="https://prezohoweb.zoho.com/"
+              alt="Zoho Analytics Mobile BI apps on device"
+              width="1170"
+              height="640">
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TRUSTED BRANDS SECTION — auto-injected by Web Page Builder
+     Variant: branding-section (mobile-apps / app-connector gold)
+     Logos: live zp-trust-brands-sprite (IKEA · HP · …) — not India marquee list
+     To remove: delete everything between these comment markers.
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="branding-section" aria-label="Trusted by great brands" data-tb-variant="branding-section">
+  <div class="content-wrap">
+    <div class="branding-logos">
+      <h2><span>Trusted by Great Brands</span></h2>
+      <div class="branding-wrap">
+        <div class="branding-count bc1">
+          <div class="each-count">
+            <div class="ec ec1 cshow">
+              <span class="ec-num" za-thousand-customers="">22</span>
+              <div class="ec-text"><span>Thousand</span>Customers</div>
+            </div>
+            <div class="ec ec2">
+              <span class="ec-num" za-million-users="">4</span>
+              <div class="ec-text"><span>Million</span>Users</div>
+            </div>
+          </div>
+        </div>
+        <div class="branding-count bc2">
+          <ul>
+            <li><span class="zicon-ikea" aria-label="IKEA">Icon</span></li>
+            <li><span class="zicon-suzuki" aria-label="Suzuki">Icon</span></li>
+            <li><span class="zicon-laliga" aria-label="La Liga">Icon</span></li>
+            <li><span class="zicon-mobile" aria-label="Mobile / Comcast family">Icon</span></li>
+            <li><span class="zicon-hp-wrap" aria-label="HP">Icon</span></li>
+            <li><span class="zicon-allianz" aria-label="Allianz">Icon</span></li>
+            <li><span class="zicon-johnson" aria-label="Johnson Controls">Icon</span></li>
+            <li><span class="zicon-life" aria-label="Life / Vimeo family">Icon</span></li>
+            <li><span class="zicon-crs" aria-label="CRS / Tesla family">Icon</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var root = document.querySelector('.branding-section[data-tb-variant="branding-section"]');
+  if (!root) return;
+
+  /* Dual counter rotate (live zanalytics_solutions) */
+  var ec1 = root.querySelector('.ec.ec1');
+  var ec2 = root.querySelector('.ec.ec2');
+  if (ec1 && ec2) {
+    setInterval(function () {
+      var showFirst = ec1.classList.contains('cshow');
+      if (showFirst) {
+        ec1.classList.remove('cshow');
+        ec1.style.display = 'none';
+        ec2.classList.add('cshow');
+        ec2.style.display = 'block';
+      } else {
+        ec2.classList.remove('cshow');
+        ec2.style.display = 'none';
+        ec1.classList.add('cshow');
+        ec1.style.display = 'block';
+      }
+    }, 2000);
+  }
+
+  /* One-by-one logo entrance — live scaleEffect via .line-animated */
+  var logos = root.querySelector('.branding-logos');
+  if (!logos) return;
+
+  var reduceMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function playLogoEntrance() {
+    logos.classList.add('line-animated');
+  }
+
+  if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+    playLogoEntrance();
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        playLogoEntrance();
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+  );
+  observer.observe(logos);
+});
+</script>
+
+<style>
+/* ── Trusted Brands · branding-section (live mobile-apps / Shopify) ── */
+@keyframes tb-scaleEffect {
+  0% { visibility: hidden; opacity: 0; transform: scale(0.8); }
+  100% { visibility: visible; opacity: 1; transform: scale(1); }
+}
+
+.branding-section[data-tb-variant="branding-section"] {
+  padding: 90px 0 40px;
+  background: #fff;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-logos {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-logos h2 {
+  font-size: 38px;
+  line-height: 47.5px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-logos h2 span {
+  display: inline-block;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-wrap {
+  display: table;
+  width: 100%;
+  margin: 50px auto 0;
+  table-layout: fixed;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-count {
+  display: table-cell;
+  vertical-align: middle;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-wrap .bc1 {
+  width: 220px;
+  background: #fff8f8;
+  border: 1px solid #ffdad1;
+  border-radius: 5px;
+  padding: 28px 16px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.branding-section[data-tb-variant="branding-section"] .branding-wrap .bc2 {
+  padding-left: 60px;
+  text-align: left;
+  width: auto;
+}
+.branding-section[data-tb-variant="branding-section"] .each-count {
+  position: relative;
+  min-height: 120px;
+}
+.branding-section[data-tb-variant="branding-section"] .ec {
+  display: none;
+}
+.branding-section[data-tb-variant="branding-section"] .ec.cshow {
+  display: block;
+}
+.branding-section[data-tb-variant="branding-section"] .ec-num {
+  display: block;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #ef5065;
+}
+.branding-section[data-tb-variant="branding-section"] .ec-text {
+  margin-top: 6px;
+  font-size: 19px;
+  line-height: 1.35;
+  color: #000;
+  font-weight: 600;
+}
+.branding-section[data-tb-variant="branding-section"] .ec-text span {
+  display: block;
+  color: #ef5065;
+  font-size: 19px;
+  font-weight: 600;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li {
+  float: left;
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  text-align: left;
+  margin: 25px 0;
+  list-style: none;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+}
+/* Staggered one-by-one reveal (live zanalytics_solutions scaleEffect) */
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(1) { animation: tb-scaleEffect 0.8s ease-out 0.5s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(2) { animation: tb-scaleEffect 0.8s ease-out 0.7s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(3) { animation: tb-scaleEffect 0.8s ease-out 0.9s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(4) { animation: tb-scaleEffect 0.8s ease-out 1.1s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(5) { animation: tb-scaleEffect 0.8s ease-out 1.3s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(6) { animation: tb-scaleEffect 0.8s ease-out 1.5s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(7) { animation: tb-scaleEffect 0.8s ease-out 1.7s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(8) { animation: tb-scaleEffect 0.8s ease-out 1.9s forwards; }
+.branding-section[data-tb-variant="branding-section"] .branding-logos.line-animated ul li:nth-child(9) { animation: tb-scaleEffect 0.8s ease-out 2.1s forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .branding-section[data-tb-variant="branding-section"] .bc2 li {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span {
+  background-image: url("https://www.zohowebstatic.com/sites/zweb/images/commonroot/zp-trust-brands-sprite.png");
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 1100px auto;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 115px;
+  font-size: 0;
+  color: transparent;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-ikea {
+  background-position: 0 -524px;
+  width: 92px;
+  background-size: 1050px auto;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-suzuki {
+  background-position: -880px -555px;
+  width: 85px;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-laliga {
+  background-position: -121px -576px;
+  width: 100px;
+  background-size: 1050px auto;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-mobile {
+  background-position: -186px -460px;
+  width: 115px;
+  background-size: 850px auto;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-hp-wrap {
+  background-position: -1048px -49px;
+  width: 40px;
+  background-size: 1300px auto;
+  position: relative;
+  left: 30px;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-allianz {
+  width: 85px;
+  background-position: -993px -500px;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-johnson {
+  background-position: -986px -554px;
+  width: 90px;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-life {
+  background-position: -85px -469px;
+  width: 96px;
+  background-size: 950px auto;
+}
+.branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-crs {
+  background-position: -6px -602px;
+  width: 110px;
+}
+@media (max-width: 991px) {
+  .branding-section[data-tb-variant="branding-section"] .branding-wrap {
+    display: block;
+  }
+  .branding-section[data-tb-variant="branding-section"] .branding-count {
+    display: block;
+  }
+  .branding-section[data-tb-variant="branding-section"] .branding-wrap .bc1 {
+    width: 220px;
+    margin: 0 auto 36px;
+  }
+  .branding-section[data-tb-variant="branding-section"] .branding-wrap .bc2 {
+    padding-left: 0;
+  }
+  .branding-section[data-tb-variant="branding-section"] .bc2 li {
+    width: 33.333%;
+    text-align: center;
+  }
+  .branding-section[data-tb-variant="branding-section"] .bc2 li span.zicon-hp-wrap {
+    left: 0;
+  }
+}
+@media (max-width: 565px) {
+  .branding-section[data-tb-variant="branding-section"] {
+    padding: 60px 0 30px;
+  }
+  .branding-section[data-tb-variant="branding-section"] .bc2 li {
+    width: 50%;
+    margin: 18px 0;
+  }
+}
+</style>
+<!-- END TRUSTED BRANDS SECTION -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 2. Native intro -->
+    <section class="feature-common-title" data-animate="fade-up">
+      <h2>Experience the truly native mobile BI apps of Zoho Analytics</h2>
+      <p>Crafted for Android and iOS, the Zoho Analytics Mobile Apps delivers a seamless and responsive experience that takes full advantage of each platform's unique features.</p>
+      <p class="standout-line"><b>Here's what makes the Zoho Analytics Mobile apps stand out:</b></p>
+    </section>
+
+    <!-- 3. Feature accordion ×6 from brief -->
+    <section class="common-section feature-accordian-section" data-animate="fade-up">
+      <div class="content-wrap">
+        <div class="zrow-wrap-accordian">
+          <div class="image-part">
+            <ul class="tabs-nav-list" id="tabs-nav">
+              <li class="current" data-tab="acc1">
+                <h3 class="active" tabindex="0" role="button" aria-expanded="true">Customized dashboard layout</h3>
+                <p>Reorder, resize, and custom design your own dashboards to fit in your business needs. Quickly access and visualize the most relevant data and monitor key metrics with flexible layout options.</p>
+              </li>
+              <li data-tab="acc2">
+                <h3 tabindex="0" role="button" aria-expanded="false">Zia Insights</h3>
+                <p>With Zoho's intelligent assistant, Zia, gain deeper insights through data analysis and natural language querying. Perform predictive analysis and much more with the natively built Ask Zia to make informative decisions.</p>
+              </li>
+              <li data-tab="acc3">
+                <h3 tabindex="0" role="button" aria-expanded="false">Smart filters and drill-downs</h3>
+                <p>Explore your data in greater detail. Use interactive gestures like tap, swipe, pan, etc., to discover hidden patterns and trends to drive better business outcomes.</p>
+              </li>
+              <li data-tab="acc4">
+                <h3 tabindex="0" role="button" aria-expanded="false">Favorites and recent views</h3>
+                <p>Bookmark your most frequently used reports and dashboards and simplify your workflow. The favourites feature, combined with the recent views section, comes in handy to navigate to the information you need.</p>
+              </li>
+              <li data-tab="acc5">
+                <h3 tabindex="0" role="button" aria-expanded="false">Enhanced security</h3>
+                <p>By leveraging the security features of iOS and Android, Zoho Analytics Mobile Apps employs advanced encryption techniques to protect your data both in transit and at rest.</p>
+              </li>
+              <li data-tab="acc6">
+                <h3 tabindex="0" role="button" aria-expanded="false">Performance and compatibility</h3>
+                <p>The Zoho Analytics Mobile Apps are tailor-made to work perfectly with the hardware and software configurations of your device. This results in a more reliable and stable application that is less prone to crashes and other issues.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="cont-part">
+            <div class="tabs-stage">
+              <div class="current" id="acc1">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Customized dashboard layout" width="718" height="351">
+              </div>
+              <div id="acc2">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Zia Insights" width="718" height="277">
+              </div>
+              <div id="acc3">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Smart filters and drill-downs" width="718" height="433">
+              </div>
+              <div id="acc4">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Favorites and recent views" width="718" height="410">
+              </div>
+              <div id="acc5">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Enhanced security" width="718" height="400">
+              </div>
+              <div id="acc6">
+                <!-- TODO: replace with final asset -->
+                <img src="https://prezohoweb.zoho.com/" alt="Performance and compatibility" width="718" height="400">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Product apps — no party-hd (brief has no Analytics on the move) -->
+    <section class="third-party-section" data-animate="fade-up">
+      <div class="content-wrap">
+        <div class="party-inner">
+          <div class="party-flex-wrap">
+            <div class="party-flex-inner shopify">
+              <h2>Zoho Analytics - Mobile BI App</h2>
+              <p>Transform and interact with your data on-the-go with the Zoho Analytics Mobile App.</p>
+              <ol>
+                <li>Access and visualize variety of charts, pivot tables, and KPI widgets.</li>
+                <li>Interact with your data using Zia for conversational analytics.</li>
+                <li>Organize and share reports with your team.</li>
+                <li>Stay updated with instant alerts and notifications.</li>
+              </ol>
+              <a class="za-link" href="https://www.zoho.com/analytics/mobile-bi.html" target="_blank" rel="noopener">Read more <span>&nbsp;</span></a>
+              <div class="apps-download-links-wrap">
+                <!-- TODO: replace with final asset -->
+                <a class="app-store" href="https://apps.apple.com/app/id902365462" target="_blank" rel="noopener" aria-label="App store"></a>
+                <!-- TODO: replace with final asset -->
+                <a class="g-play" href="https://play.google.com/store/apps/details?id=com.zoho.reports&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Play store"></a>
+              </div>
+            </div>
+            <div class="party-flex-inner service-now">
+              <h2>Zoho Analytics - Dashboards App</h2>
+              <p>A specialized app that provides a seamless and immersive experience when accessing your dashboards.</p>
+              <ol>
+                <li>View and interact with real-time dashboards.</li>
+                <li>Use touch gestures to filter and sort data.</li>
+                <li>Easily navigate and access favorite dashboards.</li>
+                <li>Collaborate with team members through shared dashboards.</li>
+              </ol>
+              <a class="za-link" href="https://www.zoho.com/analytics/mobile-bi-dashboards.html" target="_blank" rel="noopener">Read more <span>&nbsp;</span></a>
+              <div class="apps-download-links-wrap">
+                <!-- TODO: replace with final asset -->
+                <a class="app-store" href="https://apps.apple.com/app/id1562808051" target="_blank" rel="noopener" aria-label="App store"></a>
+                <!-- TODO: replace with final asset -->
+                <a class="g-play" href="https://play.google.com/store/apps/details?id=com.zoho.zadashboards" target="_blank" rel="noopener" aria-label="Google Play store"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Testimonials — gold: h2 sibling ABOVE section (live mobile-apps.html) -->
+    <h2 class="testi-title">Hear it from our customers</h2>
+    <section class="common-section testimonial-section">
+      <div class="content-wrap">
+        <div class="testimonial-wraps">
+          <span class="slider-icon" aria-hidden="true">Icon</span>
+          <!-- TODO: INSERT TESTIMONIALS HERE -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Rated the best — gold live mobile-apps.html float grid -->
+    <section class="common-section trust-section" data-animate="fade-up">
+      <div class="content-wrap">
+        <div class="rating-table-inner">
+          <h2 class="inner-hdr">Rated the best</h2>
+          <div class="rating-table">
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites finance-online"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="rating_count"><span class="count">4</span>.<span class="count">4</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate1 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites trust-radius"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">8</span>.<span class="count">7</span></span> / 10</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate2 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites pc"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">5</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate3 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites get-app"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">1</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate4 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites capterra"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">4</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate5 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites google-play"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">2</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate6 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites app-store"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">7</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate7 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites softeware-suggest"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">2</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate8 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div class="rating-sec">
+              <div class="rating-left"><span class="svg-sprites gatner"></span></div>
+              <div class="rating-right">
+                <h5 class="rating-txt"><span class="count rating_count"><span class="count">4</span>.<span class="count">5</span></span> / 5</h5>
+                <div class="star-con"><span class="anim-star svg-sprites rate9 four_half1"></span><span class="gray-star svg-sprites"></span></div>
+              </div>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Closing CTA — EB-04 Soft theme color wash -->
+    <section class="bottom-section pre-banner-section" id="conclusion" data-animate="fade-up">
+      <div class="content-wrap">
+        <h2>Analyze your data on-the-move, with Zoho Analytics mobile apps</h2>
+        <a href="#" class="cta-btn act-btn">ACCESS ZOHO ANALYTICS</a>
+      </div>
+    </section>
+
+    <!-- ░░ FOOTER — TEAM TEMPLATE · INSERT HERE ░░ -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

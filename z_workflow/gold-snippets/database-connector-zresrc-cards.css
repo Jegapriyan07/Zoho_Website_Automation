@@ -1,0 +1,117 @@
+/**
+ * Database connector — Learn more resource CARDS (Athena live / 27735.css)
+ * GOLD STANDARD for archetype `database-connector-landing`.
+ *
+ * Canonical gold page: output/sqlite-db-page-draft-2/
+ * Gold live: https://www.zoho.com/analytics/amazon-athena.html
+ *
+ * Layout: .zresrc-section > .zresrc-box > .zresrc-list ×3–4
+ * Each .zresrc-list is a white BOX card (padding + radius + soft shadow) — not a flat text column.
+ * Copy this block into output/{slug}/style.css for database-connector-landing builds.
+ * Composer + validate:output enforce via require_database_connector_zresrc_cards.
+ */
+
+.zresrc-section {
+    padding: 0 0 100px;
+    background: #fff;
+}
+
+.zresrc-section h2 {
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.zresrc-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* BOX card — live Athena .zresrc-list */
+.zresrc-list {
+    width: calc(33.333% - 14px);
+    padding: 35px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(208, 208, 208, 0.23);
+    box-sizing: border-box;
+}
+
+/* When brief has 4 resource items (e.g. SQLite), use 2×2 */
+.zresrc-box.zresrc-box--4 .zresrc-list {
+    width: calc(50% - 10px);
+}
+
+.zresrc-icon {
+    display: block;
+    width: 42px;
+    height: 40px;
+    margin: 0 0 16px;
+    object-fit: contain;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.zresrc-list h4 {
+    margin: 0 0 12px;
+    font-family: var(--zf-primary-bold);
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--primary-font-color, #000);
+}
+
+.zresrc-list p {
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Blue underlined Learn more + chevron (live .learn-more-cta) */
+.learn-more-cta {
+    position: relative;
+    display: inline-block;
+    margin-top: 4px;
+    padding-right: 22px;
+    padding-bottom: 2px;
+    font-family: var(--zf-primary-medium, var(--zf-primary-semibold));
+    font-size: 17px;
+    line-height: 1.4;
+    color: #03a9f5;
+    text-decoration: none;
+    border-bottom: 1.6px solid #03a9f5;
+}
+
+.learn-more-cta:focus,
+.learn-more-cta:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.learn-more-cta::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: 1.6px solid #03a9f5;
+    border-right: 1.6px solid #03a9f5;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 991px) {
+    .zresrc-list,
+    .zresrc-box.zresrc-box--4 .zresrc-list {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 767px) {
+    .zresrc-list,
+    .zresrc-box.zresrc-box--4 .zresrc-list {
+        width: 100%;
+    }
+}

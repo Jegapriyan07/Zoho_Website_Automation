@@ -577,11 +577,11 @@ function renderNewBuild(el) {
         <h3 class="step-title">3. Build your page</h3>
 
         <div class="build-options" role="group" aria-label="Optional inject blocks">
-          <label class="build-option" title="Inject animated brand logo marquee after hero">
+          <label class="build-option" title="Inject Trusted Brands after hero — variant follows architecture (marquee vs branding-section)">
             <input type="checkbox" id="opt-trusted-brands" />
             <span class="build-option-text">
               <strong>★ Trusted Brands</strong>
-              <small>Logo marquee + customer counts after hero</small>
+              <small id="tb-variant-hint">Variant from architecture: <em>marquee</em> (BI default) or <em>branding-section</em> (Mobile Apps / Shopify — counter LEFT + logo grid)</small>
             </span>
           </label>
           <label class="build-option" title="Inject empty analysts quotes + ratings shell before closing CTA">
@@ -908,7 +908,7 @@ function renderRun(el) {
       <div>
         <h2>${esc(run.page_title || run.slug || 'Building…')}</h2>
         <div class="url">${esc(run.writer_doc_url)}</div>
-        ${run.trusted_brands ? '<span class="chip tb-chip" title="Trusted brands marquee will be injected after the hero section">★ Trusted Brands</span>' : ''}
+        ${run.trusted_brands ? '<span class="chip tb-chip" title="Trusted Brands inject — variant from architecture (marquee or branding-section)">★ Trusted Brands</span>' : ''}
         ${run.report_slider ? '<span class="chip rs-chip" title="Empty report-slider shell injected before closing Ready to build banner">★ Report Slider</span>' : ''}
         ${run.template_id ? `<span class="chip tpl-chip" title="Built with ${esc(TEMPLATES.find((t)=>t.id===run.template_id)?.name||run.template_id)} template">📐 ${esc(TEMPLATES.find((t)=>t.id===run.template_id)?.name||run.template_id)}</span>` : ''}
       </div>

@@ -1,0 +1,110 @@
+/**
+ * Gold typography + spacing for what-is-business-intelligence landings.
+ * Canonical gold page: output/what-is-business-intelligence-lp-3/
+ * Source live: https://www.zoho.com/analytics/what-is-business-intelligence.html
+ * CSS: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/39804.css
+ *
+ * COPY into output/{slug}/style.css near the top (replaces scaffold 16px/20px h3 defaults).
+ * Composer + validate:output enforce this via require_what_is_bi_type_scale.
+ */
+
+.page-container h1 {
+  font-size: 42px;
+  line-height: 50.4px;
+  letter-spacing: -0.1px;
+  font-family: Zoho_Puvi_Bold;
+  margin: 0 0 15px;
+}
+
+.page-container h2 {
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  font-family: Zoho_Puvi_Bold;
+  margin: 0 0 15px;
+}
+
+.page-container h3 {
+  font-size: 24px;
+  line-height: 31.2px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: Zoho_Puvi_SemiBold;
+}
+
+.page-container p,
+.page-container li {
+  font-size: 17px;
+  line-height: 27.2px;
+}
+
+.page-container p {
+  margin: 0 0 20px;
+}
+
+/* Must beat .page-container p — live title-desc is 20/32 */
+.page-container .title-desc,
+.page-container p.title-desc {
+  font-size: 20px;
+  line-height: 32px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-section {
+  padding: 90px 0;
+}
+
+/* Writer "Separate banner for this:" goals statement — placeholder banner bg + text */
+#goals-align-banner.pre-banner,
+#goals-align-banner.pre-banner-section {
+  /* TODO: replace with final banner background asset */
+  background-image: url('https://prezohoweb.zoho.com/');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#goals-align-banner.pre-banner h2,
+#goals-align-banner.pre-banner-section h2 {
+  margin: 0;
+}
+
+.z-accordian {
+  margin-top: 70px;
+}
+
+.z-accordianBox h4 {
+  font-size: 18px;
+  line-height: 25.2px;
+  padding: 25px 0;
+}
+
+.comparison-table table tbody td,
+.comparison-table table thead th {
+  padding: 18px;
+  font-size: 17px;
+  line-height: 25.5px;
+}
+
+.comparison-table table thead th {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+@media screen and (max-width: 991px) {
+  .page-container h3 {
+    font-size: 21px;
+  }
+
+  .title-desc {
+    font-size: 17px;
+    line-height: 27.2px;
+    width: 100%;
+  }
+
+  .p-90 {
+    padding: 60px 0;
+  }
+}

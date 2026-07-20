@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "page_slug": "firebird",
+  "archetype": "firebird-db-landing",
+  "output_dir": "output/firebird",
+  "gold": true,
+  "primary_source": "https://www.zoho.com/analytics/firebird.html",
+  "gold_snippet": "z_workflow/gold-snippets/firebird-db-type-scale.css",
+  "reference_path": "Reference-Site/agent-reference/Firebird/",
+  "structure_mode": "compose",
+  "end_banner": "EB-07",
+  "promoted_at": "2026-07-20T11:10:07.728Z",
+  "notes": "Promoted as firebird-db-landing gold. Centered zdashboard stack · za-feature-title 26/40 · not Athena clone."
+}

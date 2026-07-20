@@ -1,0 +1,75 @@
+/* Gold: isolate Trusted Brands inject from live BI .trust-icon rules
+ * Gold page: output/bi-software-3 · Reference-Site/agent-reference/bi-software-3
+ *
+ * Live 23064 uses .trust-icon { margin:-120px } for .tbrand-section.
+ * Web Page Builder inject reuses .trust-icon.tb-track — unscoped live rules
+ * clip the logo marquee inside .brand-wrapper { overflow:hidden }.
+ *
+ * COPY into style.css AFTER layout CSS when ★ Trusted Brands inject is on.
+ * Prefer SKIP composing .trust-section / .tbrand-section — inject only.
+ */
+
+/* Scope any leftover live trust-icon rules (tbrand only — never hit inject) */
+.tbrand-section .trust-icon {
+  /* live pull-up lives here only — not on .za-brandsCounts */
+}
+
+.za-brandsCounts .trust-icon,
+.za-brandsCounts .tb-track {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  width: max-content !important;
+  text-align: left !important;
+}
+.za-brandsCounts .trusted-icon-wrap {
+  overflow: hidden;
+  min-height: 100px;
+}
+.za-brandsCounts .marquee-wrapper {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Writer heading + live order: heading → stats → logos */
+.za-brandsCounts .za-brands-heading {
+  text-align: center;
+  font-size: 25px;
+  font-family: var(--zf-primary-semibold, inherit);
+  margin: 0 0 8px;
+  padding: 10px 20px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  color: #000;
+  order: 0;
+}
+.za-brandsCounts .brand-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.za-brandsCounts .za-counts-section { order: 1; }
+.za-brandsCounts .marquee-wrapper {
+  order: 2;
+  margin-top: 28px;
+}
+.za-brandsCounts .trust-icon .ae-icon {
+  opacity: 1 !important;
+  margin: 0 150px 0 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 100px;
+  flex-shrink: 0;
+}
+.za-brandsCounts .trust-icon .ae-icon img {
+  display: block !important;
+  opacity: 1 !important;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+}
+@media only screen and (max-width: 576px) {
+  .za-brandsCounts .trust-icon .ae-icon { margin: 0 60px 0 0 !important; min-height: 64px; }
+}

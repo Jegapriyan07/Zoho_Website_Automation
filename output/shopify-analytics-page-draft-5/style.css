@@ -1,0 +1,908 @@
+/* Global typography and utilities — consistent across all pages */
+.page-container h2 {
+  font-size: 32px;
+  line-height: 1.3;
+  text-align: center;
+  font-family: var(--zf-primary-bold);
+}
+
+.page-container h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.page-container p,
+.page-container li {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-flex-row { flex-direction: row; }
+.d-flex-column { flex-direction: column; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.p-90 { padding: 90px 0; }
+.p-50 { padding: 50px 0; }
+.title-desc {
+  font-size: 20px;
+  line-height: 1.6;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.m-0 { margin: 0; }
+.m-t-0 { margin-top: 0 !important; }
+.p-b-0 { padding-bottom: 0 !important; }
+.m-t-15 { margin-top: 15px; }
+.m-b-30 { margin-bottom: 30px; }
+.f-20 { font-size: 20px; line-height: 1.6; }
+.p-t-0 { padding-top: 0; }
+.text-center { text-align: center; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #3b81d3;
+  --color-secondary: #17774b;
+  --primary-color: #3b81d3;
+  --secondary-color: #41a35f;
+  --primary-font-color: #262626;
+  --secondary-font-color: #ffffff;
+  --primary-bg: #ffecc9;
+  --shopify-banner-start: #17774b;
+  --shopify-banner-end: #41a35f;
+  --shopify-banner-heading: #f1dc05;
+  --color-brand-cta: #e42527;
+  --primary-btn-color: #e42527;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 48px;
+}
+
+/* CTA visibility override + brand red */
+.page-container .cta-btn.act-btn {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  background: var(--primary-btn-color);
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 4px;
+  font-family: var(--zf-primary-semibold);
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+/* NO FOCUS RINGS — team request */
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible,
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible,
+.page-container .feature-accordian-section h3:focus,
+.page-container .feature-accordian-section h3:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ——— Live source transitions (zanalytics_solutions.css) ——— */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes transX {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ——— 1. Hero — gold: live shopify-advanced-analytics.html / zanalytics_solutions.css ——— */
+.header-section,
+.zw-product-header {
+  background: #ffecc9;
+}
+
+.header-section {
+  position: relative;
+  padding-bottom: 100px;
+  overflow: hidden;
+  color: var(--primary-font-color);
+}
+
+.header-section.banner-shown {
+  padding-bottom: 20px;
+}
+
+.header-section .content-wrap {
+  max-width: 1170px;
+}
+
+.header-section .table-wrap {
+  padding-top: 70px;
+  display: flex;
+  width: 100%;
+}
+
+.header-section .table-wrap > .column {
+  float: left;
+  display: block;
+  vertical-align: top;
+}
+
+.header-section .table-wrap > .column.left {
+  width: 60%;
+}
+
+.header-section .table-wrap > .column.right {
+  width: 40%;
+}
+
+.header-section h1 {
+  max-width: 640px;
+  margin: 0 0 20px;
+  font-family: var(--zf-primary-bold);
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: left;
+  color: #000;
+}
+
+.header-section h1 + p {
+  max-width: 610px;
+  margin: 0 0 20px;
+}
+
+.header-section .header-banner-btns {
+  text-align: left;
+}
+
+.header-section .header-banner-btns .cta-btn.act-btn {
+  padding: 8px 30px;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+/* Signup shell (live embeds zp_signup form here) */
+.header-section .signup-box {
+  max-width: 350px;
+  margin-left: 118px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section .signup-box h5 {
+  font-size: 19px;
+  font-family: var(--zf-primary-semibold);
+  margin: 0 0 15px;
+  color: #000;
+}
+
+.signup-box-placeholder {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.sgfrm-placeholder {
+  height: 42px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+.sgfrm-placeholder.short {
+  height: 44px;
+  background: var(--primary-btn-color);
+  border-color: var(--primary-btn-color);
+  margin-bottom: 0;
+}
+
+/*
+ * Cream → white transition band under hero dashboard
+ * (live: .header-banner-slider:after)
+ */
+.header-banner-slider {
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
+}
+
+.header-banner-slider::after {
+  content: "";
+  background: #fff;
+  height: 55%;
+  position: absolute;
+  bottom: -120px;
+  left: -100%;
+  width: 260%;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.hb-slider {
+  outline: 0;
+}
+
+.header-banner-slider img {
+  display: block;
+  width: 100%;
+  border: 5px solid #d3d5e0;
+  border-radius: 0;
+}
+
+/* ——— 2. Brands ——— */
+.branding-section {
+  padding-top: 90px;
+  margin-bottom: 60px;
+  background: #fff;
+  position: relative;
+}
+
+.branding-section h2 {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.branding-section h2 span {
+  font-family: var(--zf-primary-bold);
+}
+
+.branding-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.branding-wrap > .branding-count.bc1 {
+  width: 220px;
+  background: #fff8f8;
+  border: 1px solid #ffdad3;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.branding-count .ec-num {
+  color: #ef5065;
+  font-size: 52px;
+  font-family: var(--zf-primary-bold);
+  margin-bottom: 10px;
+  display: block;
+  line-height: 1;
+}
+
+.branding-count .ec-text {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.branding-count .ec-text span {
+  color: #ef5065;
+  font-size: 19px;
+  font-family: var(--zf-primary-bold);
+}
+
+.branding-count.bc2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.branding-count.bc2 li {
+  list-style: none;
+}
+
+/* ——— 3. Native app pitch ——— */
+section.common-section.shopify-banner-section {
+  padding: 50px 0;
+}
+
+.shopify-banner-section .content-wrap {
+  background: linear-gradient(90deg, rgba(23, 119, 75, 1) 0%, rgba(65, 163, 95, 1) 100%);
+  border-radius: 15px;
+  padding: 40px 150px 40px 170px;
+  box-sizing: border-box;
+  max-width: 1170px;
+  position: relative;
+}
+
+.shopify-banner-section .content-wrap::before {
+  content: "";
+  width: 100%;
+  height: 53px;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  /* TODO: replace with final decorative asset */
+  background-image: url("https://prezohoweb.zoho.com/");
+  background-size: 62px auto;
+  background-position: -163px 0;
+  background-repeat: repeat-x;
+}
+
+.shopify-banner-section h2 {
+  font-size: 30px;
+  max-width: 580px;
+  color: var(--shopify-banner-heading);
+  text-align: left;
+  margin: 0 0 10px;
+}
+
+.sbs-wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.sbs-list-wrap {
+  display: flex;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.sbs-list-wrap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.sbs-list-wrap ul:first-child {
+  flex: 1.6;
+  padding-right: 15px;
+}
+
+.sbs-wrap ul li {
+  color: #fff;
+  font-family: var(--zf-primary-semibold);
+  position: relative;
+  padding: 0 10px 0 30px;
+}
+
+.sbs-wrap ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.sbs-wrap ul li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f1dc05;
+}
+
+.shopify-banner-section .cta-btn.act-btn {
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ——— 4. Why choose accordion ——— */
+.common-section.feature-accordian-section {
+  padding: 40px 0 120px;
+}
+
+.feature-accordian-section .feature-common-title {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 50px;
+}
+
+.feature-accordian-section .feature-common-title h2 {
+  max-width: 1040px;
+  margin: 0 auto 15px;
+}
+
+.feature-accordian-section .feature-common-title p {
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+.zrow-wrap-accordian {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.zrow-wrap-accordian > .image-part {
+  width: 40%;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.zrow-wrap-accordian > .cont-part {
+  width: 60%;
+  padding-left: 50px;
+}
+
+.feature-accordian-section #tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-accordian-section #tabs-nav li {
+  list-style: none;
+  border-bottom: 1px solid #d8d7d7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.feature-accordian-section #tabs-nav li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.feature-accordian-section #tabs-nav h3 {
+  font-size: 23px;
+  font-family: var(--zf-primary-bold);
+  margin: 0 0 15px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 50px;
+  width: auto;
+  transition: color 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3.active {
+  color: var(--color-primary);
+}
+
+.feature-accordian-section #tabs-nav h3::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #333;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3.active::before {
+  transform: rotate(180deg);
+  top: 12px;
+}
+
+.feature-accordian-section #tabs-nav h3.active::after {
+  top: 15px;
+  transform: rotate(180deg);
+}
+
+.feature-accordian-section #tabs-nav li p {
+  display: none;
+  margin: 0 0 15px;
+  padding-right: 20px;
+}
+
+.feature-accordian-section #tabs-nav li.current p {
+  display: block;
+  animation: fadeIn 0.45s ease;
+}
+
+/* Live accordion panel transition */
+.tabs-stage > div {
+  display: none;
+  transition: all 0.5s ease;
+  animation: fadeIn 1s;
+}
+
+.tabs-stage > div.current {
+  display: block;
+  animation: transX 0.8s ease;
+  box-shadow: 0 0 13px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feature-accordian-section .tabs-stage > div img {
+  animation: none;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* ——— 5. Key features ——— */
+.common-section.zcollaborate-section {
+  padding-top: 0;
+  padding-bottom: 70px;
+}
+
+.zcollaborate-section h2 {
+  max-width: 1040px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.zcollaborate-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 40px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zcollaborate-section ul li {
+  list-style: none;
+  vertical-align: top;
+  padding: 0 30px;
+  width: 33.333%;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.zcollaborate-section .sf-icon {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.zcollaborate-section h4 {
+  font-family: var(--zf-primary-bold);
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.zcollaborate-section .text-center {
+  clear: both;
+  padding-top: 10px;
+}
+
+/* ——— 7. Testimonials placeholder ——— */
+.common-section.testimonial-section {
+  padding: 60px 0;
+}
+
+.testimonial-section h2 {
+  margin-bottom: 20px;
+}
+
+/* ——— 8. Recognition placeholder ——— */
+.common-section.trust-section {
+  background: #f7f8f9;
+  padding: 60px 0;
+}
+
+.trust-section .inner-hdr {
+  margin-bottom: 20px;
+}
+
+/* ——— 9. How-tos placeholder ——— */
+.how-tosec-wrap {
+  margin: 100px auto 40px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.how-tosec-wrap h2 {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.how-sec-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.how-to-sec {
+  display: inline-block;
+  width: 260px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+.how-to-sec a {
+  color: #000;
+  font-size: 15px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.how-to-sec img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+.how-to-sec span {
+  display: block;
+}
+
+/* ——— 10. Closing CTA — EB-04 soft theme wash ——— */
+#conclusion.pre-banner-section {
+  text-align: center;
+  background-color: #eef5ff;
+  background-image:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-primary) 22%, transparent) 0, transparent 45%),
+    radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0, transparent 50%);
+  padding: 90px 0;
+}
+
+.bottom-section h2 {
+  max-width: 1040px;
+  margin: 0 auto 25px;
+  font-size: 32px;
+  color: var(--primary-font-color);
+}
+
+.bottom-section .cta-btn.act-btn {
+  padding: 8px 30px;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+/* ——— Responsive: 1240 · 1080 · 991 · 767 · 565 · 480 · 350 ——— */
+@media (max-width: 1240px) {
+  .shopify-banner-section .content-wrap {
+    padding: 60px 80px 90px 90px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .header-section .signup-box {
+    margin-left: 40px;
+  }
+
+  .zrow-wrap-accordian > .cont-part {
+    padding-left: 30px;
+  }
+
+  .zcollaborate-section ul li {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-container h2 { font-size: 26px; }
+  .page-container h3 { font-size: 18px; }
+  .page-container p,
+  .page-container li { font-size: 15px; }
+  .f-20, .title-desc { font-size: 17px; }
+
+  .header-section h1 {
+    font-size: 38px;
+    text-align: center;
+    margin: 0 auto 15px;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .header-section h1 + p {
+    max-width: 610px;
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+
+  .header-section .table-wrap {
+    display: block;
+  }
+
+  .header-section .table-wrap > .column.left,
+  .header-section .table-wrap > .column.right {
+    width: 100%;
+    float: none;
+  }
+
+  .header-section .header-banner-btns {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .header-section .signup-box {
+    margin: 0 auto;
+  }
+
+  .header-banner-slider {
+    max-width: 90%;
+    margin: 50px auto 0;
+  }
+
+  .zrow-wrap-accordian {
+    flex-direction: column;
+  }
+
+  .zrow-wrap-accordian > .image-part,
+  .zrow-wrap-accordian > .cont-part {
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .zrow-wrap-accordian > .image-part {
+    margin-bottom: 40px;
+  }
+
+  .zcollaborate-section ul li {
+    width: 50%;
+  }
+
+  .shopify-banner-section h2 {
+    font-size: 26px;
+    max-width: none;
+    text-align: center;
+  }
+
+  .sbs-list-wrap {
+    display: block;
+  }
+
+  .sbs-list-wrap ul:first-child {
+    flex: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .bottom-section h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-container h2 { font-size: 22px; }
+  .page-container h3 { font-size: 17px; }
+
+  .header-section h1 { font-size: 30px; }
+  .header-section .table-wrap { padding-top: 40px; }
+  .header-section.banner-shown { padding-bottom: 80px; }
+  .header-banner-slider::after { display: none; }
+  .header-section { overflow: inherit; }
+
+  .branding-section {
+    padding-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 19px;
+  }
+
+  .zcollaborate-section ul li {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .shopify-banner-section .content-wrap {
+    padding: 60px 30px 70px 40px;
+  }
+
+  .shopify-banner-section .content-wrap::before {
+    display: none;
+  }
+
+  .shopify-banner-section h2 {
+    font-size: 28px;
+  }
+
+  .how-to-sec {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  #conclusion.pre-banner-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 565px) {
+  .header-section {
+    padding-bottom: 20px;
+  }
+
+  .common-section.feature-accordian-section {
+    padding-bottom: 60px;
+  }
+
+  .how-tosec-wrap {
+    margin: 60px auto 30px;
+  }
+
+  .branding-wrap {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section h1 { font-size: 24px; }
+
+  .shopify-banner-section h2 {
+    font-size: 24px;
+  }
+
+  .shopify-banner-section .content-wrap {
+    padding: 40px 20px 50px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 17px;
+    padding-right: 36px;
+  }
+
+  .bottom-section h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header-section h1 { font-size: 22px; }
+
+  .shopify-banner-section .content-wrap {
+    padding: 30px 16px 40px;
+  }
+
+  .sbs-wrap ul li {
+    padding-left: 26px;
+  }
+}

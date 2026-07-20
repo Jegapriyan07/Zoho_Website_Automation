@@ -1,0 +1,54 @@
+{
+  "pass": false,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\za-bi-app-main-page-6.txt",
+  "archetype": "database-connector-landing",
+  "archetype_score": 8,
+  "required_found": [
+    "Zia Insights",
+    "Conversational Analytics"
+  ],
+  "required_missing": [
+    "Data Import",
+    "Data Preparation",
+    "Live Connect",
+    "Data Blending",
+    "Bring in data into Zoho Analytics effortlessly",
+    "Enrich the quality of your business decisions",
+    "Set up a live connection with your database",
+    "Unified analytics for your daily business apps",
+    "Incremental fetch",
+    "Predictive Analytics"
+  ],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3060,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [
+    "Missing required strings (10): Data Import · Data Preparation · Live Connect · Data Blending · Bring in data into Zoho Analytics effortlessly · Enrich the quality of your business decisions · Set up a live connection with your database · Unified analytics for your daily business apps · Incremental fetch · Predictive Analytics"
+  ],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~1)"
+  ],
+  "validated_at": "2026-07-20T09:09:59.220Z"
+}

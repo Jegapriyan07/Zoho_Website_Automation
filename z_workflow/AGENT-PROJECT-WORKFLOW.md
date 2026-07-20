@@ -51,10 +51,10 @@ The agent then runs autonomously through Phases 0 → 1 → 2 → 6, opens the r
 ```mermaid
 flowchart TD
     A[User drops Writer URL] --> B[Pre-flight: read Rulesbook + indexes]
-    B --> C[Chrome MCP: extract brief]
-    C --> D{Login wall?}
-    D -->|Yes| E[STOP — ask user to sign in]
-    D -->|No| F[validate:brief exit 0]
+    B --> C[Writer API: extract brief]
+    C --> D{API auth OK?}
+    D -->|No| E[STOP — Sign in with Zoho in Web Page Builder]
+    D -->|Yes| F[validate:brief exit 0]
     F --> G[Phase 0: match + source_map]
     G --> H[Phase 1: design tokens]
     H --> I[Phase 2: blueprint JSON]
@@ -78,13 +78,15 @@ flowchart TD
 | **Hard stops only** | Zoho login wall · failed extraction · confidential content in brief · `validate:brief` / `validate:output` failure |
 | **Human input after build** | `APPROVE` · `REVISE: [specific issue]` · `OVERRIDE` on source_map (one cycle after Phase 0) |
 | **Do not over-fetch** | Fetch webtemplate URLs only for sections mapped `source_type: webtemplate` — never loop all 630 links |
-| **Session-fresh brief** | Writer extraction must happen **in this chat session** via Chrome MCP |
+| **Session-fresh brief** | Writer extraction via **Writer API** in this build (sidecar `writer_api`) |
+| **Chrome MCP** (`user-chrome-devtools`) | Live **marketing** webtemplate sections · open `file://` output for visual check — **never** Writer docs |
 
 ### 3.2 Tools the agent uses
 
 | Tool | Role in this project |
 |------|----------------------|
-| **Chrome MCP** (`user-chrome-devtools`) | Extract Writer brief · fetch single webtemplate section · open `file://` output for visual check |
+| **Writer API** (`web-tool/server/writer-api.js`) | Extract Writer brief (DOCX download) — **only** Writer path |
+| **Chrome MCP** (`user-chrome-devtools`) | Live marketing webtemplate sections · open `file://` output — **never** Writer docs |
 | **Read / Grep / Glob** | Reference sections, indexes, briefs, Rulesbook |
 | **Shell** | `npm run validate:brief`, `validate:output`, `match`, `promote`, `audit` |
 | **Write / StrReplace** | `output/{slug}/` files · `state.json` · `briefs/{slug}.txt` |
@@ -138,27 +140,27 @@ Before any phase work:
 
 ### 5.1 Writer brief extraction (mandatory gate)
 
-**Only allowed method:** Chrome MCP in **this session**.
+**Only allowed method:** Zoho **Writer API** (`web-tool/server/writer-api.js` / Web Page Builder Phase 0).
 
 | Step | Action |
 |------|--------|
-| 1 | `navigate_page` or `new_page` → Writer URL |
-| 2 | **Login gate:** URL/title = Zoho Accounts → **STOP**, ask user to sign in, retry |
-| 3 | `evaluate_script` → `WRITER_BROWSER_EXTRACT_FN` from `scripts/writer-extract-core.mjs` |
-| 4 | Save → `z_workflow/briefs/{slug}.txt` |
+| 1 | Build / extract via `extractWriterViaApi` (OAuth + DOCX download) |
+| 2 | **Auth gate:** API 401/403 or no tokens → **STOP**, ask user to Sign in with Zoho in the tool |
+| 3 | Confirm `briefs/{slug}.extract.json` → `extraction_method: "writer_api"` |
+| 4 | Brief at `z_workflow/briefs/{slug}.txt` |
 | 5 | `npm run validate:brief -- --file z_workflow/briefs/{slug}.txt` — **exit 0** |
 
 **Forbidden:**
 
-- Stale `briefs/*.txt` from a prior session
-- Puppeteer `extract:writer` when user expects MCP test flow
+- Chrome MCP or Puppeteer for Writer documents
+- Stale `briefs/*.txt` from a prior session without API re-extract
 - Pasted text when a Writer URL was given
-- Building on failed extraction or login wall
+- Building on failed API extraction
 
 **Extraction quality gates:**
 
-- Scroll **all** `.zw-page` elements (Page 1 of N … N of N)
-- Char count ≥ 90% of Writer footer `Chars:` (not sufficient alone)
+- Sidecar `extraction_method` is `writer_api`
+- Char count ≥ 90% of Writer footer `Chars:` when available (not sufficient alone)
 - Archetype required strings per `section-composites.json`
 
 Parse into `state.json → writer_brief`:

@@ -1,0 +1,1229 @@
+/* Global typography and utilities — matched to live what-is-business-intelligence (39804.css) */
+.page-container h1 {
+    font-size: 42px;
+    line-height: 50.4px;
+    letter-spacing: -0.1px;
+    font-family: Zoho_Puvi_Bold;
+    margin: 0 0 15px;
+}
+
+.page-container h2 {
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    font-family: Zoho_Puvi_Bold;
+    margin: 0 0 15px;
+}
+
+.page-container h3 {
+    font-size: 24px;
+    line-height: 31.2px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: Zoho_Puvi_SemiBold;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.page-container p {
+    margin: 0 0 20px;
+}
+
+.page-container .title-desc,
+.page-container p.title-desc {
+    font-size: 20px;
+    line-height: 32px;
+    width: 80%;
+    margin: 0 auto 0;
+    text-align: center;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-90 {
+    padding: 90px 0;
+}
+
+.p-50 {
+    padding: 50px 0;
+}
+
+.title-desc {
+    font-size: 20px;
+    line-height: 32px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-t-40 {
+    margin-top: 40px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.f-20 {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.p-t-0 {
+    padding-top: 0;
+}
+
+:root {
+    --color-primary: #504acd;
+    --color-secondary: #1007bf;
+    --primary-color: #504acd;
+    --secondary-color: #1007bf;
+    --primary-font-color: #262626;
+    --secondary-font-color: #ffffff;
+    --primary-bg: #f3f2ff;
+    --teritary-bg: #f8f9fc;
+    --color-brand-cta: #e42527;
+    --primary-btn-color: #e42527;
+    --testimonial-peach-bg: #FFF4E8;
+    --testimonial-peach-border: #F0DCC8;
+    --testimonial-mint-bg: #EEF8F4;
+    --testimonial-mint-border: #C8E8D8;
+    --testimonial-blue-bg: #EEF4FC;
+    --testimonial-blue-border: #D4E4F5;
+}
+
+.page-container .cta-btn.act-btn {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    background: var(--primary-btn-color);
+    color: #fff;
+}
+
+.page-container .cta-btn.act-btn:hover {
+    background: var(--primary-btn-color);
+    color: #fff;
+}
+
+.act-btn.cta-btn {
+    line-height: normal;
+}
+
+/* NO FOCUS RINGS — team scaffold rule */
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible,
+.page-container .tab-btn:focus,
+.page-container .tab-btn:focus-visible,
+.page-container .feature-tab-btn:focus,
+.page-container .feature-tab-btn:focus-visible,
+.page-container .slider-nav:focus,
+.page-container .slider-nav:focus-visible,
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible,
+.page-container .accordion:focus,
+.page-container .accordion:focus-visible,
+.page-container .accordion_intro:focus,
+.page-container .accordion_intro:focus-visible,
+.page-container .z-accordianBox h4:focus,
+.page-container .z-accordianBox h4:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ── Banner (centered overview hero) ── */
+.banner {
+    background: radial-gradient(61.72% 61.71% at 44.84% 39.89%, #050520b8 -29.08%, #050520 100%);
+    padding-bottom: 0;
+    color: #ffffff;
+    line-height: 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: -68px;
+    padding-top: 120px;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    /* TODO: replace with final background asset */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 1720px auto;
+    width: 100%;
+    height: 100%;
+    top: -38%;
+    left: 0;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.banner .content-wrap {
+    position: relative;
+    z-index: 1;
+    line-height: normal;
+}
+
+.banner h1 {
+    color: #fff;
+    font-size: 42px;
+    line-height: 50.4px;
+    letter-spacing: -0.1px;
+    margin: 0 0 15px;
+}
+
+.banner p {
+    width: 80%;
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.banner span {
+    background: transparent linear-gradient(270deg, #f4f5ff40 0, #fff2e038 100%) 0 0 no-repeat padding-box;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 20px;
+    margin-bottom: 7px;
+    line-height: normal;
+    border: 1px solid #ffffff59;
+    font-size: 15px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.banner .image-wrapper {
+    margin-top: 50px;
+}
+
+.banner .image-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Horizontal scrollspy tabs ── */
+.tab-section {
+    position: sticky;
+    top: 66px;
+    z-index: 11;
+    background-color: #f3f2ffad;
+    backdrop-filter: blur(31px);
+}
+
+.tab-section .tabs-container {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    justify-content: space-between;
+    gap: 4px;
+    overflow-x: auto;
+}
+
+.tab-section .tab-btn {
+    background-color: unset;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: var(--zf-primary-semibold);
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--primary-font-color);
+}
+
+.tab-section .tab-btn.active,
+.tab-section .tab-btn:hover {
+    color: #1007bf;
+    border-color: #504acd;
+    background-color: #8c88ff5c;
+}
+
+.tab-section .tab-btn:hover {
+    border-color: transparent;
+}
+
+/* ── Intro / question section ── */
+.question-section .main-wrap {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.question-section .left-wrap {
+    flex: 1;
+}
+
+.question-section .right-wrap {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.question-section .right-wrap img {
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Mid CTA pre-banner ── */
+.pre-banner {
+    background-color: #f8f8f8;
+}
+
+.pre-banner .book-btn {
+    display: inline-block;
+}
+
+/* Goals-align statement banner — Writer "Separate banner for this:" */
+#goals-align-banner.pre-banner,
+#goals-align-banner.pre-banner-section {
+    /* TODO: replace with final banner background asset */
+    background-color: #f8f8f8;
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 90px 0;
+    text-align: center;
+    color: var(--primary-font-color);
+}
+
+#goals-align-banner.pre-banner h2,
+#goals-align-banner.pre-banner-section h2 {
+    color: var(--primary-font-color);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* EB-02 flat-neutral — closing CTA only */
+#conclusion.pre-banner-section {
+    background: #f8f9fc;
+    padding: 90px 0;
+    text-align: center;
+    color: var(--primary-font-color);
+}
+
+#conclusion.pre-banner-section h2 {
+    color: var(--primary-font-color);
+}
+
+/* ── Sticky scroll cards ── */
+.sticky-card-section {
+    background-image: radial-gradient(#2a365d, #171c2c);
+    color: #fff;
+}
+
+.sticky-card-section h2,
+.sticky-card-section .title-desc {
+    color: #fff;
+}
+
+.sticky-section .scroll-card {
+    margin: 50px 20px 0;
+    box-sizing: border-box;
+    position: sticky;
+    padding: 50px 40px;
+    transition: transform .3s ease;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 221, 178, .3);
+    background: #2a3250;
+    box-shadow: 0 0 14px 0 rgba(255, 255, 255, .2) inset, 0 0 55.5px 0 rgba(197, 185, 246, .15) inset;
+    backdrop-filter: blur(17px);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 500px;
+}
+
+.sticky-section .scroll-card .left-wrapper {
+    flex: 40;
+}
+
+.sticky-section .scroll-card .left-wrapper h3 {
+    font-size: 24px;
+    line-height: 31.2px;
+    margin-bottom: 10px;
+    font-family: Zoho_Puvi_SemiBold;
+}
+
+.sticky-section .scroll-card .left-wrapper p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0;
+}
+
+.sticky-section .scroll-card .right-wrapper {
+    flex: 60%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 33.25%;
+}
+
+.sticky-section .scroll-card .right-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sticky-section .scroll-card.card1 { top: 170px; z-index: 1; }
+.sticky-section .scroll-card.card2 { top: 180px; z-index: 2; }
+.sticky-section .scroll-card.card3 { top: 190px; z-index: 3; }
+.sticky-section .scroll-card.card4 { top: 200px; z-index: 4; }
+.sticky-section .scroll-card.card5 { top: 210px; z-index: 5; }
+
+/* ── Comparison table ── */
+.comparison-table {
+    margin-top: 40px;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #0000000f;
+    border-collapse: unset;
+    min-width: 720px;
+}
+
+.comparison-table table tbody td,
+.comparison-table table thead th {
+    padding: 18px;
+    text-align: left;
+    font-size: 17px;
+    line-height: 25.5px;
+}
+
+.comparison-table table thead th {
+    font-size: 24px;
+    line-height: 36px;
+    font-family: var(--zf-primary-semibold);
+    background: #ecebfa;
+}
+
+.comparison-table table tr td:nth-child(1) {
+    font-family: var(--zf-primary-semibold);
+}
+
+.comparison-table table tbody tr:nth-child(even) {
+    background-color: #f8f9fc;
+}
+
+.comparison-table table tr td:nth-child(2),
+.comparison-table table thead th:nth-child(2) {
+    border-left: 1px solid #0000000d;
+    border-right: 1px solid #0000000d;
+}
+
+.comparison-table .title-desc span {
+    font-family: var(--zf-primary-semibold);
+}
+
+/* ── Benefits box-icon ── */
+.box-icon-section {
+    background: #f8f8f8;
+}
+
+.box-icon-section .content-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    column-gap: 32px;
+    row-gap: 40px;
+    justify-content: center;
+}
+
+.box-icon-section .content-main .card {
+    width: calc(32% - 8px);
+    transition: transform 1s ease;
+}
+
+.box-icon-section .content-main .card .za-icon-wrapper {
+    /* TODO: replace with final icon sprite */
+    background-image: url('https://prezohoweb.zoho.com/');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 88px;
+    height: 88px;
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #ecebfa;
+    border-radius: 16px;
+}
+
+/* ── Use cases grid ── */
+.use-cases-section {
+    background: #f8f9ff;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+}
+
+.use-case-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 32px;
+}
+
+/* ── Testimonials ── */
+.testimonials-section .content-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimonials-section .content-wrap a {
+    color: var(--primary-btn-color);
+    font-size: 22px;
+    font-family: var(--zf-primary-semibold);
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.testimonials-section .content-wrap a.cta-btn.act-btn {
+    background: transparent;
+    color: var(--primary-btn-color);
+    padding: 0;
+    border: none;
+}
+
+.testimonials-section .content-wrap a .arrow {
+    border: solid var(--primary-btn-color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    margin-left: 10px;
+}
+
+.zwc-nav-scroll-section {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-top: 40px;
+}
+
+.zwc-nav-scroll-section > div:first-child {
+    display: flex;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.zwc-nav-box-wrap {
+    display: flex;
+    gap: 20px;
+    animation: 45s linear 0s infinite normal none running marquee;
+    padding-right: 20px;
+    flex: 1;
+}
+
+.zwc-nav-scroll-section > div:hover .zwc-nav-box-wrap {
+    animation-play-state: paused;
+}
+
+.zwc-nav-box {
+    padding: 25px;
+    min-width: 384px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex: 1;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.zwc-nav-box:nth-child(1),
+.zwc-nav-box:nth-child(4) {
+    background-color: var(--testimonial-peach-bg);
+    border-color: var(--testimonial-peach-border);
+}
+
+.zwc-nav-box:nth-child(2),
+.zwc-nav-box:nth-child(5) {
+    background-color: var(--testimonial-mint-bg);
+    border-color: var(--testimonial-mint-border);
+}
+
+.zwc-nav-box:nth-child(3),
+.zwc-nav-box:nth-child(6) {
+    background-color: var(--testimonial-blue-bg);
+    border-color: var(--testimonial-blue-border);
+}
+
+.testimonials-section .profile-wrappper {
+    display: flex;
+    gap: 15px;
+}
+
+.testimonials-section .profile-wrappper > div > img {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 50%;
+    max-width: unset;
+}
+
+.testimonials-section .descriptions-wrapper {
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.testimonials-section h6 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.testimonials-section .designation {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ── Goals progress accordion ── */
+.progress-section {
+    background: #2a3250;
+    box-shadow: 0 0 14px 0 rgba(255, 255, 255, .2) inset, 0 0 55.5px 0 rgba(197, 185, 246, .15) inset;
+    color: #fff;
+}
+
+.progress-section h2,
+.progress-section .title-desc {
+    color: #fff;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-image: linear-gradient(90deg, #008ef5, #9914ff);
+    transition: height 5s linear;
+}
+
+.accordion .accordion_intro p {
+    display: none;
+}
+
+.accordian-change {
+    display: flex;
+    gap: 30px;
+    margin-top: 65px;
+    height: 500px;
+}
+
+.accordian-change .accordion {
+    margin-top: 50px;
+}
+
+.accordian-change .accordion:first-child {
+    margin-top: 0;
+}
+
+.accordian-change .accordion_intro {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0 24px;
+}
+
+.accordian-change .accordion_intro .reduceWidth {
+    width: 76%;
+}
+
+.accordian-change .accordion_images,
+.accordian-mobile-image {
+    position: relative;
+    width: 50%;
+    border: 1.5px solid #ffddb23d;
+    box-shadow: inset 0 0 55.5px #c5b9f626;
+    border-radius: 18px;
+    padding: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(34px);
+    background-color: #ffffff0a;
+}
+
+.accordian-change .Home_accordion_inner {
+    width: 50%;
+    margin: auto;
+}
+
+.accordian-change .accordion_images .accordion-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+}
+
+.accordian-mobile-image {
+    display: none;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.accordian-change .accordion.accordion_active .accordion_intro p {
+    display: block;
+    animation: fadeIn .5s ease-in both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ── Industry feature tabs ── */
+.features-tabs-section {
+    background-color: #1a1a1a;
+    padding: 80px 0 150px;
+    color: #fff;
+    box-shadow: inset 0 0 55.5px rgb(197 185 246 / 15%);
+    position: relative;
+    overflow: hidden;
+}
+
+.features-tabs-section:before {
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(#293350 0, transparent 59%);
+    width: 58%;
+    height: 100%;
+    top: -228px;
+    left: -27%;
+}
+
+.features-tabs-section:after {
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(#293350 0, transparent 59%);
+    width: 58%;
+    height: 100%;
+    bottom: -228px;
+    right: -27%;
+}
+
+.features-tabs-section h2,
+.features-tabs-section .title-desc {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.features-tabs-section p.title-desc {
+    margin-bottom: 50px;
+}
+
+.features-tabs-section .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.features-tabs-section .feature-tab-btn {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid transparent;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Zoho_Puvi_Regular;
+    transition: all .5s ease;
+    white-space: nowrap;
+}
+
+.features-tabs-section .feature-tab-btn:hover {
+    background-color: #444;
+}
+
+.features-tabs-section .feature-tab-btn.active {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.features-tabs-section .slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.features-tabs-section .slide {
+    display: none;
+    border: 1px solid rgb(255 221 178 / 30%);
+    box-shadow: inset 0 0 55.5px rgb(255 255 255 / 4%);
+}
+
+.features-tabs-section .slide.active {
+    display: flex;
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    padding: 40px;
+    animation: slideInRight .5s ease-in-out;
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.features-tabs-section .slide-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    height: 100%;
+    width: 100%;
+}
+
+.features-tabs-section .slide-text {
+    flex: 1;
+}
+
+.features-tabs-section .slide-text h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.features-tabs-section .slide-text h3 .highlight {
+    color: #ff6b6b;
+}
+
+.features-tabs-section .slide-text p {
+    color: #ccc;
+}
+
+.features-tabs-section .slide-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.features-tabs-section .slide-illustration img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.features-tabs-section .slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #444;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    z-index: 10;
+}
+
+.features-tabs-section .slider-nav:hover {
+    background-color: #555;
+}
+
+.features-tabs-section .prev-nav { left: -25px; }
+.features-tabs-section .next-nav { right: -25px; }
+
+/* ── FAQ ── */
+.faq-section {
+    padding: 90px 0;
+}
+
+.faq-section .content-wrap {
+    max-width: 940px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.z-accordian {
+    text-align: left;
+    margin-top: 70px;
+}
+
+.z-accordianBox {
+    border-bottom: 1px solid #ccc;
+}
+
+.z-accordianBox h4 {
+    margin: 0;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 25.2px;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: var(--zf-primary-semibold);
+    padding-right: 40px;
+}
+
+.z-accordianBox h4.active {
+    color: #000;
+}
+
+.z-accordianBox h4:before {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    font-size: 18px;
+    height: 25px;
+    margin: auto;
+}
+
+.z-accordianBox h4.active:before {
+    content: "-";
+    right: 32px;
+}
+
+.z-accordianBox > ul {
+    padding: 0 40px 25px 0;
+    display: none;
+    list-style: none;
+    margin: 0;
+}
+
+.z-accordianBox > ul > li {
+    position: relative;
+}
+
+.z-accordianBox h4.active + ul {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ═══════════ Responsive — 1240 · 1080 · 991 · 767 · 565 · 480 · 350 ═══════════ */
+
+@media (max-width: 1240px) {
+    .banner p {
+        width: 90%;
+    }
+
+    .features-tabs-section .prev-nav { left: 10px; }
+    .features-tabs-section .next-nav { right: 10px; }
+}
+
+@media (max-width: 1080px) {
+    .box-icon-section .content-main .card {
+        width: calc(48% - 8px);
+    }
+
+    .testimonials-section .content-wrap a {
+        font-size: 18px;
+    }
+
+    .zwc-nav-box {
+        min-width: 320px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    /* Live 39804 — do not shrink body/h2 below live desktop scale */
+    .page-container h3 { font-size: 21px; line-height: 27.3px; }
+    .page-container .title-desc,
+    .page-container p.title-desc,
+    .title-desc,
+    .f-20 {
+        font-size: 17px;
+        line-height: 27.2px;
+        width: 100%;
+    }
+    .p-90 { padding: 60px 0; }
+
+    .tab-section {
+        display: none;
+    }
+
+    .question-section .main-wrap {
+        flex-direction: column;
+    }
+
+    .question-section .left-wrap {
+        text-align: center;
+    }
+
+    .sticky-section .scroll-card .left-wrapper {
+        text-align: center;
+    }
+
+    .sticky-section .scroll-card .left-wrapper h3,
+    .sticky-section .scroll-card .left-wrapper p {
+        width: 100%;
+    }
+
+    .accordian-change .accordion_images,
+    .progress-bar {
+        display: none;
+    }
+
+    .accordian-change .Home_accordion_inner,
+    .accordian-change .accordion_intro .reduceWidth {
+        width: 100%;
+    }
+
+    .accordian-change {
+        height: unset;
+    }
+
+    .accordion .accordion_intro p {
+        display: block;
+    }
+
+    .accordian-change .accordion_intro {
+        text-align: center;
+    }
+
+    .accordian-mobile-image {
+        width: 60%;
+        margin: 25px auto;
+        display: block;
+    }
+
+    .testimonials-section .content-wrap {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .banner {
+        margin-top: 0;
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .use-case-card h3 { font-size: 20px; line-height: 26px; }
+    .use-case-card p { font-size: 15px; line-height: 24px; }
+
+    .progress-section {
+        padding: 50px 0;
+    }
+
+    .sticky-section .scroll-card {
+        position: unset;
+        padding: 25px 24px;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sticky-section .scroll-card .right-wrapper {
+        margin-top: 20px;
+        padding-top: 56%;
+    }
+
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 40px;
+    }
+
+    .use-case-card {
+        padding: 24px;
+    }
+
+    .box-icon-section .content-main .card {
+        width: 100%;
+    }
+
+    .features-tabs-section .slide-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .features-tabs-section .feature-tab-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .progress-section {
+        padding: 50px 0;
+    }
+
+    .accordian-mobile-image {
+        width: 80%;
+    }
+
+    .z-accordianBox h4 {
+        padding: 25px 0;
+        padding-right: 40px;
+        font-size: 18px;
+        line-height: 25.2px;
+    }
+
+    .z-accordianBox h4:before {
+        right: 10px;
+    }
+
+    .comparison-table table thead th {
+        font-size: 17px;
+        line-height: 25.5px;
+    }
+}
+
+@media (max-width: 565px) {
+    .p-90 {
+        padding: 50px 0;
+    }
+
+    .banner p {
+        width: 100%;
+    }
+
+    .sticky-section .scroll-card {
+        margin: 30px 0 0;
+        border-radius: 24px;
+    }
+
+    .testimonials-section {
+        padding: 0 0 70px;
+    }
+
+    .zwc-nav-scroll-section {
+        margin-top: 30px;
+    }
+
+    .zwc-nav-box {
+        min-width: 280px;
+    }
+
+    .features-tabs-section {
+        padding: 50px 0 85px;
+    }
+
+    .features-tabs-section .slide.active {
+        padding: 16px;
+    }
+
+    .accordian-change {
+        margin-top: 40px;
+    }
+
+    .accordian-mobile-image {
+        width: 100%;
+    }
+
+    #conclusion.pre-banner-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner span {
+        font-size: 13px;
+    }
+
+    .banner .image-wrapper {
+        margin-top: 30px;
+    }
+
+    .features-tabs-section .slider-nav {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 350px) {
+    .zwc-nav-box {
+        min-width: 240px;
+        padding: 16px;
+    }
+
+    .features-tabs-section .feature-tab-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

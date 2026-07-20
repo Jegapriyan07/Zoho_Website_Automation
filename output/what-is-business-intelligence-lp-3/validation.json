@@ -1,8 +1,8 @@
 {
   "pass": true,
-  "output_dir": "c:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\excel-spreadsheet-reporting-lp-2",
-  "slug": "excel-spreadsheet-reporting-lp-2",
-  "archetype": "spreadsheet-reporting-landing",
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\what-is-business-intelligence-lp-3",
+  "slug": "what-is-business-intelligence-lp-3",
+  "archetype": "what-is-business-intelligence",
   "inventory": {
     "example_row": 0,
     "impl_step": 0,
@@ -10,17 +10,16 @@
     "persona_block": 0,
     "benefit_block": 0,
     "za_inner_testimonials": 0,
-    "z_accordian_box": 4,
+    "z_accordian_box": 5,
     "cont_sec": 0,
-    "banner": 3,
+    "banner": 4,
     "tabsection": 0,
     "faq_section": 1,
-    "cta_button_count": 4,
+    "cta_button_count": 3,
     "cta_texts": [
-      "Try Zoho Analytics for free",
-      "Watch demo",
-      "Start your free trial today!",
-      "Start your free trial today!"
+      "Get Started",
+      "Book a demo",
+      "Start your BI journey today"
     ],
     "h1_count": 1,
     "has_page_container": true,
@@ -31,13 +30,13 @@
     "has_local_assets": false,
     "has_cta_visibility_override": true,
     "has_brand_cta_token": true,
-    "pre_banner_section": 2,
+    "pre_banner_section": 3,
     "has_pre_banner_background": true
   },
   "brief_inventory": {
     "step_count": 0,
     "step_numbers": [],
-    "faq_count": 4,
+    "faq_count": 5,
     "page_markers": [],
     "image_placeholder_count": 0,
     "has_testimonials_heading": false,
@@ -45,7 +44,7 @@
     "has_dresner": false,
     "has_how_it_works": false,
     "rating_platforms": [],
-    "char_count": 8890,
+    "char_count": 16640,
     "example_row_count": 0,
     "example_row_missing": [],
     "impl_step_count": 0,
@@ -60,24 +59,32 @@
     "customer_story_missing": []
   },
   "banner_audit": {
-    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--color-primary) 28%, transparent) 0, transparent 48%), radial-gradient(circle at 88% 72%, color-mix(in srgb, var(--color-secondary) 22%, transparent) 0, transparent 52%)",
-    "closing_bg_fingerprint": "background:#fff",
+    "hero_bg_fingerprint": null,
+    "closing_bg_fingerprint": "background:#f8f9fc",
     "mid_white_bg_fingerprint": null,
     "slots": [
       {
         "type": "hero",
-        "class": "banner-section",
+        "class": "banner",
         "banner_slot": "hero",
-        "bg_treatment": "gradient-hero"
+        "bg_treatment": "centered-overview-hero"
       },
       {
         "type": "cta",
-        "class": "pre-banner-section",
-        "banner_slot": "mid-cta"
+        "class": "pre-banner",
+        "banner_slot": "mid-cta",
+        "bg_treatment": "inline-demo-band"
       },
       {
         "type": "cta",
-        "class": "pre-banner-section",
+        "class": "pre-banner",
+        "banner_slot": "goals-banner",
+        "bg_treatment": "inline-statement-band",
+        "id": "goals-align-banner"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner",
         "banner_slot": "closing-cta",
         "bg_treatment": "end-banner-pool",
         "id": "conclusion"
@@ -85,6 +92,9 @@
     ]
   },
   "errors": [],
-  "warnings": [],
-  "validated_at": "2026-07-16T09:34:54.991Z"
+  "warnings": [
+    "Mandatory CSS snippet may be missing or altered: .testimonials-section .content-wrap a { color: var(--primary…",
+    "Mandatory CSS snippet may be missing or altered: .testimonials-section .content-wrap a .arrow { border-color:…"
+  ],
+  "validated_at": "2026-07-17T06:32:01.980Z"
 }

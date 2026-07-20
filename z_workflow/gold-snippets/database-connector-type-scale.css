@@ -1,0 +1,313 @@
+/**
+ * Database connector — typography + spacing from live Athena (27735.css)
+ * GOLD STANDARD for archetype `database-connector-landing`.
+ *
+ * Canonical gold page: output/sqlite-db-page-draft-2/
+ * Source live: https://www.zoho.com/analytics/amazon-athena.html
+ * CSS: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/27735.css
+ *
+ * COPY into output/{slug}/style.css near the top (replaces scaffold 16px / h3 20px defaults).
+ * Composer + validate:output enforce via require_database_connector_type_scale.
+ *
+ * Measured desktop values — do not shrink body copy to 16px.
+ */
+
+/* —— Global type scale (Athena live) —— */
+.page-container h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -0.1px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h2 {
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container h3 {
+    font-size: 24px;
+    line-height: 31.2px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.page-container h4 {
+    font-size: 23px;
+    line-height: 32.2px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.page-container p,
+.page-container li {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+.page-container p {
+    margin: 0 0 20px;
+}
+
+.page-container .title-desc,
+.page-container p.title-desc {
+    font-size: 20px;
+    line-height: 32px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.p-90 {
+    padding: 90px 0;
+}
+
+.p-50 {
+    padding: 50px 0;
+}
+
+/* —— Section paddings (Athena live) —— */
+.zbanner-section {
+    padding: 100px 0 200px;
+}
+
+.zvalue-section,
+.zdashboard-section,
+.zconnecting-section,
+.zbottom-section {
+    padding: 100px 0;
+}
+
+.ztesti-section {
+    padding: 40px 0 100px;
+}
+
+.zresrc-section {
+    padding: 0 0 100px;
+}
+
+/* —— Hero —— */
+.zbanner-section h1 {
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -0.1px;
+    margin: 0 0 15px;
+}
+
+.zbanner-section p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0 0 20px;
+}
+
+/* —— Trusted brands heading —— */
+.trust-sec-wrap h2,
+.trust-section h2 {
+    font-size: 25px;
+    line-height: 31.25px;
+    font-family: var(--zf-primary-medium);
+    margin: 0 0 5px;
+    text-align: left;
+}
+
+/* —— What is / value together —— */
+.zvalue-section h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zvalue-section p {
+    font-size: 18px;
+    line-height: 28.8px;
+    margin: 0;
+}
+
+.zvalue-section + .zvalue-section p,
+.zvalue-section#value-together p {
+    font-size: 17px;
+    line-height: 27.2px;
+}
+
+/* —— Capability rows —— */
+.zdashboard-title strong {
+    display: block;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 10px;
+    color: #343bc4;
+}
+
+.zdashboard-title h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0;
+    text-align: left;
+}
+
+.zdashboard-desc p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0;
+}
+
+.zdashboard-box {
+    margin: 0 0 50px;
+}
+
+/* —— Key features —— */
+.zconnecting-section h2,
+.zconnecting-box h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+    text-align: left;
+}
+
+.zconnecting-list h4,
+.ziaicon-list h4 {
+    font-size: 23px;
+    line-height: 32.2px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.zconnecting-list p,
+.ziaicon-list p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0;
+}
+
+.zconnecting-box {
+    gap: 40px;
+}
+
+/* —— Testimonials —— */
+.ztesti-section h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.ztesti-cust-details strong {
+    font-size: 17px;
+    line-height: 25.5px;
+    font-family: var(--zf-primary-semibold);
+}
+
+.ztesti-cust-details p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0 0;
+}
+
+.ztesti-cust-desc h4 {
+    font-size: 21px;
+    line-height: 29.4px;
+    font-family: var(--zf-primary-regular);
+    margin: 0;
+    padding: 40px 0 0;
+}
+
+/* —— Learn more resource cards —— */
+.zresrc-section h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+.zresrc-list h4 {
+    font-size: 21px;
+    line-height: 29.4px;
+    font-family: var(--zf-primary-bold);
+    margin: 0 0 15px;
+}
+
+.zresrc-list p {
+    font-size: 17px;
+    line-height: 27.2px;
+    margin: 0 0 20px;
+}
+
+.learn-more-cta {
+    font-size: 17px;
+    line-height: 25.5px;
+    font-family: var(--zf-primary-medium, var(--zf-primary-semibold));
+}
+
+/* —— Closing —— */
+.zbottom-section h2,
+#conclusion h2 {
+    font-size: 36px;
+    line-height: 45px;
+    margin: 0 0 15px;
+}
+
+@media (max-width: 991px) {
+    .page-container h1,
+    .zbanner-section h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .page-container h2,
+    .zvalue-section h2,
+    .zdashboard-title h2,
+    .zconnecting-box h2,
+    .ztesti-section h2,
+    .zresrc-section h2,
+    .zbottom-section h2,
+    #conclusion h2 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .zconnecting-list h4,
+    .ziaicon-list h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .page-container p,
+    .page-container li,
+    .zbanner-section p,
+    .zdashboard-desc p,
+    .zconnecting-list p,
+    .ziaicon-list p,
+    .zresrc-list p {
+        font-size: 16px;
+        line-height: 25.6px;
+    }
+
+    .zvalue-section p {
+        font-size: 17px;
+        line-height: 27.2px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-container h1,
+    .zbanner-section h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .page-container h2,
+    .zvalue-section h2,
+    .zdashboard-title h2,
+    .zconnecting-box h2,
+    .ztesti-section h2,
+    .zresrc-section h2,
+    .zbottom-section h2,
+    #conclusion h2 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+}

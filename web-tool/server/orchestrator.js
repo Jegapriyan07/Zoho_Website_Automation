@@ -7,6 +7,7 @@ import { publish } from './sse.js';
 import { runComposer, outputDirFor } from './composer.js';
 import { injectTrustedBrandsFile } from '../trusted-brands/inject.js';
 import { DEFAULT_BRAND_LIST } from '../trusted-brands/brands-data.js';
+import { resolveTrustedBrandsVariant } from '../trusted-brands/variants.js';
 import { injectReportSliderFile } from '../report-slider/inject.js';
 import { extractWriterViaApi } from './writer-api.js';
 
@@ -307,10 +308,10 @@ async function phase0ExtractViaApi(run, user, briefPath) {
     return result;
   } catch (e) {
     if (e.code === 'writer_api_auth') {
-      log(run, 0, `${e.message} — falling back to browser extraction.`);
+      log(run, 0, `${e.message} — Writer API required (no browser fallback).`);
       return null;
     }
-    log(run, 0, `Writer API unavailable (${e.message}) — falling back to browser extraction.`);
+    log(run, 0, `Writer API unavailable (${e.message}) — no browser fallback.`);
     return null;
   }
 }
@@ -480,6 +481,17 @@ function seedState(run, briefPath, validation, primarySource) {
     log(run, 0, `End banner selected: ${endBanner.id} · ${endBanner.label} (${endBanner.bg_treatment})`);
   }
 
+  let tbVariant = null;
+  if (run.trusted_brands === true) {
+    const { variant, meta, source } = resolveTrustedBrandsVariant(archetype);
+    tbVariant = variant;
+    log(
+      run,
+      0,
+      `★ Trusted Brands variant: ${variant} (${meta.label}) · from ${source}`
+    );
+  }
+
   const seeded = {
     ...state,
     run_id: run.id,
@@ -509,7 +521,8 @@ function seedState(run, briefPath, validation, primarySource) {
     build_options: {
       trusted_brands: run.trusted_brands === true,
       report_slider: run.report_slider === true,
-      end_banner_id: endBanner?.id || null
+      end_banner_id: endBanner?.id || null,
+      trusted_brands_variant: tbVariant
     }
   };
   fs.writeFileSync(STATE_FILE, JSON.stringify(seeded, null, 2) + '\n');
@@ -710,14 +723,39 @@ async function phaseValidateOutput(run) {
 function injectTrustedBrands(run) {
   const dir = outputDirFor(run.slug);
   const htmlPath = path.join(dir, 'index.html');
-  const result = injectTrustedBrandsFile(htmlPath);
+
+  let archetype = null;
+  let composite = null;
+  try {
+    const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    archetype =
+      state.similarity?.archetype ||
+      state.writer_brief?.archetype ||
+      run.archetype ||
+      null;
+    if (archetype) {
+      const { composites } = JSON.parse(
+        fs.readFileSync(path.join(config.pipelineRoot, 'z_workflow', 'section-composites.json'), 'utf8')
+      );
+      composite = composites?.[archetype] || null;
+    }
+  } catch {
+    /* state optional */
+  }
+
+  const result = injectTrustedBrandsFile(htmlPath, DEFAULT_BRAND_LIST, { archetype, composite });
 
   if (!result.ok) {
     log(run, 6, `Trusted brands: ${result.reason} — skipping injection.`);
     return false;
   }
 
-  log(run, 6, `Trusted brands marquee injected ${result.placement === 'after-hero' ? 'after hero/banner section' : 'after <body>'} ✓`);
+  const variantLabel = result.variant === 'branding-section' ? 'branding-section (counter + logo grid)' : 'marquee + stats';
+  log(
+    run,
+    6,
+    `Trusted brands [${variantLabel}] injected ${result.placement === 'after-hero' ? 'after hero/banner section' : 'after <body>'} ✓`
+  );
 
   if (result.verify?.warnings?.length) {
     for (const w of result.verify.warnings) log(run, 6, `Trusted brands warning: ${w}`);
@@ -729,7 +767,24 @@ function injectTrustedBrands(run) {
     return false;
   }
 
-  log(run, 6, `Trusted brands verified (${DEFAULT_BRAND_LIST.length} logos, live-calibrated speed, lazy load) ✓`);
+  const logoNote =
+    result.variant === 'branding-section'
+      ? '9 grid logos, dual rotating counters'
+      : `${DEFAULT_BRAND_LIST.length} logos, live-calibrated speed, lazy load`;
+  log(run, 6, `Trusted brands verified (${logoNote}) ✓`);
+
+  try {
+    const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    state.build_options = {
+      ...(state.build_options || {}),
+      trusted_brands: true,
+      trusted_brands_variant: result.variant
+    };
+    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + '\n');
+  } catch {
+    /* non-fatal */
+  }
+
   return true;
 }
 

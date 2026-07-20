@@ -64,30 +64,31 @@ Before any code:
 
 ---
 
-## 2. Acquire the Writer brief — Chrome MCP only
+## 2. Acquire the Writer brief — Writer API only
 
-> **Full procedure:** [writer-drop-playbook.md](writer-drop-playbook.md) §1 (scroll all pages, login gate, save to `briefs/`).
+> **Full procedure:** [writer-drop-playbook.md](writer-drop-playbook.md) §1.
 
-**The only allowed method in this repo's test flow:**
+**The only allowed method:**
 
 | Step | Action |
 |------|--------|
-| 1 | `navigate_page` or `new_page` → `{writer-doc-link}` |
-| 2 | **Login gate:** if URL/title is Zoho Accounts sign-in → **STOP**. Ask user to sign in in the MCP browser tab, then retry. Do not build. |
-| 3 | `evaluate_script` → `WRITER_BROWSER_EXTRACT_FN` from `scripts/writer-extract-core.mjs` |
-| 4 | Save → `briefs/{slug}.txt` (created in **this session** only) |
+| 1 | Web Page Builder Phase 0 → `extractWriterViaApi` (OAuth + DOCX download) |
+| 2 | **Auth gate:** no tokens / 401–403 → **STOP**. Ask user to Sign in with Zoho in the tool. Do not use Chrome MCP. |
+| 3 | Confirm `briefs/{slug}.extract.json` → `extraction_method: "writer_api"` |
+| 4 | Brief at `briefs/{slug}.txt` |
 | 5 | `npm run validate:brief -- --file z_workflow/briefs/{slug}.txt` — must exit 0 |
 
 **Forbidden — do not use:**
 
-- Existing `briefs/*.txt` from a prior session (stale brief)
-- Puppeteer `npm run extract:writer` as a substitute for MCP in the test flow
-- Pasted text or pre-saved files when the user provided a Writer URL
-- Proceeding to Phase 0+ when extraction failed or login wall is up
+- Chrome MCP to open or scrape Writer URLs
+- Puppeteer `npm run extract:writer`
+- Existing `briefs/*.txt` from a prior session without API re-extract
+- Pasted text when the user provided a Writer URL
+- Proceeding when Writer API extraction failed
 
-> **Trigger form:** `{writer-doc-link}` + `read readme.md and start` → open URL via Chrome MCP immediately. On login wall, stop and ask for sign-in — do not fall back to disk.
+> **Trigger form:** `{writer-doc-link}` + `read readme.md and start` → run via Web Page Builder / Writer API. Do not open Writer in Chrome MCP.
 
-**Hard stop:** do not run `match-sites` or build until `validate:brief` exits 0 on a brief extracted **in this session** from the user's Writer URL.
+**Hard stop:** do not run `match-sites` or build until `validate:brief` exits 0 on a `writer_api` brief.
 
 Extract into `state.json → writer_brief`:
 

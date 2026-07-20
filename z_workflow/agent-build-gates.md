@@ -10,11 +10,10 @@ This file is the short checklist. The playbook has full section patterns and ref
 
 | Gate | Requirement |
 |------|-------------|
-| **extract-writer** | `npm run extract:writer -- --url … --slug …` OR Chrome MCP + `writer-extract-core.mjs` |
+| **extract-writer** | **Writer API only** — Web Page Builder Phase 0 / `extractWriterViaApi` (`writer_api` in sidecar). ❌ Chrome MCP · ❌ Puppeteer |
 | **validate-brief** | `npm run validate:brief -- --file z_workflow/briefs/{slug}.txt` — **exit 0 before build** |
-| **All pages** | Extract script scrolls editor + every `.zw-page` (not only `innerText` once) |
-| **Page count** | Writer footer `Page X of N` — per-page lengths in `{slug}.extract.json` |
-| **Char count** | Merged length ≥ 90% of footer `Chars:` — not sufficient alone |
+| **extraction_method** | `briefs/{slug}.extract.json` → `"writer_api"` |
+| **Char count** | Merged length ≥ 90% of footer `Chars:` when available — not sufficient alone |
 | **Required strings** | Per `section-composites.json` archetype (steps, testimonials, Dresner, …) |
 | **CTA audit** | Every brief CTA → visible `<a class="cta-btn act-btn">` in output |
 | **Composite** | Match `section-composites.json` — do not skip recognition/testimonials/how-it-works |
@@ -156,14 +155,20 @@ When `build_options.trusted_brands` is true in `state.json` (Web Page Builder op
 
 | Gate | Requirement |
 |------|-------------|
-| **Agent must NOT build** | No `za-brandsCounts`, `marquee-wrapper`, or `za-cust-counts` in agent output — server injects after compose |
+| **Variant from architecture** | `section-composites.json` → `trusted_brands_inject.variant` · `mobile-apps-landing` / `app-connector-landing` → **`branding-section`** · BI / default → **`marquee`** (`.za-brandsCounts`) |
+| **Verify matches variant** | Inject verify fails if wrong BEM for archetype (marquee on Mobile Apps, or branding-section when marquee required) |
+| **Agent must NOT build** | No `za-brandsCounts`, `branding-section`, `marquee-wrapper`, or `za-cust-counts` in agent output — server injects after compose |
 | **Placement** | Injected immediately after first `</section>` (hero close) |
-| **Logo count** | 30 brands from `inTrustIconList` (`web-tool/trusted-brands/brands-data.js`) |
+| **Logo count (marquee)** | 30 brands from `inTrustIconList` (`web-tool/trusted-brands/brands-data.js`) |
+| **Logo count (branding-section)** | 9 live sprite icons (`zicon-ikea` … via `zp-trust-brands-sprite.png`) · dual rotating counters — **not** India marquee img list |
 | **Image paths** | `https://prezohoweb.zoho.com/sites/zweb/images/otherbrandlogos/…` |
 | **Lazy load** | `loading="lazy"` on every logo `<img>` |
-| **Marquee speed** | Live-calibrated: `SLICK_STEP_PX` 261 · `SLICK_STEP_MS` 3018 · pixel `--tb-scroll-end` |
-| **Counters** | `za-thousand-customers` / `za-million-users` count 1 → target via IntersectionObserver |
-| **Gold standard** | `output/testing-3/index.html` |
+| **Marquee speed** | Live-calibrated: `SLICK_STEP_PX` 261 · `SLICK_STEP_MS` 3018 · pixel `--tb-scroll-end` (marquee variant only) |
+| **Counters** | `za-thousand-customers` / `za-million-users` |
+| **Gold standard (marquee)** | `output/testing-3/index.html` |
+| **Gold standard (branding-section)** | live `mobile-apps.html` / `shopify-advanced-analytics.html` |
+
+Pipeline: `web-tool/trusted-brands/inject.js` · variant resolver `variants.js`.
 
 Pipeline module: `web-tool/trusted-brands/inject.js` — used on **every** build path (Writer URL, DOCX upload, revise).
 

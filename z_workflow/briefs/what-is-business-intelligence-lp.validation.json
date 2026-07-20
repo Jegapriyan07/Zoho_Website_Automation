@@ -1,17 +1,21 @@
 {
-  "pass": false,
+  "pass": true,
   "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\what-is-business-intelligence-lp.txt",
-  "archetype": "integration-campaign-books",
-  "archetype_score": 1,
-  "required_found": [],
-  "required_missing": [
-    "Claim my $100 credit",
-    "Zoho Books tracks your finance",
-    "Before Zoho Analytics",
-    "Connected and live in under an hour",
-    "Everything that opens up once you connect",
-    "FAQs from your Zoho Books peers"
+  "archetype": "what-is-business-intelligence",
+  "archetype_score": 23,
+  "required_found": [
+    "What is Business Intelligence?",
+    "How does Business Intelligence work?",
+    "Traditional BI vs Modern BI",
+    "The benefits of Business Intelligence",
+    "Broad goals of Business Intelligence",
+    "How do companies use Business Intelligence",
+    "Industrial use cases of Business Intelligence",
+    "Want to see how BI looks in action",
+    "Empower your business with intelligent insights",
+    "What are the types of business intelligence"
   ],
+  "required_missing": [],
   "inventory": {
     "step_count": 0,
     "step_numbers": [],
@@ -37,11 +41,9 @@
     "customer_story_count": 0,
     "customer_story_missing": []
   },
-  "errors": [
-    "Missing required strings (6): Claim my $100 credit · Zoho Books tracks your finance · Before Zoho Analytics · Connected and live in under an hour · Everything that opens up once you connect · FAQs from your Zoho Books peers"
-  ],
+  "errors": [],
   "warnings": [
-    "Only 0 --- PAGE N --- markers (expected ~5)"
+    "Only 0 --- PAGE N --- markers (expected ~1)"
   ],
-  "validated_at": "2026-07-16T11:34:19.271Z"
+  "validated_at": "2026-07-17T05:45:23.962Z"
 }

@@ -9,7 +9,7 @@
 read readme.md and start
 ```
 
-The agent reads this file, pulls the Writer brief through the Chrome MCP, composes the
+The agent reads this file, pulls the Writer brief through the **Zoho Writer API**, composes the
 page section-by-section from real team section patterns, writes three files to
 `output/{page-slug}/`, and opens the result in the browser — all without stopping.
 
@@ -54,34 +54,36 @@ STEP 6  Acquire the Writer brief (see below), then follow cursor-build-workflow.
 
 ---
 
-## Acquire the Writer brief — Chrome MCP only (hard stop on login)
+## Acquire the Writer brief — Writer API only (hard stop on auth fail)
 
-**The only allowed method:** extract live from the Writer URL via **Chrome MCP** in this session.
+**The only allowed method:** Zoho **Writer API** via Web Page Builder Phase 0 (`extractWriterViaApi`).  
+**Never** use Chrome MCP or Puppeteer to open/scrape Writer documents.
 
 ```
-1. new_page or navigate_page  { url: "<writer-doc-link>" }
-2. Check page title / URL:
-     - If Zoho Accounts / sign-in  →  STOP. Tell the user:
-       "Sign in to Zoho in the browser tab, then say continue."
-       Do NOT match, build, or use any file on disk.
-     - If Writer editor loads  →  continue.
-3. evaluate_script  { function: WRITER_BROWSER_EXTRACT_FN }
-      (body in z_workflow/scripts/writer-extract-core.mjs — scrolls every .zw-page)
-4. Save merged text  →  z_workflow/briefs/{slug}.txt
-5. npm run validate:brief -- --file z_workflow/briefs/{slug}.txt   (must exit 0)
-6. Only then  →  Phases 0, 1, 2, 6
+1. Web Page Builder / extractWriterViaApi  { writer URL }
+     — OAuth token + GET /writer/api/v1/download/{id}?format=docx
+2. Auth gate:
+     - No tokens / 401–403  →  STOP. Tell the user:
+       "Sign in with Zoho in the Web Page Builder, then retry the build."
+       Do NOT open Writer in Chrome MCP.
+     - API OK  →  continue.
+3. Save  →  z_workflow/briefs/{slug}.txt
+   Sidecar  →  briefs/{slug}.extract.json  (extraction_method: "writer_api")
+4. npm run validate:brief -- --file z_workflow/briefs/{slug}.txt   (must exit 0)
+5. Only then  →  Phases 0 match, 1, 2, 6
 ```
 
 ### Forbidden (do not use as fallback)
 
 | Forbidden | Reason |
 |-----------|--------|
-| Reading `briefs/*.txt` left from a previous session | Stale — user is testing from scratch |
-| Puppeteer `npm run extract:writer` | Not the test path; MCP only |
-| Pasted text / uploaded file | Not the test path; MCP only |
-| Building when login wall or empty extraction | No valid brief |
+| Chrome MCP → Writer URL | User rule: Writer API only |
+| Puppeteer `npm run extract:writer` | Browser path — not API |
+| Reading stale `briefs/*.txt` without API re-extract | Wrong / old source |
+| Pasted text / uploaded file when a Writer URL was given | Bypasses the document |
+| Building when API extraction failed | No valid brief |
 
-**Hard stop:** do not run `match-sites`, fetch webtemplate sections, or write `output/` until step 5 passes on a brief extracted **in this session** from the user's Writer URL.
+**Hard stop:** do not run `match-sites`, fetch webtemplate sections, or write `output/` until step 4 passes on a `writer_api` brief.
 
 ---
 
@@ -119,8 +121,9 @@ screenshot / snapshot for the build summary. This runs on every completed build.
 
 ```
 RULE 1  No permission prompts during Phases 0, 1, 2, 6 — read, match, fetch, write freely.
-RULE 2  Writer brief: Chrome MCP extraction from the user's URL in THIS session only.
-        Login wall (accounts.zoho) → STOP, ask user to sign in, retry. Never use stale briefs/*.txt.
+RULE 2  Writer brief: Zoho Writer API only (extraction_method: writer_api).
+        Never Chrome MCP / Puppeteer for Writer docs.
+        API auth fail → STOP, ask user to Sign in with Zoho in Web Page Builder.
         Also stop on CONFIDENTIAL CONTENT in the Writer doc
         (internal metrics, unreleased products, private customer data, contract terms).
         → stop, describe it, ask to confirm or replace.

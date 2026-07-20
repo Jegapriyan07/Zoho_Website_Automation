@@ -54,8 +54,10 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
     'Link ../../source/zohocustom.css + ../../source/product.css. Images from',
     'https://prezohoweb.zoho.com/ with <!-- TODO: replace with final asset --> markers.',
     'Nav/footer are comment placeholders only. Include the CTA visibility override.',
-    'Every string in section-composites.json → archetype → cta_strings_required MUST appear',
-    'as visible .cta-btn.act-btn button text in index.html.',
+    'CTA LABELS: every string in section-composites.json → cta_strings_required MUST appear',
+    'as visible button text (a.cta-btn.act-btn OR a.act-btn.cal-btn-secondary / .dwnload-btn).',
+    'When section_order entries set cta / cta_secondary (or cta_banner_map), use THOSE labels',
+    'per banner — NEVER copy the same primary CTA onto hero, mid-cta, and closing.',
     'NO FOCUS RINGS: never style :focus / :focus-visible outlines on buttons, CTAs, tabs,',
     'steps, accordion headers, or [role=button]. Use outline:none; box-shadow:none on :focus',
     'and :focus-visible for all interactive controls in style.css (team request).',
@@ -111,10 +113,26 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
         }
         const id = s.id ? ` id="${s.id}"` : '';
         const slot = s.banner_slot ? ` [banner_slot: ${s.banner_slot}]` : '';
-        const cta = s.cta ? ` CTA: "${s.cta}"` : '';
+        const cta = s.cta ? ` primary CTA: "${s.cta}"` : '';
+        const cta2 = s.cta_secondary ? ` secondary CTA: "${s.cta_secondary}"` : '';
+        const placeholder = s.placeholder_only
+          ? ' — PLACEHOLDER ONLY: header/shell only, NO card/quote content'
+          : '';
         const notes = s.pattern_notes ? ` — ${s.pattern_notes}` : '';
-        base.push(`  ${i + 1}. ${s.type}: <section class="${s.class}"${id}>${slot}${cta}${notes}`);
+        base.push(`  ${i + 1}. ${s.type}: <section class="${s.class}"${id}>${slot}${cta}${cta2}${placeholder}${notes}`);
       });
+    }
+
+    if (composite.cta_banner_map) {
+      base.push('');
+      base.push('BANNER CTA MAP (mandatory — each slot gets its OWN labels):');
+      for (const [slot, map] of Object.entries(composite.cta_banner_map)) {
+        const sec = map.secondary
+          ? ` + secondary "${map.secondary}" (.${map.secondary_class || 'dwnload-btn'})`
+          : '';
+        base.push(`  • ${slot}: primary "${map.primary}" (.cta-btn.act-btn)${sec}`);
+      }
+      base.push('Do NOT reuse one primary label across hero / mid-cta / closing-cta.');
     }
 
     if (composite.gold_standard_outputs?.length) {
@@ -126,13 +144,177 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
     if (composite.toc_css_snippet) {
       base.push(`TOC/layout CSS snippet (COPY into style.css): ${composite.toc_css_snippet}`);
     }
+    if (composite.css_gold_snippet) {
+      base.push(`Layout CSS snippet (COPY into style.css): ${composite.css_gold_snippet}`);
+    }
+    if (composite.css_gold_snippets?.length) {
+      base.push('Layout CSS snippets (COPY ALL into style.css):');
+      for (const snip of composite.css_gold_snippets) {
+        base.push(`  • ${snip}`);
+      }
+    }
+    if (composite.css_gold_url) {
+      base.push(`Live CSS gold URL: ${composite.css_gold_url}`);
+    }
+    if (composite.mandatory_css?.length) {
+      base.push('MANDATORY CSS (paste into style.css — inventory validates these):');
+      for (const rule of composite.mandatory_css) {
+        base.push(`  ${rule}`);
+      }
+    }
     if (composite.cta_strings_required?.length) {
       base.push(`Required CTA button labels: ${composite.cta_strings_required.map((c) => `"${c}"`).join(', ')}`);
     }
   }
 
+  const isSpreadsheetLanding = archetype === 'spreadsheet-reporting-landing';
+  const isWhatIsBiGuide = archetype === 'what-is-business-intelligence';
+  const isBiSoftwareLanding = archetype === 'bi-software-landing';
+  const isDatabaseConnector = archetype === 'database-connector-landing';
+  const isAppConnector = archetype === 'app-connector-landing';
+  const isMobileApps = archetype === 'mobile-apps-landing';
   const needsDashboardZigzag =
-    DASHBOARD_ZIGZAG_ARCHETYPES.has(archetype) || compositeUsesDashboardZigzag(composite);
+    !isSpreadsheetLanding &&
+    !isWhatIsBiGuide &&
+    !isBiSoftwareLanding &&
+    !isDatabaseConnector &&
+    !isAppConnector &&
+    !isMobileApps &&
+    (DASHBOARD_ZIGZAG_ARCHETYPES.has(archetype) || compositeUsesDashboardZigzag(composite));
+
+  if (isBiSoftwareLanding) {
+    base.push('');
+    base.push('BI SOFTWARE LANDING (mandatory — product LP, NOT the educational what-is-BI guide):');
+    base.push('Gold STRUCTURE: output/bi-software-3 · Reference-Site/agent-reference/Bi-Software-3');
+    base.push('Gold live PRIMARY: https://www.zoho.com/analytics/business-intelligence-bi-software.html (CSS 23064)');
+    base.push('Sibling for Top-N tools: https://www.zoho.com/analytics/business-analytics-software.html → .tab-sticky (CSS 27747)');
+    base.push('CSS gold: gold-snippets/bi-software-landing-layout.css + bi-software-trusted-brands-isolation.css');
+    base.push('Compose ONLY brief sections — skip live Benefits / note-section / keypoints / types-of-reports / why-choose / zwc-footer.');
+    base.push('Live BEM order:');
+    base.push('  1) .zwc-banner-section — h1 + lead + Access Zoho analytics + .zwc-stats ×6');
+    base.push('     Hero assets (prezoho full paths): item1::before banner-before.png · item3::before banner-beforegraph.svg · img.banner-arrow banner-arrow.svg');
+    base.push('  2) .za-brandsCounts — ★ Trusted Brands inject ONLY (heading + 22K/4M + logo marquee). SKIP .trust-section / .tbrand-section.');
+    base.push('  3) .zwc-learn-section — What is Business Intelligence Software?');
+    base.push('  4) .zwc-feature-section — How to choose key features ×6 (.feature-cont pairs)');
+    base.push('  5) .zwc-testimonials — Capterra shell + TODO (no invented quote)');
+    base.push('  6) .tab-sticky — Top Business Intelligence softwares in 2026 · .cont-sec ×4 (Zoho · Power BI · Tableau · Sisense) + Pricing');
+    base.push('  7) .faq-section — BI software FAQs ×8 AFTER tab-sticky');
+    base.push('  ❌ NEVER use what-is-business-intelligence BEM (banner / tab-section / sticky-card / goals accordion).');
+    base.push('  ❌ NEVER leave hero image URLs as bare https://prezohoweb.zoho.com/');
+    base.push('  ❌ NEVER ship unscoped .trust-icon { margin:-120px } with Trusted Brands inject (clips logos).');
+    base.push('JS: FAQ accordion + tab-sticky left-tab scrollspy (sibling BA software pattern). Trusted Brands ships its own script.');
+    base.push('Images: https://prezohoweb.zoho.com/ + <!-- TODO: replace with final asset --> on every img.');
+  }
+
+  if (isAppConnector) {
+    base.push('');
+    base.push('APP-CONNECTOR LANDING (mandatory — Shopify / SaaS connector gold path):');
+    base.push('Gold live LAYOUT: https://www.zoho.com/analytics/shopify-advanced-analytics.html');
+    base.push('Compose sibling <section> roots from section_order — do NOT use Athena/SQLite database-connector BEM.');
+    base.push('  ❌ Do NOT use .zbanner-section / .zdashboard-section / .zconnecting-section / .zresrc-section / Data Import rows.');
+    base.push('HERO (critical — match live umain screenshots):');
+    base.push('  <section class="header-section banner-shown"> CENTERED h1 + p + ACCESS ZOHO ANALYTICS');
+    base.push('  NO .signup-box / NO split columns — .table-wrap.hero-centered > .column.left only');
+    base.push('  THEN sibling .header-banner-slider.slide-wrap > .hb-slider > img (full-width dashboard)');
+    base.push('  CSS MUST include .header-banner-slider::after white band (cream→white transition).');
+    base.push('  h1 48px centered · bg #ffecc9');
+    base.push('  ❌ NEVER put dashboard image or signup form in a right column for scaffold.');
+    base.push('APP BANNER: .sbs-head — yellow h2 LEFT + black pill .sbs-app-btn Get The App Now RIGHT (not red CTA below).');
+    base.push('KEY FEATURES CTA: .outline-btn Explore more features (black border), not red act-btn.');
+    base.push('CONNECTORS: ALWAYS include .connectors-section — left intro + VIEW MORE CONNECTORS outline + Inventory/CRM/Survey pastel cards.');
+    base.push('Live BEM order:');
+    base.push('  1) .header-section.banner-shown — centered + slider as above');
+    base.push('  2) .branding-section — skip when ★ Trusted Brands inject is on');
+    base.push('  3) .common-section.shopify-banner-section — native app pitch');
+    base.push('  4) .common-section.feature-accordian-section — Why choose accordion');
+    base.push('  5) .common-section.zcollaborate-section — Key features + outline Explore more');
+    base.push('  6) .common-section.connectors-section — related connectors');
+    base.push('  7) .common-section.testimonial-section — PLACEHOLDER when brief has Customer testimony');
+    base.push('  8) .common-section.trust-section — Rated the best placeholder / skip if report slider inject');
+    base.push('  9) .how-tosec-wrap — Solutions/How-tos placeholder cards');
+    base.push(' 10) .bottom-section#conclusion — Join Zoho Analytics today + ACCESS ZOHO ANALYTICS — end-banner pool');
+    base.push('JS: feature accordion tab/panel switch with fadeIn/transX restart on each click.');
+    base.push('Images: https://prezohoweb.zoho.com/ + <!-- TODO: replace with final asset --> on every img.');
+  }
+
+  if (isMobileApps) {
+    base.push('');
+    base.push('MOBILE-APPS LANDING (mandatory — Zoho Analytics Mobile Apps main page):');
+    base.push('Gold live LAYOUT: https://www.zoho.com/analytics/mobile-apps.html · CSS 29675.css + zanalytics_solutions.css');
+    base.push('  ❌ Do NOT use database-connector BEM (Data Import / zdashboard / zconnecting).');
+    base.push('  ❌ Do NOT use bi-software zwc-banner / tab-sticky.');
+    base.push('Live BEM order:');
+    base.push('  1) .header-section — peach #fef2f2 · centered h1 48 + bold lead + ACCESS ZOHO ANALYTICS · device image');
+    base.push('  2) .branding-section — SKIP when ★ Trusted Brands inject (variant=branding-section, NOT marquee)');
+    base.push('  3) .feature-common-title — Experience the truly native…');
+    base.push('  4) .feature-accordian-section — accordion ×N from brief (often 6)');
+    base.push('  5) .third-party-section — 2 pastel party-flex-inner cards (Mobile BI + Dashboards)');
+    base.push('  6) .testimonial-section — PLACEHOLDER: peach .slider-icon + h2 Hear it from our customers + TODO (no invented quote)');
+    base.push('  7) .trust-section — Rated the best FULL live .rating-table 3×3 grid (not empty placeholder)');
+    base.push('  8) .bottom-section#conclusion — Analyze your data on-the-move… + ACCESS ZOHO ANALYTICS');
+    base.push('JS: feature accordion + branding dual-counter (inject) + trust-section .animated star fill on scroll.');
+    base.push('Images: https://prezohoweb.zoho.com/ + <!-- TODO: replace with final asset --> on every img.');
+  }
+
+  if (isDatabaseConnector) {
+    base.push('');
+    base.push('DATABASE-CONNECTOR LANDING (mandatory — GOLD STANDARD compose path):');
+    base.push('Gold STRUCTURE output: output/sqlite-db-page-draft-2/');
+    base.push('Gold live LAYOUT: https://www.zoho.com/analytics/amazon-athena.html');
+    base.push('Gold live CSS: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/27735.css');
+    base.push('Alternate live (no competitor table): https://www.zoho.com/analytics/sqlite.html');
+    base.push('OPEN output/sqlite-db-page-draft-2/index.html and COPY its section order + BEM — compose from brief copy only.');
+    base.push('Gold CSS snippets (COPY wholesale into style.css):');
+    base.push('  1) z_workflow/gold-snippets/database-connector-type-scale.css');
+    base.push('  2) z_workflow/gold-snippets/database-connector-zresrc-cards.css');
+    base.push('Compose sibling <section> roots from section_order — do NOT use article .tabsection TOC.');
+    base.push('Capability rows: exactly 4× .zdashboard-section — rows 2 and 4 MUST also have class zdb2.');
+    base.push('  Markup: .zdashboard-box.dsp-flx.justify-space > .zdashboard-title (<strong>label</strong>+h2) + .zdashboard-desc, then .zdashboard-img (prezoho + TODO).');
+    base.push('Key features: .zconnecting-section with 4 cards — icons are IMAGES (live CSS sprite/PNG), NOT text.');
+    base.push('  Each card MUST have visible <img class="zconnecting-icon" src="https://prezohoweb.zoho.com/" width/height + TODO> ABOVE the h4.');
+    base.push('  Cards: .zconnecting-list (.zicon-safer Incremental) · .ziaicon-list (Zia Insights) · .zconnecting-list (.zicon-forecast) · .zconnecting-list (.zicon-share).');
+    base.push('OPTIONAL .zcomparison-section — ONLY if brief has a competitor comparison table; SQLite Writer draft → SKIP.');
+    base.push('Testimonials (.ztesti-section): MANDATORY visible shell when brief says CUSTOMER TESTIMONY —');
+    base.push('  h2 Our Customer love us + .ztesti-box > photo img placeholder + name/title TODOs + quote TODO. Never leave empty collapsing section.');
+    base.push('  Include <!-- TODO: INSERT TESTIMONIALS HERE --> for dev handoff. Do NOT invent real quotes.');
+    base.push('TYPE SCALE (mandatory — copy database-connector-type-scale.css):');
+    base.push('  Live Athena 27735.css measured: h1 50/60 · h2 36/45 · h4 features 23/32.2 · body p 17/27.2 · what-is p 18/28.8');
+    base.push('  Resource h4 21/29.4 · learn-more 17/25.5 · section padding 100px · h2/p margins 0 0 15 / 0 0 20');
+    base.push('  ❌ Do NOT ship scaffold defaults (h1 42, h2 32, h3 20, p 16) — they read smaller than live.');
+    base.push('Resources (.zresrc-section): BOX CARD layout — COPY database-connector-zresrc-cards.css wholesale.');
+    base.push('  .zresrc-box > .zresrc-list ×N — each .zresrc-list is a card: padding 35px · radius 12px · box-shadow 0 0 20px rgba(208,208,208,.23) · bg #fff.');
+    base.push('  Content: icon img placeholder + h4 + optional p + <a class="learn-more-cta">Learn more</a> (blue #03a9f5 underline + chevron).');
+    base.push('  3 items (Athena) = default 3-col; 4 items (SQLite brief) = add class .zresrc-box--4 (2×2). Never flat text columns without the box shadow.');
+    base.push('Closing: <section class="zbottom-section" id="conclusion"> — style via end-banner pool, never plain white.');
+    base.push('CTA labels: use brief ACCESS ZOHO ANALYTICS on hero + closing (not live Sign up for free unless brief says so).');
+    base.push('Trusted brands: skip .trust-section / .tbrand-section when ★ Trusted Brands inject is enabled.');
+    base.push('JS: copy scroll/reveal patterns from output/sqlite-db-page-draft-2/script.js when present.');
+  }
+
+  if (isWhatIsBiGuide) {
+    base.push('');
+    base.push('WHAT-IS-BUSINESS-INTELLIGENCE GUIDE (mandatory — sibling sections, NOT article TOC):');
+    base.push('Gold STRUCTURE output: output/what-is-business-intelligence-lp-3/');
+    base.push('Gold live: https://www.zoho.com/analytics/what-is-business-intelligence.html');
+    base.push('Gold CSS snippet (COPY into style.css): z_workflow/gold-snippets/what-is-bi-type-scale.css');
+    base.push('Gold CSS URL: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/39804.css');
+    base.push('OPEN output/what-is-business-intelligence-lp-3/index.html and COPY its section order + BEM — compose from brief copy only.');
+    base.push('Compose sibling <section> roots in section_order — do NOT use .tabsection / .left-tab / .cont-sec nesting.');
+    base.push('Horizontal .tab-section is scrollspy nav only (.tab-btn buttons) — body content stays as sibling sections.');
+    base.push('JS: sticky-card scroll, industry feature tabs, FAQ accordion, tab-section scrollspy — copy from output/what-is-business-intelligence-lp-3/script.js (or Reference-Site/Business-Intelligence/script.js).');
+    base.push('CTA map: hero Get Started · mid Book a demo · closing Start your BI journey today (distinct labels).');
+    base.push('Testimonials: PLACEHOLDER ONLY — header + See all testimonials link + empty .zwc-nav-scroll-section.');
+    base.push('  ❌ Do NOT append .zwc-nav-box cards, quotes, names, or photos.');
+    base.push('  Include <!-- TODO: INSERT TESTIMONIALS HERE --> for dev handoff.');
+    base.push('TYPE SCALE (mandatory — copy z_workflow/gold-snippets/what-is-bi-type-scale.css):');
+    base.push('  h1 42px/50.4px · h2 32px/40px (mb 15) · h3 24px/31.2px (mb 10) · p/li 17px/27.2px (p mb 20)');
+    base.push('  .page-container .title-desc 20px/32px width 80% (must beat .page-container p) · FAQ h4 18px/25.2px padding 25px · .p-90 = 90px');
+    base.push('  ❌ Do NOT use scaffold defaults (h3 20px, p 16px) — they read smaller than live.');
+    base.push('  @991: h3→21px, title-desc→17px width 100%, .p-90→60px — do NOT shrink h2/body below live.');
+    base.push('WRITER BANNER MARKERS: any brief line "Separate banner for this:" → its following sentence is a SIBLING <section class="pre-banner"> (h2), never appended inside progress-section / sticky-card / use-cases.');
+    base.push('  Gold example: after goals → #goals-align-banner.pre-banner with prezoho placeholder bg (cover) + h2 text only — no solid red fill.');
+    base.push('FAQ is AFTER closing #conclusion.pre-banner — never in the tab scrollspy list.');
+  }
 
   if (needsDashboardZigzag) {
     base.push('');
@@ -145,23 +327,72 @@ export function buildComposerPrompt({ slug, briefFile, revise, archetype, compos
   }
 
   const needsExcelMigration =
-    archetype === 'spreadsheet-reporting-landing' ||
+    isSpreadsheetLanding ||
     composite?.section_order?.some((s) => s.class === 'excel-migration-section');
-  if (needsExcelMigration) {
+  if (needsExcelMigration || isSpreadsheetLanding) {
     base.push('');
-    base.push('EXCEL MIGRATION ZIGZAG (spreadsheet-reporting-landing):');
-    base.push('- Section class: .excel-migration-section — separate from .dashboard-wrapper CSS');
-    base.push('- Zigzag text/image rows for Migrate Your Excel Sheets copy + bullet list from brief');
-    base.push('- Live reference: https://www.zoho.com/analytics/spreadsheet-reporting.html');
+    base.push('SPREADSHEET-REPORTING LANDING — EXACT LIVE BEM (mandatory):');
+    base.push('Gold live: https://www.zoho.com/analytics/spreadsheet-reporting.html');
+    base.push('Gold CSS: https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/40836.css');
+    base.push('Gold CSS snippet (COPY wholesale into style.css): z_workflow/gold-snippets/spreadsheet-reporting-layout.css');
+    base.push('Gold output: output/excel-spreadsheet-reporting-lp-3/');
+    base.push('Do NOT use testing-3 clip-path / 55% zigzag panels — use cream #fef8eb 871×570 cards from the snippet.');
+    base.push('');
+    base.push('1) .progress-section — accordion + image panel (NEVER .progress-timeline / .progress-card):');
+    base.push('   <div class="table-wrap"><div class="column left"><div class="text-wrapper">');
+    base.push('     <div class="acc-wrap current"><h3>…</h3><ul><li>…</li></ul>');
+    base.push('       <img class="acc-img" src="https://prezohoweb.zoho.com/" alt="…"></div>');
+    base.push('     <div class="acc-wrap">…</div>×2 more');
+    base.push('   </div></div><div class="column right"><div class="image-part">');
+    base.push('     <img class="step-image active" …><img class="step-image" …>×2');
+    base.push('   </div></div></div>');
+    base.push('   JS: click/auto-advance .acc-wrap.current + matching .step-image.active (8s progressHeight bar).');
+    base.push('');
+    base.push('2) .limits-section — .limits-grid > .limit-item > p ×6 + p.limits-closing (not <ul><li>).');
+    base.push('');
+    base.push('3) .dashboard-wrapper — zigzag .main-wrapper; each li = <span class="check"></span> text;');
+    base.push('   cream cards: isolation:isolate; ::before #fef8eb 871×570 radius 30px z-index:0 (NEVER -1);');
+    base.push('   image/content z-index:1; img.dashboard-image border 5px #000 radius 20px.');
+    base.push('');
+    base.push('4) .comparison-table-section — column ORDER Features | Zoho Analytics | Excel;');
+    base.push('   .comparison-table > table; th/td.analytics-light + td.analytics-dark; Zoho col gold border #eca91c.');
+    base.push('');
+    base.push('5) .excel-migration-section — .migration-wrapper.left-content > image + content;');
+    base.push('   .migration-steps > .migration-step > .step-icon + .step-content > h4 (not bare <ul><li>).');
+    base.push('');
+    base.push('6) Mid .pre-banner-section AFTER migration: h2 \"Switch to Zoho Analytics today!\"');
+    base.push('   primary \"Sign up for free\" (.cta-btn.act-btn) + \"Get a personalized Demo\" (.dwnload-btn).');
+    base.push('7) Closing #conclusion.pre-banner-section.light — peach gradient 34deg (EB-06).');
+    base.push('   primary \"Start your free trial today!\" (.cta-btn.act-btn) + \"Sign up for free\" (.dwnload-btn).');
+    base.push('CTA ANTI-PATTERN: ❌ same \"Try Zoho Analytics for free\" on hero + mid + closing.');
+    base.push('Hero keeps \"Try Zoho Analytics for free\" + \"Watch demo\" only.');
+    base.push('');
+    base.push('TYPE SCALE (copy from gold snippet / live 40836.css — do NOT use smaller scaffold defaults):');
+    base.push('  h1 42px/50.4px · h2 32px/40px (mb 15) · h3 24px/31.2px · p/li 17px/25.5px');
+    base.push('  .page-container .title-desc 20px/32px · limit-item p 18px · migration-subtitle 22px');
+    base.push('  comparison th 24px · td 17px · faq h4 18px padding 25px · section padding 90px (faq 80px)');
   }
 
   if (trustedBrands) {
+    const tbVariant =
+      composite?.trusted_brands_inject?.variant ||
+      (archetype === 'mobile-apps-landing' || archetype === 'app-connector-landing'
+        ? 'branding-section'
+        : 'marquee');
     base.push('');
     base.push('TRUSTED BRANDS (pipeline-injected — do NOT build in Phase 6):');
-    base.push('- This build uses ★ Trusted Brands — the tool injects the block after compose');
-    base.push('- Do NOT add za-brandsCounts, marquee-wrapper, trusted-icon-wrap, trust-icon, or za-cust-counts');
+    base.push(`- ★ Trusted Brands checkbox is ON — architecture variant: ${tbVariant}`);
+    if (tbVariant === 'branding-section') {
+      base.push('- Inject BEM: .branding-section (live mobile-apps / Shopify gold)');
+      base.push('- Layout: h2 TRUSTED BY GREAT BRANDS · .branding-wrap · .bc1 pink counter LEFT · .bc2 logo grid RIGHT');
+      base.push('- Do NOT add za-brandsCounts, marquee-wrapper, trusted-icon-wrap, trust-icon, or za-cust-counts');
+      base.push('- Do NOT compose .branding-section yourself — server injects after hero');
+    } else {
+      base.push('- Inject BEM: .za-brandsCounts (marquee + 22K/4M counts)');
+      base.push('- Do NOT add za-brandsCounts, marquee-wrapper, trusted-icon-wrap, trust-icon, or za-cust-counts');
+      base.push('- Gold standard for injected output: output/testing-3/index.html (marquee + counters only)');
+    }
     base.push('- Hero ends at first </section>; trusted brands are inserted immediately after by the server');
-    base.push('- Gold standard for injected output: output/testing-3/index.html (marquee + counters only)');
   }
 
   if (reportSlider) {

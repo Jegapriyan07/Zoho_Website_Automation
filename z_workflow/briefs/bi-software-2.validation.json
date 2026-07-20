@@ -1,0 +1,57 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\bi-software-2.txt",
+  "archetype": "bi-software-landing",
+  "archetype_score": 22,
+  "required_found": [
+    "Your search for the Best Business Intelligence (BI) Software for 2026",
+    "Trusted BI Platform by great brands",
+    "What is Business Intelligence software?",
+    "How to choose the best BI Software: Key features",
+    "Top Business Intelligence softwares in 2026",
+    "User-friendly interface",
+    "Seamless integration",
+    "AI-powered insights",
+    "Interactive data visualizations",
+    "Real-time collaboration and sharing",
+    "Advanced data analysis",
+    "Zoho Analytics",
+    "Power BI",
+    "Tableau",
+    "Sisense",
+    "What are the best BI tools to consider in 2026?"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 17,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "Capterra"
+    ],
+    "char_count": 17450,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~1)"
+  ],
+  "validated_at": "2026-07-20T06:52:56.173Z"
+}

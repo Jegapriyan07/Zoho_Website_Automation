@@ -1,292 +1,117 @@
 {
-  "run_id": "run_3NJO2wbeyQZp",
-  "page_slug": "testing-8",
-  "writer_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
+  "run_id": "run_firebird_20260720",
+  "page_slug": "firebird",
+  "writer_url": "https://writer.zoho.in/writer/open/gis7f8867983c608d40ae9d1d942d77f3e561",
   "writer_brief": {
-    "raw_content_file": "z_workflow/briefs/testing-8.txt",
-    "page_title": "Sales dashboard examples - Landing page",
-    "page_type": "dashboard-examples-landing",
+    "raw_content_file": "z_workflow/briefs/firebird.txt",
+    "page_title": "Firebird",
+    "page_type": "firebird-db-landing",
     "product_name": "Zoho Analytics",
-    "archetype": "dashboard-examples-landing-sales",
+    "archetype": "firebird-db-landing",
     "sections_required": [
       "hero",
-      "content-blocks",
-      "cta",
-      "features",
-      "steps",
-      "cta",
-      "faq"
+      "value-band",
+      "data-import",
+      "data-preparation",
+      "data-blending",
+      "live-connect",
+      "analyze-features",
+      "closing-cta"
     ],
-    "feature_block_count": 6,
-    "faq_count": 5,
-    "step_count": 4,
-    "benefit_block_count": 0,
-    "example_row_count": 8,
-    "char_count": 6991,
-    "source": "local-docx",
-    "source_url": "https://writer.zoho.in/writer/open/qqpdy3997422f71654b0a84c1715933337c61",
-    "inventory": {
-      "step_count": 4,
-      "step_numbers": [1, 2, 3, 4],
-      "faq_count": 5,
-      "page_markers": [],
-      "image_placeholder_count": 0,
-      "has_testimonials_heading": false,
-      "has_see_all_testimonials": false,
-      "has_dresner": false,
-      "has_how_it_works": false,
-      "rating_platforms": [],
-      "char_count": 6991,
-      "example_row_count": 8,
-      "example_row_missing": [],
-      "impl_step_count": 4,
-      "impl_step_missing": [],
-      "feature_block_count": 6,
-      "feature_block_missing": [],
-      "persona_block_count": 0,
-      "persona_block_missing": [],
-      "benefit_block_count": 0,
-      "benefit_block_missing": [],
-      "customer_story_count": 0,
-      "customer_story_missing": []
-    }
+    "capability_count": 4,
+    "feature_card_count": 3,
+    "faq_count": 0,
+    "step_count": 0,
+    "char_count": 2251,
+    "source": "writer_api",
+    "source_url": "https://writer.zoho.in/writer/open/gis7f8867983c608d40ae9d1d942d77f3e561",
+    "notes": "Web Page Builder misclassified as Athena database-connector-landing (shared Data Import/Prep/Live Connect/Blending). Correct gold is live firebird.html (29667.css) — za-banner / za-features / za-analyze / za-bottom. Skip Athena Incremental fetch · Zia Insights · resources · testimony."
   },
   "similarity": {
     "structure_mode": "compose",
-    "archetype": "dashboard-examples-landing-sales",
-    "primary_source": "Executive-Dashboards",
-    "source_map": [
-      {
-        "brief_section": "hero",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "banner-section",
-        "source_type": "reference",
-        "layout_style": "split text left, image right",
-        "bg_treatment": "gradient-hero",
-        "banner_slot": "hero",
-        "cta": "Explore Examples"
-      },
-      {
-        "brief_section": "content-blocks",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "dashboard-wrapper",
-        "source_type": "reference",
-        "layout_style": "dashboard-wrapper zigzag alternating left/right — NO clip-path, 55% panels, border-radius 30px",
-        "repeat_count": 8,
-        "adaptation_notes": "Rows follow testing-3 gold zigzag; 8 sales dashboard types from brief"
-      },
-      {
-        "brief_section": "cta",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "pre-banner-section",
-        "source_type": "reference",
-        "banner_slot": "mid-cta",
-        "bg_treatment": "bg-white",
-        "id": "one-click-cta",
-        "cta": "Build Sales Dashboards Now",
-        "adaptation_notes": "Flat white mid CTA after zigzag — NOT same bg as hero or closing"
-      },
-      {
-        "brief_section": "features",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "box-icon-section",
-        "source_type": "reference",
-        "repeat_count": 6,
-        "layout_style": "CRM integration cards grid"
-      },
-      {
-        "brief_section": "steps",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "steps-section",
-        "source_type": "reference",
-        "repeat_count": 4,
-        "layout_style": "tabbed auto-advance STEP 1–4"
-      },
-      {
-        "brief_section": "cta",
-        "source_folder": "Reference-Site/Generative-ai",
-        "bem_class": "pre-banner-section",
-        "source_type": "reference",
-        "banner_slot": "closing-cta",
-        "bg_treatment": "soft-mint-closing",
-        "id": "conclusion",
-        "cta": "START FOR FREE",
-        "end_banner_id": "EB-07",
-        "adaptation_notes": "#conclusion EB-07 soft mint wash; dark text; reported-section injected before by pipeline"
-      },
-      {
-        "brief_section": "faq",
-        "source_folder": "Executive-Dashboards",
-        "bem_class": "faq-section",
-        "source_type": "reference",
-        "child_class": "z-accordian",
-        "repeat_count": 5,
-        "layout_style": "z-accordian accordion after closing CTA"
-      }
-    ],
+    "archetype": "firebird-db-landing",
+    "primary_source": "webtemplate/firebird",
+    "primary_source_url": "https://www.zoho.com/analytics/firebird.html",
     "end_banner": {
       "id": "EB-07",
       "name": "soft-mint",
-      "label": "Soft mint / cool green wash",
-      "bg_treatment": "soft-mint-closing",
-      "html_modifier": "",
-      "text_color": "dark",
-      "reference": "Reference-Site/Generative-ai",
-      "webtemplate_examples": [
-        "https://www.zoho.com/analytics/auto-reporting-tool.html"
-      ],
-      "css_markers": [
-        "#e7f6f1",
-        "#d4efe8"
-      ],
-      "css_skeleton": "background-color: #e7f6f1;\nbackground-image:\n  radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),\n  radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);\npadding: 90px 0;\ntext-align: center;",
-      "html_note": "",
-      "pool": [
-        "EB-04",
-        "EB-02",
-        "EB-08",
-        "EB-07",
-        "EB-06",
-        "EB-01"
-      ]
-    }
-  },
-  "phase_1": {
-    "status": "complete",
-    "team_flavour": "Sales dashboard-examples landing — gradient-hero banner-section dual radial on --primary-bg; dashboard-wrapper zigzag (55% rectangle panels, no clip-path); mid one-click CTA flat white; CRM box-icon grid; steps tabs; closing EB-07 soft mint wash on #conclusion with dark text; brand CTA red immutable.",
-    "design_tokens": {
-      "--color-primary": "#008EF5",
-      "--color-secondary": "#9914FF",
-      "--primary-color": "#008EF5",
-      "--secondary-color": "#9914FF",
-      "--primary-font-color": "#262626",
-      "--secondary-font-color": "#ffffff",
-      "--primary-bg": "#f0f7ff",
-      "--teritary-bg": "#f8f9fc",
-      "--color-brand-cta": "#e42527",
-      "--primary-btn-color": "#e42527",
-      "hero_bg": "gradient-hero — banner-section dual radial wash on --primary-bg",
-      "mid_cta_bg": "flat-white — #one-click-cta.pre-banner-section.bg-white",
-      "closing_cta_bg": "soft-mint-closing — EB-07 #e7f6f1 + emerald radials on #conclusion.pre-banner-section (dark text; no blue-shadow texture)"
-    }
-  },
-  "phase_2": {
-    "status": "complete",
-    "webpage_blueprint": {
-      "page_slug": "testing-8",
-      "page_title": "Sales Dashboard Examples | Zoho Analytics",
-      "archetype": "dashboard-examples-landing-sales",
-      "structure": "banner-section → [trusted-brands injected] → dashboard-wrapper → pre-banner-section#one-click-cta.bg-white → box-icon-section → steps-section → [reported-section injected] → pre-banner-section#conclusion → faq-section",
-      "sections": [
-        {
-          "id": "hero",
-          "source_site": "Executive-Dashboards",
-          "source_section_id": "banner-section",
-          "source_type": "reference",
-          "repeat_count": 1,
-          "layout_style": "split text left, image right",
-          "bg_treatment": "gradient-hero",
-          "banner_slot": "hero",
-          "h1": "Explore 50+ Sales Dashboard Examples & Templates",
-          "cta": ["Explore Examples"],
-          "adaptation_notes": "Trusted brands injected after hero by pipeline — not in agent output"
-        },
-        {
-          "id": "content-blocks",
-          "source_site": "Executive-Dashboards / output/testing-3",
-          "source_section_id": "dashboard-wrapper",
-          "source_type": "reference",
-          "repeat_count": 8,
-          "h2": "Sales Dashboard Examples by Type",
-          "layout_style": "zigzag alternating left/right, 55% ::before rectangle panels, border-radius 30px, NO clip-path, data-onscroll + zwe-om"
-        },
-        {
-          "id": "one-click-cta",
-          "source_site": "Executive-Dashboards",
-          "source_section_id": "pre-banner-section",
-          "source_type": "reference",
-          "banner_slot": "mid-cta",
-          "bg_treatment": "bg-white",
-          "h2": "Create these dashboards in one-click",
-          "cta": ["Build Sales Dashboards Now"]
-        },
-        {
-          "id": "features",
-          "source_site": "Executive-Dashboards",
-          "source_section_id": "box-icon-section",
-          "source_type": "reference",
-          "repeat_count": 6,
-          "h2": "Connect popular CRMs you already use",
-          "layout_style": "6 CRM integration cards"
-        },
-        {
-          "id": "steps",
-          "source_site": "Executive-Dashboards",
-          "source_section_id": "steps-section",
-          "source_type": "reference",
-          "repeat_count": 4,
-          "h2": "How to create sales dashboards using Zoho Analytics",
-          "layout_style": "tabbed auto-advance STEP 1–4"
-        },
-        {
-          "id": "conclusion",
-          "source_site": "Reference-Site/Generative-ai",
-          "source_section_id": "pre-banner-section",
-          "source_type": "reference",
-          "banner_slot": "closing-cta",
-          "bg_treatment": "soft-mint-closing",
-          "end_banner_id": "EB-07",
-          "h2": "Ready to build your sales dashboard?",
-          "cta": ["START FOR FREE"],
-          "adaptation_notes": "#conclusion EB-07 dark text; reported-section injected immediately before by pipeline"
-        },
-        {
-          "id": "faq",
-          "source_site": "Executive-Dashboards",
-          "source_section_id": "faq-section",
-          "source_type": "reference",
-          "repeat_count": 5,
-          "child_class": "z-accordian",
-          "h2": "FAQs"
-        }
-      ]
-    }
+      "bg_treatment": "soft-mint-closing"
+    },
+    "source_map": [
+      {
+        "brief_section": "hero",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "za-banner-section",
+        "source_type": "webtemplate",
+        "source_url": "https://www.zoho.com/analytics/firebird.html",
+        "layout_style": "peach #fef2f2 split — h1 + What-is lead + ACCESS CTA · banner img 563×467",
+        "bg_treatment": "peach-hero #fef2f2",
+        "banner_slot": "hero",
+        "cta": "ACCESS ZOHO ANALYTICS"
+      },
+      {
+        "brief_section": "value-band",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "za-features-section",
+        "source_type": "webtemplate",
+        "source_url": "https://www.zoho.com/analytics/firebird.html",
+        "layout_style": "red #d83d3e 95% rounded band · h2 Maximize… + .za-feature-title"
+      },
+      {
+        "brief_section": "data-import",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "zdashboard-section",
+        "source_type": "webtemplate",
+        "layout_style": "title + desc + media row"
+      },
+      {
+        "brief_section": "data-preparation",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "zdashboard-section zdb2",
+        "source_type": "webtemplate",
+        "layout_style": "alt zigzag zdb2"
+      },
+      {
+        "brief_section": "data-blending",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "zdashboard-section",
+        "source_type": "webtemplate",
+        "layout_style": "title + desc + media row"
+      },
+      {
+        "brief_section": "live-connect",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "zdashboard-section zdb2",
+        "source_type": "webtemplate",
+        "layout_style": "alt zigzag zdb2"
+      },
+      {
+        "brief_section": "analyze-features",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "za-analyze-section",
+        "source_type": "webtemplate",
+        "layout_style": "3-card ul>li img+h3+p (Visualization · Enhanced BI · Scalability)"
+      },
+      {
+        "brief_section": "closing-cta",
+        "source_folder": "webtemplate/firebird",
+        "bem_class": "za-bottom-section",
+        "source_type": "webtemplate",
+        "banner_slot": "closing-cta",
+        "bg_treatment": "EB-07 soft-mint",
+        "cta": "ACCESS ZOHO ANALYTICS",
+        "layout_style": "Analytics made Simple… + lead + ACCESS CTA"
+      }
+    ]
   },
   "phase_6": {
-    "status": "complete",
-    "output_path": "output/testing-8/",
-    "files_written": [
-      "output/testing-8/index.html",
-      "output/testing-8/style.css",
-      "output/testing-8/script.js"
-    ],
-    "behaviors": [
-      "faq-section z-accordian toggle",
-      "dashboard-wrapper data-onscroll → zwe-om IntersectionObserver",
-      "steps-section tabbed auto-advance"
-    ],
-    "cta_strings_present": [
-      "Explore Examples",
-      "Build Sales Dashboards Now",
-      "START FOR FREE"
-    ],
-    "section_classes_written": [
-      "banner-section",
-      "dashboard-wrapper",
-      "pre-banner-section",
-      "box-icon-section",
-      "steps-section",
-      "faq-section"
-    ],
-    "approved": false,
-    "promoted": false,
-    "revise_rounds": 0,
-    "end_banner_id": "EB-07",
-    "structure_notes": "Composed dashboard-examples-landing-sales; no trusted brands / reported-section in agent output (pipeline injects); hero gradient ≠ mid white #one-click-cta ≠ EB-07 #conclusion soft mint; 8 zigzag rows gold testing-3 pattern; no focus rings"
-  },
-  "build_options": {
-    "trusted_brands": true,
-    "report_slider": true,
-    "end_banner_id": "EB-07"
+    "output_dir": "output/firebird",
+    "revise_rounds": 1,
+    "notes": "firebird-db-landing GOLD · live firebird.html · EB-07 · firebird-db-type-scale.css · promoted agent-reference/Firebird",
+    "promoted": true,
+    "promoted_at": "2026-07-20T11:10:07.482Z",
+    "reference_folder": "Firebird",
+    "reference_path": "agent-reference/Firebird",
+    "reference_origin": "agent"
   }
 }

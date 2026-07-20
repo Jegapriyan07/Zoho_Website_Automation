@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-20T09:24:38.198Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-u3ol53e26a8196b294ee6847bae16cdfa28e2-1784539477916.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrt0q87o.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 3038,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3060
+  },
+  "archetype_guess": "mobile-apps-landing",
+  "writer_doc_title": "ZA BI APP Main Page",
+  "source_url": "https://writer.zoho.in/writer/open/u3ol53e26a8196b294ee6847bae16cdfa28e2",
+  "document_id": "u3ol53e26a8196b294ee6847bae16cdfa28e2"
+}

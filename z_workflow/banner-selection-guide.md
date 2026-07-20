@@ -117,14 +117,18 @@ Closing  → C-01  pre-banner-section textured (before FAQ)
 ### `spreadsheet-reporting-landing`
 
 ```
-Hero       → H-07  banner-section radial gradient
-Mid-page   → progress-section + limits-section + dashboard-wrapper zigzag + comparison-table-section + excel-migration-section
-Trial CTA  → pre-banner-section (first full-width band after migration)
-Social     → za-custories-section (customer stories placeholder) + reported-section (report_slider inject)
-Closing    → pre-banner-section.light #conclusion (pricing band — end-banner-types.json pool)
+Hero       → banner-section (comparison-title + dual CTAs)
+Features   → progress-section (.acc-wrap + .step-image accordion — not timeline cards)
+Limits     → limits-section (.limit-item cards, 2-col)
+Zigzag     → dashboard-wrapper (.check on each li, cream #fef8eb panels)
+Compare    → comparison-table-section (Features | Zoho | Excel + analytics-light/dark)
+Migration  → excel-migration-section (.migration-step + .step-icon)
+Mid CTA    → pre-banner-section (h2 + dual CTAs after migration)
+Social     → za-custories (if brief) + reported-section (report_slider inject)
+Closing    → pre-banner-section.light #conclusion — peach EB-06 gradient (never white)
 FAQ        → faq-section
 ```
-**Three distinct treatments** — hero gradient ≠ first pre-banner ≠ closing `.light` pricing band. Trusted brands injected after hero.
+**Gold CSS:** `40836.css` on live spreadsheet-reporting.html. Closing must use peach `linear-gradient(34deg,…)`.
 
 ### `integration-campaign` (zoho-books, coupon)
 
@@ -133,6 +137,26 @@ Hero       → H-08  banner-section brand radial
 Showcase   → D-02  sampleDashboard-section dark #262626
 Closing    → C-07  pre-banner-section.pre-banner-cta
 ```
+
+### `database-connector-landing` (SQLite / Athena / DB connectors)
+
+```
+Hero       → zbanner-section (live Athena / 27735.css)
+Capabilities → zdashboard-section ×4 (rows 2 & 4 also .zdb2)
+Closing    → zbottom-section #conclusion — end-banner-types.json pick (EB-02 / EB-04 / EB-07 / EB-01)
+```
+**Hero ≠ closing.** Do not leave `.zbottom-section` on plain white.
+
+### `app-connector-landing` (Shopify / SaaS app connectors)
+
+```
+Hero       → header-section (live shopify-advanced-analytics.html)
+App pitch  → shopify-banner-section + Get the app now
+Why choose → feature-accordian-section accordion ×N
+Features   → zcollaborate-section cards ×N
+Closing    → bottom-section #conclusion — end-banner pool (EB-04 / EB-02 / EB-07 / EB-01)
+```
+**Do not** treat Shopify as `database-connector-landing` (Data blending ≠ Athena layout).
 
 ---
 

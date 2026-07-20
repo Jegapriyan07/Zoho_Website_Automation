@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-20T05:35:33.710Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-ff1sc474f91d3db444097b37dd40df96e4021-1784525733398.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrssjmq9.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 3550,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 3584
+  },
+  "archetype_guess": "app-connector-landing",
+  "writer_doc_title": "Shopify Analytics Page -  Draft",
+  "source_url": "https://writer.zoho.in/writer/open/ff1sc474f91d3db444097b37dd40df96e4021",
+  "document_id": "ff1sc474f91d3db444097b37dd40df96e4021"
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-06-30T05:27:22.240Z",
+  "generated_at": "2026-07-20T11:10:07.730Z",
   "sections": {
     "hero": {
       "best": "Main feature",
@@ -10,7 +10,7 @@
         "comparison page",
         "Solution-template"
       ],
-      "example_count": 37
+      "example_count": 39
     },
     "carousel": {
       "best": "PowerBI New",
@@ -20,7 +20,7 @@
         "Solution-template",
         "Business-Intelligence"
       ],
-      "example_count": 24
+      "example_count": 25
     },
     "stats": {
       "best": "PowerBI New",
@@ -30,19 +30,17 @@
         "Solution-template",
         "Business-Intelligence"
       ],
-      "example_count": 17
+      "example_count": 18
     },
     "testimonials": {
-      "best": "BI-Marketing",
-      "class": "testimonials-section",
+      "best": "PowerBI New",
+      "class": "za-inner-testimonials-section",
       "alternates": [
         "PowerBI New",
-        "Executive-Dashboards",
-        "comparison page"
+        "comparison page",
+        "Solution-template"
       ],
-      "example_count": 25,
-      "header_pattern": "content-wrap flex: h2.t-left + a[See all testimonials .arrow]",
-      "notes": "Dual zwc-nav-box-wrap for marquee; often on Writer page ~10 for dashboard-examples landings"
+      "example_count": 26
     },
     "cta": {
       "best": "PowerBI New",
@@ -61,7 +59,7 @@
         "RealTime-BI",
         "BI-Marketing"
       ],
-      "example_count": 11
+      "example_count": 12
     },
     "features": {
       "best": "Business-Intelligence",
@@ -71,18 +69,17 @@
         "RealTime-BI",
         "pie-chart"
       ],
-      "example_count": 17
+      "example_count": 18
     },
     "recognition": {
-      "best": "BI-Marketing",
+      "best": "PowerBI New",
       "class": "reported-section",
       "alternates": [
         "comparison page",
-        "PowerBI New",
-        "BI Finance"
+        "Solution-template",
+        "RealTime-BI"
       ],
-      "example_count": 17,
-      "notes": "report-slider aem-report h5 + trust-section rating-table; rating-left/rating-right per product.css"
+      "example_count": 17
     },
     "faq": {
       "best": "PowerBI New",
@@ -92,7 +89,7 @@
         "RealTime-BI",
         "Spreadsheet"
       ],
-      "example_count": 18
+      "example_count": 19
     },
     "comparison": {
       "best": "PowerBI New",
@@ -127,17 +124,11 @@
       "best": "comparison page",
       "class": "dashboard-wrapper",
       "alternates": [
-        "BI Finance",
-        "Executive-Dashboards",
         "Solution-template",
         "Spreadsheet",
         "pie-chart"
       ],
-      "example_count": 7,
-      "layout_variants": {
-        "zigzag": { "class": "dashboard-wrapper", "best": "Executive-Dashboards" },
-        "sticky-stack": { "class": "sticky-card-section", "best": "BI Finance", "notes": "scroll-card stacking — finance dashboard examples gold standard" }
-      }
+      "example_count": 7
     },
     "steps": {
       "best": "Executive-Dashboards",

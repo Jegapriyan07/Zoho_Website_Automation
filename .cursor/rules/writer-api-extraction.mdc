@@ -1,0 +1,29 @@
+---
+description: Writer briefs must use Zoho Writer API only — never Chrome MCP or Puppeteer
+alwaysApply: true
+---
+
+# Writer brief extraction — API only
+
+**Never use Chrome MCP** (`navigate_page` / `evaluate_script` / `WRITER_BROWSER_EXTRACT_FN`) to open or scrape Zoho Writer documents.
+
+**Never use** Puppeteer `npm run extract:writer` for Writer briefs in this project.
+
+## Required path
+
+1. Web Page Builder / `web-tool` Phase 0 → `extractWriterViaApi` (`web-tool/server/writer-api.js`)
+2. Or a fresh brief already written by that path with `extraction_method: "writer_api"` in `briefs/{slug}.extract.json`
+3. Then `npm run validate:brief -- --file z_workflow/briefs/{slug}.txt`
+
+Auth: user must be signed in to Zoho via the Web Page Builder (“Sign in with Zoho”). If Writer API returns 401/403 or null tokens → **hard stop** and ask the user to re-auth in the tool — do **not** open Writer in Chrome MCP.
+
+## Forbidden
+
+| Do not | Why |
+|--------|-----|
+| Chrome MCP → Writer URL | Login walls; user rule: API only |
+| Puppeteer browser extract | Same — not the Writer API path |
+| Paste / invent brief text | Bypasses the document source |
+| Stale `briefs/*.txt` from another run without API re-extract | Wrong content source |
+
+Live Zoho **marketing** pages (e.g. `shopify-advanced-analytics.html`) may still be inspected for layout/CSS when composing — that is not Writer extraction.

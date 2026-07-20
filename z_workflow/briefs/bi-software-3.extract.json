@@ -1,0 +1,33 @@
+{
+  "extracted_at": "2026-07-20T06:55:11.149Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-j15l4f2176f49dc0240188b7358c8a9ab429c-1784530510896.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrsvdxlb.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 17423,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 17,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [
+      "Capterra"
+    ],
+    "char_count": 17450
+  },
+  "archetype_guess": "bi-software-landing",
+  "writer_doc_title": "BI Software Landing Page",
+  "source_url": "https://writer.zoho.in/writer/open/j15l4f2176f49dc0240188b7358c8a9ab429c",
+  "document_id": "j15l4f2176f49dc0240188b7358c8a9ab429c"
+}

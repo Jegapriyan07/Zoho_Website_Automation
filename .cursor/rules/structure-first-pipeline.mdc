@@ -9,7 +9,7 @@ When building pages via `z_workflow/cursor-build-workflow.md`, **compose structu
 
 **New Writer doc?** Read `z_workflow/writer-drop-playbook.md` before Phase 0.
 
-**Writer brief gate:** Chrome MCP extraction from the user's URL **in this session** only. Zoho login page → stop and ask user to sign in — never use stale `briefs/*.txt`, paste, or Puppeteer fallback.
+**Writer brief gate:** Zoho **Writer API** only (`web-tool/server/writer-api.js` / Web Page Builder Phase 0). **Never** Chrome MCP or Puppeteer for Writer docs. API auth fail → hard stop; ask user to Sign in with Zoho in the tool.
 
 **Gold-standard reference:** `Reference-Site/agent-reference/` (promoted pages) — correct BEM, section patterns, brief-driven copy.
 
@@ -28,11 +28,11 @@ Each new writer doc → new page composition. Similarity matching picks **sectio
 
 ## Phase 0 gate
 
-1. **Writer brief:** Chrome MCP → user's URL → save `briefs/{slug}.txt` → `validate:brief` exit 0. Login wall → stop; do not use existing brief files.
+1. **Writer brief:** Writer API download → `briefs/{slug}.txt` + `.extract.json` (`extraction_method: writer_api`) → `validate:brief` exit 0. API auth fail → stop; do not use Chrome MCP / Puppeteer.
 2. Run `node z_workflow/scripts/match-sites.mjs` and record results in `z_workflow/state.json`.
 2. Set `similarity.primary_source` to the top-scoring reference folder for **tokens and flavour** — not for blind full-page copy.
 3. Build `similarity.source_map`: one entry per **brief section** → reference folder → BEM class → layout style.
-4. Use `section-index.json` alternates when the top site lacks a required section type. If still unmatched, pick from `webtemplate/sitemap-categorized.json` by reading each entry's **`sections[]` descriptions** (type + layout, e.g. `split — text left, image right`, `zigzag — alternating text/image rows`). Use `npm run find:webtemplate -- <type> "<layout keyword>"` to shortlist. Fetch only the matched section live via Chrome MCP in Phase 6. Tag each `source_map` entry `source_type: "reference" | "webtemplate"`.
+4. Use `section-index.json` alternates when the top site lacks a required section type. If still unmatched, pick from `webtemplate/sitemap-categorized.json` by reading each entry's **`sections[]` descriptions** (type + layout, e.g. `split — text left, image right`, `zigzag — alternating text/image rows`). Use `npm run find:webtemplate -- <type> "<layout keyword>"` to shortlist. Fetch only the matched section live via Chrome MCP in Phase 6 **(live marketing pages only — not Writer)**. Tag each `source_map` entry `source_type: "reference" | "webtemplate"`.
 5. Set `similarity.structure_mode: "compose"` in `state.json` (not `clone_mode`).
 
 Synthesis is allowed for individual sections with no reference match — use `team-dna.json` + section-index alternates.
@@ -84,8 +84,9 @@ Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `
 - ❌ Extracting only page 1 of a multi-page Writer doc
 - ❌ Skipping `reported-section` / `testimonials-section` on dashboard-examples landings when brief page ~10 has social proof
 
-- ❌ Using `briefs/*.txt` from a prior session when user provided a fresh Writer URL
-- ❌ Building when Chrome MCP hits Zoho Accounts login without stopping for user sign-in
+- ❌ Using `briefs/*.txt` from a prior session when user provided a fresh Writer URL (re-run Writer API extract)
+- ❌ Extracting Writer via Chrome MCP or Puppeteer — **Writer API only**
+- ❌ Building when Writer API auth fails without stopping for Zoho re-sign-in in the Web Page Builder
 - ❌ Keeping reference sections not in the writer's doc
 - ❌ Cloning `output/*` pages as templates (use `section-index.json` + reference site folders)
 - ❌ Inventing section class names when `section-index.json` already has a pattern
@@ -93,6 +94,20 @@ Run `/review` (or checklist in `.cursor/rules/web-pages-frontend.mdc`). **Read `
 - ❌ Skipping JS for accordion / slick / tabs when those sections are present
 - ❌ TOC scrollspy that jumps ahead early — use `scrollY + headerHeight + 60` with **document** offset (`getBoundingClientRect` / jQuery `.offset().top`), never `element.offsetTop` (gold: `output/cloud-analytics/script.js`, `Reference-Site/page-revamp/script.js`, live `cloud-reporting-tools.html`)
 - ❌ Skipping `z_workflow/gold-snippets/article-toc-layout.css` on comparison-guide / `.tabsection` builds — copy that snippet (gold page: `output/cloud-analytics`)
+- ❌ Skipping `z_workflow/gold-snippets/spreadsheet-reporting-layout.css` on `spreadsheet-reporting-landing` builds — cream cards need `isolation:isolate` + `::before` `#fef8eb` `z-index:0` (never `-1`)
+- ❌ Skipping `z_workflow/gold-snippets/database-connector-type-scale.css` on `database-connector-landing` builds — h1 50 · h2 36 · p 17 (never scaffold h1 42 / h2 32 / p 16); gold: `output/sqlite-db-page-draft-2`
+- ❌ Skipping `z_workflow/gold-snippets/database-connector-zresrc-cards.css` on `database-connector-landing` — `.zresrc-list` must be BOX cards (35px pad · 12px radius · soft shadow) + `.learn-more-cta`
+- ❌ Omitting `<img class="zconnecting-icon">` placeholders on DB-connector key features — live Athena icons are images (sprite/PNG), not text
+- ❌ Filling testimonials marquee on `what-is-business-intelligence` — header + See all link only; no `.zwc-nav-box` cards
+- ❌ Matching Shopify / SaaS app-connector briefs to `database-connector-landing` because of **Data blending** — use `app-connector-landing` (gold: live `shopify-advanced-analytics.html`)
+- ❌ Matching **Mobile Apps** / `ZA BI APP Main Page` / `mobile-apps.html` briefs to `database-connector-landing` because of **Zia Insights** — use `mobile-apps-landing` (gold: live `mobile-apps.html`)
+- ❌ Matching **Firebird** / `firebird.html` briefs to Athena `database-connector-landing` — use `firebird-db-landing` (gold: `output/firebird` · snippet `firebird-db-type-scale.css`)
+❌ Leaving Firebird `.za-feature-title` at 17px or Athena side-by-side zdashboard titles — centered stack · h2 32 · lead 26/40
+- ❌ Skipping ★ Trusted Brands inject on `bi-software-landing` — use `.za-brandsCounts` inject + `gold-snippets/bi-software-trusted-brands-isolation.css`; do not compose live `.trust-section` / `.tbrand-section` when inject is on
+- ❌ Leaving hero `item1::before` / `item3::before` / `.banner-arrow` as bare `https://prezohoweb.zoho.com/` — use `banner-before.png`, `banner-beforegraph.svg`, `banner-arrow.svg` under `/sites/zweb/images/analytics/business-intelligence/`
+- ❌ Shipping unscoped `.trust-icon { margin: -120px }` with Trusted Brands inject — clips logo marquee (gold: `output/bi-software-3`)
+- ❌ Appending Writer “Separate banner for this:” lines inside `.progress-section` / goals accordion — emit sibling `.pre-banner` (gold: `#goals-align-banner` in `output/what-is-business-intelligence-lp-3`)
+- ❌ Using testing-3 clip-path / 55% zigzag panels on spreadsheet-reporting landings — use live cream 871×570 cards instead
 - ❌ Article TOC without peach `.banner` **inside** `ul#tabs`, or crushed tables — `.table-wrap { overflow-x:auto }` + `.comparison-table-7col` min-width 1200px + `word-break:normal` (gold: `output/cloud-analytics`)
 - ❌ Narrow TOC + content starting early — **340px** `.left-tab`, `.cont-sec { margin-left: 100px }`, peach CTA scrolls **with** TOC
 - ❌ Putting FAQ / FAQs / `#faqs` in the left-tab TOC — sidebar lists article sections only; FAQ stays as `.faq-section` after `.tabsection` (live `cloud-reporting-tools`)

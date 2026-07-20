@@ -15,11 +15,10 @@
     "banner": 3,
     "tabsection": 0,
     "faq_section": 1,
-    "cta_button_count": 4,
+    "cta_button_count": 3,
     "cta_texts": [
       "Try Zoho Analytics for free",
-      "Watch demo",
-      "Start your free trial today!",
+      "Sign up for free",
       "Start your free trial today!"
     ],
     "h1_count": 1,
@@ -60,15 +59,15 @@
     "customer_story_missing": []
   },
   "banner_audit": {
-    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--color-primary) 28%, transparent) 0, transparent 48%), radial-gradient(circle at 88% 72%, color-mix(in srgb, var(--color-secondary) 22%, transparent) 0, transparent 52%)",
-    "closing_bg_fingerprint": "background:#fff",
+    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:url('https://prezohoweb.zoho.com/')",
+    "closing_bg_fingerprint": "background-image:linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%)",
     "mid_white_bg_fingerprint": null,
     "slots": [
       {
         "type": "hero",
         "class": "banner-section",
         "banner_slot": "hero",
-        "bg_treatment": "gradient-hero"
+        "bg_treatment": "comparison-hero-bg"
       },
       {
         "type": "cta",
@@ -79,12 +78,12 @@
         "type": "cta",
         "class": "pre-banner-section",
         "banner_slot": "closing-cta",
-        "bg_treatment": "end-banner-pool",
+        "bg_treatment": "peach-gradient-closing",
         "id": "conclusion"
       }
     ]
   },
   "errors": [],
   "warnings": [],
-  "validated_at": "2026-07-16T11:28:48.647Z"
+  "validated_at": "2026-07-17T05:33:50.134Z"
 }

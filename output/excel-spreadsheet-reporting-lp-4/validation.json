@@ -1,0 +1,89 @@
+{
+  "pass": true,
+  "output_dir": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\output\\excel-spreadsheet-reporting-lp-4",
+  "slug": "excel-spreadsheet-reporting-lp-4",
+  "archetype": "spreadsheet-reporting-landing",
+  "inventory": {
+    "example_row": 0,
+    "impl_step": 0,
+    "feature_block": 0,
+    "persona_block": 0,
+    "benefit_block": 0,
+    "za_inner_testimonials": 0,
+    "z_accordian_box": 4,
+    "cont_sec": 0,
+    "banner": 3,
+    "tabsection": 0,
+    "faq_section": 1,
+    "cta_button_count": 3,
+    "cta_texts": [
+      "Try Zoho Analytics for free",
+      "Sign up for free",
+      "Start your free trial today!"
+    ],
+    "h1_count": 1,
+    "has_page_container": true,
+    "has_nav_placeholder": true,
+    "has_footer_placeholder": true,
+    "has_zoho_placeholder": true,
+    "has_placehold_co": false,
+    "has_local_assets": false,
+    "has_cta_visibility_override": true,
+    "has_brand_cta_token": true,
+    "pre_banner_section": 2,
+    "has_pre_banner_background": true
+  },
+  "brief_inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 4,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 8890,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "banner_audit": {
+    "hero_bg_fingerprint": "background-color:var(--primary-bg);background-image:url('https://prezohoweb.zoho.com/')",
+    "closing_bg_fingerprint": "background-image:linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%)",
+    "mid_white_bg_fingerprint": null,
+    "slots": [
+      {
+        "type": "hero",
+        "class": "banner-section",
+        "banner_slot": "hero",
+        "bg_treatment": "comparison-hero-bg"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner-section",
+        "banner_slot": "mid-cta"
+      },
+      {
+        "type": "cta",
+        "class": "pre-banner-section",
+        "banner_slot": "closing-cta",
+        "bg_treatment": "peach-gradient-closing",
+        "id": "conclusion"
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "validated_at": "2026-07-17T18:04:49.521Z"
+}

@@ -185,9 +185,40 @@ export function inventoryOutput(html, css) {
   };
 
   const countSelectorOccurrences = (selector) => {
-    const classMatch = selector.match(/^\.([a-zA-Z0-9_-]+)$/);
-    if (classMatch) return countClass(classMatch[1]);
-    if (selector === '.z-accordianBox') return countClass('z-accordianBox');
+    const raw = String(selector || '').trim();
+    if (!raw) return 0;
+
+    // Single class: .foo
+    const single = raw.match(/^\.([a-zA-Z0-9_-]+)$/);
+    if (single) return countClass(single[1]);
+    if (raw === '.z-accordianBox') return countClass('z-accordianBox');
+
+    // Multi-class on same node: .foo.bar
+    const multi = raw.match(/^\.([a-zA-Z0-9_-]+)((?:\.[a-zA-Z0-9_-]+)+)$/);
+    if (multi) {
+      const classes = [...raw.matchAll(/\.([a-zA-Z0-9_-]+)/g)].map((m) => m[1]);
+      const classPart = classes.map((c) => '\\b' + c + '\\b').join('[^"\']*');
+      const re = new RegExp('class=["\'][^"\']*' + classPart + '[^"\']*["\']', 'gi');
+      return (html.match(re) || []).length;
+    }
+
+    // Descendant / compound: use the last simple class token as occurrence proxy
+    // e.g. ".progress-section .acc-wrap" → count .acc-wrap
+    const parts = raw.split(/\s+/).filter(Boolean);
+    const last = parts[parts.length - 1];
+    const lastClass = last && last.match(/^\.([a-zA-Z0-9_-]+)$/);
+    if (lastClass) return countClass(lastClass[1]);
+
+    // Descendant ending in an element tag: ".zconnecting-section h4" → count <h4
+    const lastTag = last && last.match(/^([a-zA-Z][a-zA-Z0-9]*)$/);
+    if (lastTag) {
+      return (html.match(new RegExp(`<${lastTag[1]}\\b`, 'gi')) || []).length;
+    }
+
+    // Tag + class on last token: "h4.zicon-safer" → count that class
+    const tagWithClass = last && last.match(/^([a-zA-Z][a-zA-Z0-9]*)\.([a-zA-Z0-9_-]+)$/);
+    if (tagWithClass) return countClass(tagWithClass[2]);
+
     return 0;
   };
 
@@ -334,8 +365,11 @@ export function checkBannerSlots(html, css, composite) {
       /closing$/i.test(closingTreatment);
 
     if (usesEndBannerPool) {
+      const closingClass = closingSlot.class || 'pre-banner-section';
       const conclusionRule =
+        extractTopLevelRule(css, `#conclusion.${closingClass}`) ||
         extractTopLevelRule(css, '#conclusion.pre-banner-section') ||
+        extractTopLevelRule(css, '#conclusion.pre-banner') ||
         extractTopLevelRule(css, '.pre-banner-section');
       const hasConcreteBg =
         /background(-image|-color)?\s*:/i.test(conclusionRule) &&
@@ -365,7 +399,10 @@ export function checkBannerSlots(html, css, composite) {
     }
   }
 
-  const closingBg = extractBgFingerprint(extractTopLevelRule(css, '.pre-banner-section'));
+  const closingBg =
+    extractBgFingerprint(extractTopLevelRule(css, '#conclusion.pre-banner-section')) ||
+    extractBgFingerprint(extractTopLevelRule(css, '.pre-banner-section.light')) ||
+    extractBgFingerprint(extractTopLevelRule(css, '.pre-banner-section'));
   const midWhiteBg = extractBgFingerprint(extractTopLevelRule(css, '.pre-banner-section.bg-white'));
 
   const requireDistinct =
@@ -486,6 +523,69 @@ export function checkOutputInventory(inventory, composite, files = {}, briefInve
     }
   }
 
+  // Per-banner CTA map: each banner_slot must use its own primary (and secondary if set)
+  const bannerMap = composite.cta_banner_map || null;
+  if (bannerMap && files.html) {
+    const html = files.html;
+    const heroClass =
+      (composite.section_order || []).find((s) => s.banner_slot === 'hero')?.class || 'banner-section';
+    const midClass =
+      (composite.section_order || []).find((s) => s.banner_slot === 'mid-cta')?.class || 'pre-banner-section';
+    const escapeClass = (c) => String(c).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const slotToSection = {
+      hero: new RegExp(
+        `<section[^>]*class=["'][^"']*\\b${escapeClass(heroClass)}\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/section>`,
+        'i'
+      ),
+      'mid-cta': new RegExp(
+        `<section[^>]*class=["'][^"']*\\b${escapeClass(midClass)}\\b(?![^"']*\\blight\\b)[^"']*["'][^>]*>[\\s\\S]*?<\\/section>`,
+        'i'
+      ),
+      'closing-cta':
+        /<section[^>]*\bid=["']conclusion["'][^>]*>[\s\S]*?<\/section>|<section[^>]*class=["'][^"']*\bpre-banner-section\b[^"']*\blight\b[^"']*["'][^>]*>[\s\S]*?<\/section>/i
+    };
+    for (const [slot, map] of Object.entries(bannerMap)) {
+      const re = slotToSection[slot];
+      if (!re || !map?.primary) continue;
+      const m = html.match(re);
+      if (!m) {
+        issues.push(`Missing ${slot} banner section for CTA map check`);
+        continue;
+      }
+      const chunk = m[0];
+      if (!chunk.toLowerCase().includes(String(map.primary).toLowerCase())) {
+        issues.push(`${slot} banner must include primary CTA "${map.primary}"`);
+      }
+      if (map.secondary && !chunk.toLowerCase().includes(String(map.secondary).toLowerCase())) {
+        issues.push(`${slot} banner must include secondary CTA "${map.secondary}"`);
+      }
+    }
+  }
+
+  if (checks.require_distinct_banner_ctas) {
+    const primaries = (composite.section_order || [])
+      .filter((s) => s.cta && (s.banner_slot === 'hero' || s.banner_slot === 'mid-cta' || s.banner_slot === 'closing-cta'))
+      .map((s) => String(s.cta).trim().toLowerCase());
+    const unique = new Set(primaries);
+    if (primaries.length >= 2 && unique.size < primaries.length) {
+      issues.push(
+        'Banner primary CTAs must differ across hero / mid-cta / closing — do not reuse one label on every band (see cta_banner_map)'
+      );
+    }
+    // Also detect identical primary .cta-btn.act-btn labels repeated 3+ times in HTML
+    const ctaLabels = [...(files.html || '').matchAll(/class=["'][^"']*\bcta-btn\b[^"']*\bact-btn\b[^"']*["'][^>]*>([^<]+)</gi)]
+      .map((m) => m[1].trim().toLowerCase())
+      .filter(Boolean);
+    const counts = {};
+    for (const label of ctaLabels) counts[label] = (counts[label] || 0) + 1;
+    const overused = Object.entries(counts).filter(([, n]) => n >= 3).map(([l]) => l);
+    if (overused.length) {
+      issues.push(
+        `Primary CTA label reused on ≥3 banners: "${overused.join('", "')}" — use cta_banner_map distinct labels`
+      );
+    }
+  }
+
   if (checks.require_cta_visibility_override !== false && !inventory.has_cta_visibility_override) {
     issues.push('Missing `.page-container .cta-btn.act-btn { display: inline-block; … }` override in style.css');
   }
@@ -595,6 +695,195 @@ export function checkOutputInventory(inventory, composite, files = {}, briefInve
     }
   }
 
+  // Spreadsheet-reporting cream cards + live type scale
+  if (checks.require_spreadsheet_cream_panel) {
+    const css = files.css || '';
+    const hasCream = /#fef8eb/i.test(css);
+    const hasIsolate = /isolation:\s*isolate/i.test(css);
+    // Only flag dashboard zigzag ::before — migration may use a different cream panel
+    const hasBadNegZ =
+      /\.dashboard-wrapper[\s\S]{0,1200}\.main-wrapper\.(?:right|left)-content::before\s*\{[^}]{0,400}z-index:\s*-1/i.test(
+        css
+      );
+    const hasZeroZ =
+      /\.dashboard-wrapper[\s\S]{0,1200}\.main-wrapper\.(?:right|left)-content::before\s*\{[^}]{0,400}z-index:\s*0/i.test(
+        css
+      ) ||
+      (/\.main-wrapper\.(?:right|left)-content::before\s*\{[^}]{0,400}z-index:\s*0/i.test(css) &&
+        /\.dashboard-wrapper/.test(css));
+    const hasImgBorder =
+      /dashboard-image[^{]*\{[^}]{0,200}border:\s*5px\s+solid\s+#000/i.test(css) ||
+      (/border:\s*5px\s+solid\s+#000/i.test(css) && /\.dashboard-wrapper/.test(css));
+    if (!hasCream) {
+      issues.push(
+        'Spreadsheet cream panel: missing #fef8eb ::before on .dashboard-wrapper .main-wrapper (gold-snippets/spreadsheet-reporting-layout.css)'
+      );
+    }
+    if (!hasIsolate) {
+      issues.push(
+        'Spreadsheet cream panel: `.main-wrapper` needs `isolation: isolate` so z-index:0 panels stay visible'
+      );
+    }
+    if (hasBadNegZ) {
+      issues.push(
+        'Spreadsheet cream panel: do NOT use z-index:-1 on dashboard ::before (panel hides behind page bg) — use z-index:0'
+      );
+    } else if (hasCream && !hasZeroZ) {
+      warnings.push('Spreadsheet cream panel: prefer ::before z-index:0 with image/content z-index:1');
+    }
+    if (!hasImgBorder) {
+      warnings.push(
+        'Spreadsheet cream panel: img.dashboard-image should use border: 5px solid #000; border-radius: 20px'
+      );
+    }
+  }
+
+  if (checks.require_spreadsheet_type_scale) {
+    const css = files.css || '';
+    const hasH1 = /h1[^{]*\{[^}]{0,200}font-size:\s*42px/i.test(css);
+    const hasH2 = /h2[^{]*\{[^}]{0,200}font-size:\s*32px/i.test(css);
+    const hasTitleDesc =
+      /title-desc[^{]*\{[^}]{0,200}font-size:\s*20px/i.test(css) ||
+      /\.page-container\s+p\.title-desc[^{]*\{[^}]{0,200}font-size:\s*20px/i.test(css);
+    if (!hasH1 || !hasH2) {
+      issues.push(
+        'Spreadsheet type scale: h1 must be 42px and h2 32px (live 40836.css / gold-snippets/spreadsheet-reporting-layout.css)'
+      );
+    }
+    if (!hasTitleDesc) {
+      warnings.push('Spreadsheet type scale: .title-desc should be 20px/32px');
+    }
+  }
+
+  if (checks.require_what_is_bi_type_scale) {
+    const css = files.css || '';
+    const hasH1 = /h1[^{]*\{[^}]{0,200}font-size:\s*42px/i.test(css);
+    const hasH2 = /h2[^{]*\{[^}]{0,200}font-size:\s*32px/i.test(css);
+    const hasH3 = /h3[^{]*\{[^}]{0,200}font-size:\s*24px/i.test(css);
+    const hasBody17 =
+      /(?:\.page-container\s+)?(?:p|li)[^{]*\{[^}]{0,220}font-size:\s*17px/i.test(css);
+    const hasTitleDesc =
+      /title-desc[^{]*\{[^}]{0,220}font-size:\s*20px/i.test(css) ||
+      /\.page-container\s+(?:p\.)?title-desc[^{]*\{[^}]{0,220}font-size:\s*20px/i.test(css);
+    if (!hasH1 || !hasH2 || !hasH3) {
+      issues.push(
+        'What-is-BI type scale: h1 42px, h2 32px, h3 24px required (live 39804.css / gold-snippets/what-is-bi-type-scale.css / output/what-is-business-intelligence-lp-3)'
+      );
+    }
+    if (!hasBody17) {
+      issues.push('What-is-BI type scale: body p/li must be 17px (not scaffold 16px)');
+    }
+    if (!hasTitleDesc) {
+      warnings.push(
+        'What-is-BI type scale: .page-container .title-desc should be 20px/32px (must beat .page-container p)'
+      );
+    }
+  }
+
+  // Database-connector (Athena/SQLite) type scale + resource box cards
+  if (checks.require_database_connector_type_scale) {
+    const css = files.css || '';
+    const hasH1 = /h1[^{]*\{[^}]{0,220}font-size:\s*50px/i.test(css);
+    const hasH2 = /h2[^{]*\{[^}]{0,220}font-size:\s*36px/i.test(css);
+    const hasBody17 =
+      /(?:\.page-container\s+)?(?:p|li)[^{]*\{[^}]{0,220}font-size:\s*17px/i.test(css);
+    const hasFeatureH4 =
+      /(?:zconnecting-list|ziaicon-list)\s+h4[^{]*\{[^}]{0,220}font-size:\s*23px/i.test(css) ||
+      (/h4[^{]*\{[^}]{0,220}font-size:\s*23px/i.test(css) && /\.zconnecting-section/.test(css));
+    if (!hasH1 || !hasH2) {
+      issues.push(
+        'Database-connector type scale: h1 must be 50px and h2 36px (live Athena 27735.css / gold-snippets/database-connector-type-scale.css / output/sqlite-db-page-draft-2)'
+      );
+    }
+    if (!hasBody17) {
+      issues.push(
+        'Database-connector type scale: body p/li must be 17px (not scaffold 16px) — gold-snippets/database-connector-type-scale.css'
+      );
+    }
+    if (!hasFeatureH4) {
+      warnings.push(
+        'Database-connector type scale: .zconnecting-list h4 / .ziaicon-list h4 should be 23px/32.2px'
+      );
+    }
+  }
+
+  if (checks.require_database_connector_zresrc_cards) {
+    const css = files.css || '';
+    const html = files.html || '';
+    const hasShadow =
+      /\.zresrc-list[^{]*\{[^}]{0,400}box-shadow:\s*0\s+0\s+20px/i.test(css) ||
+      (/box-shadow:\s*0\s+0\s+20px\s+rgba\(208,\s*208,\s*208/i.test(css) &&
+        /\.zresrc-list/.test(css));
+    const hasPadding35 = /\.zresrc-list[^{]*\{[^}]{0,300}padding:\s*35px/i.test(css);
+    const hasRadius12 = /\.zresrc-list[^{]*\{[^}]{0,300}border-radius:\s*12px/i.test(css);
+    const hasLearnMore = /\blearn-more-cta\b/.test(html);
+    if (!hasShadow || !hasPadding35 || !hasRadius12) {
+      issues.push(
+        'Database-connector resources: .zresrc-list must be BOX cards (padding 35px · radius 12px · box-shadow 0 0 20px) — gold-snippets/database-connector-zresrc-cards.css / output/sqlite-db-page-draft-2'
+      );
+    }
+    if (!hasLearnMore) {
+      issues.push(
+        'Database-connector resources: each card needs <a class="learn-more-cta">Learn more</a> (blue #03a9f5 + chevron)'
+      );
+    }
+  }
+
+  if (checks.require_database_connector_feature_icons) {
+    const html = files.html || '';
+    const iconCount = (html.match(/class=["'][^"']*zconnecting-icon[^"']*["']/gi) || []).length;
+    if (iconCount < 4) {
+      issues.push(
+        'Database-connector key features: need ≥4 visible <img class="zconnecting-icon"> placeholders (icons are images on live Athena, not text)'
+      );
+    }
+  }
+
+  if (checks.require_testimonials_placeholder) {
+    const html = files.html || '';
+    // Match real cards only — ignore TODO comments that mention zwc-nav-box
+    const htmlNoComments = html.replace(/<!--[\s\S]*?-->/g, '');
+    if (/\bzwc-nav-box\b/.test(htmlNoComments)) {
+      issues.push(
+        'Testimonials PLACEHOLDER ONLY — do not append .zwc-nav-box cards (gold: output/what-is-business-intelligence-lp-3)'
+      );
+    }
+    if (
+      !/INSERT TESTIMONIALS HERE/i.test(html) &&
+      !/Testimonials placeholder/i.test(html) &&
+      !/aria-label=["']Testimonials placeholder["']/i.test(html)
+    ) {
+      warnings.push(
+        'Testimonials placeholder: include <!-- TODO: INSERT TESTIMONIALS HERE --> or empty .zwc-nav-scroll-section aria-label'
+      );
+    }
+  }
+
+  if (checks.require_goals_align_banner) {
+    const html = files.html || '';
+    const hasBanner =
+      /id=["']goals-align-banner["']/i.test(html) ||
+      (/business growth engine/i.test(html) &&
+        /<section[^>]*class=["'][^"']*\bpre-banner\b[^"']*["'][^>]*>[\s\S]{0,400}business growth engine/i.test(
+          html
+        ));
+    const progressChunk = html.match(
+      /<section[^>]*class=["'][^"']*\bprogress-section\b[^"']*["'][^>]*>[\s\S]*?<\/section>/i
+    );
+    const nestedInProgress =
+      progressChunk && /business growth engine/i.test(progressChunk[0]);
+    if (!hasBanner) {
+      issues.push(
+        'Missing goals-align mid banner — Writer "Separate banner for this:" must be a sibling .pre-banner (gold: #goals-align-banner)'
+      );
+    }
+    if (nestedInProgress) {
+      issues.push(
+        'Do not append "business growth engine" inside .progress-section — emit sibling #goals-align-banner.pre-banner'
+      );
+    }
+  }
+
   for (const snippet of composite.mandatory_css || []) {
     const normCss = (files.css || '').replace(/\s+/g, ' ').toLowerCase();
     const css = files.css || '';
@@ -619,6 +908,33 @@ export function checkOutputInventory(inventory, composite, files = {}, briefInve
         /margin(?:-left)?:\s*[^;]*100px/i.test(css) &&
           (/\.cont-sec\s*\{[^}]{0,200}100px/i.test(css) ||
             /margin:\s*0\s+0\s+45px\s+100px/i.test(css))
+      );
+    }
+    if (/isolation:\s*isolate/i.test(snippet)) {
+      snippetChecks.push(/isolation:\s*isolate/i.test(css));
+    }
+    if (/#fef8eb/i.test(snippet)) {
+      snippetChecks.push(/#fef8eb/i.test(css) && /z-index:\s*0/i.test(css));
+    }
+    if (/dashboard-image/.test(snippet) && /5px/.test(snippet)) {
+      snippetChecks.push(/border:\s*5px\s+solid\s+#000/i.test(css));
+    }
+    if (/font-size:\s*42px/i.test(snippet)) {
+      snippetChecks.push(/font-size:\s*42px/i.test(css));
+    }
+    if (/font-size:\s*32px/i.test(snippet) && /h2/.test(snippet)) {
+      snippetChecks.push(/h2[^{]*\{[^}]{0,200}font-size:\s*32px/i.test(css));
+    }
+    if (/font-size:\s*24px/i.test(snippet) && /h3/.test(snippet)) {
+      snippetChecks.push(/h3[^{]*\{[^}]{0,200}font-size:\s*24px/i.test(css));
+    }
+    if (/title-desc/.test(snippet) && /font-size:\s*20px/i.test(snippet)) {
+      snippetChecks.push(/title-desc[^{]*\{[^}]{0,200}font-size:\s*20px/i.test(css));
+    }
+    if (/font-size:\s*17px/i.test(snippet) && /\bli\b/.test(snippet)) {
+      snippetChecks.push(
+        /(?:\.page-container\s+)?(?:p|li)[^{]*\{[^}]{0,200}font-size:\s*17px/i.test(css) ||
+          /font-size:\s*17px/i.test(css)
       );
     }
     if (!snippetChecks.length) {

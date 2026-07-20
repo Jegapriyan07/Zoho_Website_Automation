@@ -141,6 +141,98 @@ export function resolveArchetype(briefText, forcedId) {
     if (cds) return cds;
   }
 
+  const isWhatIsBusinessIntelligence =
+    (norm.includes('what is business intelligence?') ||
+      norm.includes('what-is-business-intelligence.html')) &&
+    (norm.includes('traditional bi vs modern bi') ||
+      norm.includes('how does business intelligence work') ||
+      norm.includes('industrial use cases of business intelligence') ||
+      norm.includes('broad goals of business intelligence'));
+  if (isWhatIsBusinessIntelligence) {
+    const biGuide = ranked.find((r) => r.id === 'what-is-business-intelligence');
+    if (biGuide) return biGuide;
+  }
+
+  const isBiSoftwareLanding =
+    (norm.includes('bi software landing page') ||
+      norm.includes('business-intelligence-bi-software.html') ||
+      (norm.includes('top business intelligence softwares') &&
+        norm.includes('how to choose the best bi software'))) &&
+    !norm.includes('traditional bi vs modern bi') &&
+    !norm.includes('industrial use cases of business intelligence') &&
+    !norm.includes('what-is-business-intelligence.html');
+  if (isBiSoftwareLanding) {
+    const biSoftware = ranked.find((r) => r.id === 'bi-software-landing');
+    if (biSoftware) return biSoftware;
+  }
+
+  const isAppConnectorLanding =
+    (norm.includes('shopify-advanced-analytics.html') ||
+      norm.includes('shopify analytics page') ||
+      (norm.includes('shopify') &&
+        norm.includes('why choose zoho analytics for your shopify') &&
+        (norm.includes('advanced shopify analytics') ||
+          norm.includes('try our native shopify analytics')))) &&
+    !norm.includes('sqlite database landing') &&
+    !norm.includes('amazon-athena.html') &&
+    !norm.includes('what is sqlite');
+  if (isAppConnectorLanding) {
+    const appConnector = ranked.find((r) => r.id === 'app-connector-landing');
+    if (appConnector) return appConnector;
+  }
+
+  // Mobile Apps main page — must beat database-connector (shared "Zia Insights" signal)
+  const isMobileAppsLanding =
+    (norm.includes('zoho analytics mobile apps') ||
+      norm.includes('za bi app main page') ||
+      norm.includes('mobile apps (main page)') ||
+      norm.includes('mobile-apps.html') ||
+      (norm.includes('enjoy the complete native approach') &&
+        norm.includes('analyze your data on-the-move')) ||
+      (norm.includes('mobile bi app') && norm.includes('dashboards app'))) &&
+    !norm.includes('sqlite database landing') &&
+    !norm.includes('amazon-athena.html') &&
+    !norm.includes('what is sqlite') &&
+    !norm.includes('data import') &&
+    !norm.includes('live connect');
+  if (isMobileAppsLanding) {
+    const mobileApps = ranked.find((r) => r.id === 'mobile-apps-landing');
+    if (mobileApps) return mobileApps;
+  }
+
+  // Firebird (and similar legacy DB pages) — beat Athena database-connector archetype
+  const isFirebirdDbLanding =
+    (norm.includes('what is firebird') ||
+      norm.includes('firebird.html') ||
+      (norm.includes('unleash the power of your firebird') &&
+        norm.includes('maximize your firebird data'))) &&
+    norm.includes('firebird') &&
+    !norm.includes('amazon-athena.html') &&
+    !norm.includes('what is sqlite') &&
+    !norm.includes('what is amazon athena');
+  if (isFirebirdDbLanding) {
+    const firebird = ranked.find((r) => r.id === 'firebird-db-landing');
+    if (firebird) return firebird;
+  }
+
+  const isDatabaseConnectorLanding =
+    (norm.includes('amazon-athena.html') ||
+      norm.includes('sqlite database landing') ||
+      norm.includes('supercharge your sqlite data') ||
+      (norm.includes('live connect') &&
+        norm.includes('data blending') &&
+        norm.includes('data import') &&
+        norm.includes('data preparation'))) &&
+    (norm.includes('what is sqlite') ||
+      norm.includes('what is amazon athena') ||
+      norm.includes('how does zoho analytics and sqlite') ||
+      norm.includes('how does zoho analytics and amazon athena') ||
+      norm.includes('key features that help'));
+  if (isDatabaseConnectorLanding) {
+    const dbConnector = ranked.find((r) => r.id === 'database-connector-landing');
+    if (dbConnector) return dbConnector;
+  }
+
   const isPpcAgencyClientDashboard =
     norm.includes('what key features to look for in a client dashboard tool') &&
     norm.includes('ready to give every client a dashboard') &&

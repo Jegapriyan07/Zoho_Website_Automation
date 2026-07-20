@@ -1,0 +1,51 @@
+{
+  "pass": true,
+  "file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\firebird.txt",
+  "archetype": "firebird-db-landing",
+  "archetype_score": 25,
+  "required_found": [
+    "What is Firebird?",
+    "Unleash the power of your Firebird data with Zoho Analytics",
+    "Maximize your Firebird data with the collaboration of Zoho Analytics",
+    "Data Import",
+    "Data Preparation",
+    "Data Blending",
+    "Live Connect",
+    "Analyze your Firebird data even deeper with these features of Zoho Analytics",
+    "Data Visualization and Reporting",
+    "Enhanced Business Intelligence",
+    "Scalability and Flexibility",
+    "Analytics made Simple, Results Made Powerful"
+  ],
+  "required_missing": [],
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 2251,
+    "example_row_count": 0,
+    "example_row_missing": [],
+    "impl_step_count": 0,
+    "impl_step_missing": [],
+    "feature_block_count": 0,
+    "feature_block_missing": [],
+    "persona_block_count": 0,
+    "persona_block_missing": [],
+    "benefit_block_count": 0,
+    "benefit_block_missing": [],
+    "customer_story_count": 0,
+    "customer_story_missing": []
+  },
+  "errors": [],
+  "warnings": [
+    "Only 0 --- PAGE N --- markers (expected ~1)"
+  ],
+  "validated_at": "2026-07-20T10:53:18.548Z"
+}

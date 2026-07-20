@@ -1,0 +1,1291 @@
+/* Global typography — live Shopify / zanalytics_solutions scale */
+.page-container h2 {
+  font-size: 36px;
+  line-height: 1.25;
+  text-align: center;
+  font-family: var(--zf-primary-bold);
+}
+
+.page-container h3 {
+  font-size: 23px;
+  line-height: 1.35;
+  width: 100%;
+}
+
+.page-container p,
+.page-container li {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.t-left { text-align: left !important; }
+.t-center { text-align: center; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-flex-row { flex-direction: row; }
+.d-flex-column { flex-direction: column; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.p-90 { padding: 90px 0; }
+.p-50 { padding: 50px 0; }
+.title-desc {
+  font-size: 20px;
+  line-height: 1.6;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.m-0 { margin: 0; }
+.m-t-0 { margin-top: 0 !important; }
+.p-b-0 { padding-bottom: 0 !important; }
+.m-t-15 { margin-top: 15px; }
+.m-b-30 { margin-bottom: 30px; }
+.f-20 { font-size: 20px; line-height: 1.6; }
+.p-t-0 { padding-top: 0; }
+.text-center { text-align: center; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #3b81d3;
+  --color-secondary: #17774b;
+  --primary-color: #3b81d3;
+  --secondary-color: #41a35f;
+  --primary-font-color: #262626;
+  --secondary-font-color: #ffffff;
+  --primary-bg: #ffecc9;
+  --shopify-banner-start: #17774b;
+  --shopify-banner-end: #41a35f;
+  --shopify-banner-heading: #f1dc05;
+  --color-brand-cta: #e42527;
+  --primary-btn-color: #e42527;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 48px;
+}
+
+/* CTA visibility override + brand red */
+.page-container .cta-btn.act-btn {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  background: var(--primary-btn-color);
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 4px;
+  font-family: var(--zf-primary-semibold);
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+/* NO FOCUS RINGS — team request */
+.page-container button:focus,
+.page-container button:focus-visible,
+.page-container a.act-btn:focus,
+.page-container a.act-btn:focus-visible,
+.page-container a.cta-btn:focus,
+.page-container a.cta-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.page-container [role="button"]:focus,
+.page-container [role="button"]:focus-visible,
+.page-container .feature-accordian-section h3:focus,
+.page-container .feature-accordian-section h3:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ——— Live source transitions (zanalytics_solutions.css) ——— */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes transX {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ——— Outline / secondary buttons (Explore more · View more connectors) ——— */
+.page-container .outline-btn {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-family: var(--zf-primary-semibold);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.page-container .outline-btn:focus,
+.page-container .outline-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ——— 1. Hero — live umain screenshots: CENTERED + slider (no signup) ——— */
+.header-section,
+.zw-product-header {
+  background: #ffecc9;
+}
+
+.header-section {
+  position: relative;
+  padding-bottom: 100px;
+  overflow: hidden;
+  color: var(--primary-font-color);
+}
+
+.header-section.banner-shown {
+  padding-bottom: 20px;
+}
+
+.header-section .content-wrap {
+  max-width: 1170px;
+}
+
+.header-section .table-wrap {
+  padding-top: 70px;
+  display: block;
+  width: 100%;
+}
+
+.header-section .table-wrap.hero-centered > .column.left {
+  width: 100%;
+  float: none;
+  text-align: center;
+}
+
+.header-section h1 {
+  max-width: 960px;
+  margin: 0 auto 20px;
+  font-family: var(--zf-primary-bold);
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: center;
+  color: #000;
+}
+
+.header-section h1 + p {
+  max-width: 740px;
+  margin: 0 auto 25px;
+  text-align: center;
+}
+
+.header-section .header-banner-btns {
+  text-align: center;
+}
+
+.header-section .header-banner-btns .cta-btn.act-btn {
+  padding: 8px 30px;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+/*
+ * Cream → white transition band under hero dashboard
+ * (live: .header-banner-slider:after)
+ */
+.header-banner-slider {
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
+}
+
+.header-banner-slider::after {
+  content: "";
+  background: #fff;
+  height: 55%;
+  position: absolute;
+  bottom: -120px;
+  left: -100%;
+  width: 260%;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.hb-slider {
+  outline: 0;
+}
+
+.header-banner-slider img {
+  display: block;
+  width: 100%;
+  border: 5px solid #d3d5e0;
+  border-radius: 0;
+}
+
+/* ——— Gold scroll / entrance (zanalytics_solutions · scaleEffect · line-animated) ——— */
+@keyframes scaleEffect {
+  0% { visibility: hidden; opacity: 0; transform: scale(0.8); }
+  100% { visibility: visible; opacity: 1; transform: scale(1); }
+}
+
+@keyframes zeven {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, -14px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes zodd {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, 14px); }
+  100% { transform: translate(0, 0); }
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.branding-logos ul li {
+  opacity: 0;
+}
+
+.line-animated.branding-logos ul li:nth-child(1) { animation: scaleEffect 0.8s ease-out 0.5s forwards; }
+.line-animated.branding-logos ul li:nth-child(2) { animation: scaleEffect 0.8s ease-out 0.7s forwards; }
+.line-animated.branding-logos ul li:nth-child(3) { animation: scaleEffect 0.8s ease-out 0.9s forwards; }
+.line-animated.branding-logos ul li:nth-child(4) { animation: scaleEffect 0.8s ease-out 1.1s forwards; }
+.line-animated.branding-logos ul li:nth-child(5) { animation: scaleEffect 0.8s ease-out 1.3s forwards; }
+.line-animated.branding-logos ul li:nth-child(6) { animation: scaleEffect 0.8s ease-out 1.5s forwards; }
+.line-animated.branding-logos ul li:nth-child(7) { animation: scaleEffect 0.8s ease-out 1.7s forwards; }
+.line-animated.branding-logos ul li:nth-child(8) { animation: scaleEffect 0.8s ease-out 1.9s forwards; }
+.line-animated.branding-logos ul li:nth-child(9) { animation: scaleEffect 0.8s ease-out 2.1s forwards; }
+
+.page-container .act-btn.apps-link {
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.page-container .act-btn.apps-link:hover {
+  transform: translateY(-2px);
+  background: #222;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  .branding-logos ul li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none !important;
+  }
+
+  .saa-icon {
+    animation: none !important;
+  }
+}
+
+/* ——— 2. Brands — gold zanalytics_solutions.css ——— */
+.branding-section {
+  padding-top: 90px;
+  margin-bottom: 60px;
+  background: #fff;
+  position: relative;
+}
+
+.branding-logos {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.branding-logos h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin: 0 auto 45px;
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+  font-family: var(--zf-primary-semibold);
+}
+
+.branding-logos h2 span {
+  border-bottom: 1px solid #000;
+  display: inline;
+  font-family: var(--zf-primary-semibold);
+  padding-bottom: 0;
+}
+
+.branding-wrap {
+  display: table;
+  width: 100%;
+}
+
+.branding-wrap > .branding-count {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.branding-wrap > .branding-count.bc1 {
+  width: 220px;
+  background: #fff8f8;
+  border: 1px solid #ffdad3;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.branding-wrap > .branding-count.bc2 {
+  padding-left: 60px;
+  width: auto;
+}
+
+.each-count {
+  height: 100%;
+  padding: 36px 16px;
+  box-sizing: border-box;
+}
+
+.ec {
+  display: none;
+  animation: fadeIn 1s;
+  transition: all 0.5s ease;
+}
+
+.ec.cshow {
+  display: block;
+}
+
+.ec-num {
+  color: #ef5065;
+  font-size: 52px;
+  font-family: var(--zf-primary-bold);
+  margin-bottom: 10px;
+  display: block;
+  line-height: 1;
+}
+
+.ec-text {
+  line-height: 1.2;
+  font-family: var(--zf-primary-semibold);
+  font-size: 19px;
+  color: #000;
+}
+
+.ec-text span {
+  color: #ef5065;
+  font-size: 19px;
+  font-family: var(--zf-primary-semibold);
+  display: block;
+}
+
+.branding-logos ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+}
+
+.branding-logos ul li {
+  float: left;
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  text-align: left;
+  margin: 25px auto;
+  list-style: none;
+}
+
+.branding-logos ul li span {
+  background-image: url("https://www.zohowebstatic.com/sites/zweb/images/commonroot/zp-trust-brands-sprite.png");
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 1100px auto;
+  height: 40px;
+  width: 115px;
+  font-size: 0;
+}
+
+.branding-logos ul li span.zicon-ikea {
+  background-position: 0 -524px;
+  width: 92px;
+  background-size: 1050px auto;
+}
+
+.branding-logos ul li span.zicon-suzuki {
+  background-position: -880px -555px;
+  width: 85px;
+}
+
+.branding-logos ul li span.zicon-laliga {
+  background-position: -121px -576px;
+  width: 100px;
+  background-size: 1050px auto;
+}
+
+.branding-logos ul li span.zicon-mobile {
+  background-position: -186px -460px;
+  width: 115px;
+  background-size: 850px auto;
+}
+
+.branding-logos ul li span.zicon-hp-wrap {
+  background-position: -1048px -49px;
+  width: 40px;
+  background-size: 1300px auto;
+  position: relative;
+  left: 30px;
+}
+
+.branding-logos ul li span.zicon-allianz {
+  width: 85px;
+  background-position: -993px -500px;
+}
+
+.branding-logos ul li span.zicon-johnson {
+  background-position: -986px -554px;
+  width: 90px;
+}
+
+.branding-logos ul li span.zicon-life {
+  background-position: -85px -469px;
+  width: 96px;
+  background-size: 950px auto;
+}
+
+.branding-logos ul li span.zicon-crs {
+  background-position: -6px -602px;
+  width: 110px;
+}
+
+/* ——— 3. Native app — gold translation/analytics/5919.css ——— */
+section.common-section.shopify-banner-section {
+  padding: 50px 0;
+}
+
+.shopify-banner-section .content-wrap {
+  background: linear-gradient(90deg, rgba(23, 119, 75, 1) 0%, rgba(65, 163, 95, 1) 100%);
+  border-radius: 15px;
+  padding: 40px 150px 40px 170px;
+  box-sizing: border-box;
+  max-width: 1170px;
+  position: relative;
+}
+
+.shopify-banner-section .content-wrap::before {
+  content: "";
+  width: 100%;
+  height: 53px;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  background-size: 62px auto;
+  background-position: -163px 0;
+  background-repeat: repeat-x;
+}
+
+.sbs-wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.shopify-banner-section h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  max-width: 580px;
+  color: #f1dc05;
+  text-align: left;
+  margin: 0 0 15px;
+}
+
+.sbs-list-wrap {
+  display: flex;
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+.sbs-list-wrap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sbs-list-wrap ul:first-child {
+  flex: 1.6;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.sbs-list-wrap ul:last-child {
+  flex: 1;
+}
+
+.sbs-wrap ul li {
+  color: #fff;
+  font-family: var(--zf-primary-semibold);
+  font-size: 17px;
+  line-height: 1.5;
+  position: relative;
+  padding: 0 10px 0 30px;
+}
+
+.sbs-wrap ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.sbs-wrap ul li::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url("https://www.zohowebstatic.com/sites/zweb/images/analytics/za-saa-sprite-icon.svg") no-repeat;
+  background-size: 200px auto;
+  background-position: -77px -8px;
+}
+
+.page-container .sbs-wrap .act-btn.apps-link {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  background: #000;
+  color: #fff;
+  padding: 10px 25px;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  border-radius: 25px;
+  text-transform: capitalize;
+  font-size: 16px;
+  margin: 0;
+  text-decoration: none;
+  font-family: var(--zf-primary-semibold);
+  white-space: nowrap;
+}
+
+.page-container .sbs-wrap .act-btn.apps-link:focus,
+.page-container .sbs-wrap .act-btn.apps-link:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.saa-icon {
+  background: url("https://www.zohowebstatic.com/sites/zweb/images/analytics/za-saa-sprite-icon.svg") no-repeat;
+  background-size: 230px auto;
+  position: absolute;
+}
+
+.saa-icon1 {
+  width: 35px;
+  height: 35px;
+  background-position: -46px 0;
+  top: 25px;
+  left: -80px;
+  animation: zodd 5s linear 1s infinite;
+}
+
+.saa-icon2 {
+  width: 35px;
+  height: 35px;
+  background-position: 2px -3px;
+  top: 55px;
+  right: -50px;
+  animation: zodd 5s linear 1s infinite;
+}
+
+.saa-icon3 {
+  width: 20px;
+  height: 20px;
+  left: -100px;
+  bottom: 10px;
+  background-position: -116px -10px;
+  animation: zeven 5s linear 1s infinite;
+}
+
+.saa-icon4 {
+  width: 20px;
+  height: 20px;
+  right: -70px;
+  bottom: 10px;
+  background-position: -116px -10px;
+  animation: zeven 5s linear 1s infinite;
+}
+
+/* ——— 4. Why choose accordion ——— */
+.common-section.feature-accordian-section {
+  padding: 40px 0 120px;
+}
+
+.feature-accordian-section .feature-common-title {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 50px;
+}
+
+.feature-accordian-section .feature-common-title h2 {
+  max-width: 1040px;
+  margin: 0 auto 15px;
+}
+
+.feature-accordian-section .feature-common-title p {
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+.zrow-wrap-accordian {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.zrow-wrap-accordian > .image-part {
+  width: 40%;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.zrow-wrap-accordian > .cont-part {
+  width: 60%;
+  padding-left: 50px;
+}
+
+.feature-accordian-section #tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-accordian-section #tabs-nav li {
+  list-style: none;
+  border-bottom: 1px solid #d8d7d7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.feature-accordian-section #tabs-nav li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.feature-accordian-section #tabs-nav h3 {
+  font-size: 23px;
+  font-family: var(--zf-primary-bold);
+  margin: 0 0 15px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 50px;
+  width: auto;
+  transition: color 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3.active {
+  color: var(--color-primary);
+}
+
+.feature-accordian-section #tabs-nav h3::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #333;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  transition: transform 0.25s ease;
+}
+
+.feature-accordian-section #tabs-nav h3.active::before {
+  transform: rotate(180deg);
+  top: 12px;
+}
+
+.feature-accordian-section #tabs-nav h3.active::after {
+  top: 15px;
+  transform: rotate(180deg);
+}
+
+.feature-accordian-section #tabs-nav li p {
+  display: none;
+  margin: 0 0 15px;
+  padding-right: 20px;
+}
+
+.feature-accordian-section #tabs-nav li.current p {
+  display: block;
+  animation: fadeIn 0.45s ease;
+}
+
+/* Live accordion panel transition */
+.tabs-stage > div {
+  display: none;
+  transition: all 0.5s ease;
+  animation: fadeIn 1s;
+}
+
+.tabs-stage > div.current {
+  display: block;
+  animation: transX 0.8s ease;
+  box-shadow: 0 0 13px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feature-accordian-section .tabs-stage > div img {
+  animation: none;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* ——— 5. Key features ——— */
+.common-section.zcollaborate-section {
+  padding-top: 0;
+  padding-bottom: 70px;
+}
+
+.zcollaborate-section h2 {
+  max-width: 1040px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.zcollaborate-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 40px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zcollaborate-section ul li {
+  list-style: none;
+  vertical-align: top;
+  padding: 0 30px;
+  width: 33.333%;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.zcollaborate-section .sf-icon {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.zcollaborate-section h4 {
+  font-family: var(--zf-primary-bold);
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.zcollaborate-section .text-center {
+  clear: both;
+  padding-top: 10px;
+}
+
+/* ——— 6. Related connectors — live screenshots ——— */
+.common-section.connectors-section {
+  padding: 80px 0 60px;
+}
+
+.connectors-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.connectors-intro {
+  width: 32%;
+  flex-shrink: 0;
+}
+
+.connectors-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+.connectors-intro h2 {
+  text-align: left;
+  font-size: 28px;
+  margin: 0 0 20px;
+}
+
+.connectors-cards {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.connector-card {
+  text-align: center;
+  width: 160px;
+}
+
+.connector-label {
+  display: block;
+  font-family: var(--zf-primary-semibold);
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.connector-tile {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.connector-inventory .connector-tile { background: #ffe8e8; }
+.connector-crm .connector-tile { background: #e8f1ff; }
+.connector-survey .connector-tile { background: #eef1f4; }
+
+.connector-tile img {
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* ——— 7. Testimonials placeholder ——— */
+.common-section.testimonial-section {
+  padding: 60px 0;
+}
+
+.testimonial-section h2 {
+  margin-bottom: 20px;
+}
+
+/* ——— 8. Recognition placeholder ——— */
+.common-section.trust-section {
+  background: #f7f8f9;
+  padding: 60px 0;
+}
+
+.trust-section .inner-hdr {
+  margin-bottom: 20px;
+}
+
+/* ——— 9. How-tos placeholder ——— */
+.how-tosec-wrap {
+  margin: 100px auto 40px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.how-tosec-wrap h2 {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.how-sec-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.how-to-sec {
+  display: inline-block;
+  width: 260px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+.how-to-sec a {
+  color: #000;
+  font-size: 15px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.how-to-sec img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+.how-to-sec span {
+  display: block;
+}
+
+/* ——— 10. Closing CTA — EB-04 Soft theme color wash (theme-wash-closing) ——— */
+#conclusion.pre-banner-section {
+  background-color: #eef5ff;
+  background-image:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-primary) 22%, transparent) 0, transparent 45%),
+    radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--color-secondary) 18%, transparent) 0, transparent 50%);
+  padding: 90px 0;
+  text-align: center;
+}
+
+.bottom-section h2 {
+  max-width: 1040px;
+  margin: 0 auto 25px;
+  font-size: 32px;
+  color: var(--primary-font-color);
+}
+
+.bottom-section .cta-btn.act-btn {
+  padding: 8px 30px;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+/* ——— Responsive: 1240 · 1080 · 991 · 767 · 565 · 480 · 350 ——— */
+@media (max-width: 1240px) {
+  .shopify-banner-section .content-wrap {
+    padding: 60px 80px 90px 90px;
+  }
+
+  .page-container .sbs-wrap .act-btn.apps-link {
+    right: 10px;
+  }
+
+  .saa-icon1 {
+    left: -60px;
+  }
+
+  .saa-icon3 {
+    left: -50px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .header-section .signup-box {
+    margin-left: 40px;
+  }
+
+  .zrow-wrap-accordian > .cont-part {
+    padding-left: 30px;
+  }
+
+  .zcollaborate-section ul li {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-container h2 { font-size: 26px; }
+  .page-container h3 { font-size: 18px; }
+  .page-container p,
+  .page-container li { font-size: 15px; }
+  .f-20, .title-desc { font-size: 17px; }
+
+  .header-section h1 {
+    font-size: 38px;
+    text-align: center;
+    margin: 0 auto 15px;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .header-section h1 + p {
+    max-width: 610px;
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+
+  .header-section .table-wrap {
+    display: block;
+  }
+
+  .header-section .table-wrap > .column.left,
+  .header-section .table-wrap > .column.right {
+    width: 100%;
+    float: none;
+  }
+
+  .header-section .header-banner-btns {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .header-section .signup-box {
+    margin: 0 auto;
+  }
+
+  .header-banner-slider {
+    max-width: 90%;
+    margin: 50px auto 0;
+  }
+
+  .zrow-wrap-accordian {
+    flex-direction: column;
+  }
+
+  .zrow-wrap-accordian > .image-part,
+  .zrow-wrap-accordian > .cont-part {
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .zrow-wrap-accordian > .image-part {
+    margin-bottom: 40px;
+  }
+
+  .zcollaborate-section ul li {
+    width: 50%;
+  }
+
+  .branding-wrap {
+    display: block;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .branding-wrap > .branding-count {
+    display: block;
+    width: 100%;
+  }
+
+  .branding-wrap > .branding-count.bc1 {
+    width: 220px;
+    margin: 0 auto 36px;
+  }
+
+  .branding-wrap > .branding-count.bc2 {
+    padding-left: 0;
+  }
+
+  .branding-logos ul li {
+    width: 33.33%;
+  }
+
+  .branding-logos h2 {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .shopify-banner-section h2 {
+    font-size: 28px;
+    max-width: none;
+  }
+
+  .page-container .sbs-wrap .act-btn.apps-link {
+    position: static;
+    margin-bottom: 70px;
+  }
+
+  .sbs-list-wrap {
+    display: block;
+    margin-bottom: 30px;
+    padding-top: 30px;
+  }
+
+  .sbs-list-wrap ul:first-child {
+    flex: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .shopify-banner-section .content-wrap {
+    padding: 60px 30px 100px 40px;
+  }
+
+  .saa-icon {
+    display: none;
+  }
+
+  .connectors-wrap {
+    flex-direction: column;
+  }
+
+  .connectors-intro {
+    width: 100%;
+  }
+
+  .connectors-cards {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .sbs-list-wrap ul:first-child {
+    flex: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .bottom-section h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-container h2 { font-size: 22px; }
+  .page-container h3 { font-size: 17px; }
+
+  .header-section h1 { font-size: 30px; }
+  .header-section .table-wrap { padding-top: 40px; }
+  .header-section.banner-shown { padding-bottom: 80px; }
+  .header-banner-slider::after { display: none; }
+  .header-section { overflow: inherit; }
+
+  .branding-section {
+    padding-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .branding-logos ul li {
+    width: 50%;
+  }
+
+  .ec-num {
+    font-size: 48px;
+  }
+
+  .shopify-banner-section .content-wrap {
+    padding: 60px 30px 70px 40px;
+  }
+
+  .shopify-banner-section .content-wrap::before {
+    display: none;
+  }
+
+  .sbs-list-wrap {
+    margin-bottom: 40px;
+  }
+
+  .shopify-banner-section h2 {
+    font-size: 28px;
+  }
+
+  .page-container .sbs-wrap .act-btn.apps-link {
+    display: block;
+    max-width: max-content;
+    margin: 0 auto 40px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 19px;
+  }
+
+  .zcollaborate-section ul li {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .how-to-sec {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  #conclusion.pre-banner-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 565px) {
+  .header-section {
+    padding-bottom: 20px;
+  }
+
+  .common-section.feature-accordian-section {
+    padding-bottom: 60px;
+  }
+
+  .how-tosec-wrap {
+    margin: 60px auto 30px;
+  }
+
+  .branding-wrap {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section h1 { font-size: 24px; }
+
+  .shopify-banner-section h2 {
+    font-size: 24px;
+  }
+
+  .shopify-banner-section .content-wrap {
+    padding: 40px 20px 50px;
+  }
+
+  .feature-accordian-section #tabs-nav h3 {
+    font-size: 17px;
+    padding-right: 36px;
+  }
+
+  .bottom-section h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header-section h1 { font-size: 22px; }
+
+  .shopify-banner-section .content-wrap {
+    padding: 30px 16px 40px;
+  }
+
+  .sbs-wrap ul li {
+    padding-left: 26px;
+  }
+}

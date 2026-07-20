@@ -1,5 +1,5 @@
 {
-  "version": "1.2",
+  "version": "1.8",
   "description": "Multi-section page archetypes. When brief signals match, use this section order and reference folders — similarity scoring alone will miss social-proof blocks.",
   "composites": {
     "dashboard-examples-landing": {
@@ -498,7 +498,7 @@
       "description": "Zoho Books + Zoho Analytics integration campaign — $100 credit offer, comparison table, dashboard carousel, setup steps, features, recognition cards, FAQ",
       "brief_signals": [
         "zoho books",
-        "integration",
+        "zoho books + zoho analytics",
         "$100",
         "wallet credit",
         "Claim my $100 credit",
@@ -671,7 +671,7 @@
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "spreadsheet-reporting-landing": {
-      "description": "Excel / spreadsheet reporting product landing — progress features, limits grid, zigzag capabilities, comparison table, migration, dual closing CTAs, FAQ",
+      "description": "Excel / spreadsheet reporting product landing — EXACT live BEM from spreadsheet-reporting.html (progress accordion+images, limits cards, zigzag capabilities with .check, Zoho-highlighted comparison, migration steps, dual pre-banners, FAQ)",
       "brief_signals": [
         "excel spreadsheet reporting",
         "replace excel reporting",
@@ -686,7 +686,7 @@
         "excel reporting faqs",
         "watch demo"
       ],
-      "writer_page_hints": "1-page DOCX · ~8800 chars. Trusted brands + report slider injected by pipeline (marquee + reported-section). Customer stories = placeholder. Two pre-banner bands before FAQ (trial CTA, then pricing). Gold live page: spreadsheet-reporting.html.",
+      "writer_page_hints": "1-page DOCX · ~8800 chars. GOLD LIVE: https://www.zoho.com/analytics/spreadsheet-reporting.html (CSS: 40836.css). Trusted brands + report slider pipeline-injected. Copy from brief; STRUCTURE/classes from live. Live has 5 capability zigzag rows; brief may add Built to Scale as 6th — compose brief count.",
       "required_strings": [
         "Replace Excel Reporting with Zoho Analytics",
         "Why Move Beyond Excel for Reporting?",
@@ -704,49 +704,183 @@
         "require_dresner": false
       },
       "section_order": [
-        { "type": "hero", "class": "banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "source_url": "https://www.zoho.com/analytics/spreadsheet-reporting.html", "banner_slot": "hero", "bg_treatment": "gradient-hero", "cta": "Try Zoho Analytics for free", "pattern_notes": "Split hero text + image; primary CTA Try Zoho Analytics for free; secondary Watch demo" },
-        { "type": "features", "class": "progress-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 3, "layout": "numbered-steps-timeline", "pattern_notes": "Why Move Beyond Excel — Grid view / Pivot and summary / Charts and dashboards" },
-        { "type": "general", "class": "limits-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "layout": "multi-column-bullet-grid", "pattern_notes": "The limits of traditional spreadsheets — bullet grid from brief" },
-        { "type": "content-blocks", "class": "dashboard-wrapper", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "layout": "zigzag", "block_count": 6, "pattern_notes": "What Zoho Analytics Can Do That Excel Can't — alternating .main-wrapper rows with rectangle ::before panels (NO clip-path)" },
-        { "type": "comparison", "class": "comparison-table-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "layout": "2-column", "pattern_notes": "Excel vs Zoho table — .table-wrap { overflow-x:auto }; copy Feature/Excel/Zoho rows from brief" },
-        { "type": "content-blocks", "class": "excel-migration-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "layout": "zigzag", "pattern_notes": "Migrate Your Excel Sheets in Minutes — zigzag band (distinct CSS from .dashboard-wrapper)" },
-        { "type": "cta", "class": "pre-banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "banner_slot": "mid-cta", "cta": "Start your free trial today!", "pattern_notes": "First full-width CTA band after migration — before customer stories / ratings" },
-        { "type": "testimonials", "class": "za-custories-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "pattern_notes": "Customer stories placeholder when brief lists Customer stories — empty cards OK for dev handoff" },
-        { "type": "recognition", "class": "reported-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "pattern_notes": "SKIP when report_slider injected — BARC/Gartner shell only" },
-        { "type": "cta", "class": "pre-banner-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "banner_slot": "closing-cta", "bg_treatment": "end-banner-pool", "id": "conclusion", "html_modifier": "light", "cta": "Start your free trial today!", "pattern_notes": "Pricing band (Advanced analytics made affordable) — add class light; pick end-banner-types.json treatment distinct from hero" },
-        { "type": "faq", "class": "faq-section", "best": "webtemplate/spreadsheet-reporting", "source_type": "webtemplate", "repeat_from_brief": true, "block_count": 4, "child_class": "z-accordian" }
+        {
+          "type": "hero",
+          "class": "banner-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/spreadsheet-reporting.html",
+          "banner_slot": "hero",
+          "bg_treatment": "comparison-hero-bg",
+          "cta": "Try Zoho Analytics for free",
+          "cta_secondary": "Watch demo",
+          "pattern_notes": "HERO CTAs ONLY (do not reuse on mid/closing): primary a.cta-btn.act-btn \"Try Zoho Analytics for free\" + secondary a.act-btn.cal-btn-secondary \"Watch demo\". Also span.comparison-title + h1 + p + .right-wrapper > img.bimg. NEVER invent progress-timeline cards."
+        },
+        {
+          "type": "features",
+          "class": "progress-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 3,
+          "layout": "accordion-image-tabs",
+          "pattern_notes": "MANDATORY LIVE HTML: .table-wrap > .column.left > .text-wrapper > .acc-wrap×3 (h3+ul+img.acc-img) + .column.right > .image-part > img.step-image×3 (one .active). First .acc-wrap has .current. JS auto-advances current + active image. FORBIDDEN: .progress-timeline / .progress-step / .progress-card / .progress-num"
+        },
+        {
+          "type": "general",
+          "class": "limits-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 6,
+          "layout": "2col-limit-cards",
+          "pattern_notes": "LIVE: h2 + p.title-desc + .limits-grid > .limit-item > p ×6 + p.limits-closing. NOT a <ul> of bare <li>."
+        },
+        {
+          "type": "content-blocks",
+          "class": "dashboard-wrapper",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "layout": "zigzag",
+          "block_count": 5,
+          "pattern_notes": "LIVE zigzag cream cards: .header-content + alternating .main-wrapper.right-content/.left-content. Each li: <span class=\"check\"></span>. CRITICAL CSS: isolation:isolate on .main-wrapper; ::before #fef8eb 871×570 border-radius 30px z-index:0 (NEVER z-index:-1 — panel vanishes behind page bg); image/content z-index:1; img.dashboard-image border 5px #000 radius 20px. COPY z_workflow/gold-snippets/spreadsheet-reporting-layout.css. Brief may include 6th Built to Scale row."
+        },
+        {
+          "type": "comparison",
+          "class": "comparison-table-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "layout": "zoho-highlighted-3col",
+          "pattern_notes": "LIVE column ORDER: Features | Zoho Analytics | Excel (Zoho SECOND column highlighted). Wrap: .comparison-table > table. th.analytics-light on Zoho header; td.analytics-dark / analytics-light zebra on Zoho col; last Zoho td gets .bottom. Gold border #eca91c on col 2."
+        },
+        {
+          "type": "content-blocks",
+          "class": "excel-migration-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "layout": "migration-split",
+          "pattern_notes": "LIVE: .migration-wrapper.left-content > .image-wrapper > img.bimg.migration-image + .content-wrapper > h2 + p.migration-subtitle + p.migration-description + .migration-steps > .migration-step×4 (.step-icon + .step-content > h4) + p.migration-closing. FORBIDDEN: bare <ul class=\"migration-steps\"><li>"
+        },
+        {
+          "type": "cta",
+          "class": "pre-banner-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "banner_slot": "mid-cta",
+          "cta": "Sign up for free",
+          "cta_secondary": "Get a personalized Demo",
+          "pattern_notes": "MID CTAs ONLY (distinct from hero/closing): h2 \"Switch to Zoho Analytics today!\" + a.cta-btn.act-btn \"Sign up for free\" + a.act-btn.dwnload-btn \"Get a personalized Demo\". NEVER reuse \"Try Zoho Analytics for free\" or \"Watch demo\" here."
+        },
+        {
+          "type": "testimonials",
+          "class": "za-custories-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "pattern_notes": "Include when brief lists Customer stories — placeholder .za-custories-data cards OK. Live page may omit; brief wins for presence."
+        },
+        {
+          "type": "recognition",
+          "class": "reported-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "pattern_notes": "SKIP when report_slider injected — empty shell before #conclusion"
+        },
+        {
+          "type": "cta",
+          "class": "pre-banner-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "peach-gradient-closing",
+          "id": "conclusion",
+          "html_modifier": "light",
+          "cta": "Start your free trial today!",
+          "cta_secondary": "Sign up for free",
+          "pattern_notes": "CLOSING CTAs ONLY (distinct primary from hero/mid): class light + peach gradient. Primary a.cta-btn.act-btn \"Start your free trial today!\" + secondary a.act-btn.dwnload-btn \"Sign up for free\". NEVER reuse hero \"Try Zoho Analytics for free\" as primary here. Copy h2 from brief (Advanced analytics made affordable)."
+        },
+        {
+          "type": "faq",
+          "class": "faq-section",
+          "best": "webtemplate/spreadsheet-reporting",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 4,
+          "child_class": "z-accordian"
+        }
       ],
       "output_inventory_checks": {
         "required_classes": [
           "banner-section",
           "progress-section",
+          "acc-wrap",
+          "step-image",
           "limits-section",
+          "limit-item",
           "dashboard-wrapper",
           "comparison-table-section",
+          "analytics-light",
           "excel-migration-section",
+          "migration-wrapper",
+          "migration-step",
           "pre-banner-section",
-          "faq-section"
+          "faq-section",
+          "z-accordian"
         ],
+        "selectors": {
+          "acc_wrap": { "selector": ".progress-section .acc-wrap", "min": 3 },
+          "step_image": { "selector": ".progress-section .step-image", "min": 3 },
+          "limit_item": { "selector": ".limits-section .limit-item", "min": 6 },
+          "main_wrapper": { "selector": ".dashboard-wrapper .main-wrapper", "min": 5 },
+          "check_mark": { "selector": ".dashboard-wrapper .check", "min": 16 },
+          "migration_step": { "selector": ".excel-migration-section .migration-step", "min": 4 },
+          "analytics_light": { "selector": ".comparison-table .analytics-light", "min": 1 },
+          "pre_banner_light": { "selector": ".pre-banner-section.light", "min": 1 },
+          "z_accordian_box": { "selector": ".z-accordianBox", "min": 4 }
+        },
         "require_distinct_hero_closing_bg": true,
+        "require_distinct_banner_ctas": true,
         "require_pre_banner_background": true,
         "require_cta_visibility_override": true,
         "require_brand_cta_token": true,
         "require_zoho_placeholder": true,
         "require_nav_placeholder": true,
-        "require_footer_placeholder": true
+        "require_footer_placeholder": true,
+        "require_spreadsheet_cream_panel": true,
+        "require_spreadsheet_type_scale": true
       },
       "cta_strings_required": [
         "Try Zoho Analytics for free",
         "Watch demo",
+        "Sign up for free",
+        "Get a personalized Demo",
         "Start your free trial today!"
       ],
+      "cta_banner_map": {
+        "hero": { "primary": "Try Zoho Analytics for free", "secondary": "Watch demo", "secondary_class": "cal-btn-secondary" },
+        "mid-cta": { "primary": "Sign up for free", "secondary": "Get a personalized Demo", "secondary_class": "dwnload-btn" },
+        "closing-cta": { "primary": "Start your free trial today!", "secondary": "Sign up for free", "secondary_class": "dwnload-btn" }
+      },
       "mandatory_css": [
-        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
-        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }"
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; --primary-color: #008ef5; --secondary-color: #9914ff; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".pre-banner-section.light { background-image: linear-gradient(34deg, rgba(248, 243, 192, 1) 25%, rgba(255, 218, 221, 1) 56%, rgba(255, 218, 221, 1) 73%); }",
+        ".page-container h1 { font-size: 42px; line-height: 50.4px; }",
+        ".page-container h2 { font-size: 32px; line-height: 40px; margin: 0 0 15px; }",
+        ".page-container h3 { font-size: 24px; line-height: 31.2px; }",
+        ".page-container p, .page-container li { font-size: 17px; line-height: 25.5px; }",
+        ".page-container .title-desc { font-size: 20px; line-height: 32px; }",
+        ".dashboard-wrapper .main-wrapper { isolation: isolate; }",
+        ".dashboard-wrapper .main-wrapper.right-content::before, .dashboard-wrapper .main-wrapper.left-content::before { background: #fef8eb; border-radius: 30px; z-index: 0; }",
+        ".dashboard-wrapper .main-wrapper .dashboard-image { border: 5px solid #000; border-radius: 20px; }"
       ],
       "primary_reference": "webtemplate/spreadsheet-reporting",
       "primary_url": "https://www.zoho.com/analytics/spreadsheet-reporting.html",
-      "gold_standard_outputs": [],
+      "css_gold_url": "https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/40836.css",
+      "css_gold_snippet": "z_workflow/gold-snippets/spreadsheet-reporting-layout.css",
+      "gold_standard_outputs": [
+        "output/excel-spreadsheet-reporting-lp-3"
+      ],
       "playbook": "z_workflow/writer-drop-playbook.md"
     },
     "white-label-reporting-landing": {
@@ -802,6 +936,1169 @@
       ],
       "primary_reference": "webtemplate/white-label-reporting-tool",
       "primary_url": "https://www.zoho.com/analytics/white-label-reporting-tool.html",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "bi-software-landing": {
+      "description": "Best BI Software product landing (revamp of business-intelligence-bi-software.html) — hero stats banner, trusted brands, What is BI software, key-features grid, Capterra testimony, Top BI softwares sticky tabs (Zoho / Power BI / Tableau / Sisense), FAQ. NOT the educational what-is-business-intelligence guide.",
+      "brief_signals": [
+        "BI Software Landing Page",
+        "business-intelligence-bi-software.html",
+        "Your search for the Best Business Intelligence (BI) Software for 2026",
+        "Trusted BI Platform by great brands",
+        "What is Business Intelligence software?",
+        "How to choose the best BI Software: Key features",
+        "Top Business Intelligence softwares in 2026",
+        "What are the best BI tools to consider in 2026?",
+        "User-friendly interface",
+        "Seamless integration",
+        "Advanced data analysis",
+        "Sisense"
+      ],
+      "writer_page_hints": "Page revamp · ~17k chars (schema + FAQ inflate count). Live primary: business-intelligence-bi-software.html (CSS 23064). Sibling for Top-N tools: business-analytics-software.html → .tab-sticky (logo + blurb + Pricing h3). Brief Changes omit live Benefits / note-section / keypoints / types-of-reports / why-choose — do NOT compose those. Testimony = Capterra URL only → .zwc-testimonials shell + TODO. FAQ ×8 after tools (not inside tab-sticky).",
+      "expected_page_count": 1,
+      "trusted_brands_inject": {
+        "variant": "marquee",
+        "heading": "Trusted BI Platform by great brands",
+        "bem": "za-brandsCounts",
+        "notes": "Logo marquee + 22K/4M stats card. After inject COPY bi-software-trusted-brands-isolation.css."
+      },
+      "required_strings": [
+        "Your search for the Best Business Intelligence (BI) Software for 2026",
+        "Trusted BI Platform by great brands",
+        "What is Business Intelligence software?",
+        "How to choose the best BI Software: Key features",
+        "Top Business Intelligence softwares in 2026",
+        "User-friendly interface",
+        "Seamless integration",
+        "AI-powered insights",
+        "Interactive data visualizations",
+        "Real-time collaboration and sharing",
+        "Advanced data analysis",
+        "Zoho Analytics",
+        "Power BI",
+        "Tableau",
+        "Sisense",
+        "What are the best BI tools to consider in 2026?"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 8,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "zwc-banner-section",
+          "best": "webtemplate/business-intelligence-bi-software",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/business-intelligence-bi-software.html",
+          "banner_slot": "hero",
+          "bg_treatment": "zwc-banner-curve",
+          "cta": "Access Zoho analytics",
+          "pattern_notes": "Live: .zwc-banner-section → .banner-section → .banner-cont (h1 + lead + .cta-btn.act-btn) + .banner-imgcont .grid-container .zwc-stats ×6. Hero assets (prezoho, never bare domain): item1::before banner-before.png · item3::before banner-beforegraph.svg · img.banner-arrow banner-arrow.svg. CSS: 23064.css. Hero CTA brand red. Gold: output/bi-software-3."
+        },
+        {
+          "type": "brands",
+          "class": "za-brandsCounts",
+          "best": "output/bi-software-3",
+          "source_type": "reference",
+          "pattern_notes": "★ Trusted Brands Web Page Builder inject ONLY (heading Trusted BI Platform by great brands + 22K/4M + logo marquee). SKIP composing live .trust-section / .tbrand-section. After inject COPY gold-snippets/bi-software-trusted-brands-isolation.css so live .trust-icon { margin:-120px } does not clip logos. Order: heading → stats → marquee."
+        },
+        {
+          "type": "intro",
+          "class": "zwc-learn-section",
+          "best": "webtemplate/business-intelligence-bi-software",
+          "source_type": "webtemplate",
+          "pattern_notes": ".learn-cont → .zwc-learn-quiz (h2 What is Business Intelligence Software?) + .zwc-learn-para (brief definition paragraphs). Do not confuse with what-is-business-intelligence .question-section."
+        },
+        {
+          "type": "features",
+          "class": "zwc-feature-section",
+          "best": "webtemplate/business-intelligence-bi-software",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 6,
+          "layout": "feature-cont-pairs",
+          "pattern_notes": "h2 How to choose the best BI Software: Key features to consider → .feature-cont rows of paired (h3 + p) from brief ×6: User-friendly · Seamless integration · AI-powered · Interactive visualizations · Real-time collaboration · Advanced data analysis."
+        },
+        {
+          "type": "testimonials",
+          "class": "zwc-testimonials",
+          "best": "webtemplate/business-analytics-software",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/business-analytics-software.html",
+          "placeholder_only": true,
+          "pattern_notes": "Brief lists Testimony + Capterra URL only. Emit .zwc-testimonials → .zwc-feedback shell with <!-- TODO: INSERT CAPTERRA TESTIMONY --> and link. Do NOT invent quote/name. Sibling live uses photo + quote; fill only when Writer provides copy."
+        },
+        {
+          "type": "top-tools",
+          "class": "tab-sticky",
+          "best": "webtemplate/business-analytics-software",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/business-analytics-software.html",
+          "repeat_from_brief": true,
+          "block_count": 4,
+          "layout": "left-tab-product-picks",
+          "pattern_notes": "MANDATORY from sibling BA software page (live BI software page lacks this). .tab-sticky → .tabsection → h2 Top Business Intelligence softwares in 2026 → .left-tab ul#tabs + .right-content .cont-sec ×4 (Zoho Analytics · Power BI · Tableau · Sisense). Each .cont-sec: logo img (prezoho TODO) + blurb p + h3 Pricing + pricing p. JS: sticky tab scrollspy like business-analytics-software / comparison-guide left-tab — NOT article full TOC."
+        },
+        {
+          "type": "faq",
+          "class": "faq-section",
+          "best": "webtemplate/business-intelligence-bi-software",
+          "source_type": "webtemplate",
+          "child_class": "z-accordian",
+          "repeat_from_brief": true,
+          "block_count": 8,
+          "pattern_notes": "h2 BI software FAQs → .z-accordian → .z-accordianBox ×8 from brief (not schema duplicates). AFTER tab-sticky — never nest FAQ inside .tab-sticky."
+        }
+      ],
+      "cta_strings_required": [
+        "Access Zoho analytics"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "Access Zoho analytics" }
+      },
+      "output_inventory_checks": {
+        "required_classes": [
+          "zwc-banner-section",
+          "za-brandsCounts",
+          "zwc-learn-section",
+          "zwc-feature-section",
+          "zwc-testimonials",
+          "tab-sticky",
+          "faq-section"
+        ],
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "selectors": {
+          "feature_blocks": { "selector": ".zwc-feature-section .feature-cont h3", "min": 6 },
+          "top_tool_panels": { "selector": ".tab-sticky .cont-sec", "min": 4 },
+          "faq_items": { "selector": ".faq-section .z-accordianBox", "min": 8 },
+          "hero_arrow": { "selector": ".zwc-banner-section img.banner-arrow", "min": 1 },
+          "trusted_brands_inject": { "selector": ".za-brandsCounts .tb-track", "min": 1 }
+        }
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }"
+      ],
+      "css_gold_url": "https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/23064.css",
+      "sibling_css_url": "https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/27747.css",
+      "css_gold_snippet": "z_workflow/gold-snippets/bi-software-landing-layout.css",
+      "css_gold_snippets": [
+        "z_workflow/gold-snippets/bi-software-landing-layout.css",
+        "z_workflow/gold-snippets/bi-software-trusted-brands-isolation.css"
+      ],
+      "primary_reference": "Reference-Site/agent-reference/Bi-Software-3",
+      "primary_url": "https://www.zoho.com/analytics/business-intelligence-bi-software.html",
+      "sibling_reference": "webtemplate/business-analytics-software",
+      "sibling_url": "https://www.zoho.com/analytics/business-analytics-software.html",
+      "gold_standard_outputs": [
+        "output/bi-software-3",
+        "Reference-Site/agent-reference/Bi-Software-3"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "what-is-business-intelligence": {
+      "description": "What is Business Intelligence educational guide — hero, horizontal tab scrollspy, intro, how-it-works sticky cards, Traditional vs Modern table, benefits, testimonials, goals accordion, company uses, industry tabs, closing CTA, FAQ",
+      "brief_signals": [
+        "What is Business Intelligence?",
+        "How does Business Intelligence work?",
+        "Traditional BI vs Modern BI",
+        "The benefits of Business Intelligence",
+        "Broad goals of Business Intelligence",
+        "How do companies use Business Intelligence",
+        "Industrial use cases of Business Intelligence",
+        "Want to see how BI looks in action",
+        "Empower your business with intelligent insights",
+        "what-is-business-intelligence.html",
+        "A Complete Overview",
+        "When these goals align, BI becomes more than a tool"
+      ],
+      "writer_page_hints": "Long-form BI definitional guide (~16k chars). Sibling <section>s (NOT article tabsection). Gold STRUCTURE: output/what-is-business-intelligence-lp-3 (banner → tab-section → question → pre-banner → sticky-card → comparison → box-icon → testimonials PLACEHOLDER → progress → goals-align pre-banner → use-cases → features-tabs → closing pre-banner → faq). Writer 'Separate banner for this:' → sibling .pre-banner (never inside progress). Live: what-is-business-intelligence.html · CSS: gold-snippets/what-is-bi-type-scale.css + 39804.css.",
+      "expected_page_count": 1,
+      "required_strings": [
+        "What is Business Intelligence?",
+        "How does Business Intelligence work?",
+        "Traditional BI vs Modern BI",
+        "The benefits of Business Intelligence",
+        "Broad goals of Business Intelligence",
+        "How do companies use Business Intelligence",
+        "Industrial use cases of Business Intelligence",
+        "Want to see how BI looks in action",
+        "Empower your business with intelligent insights",
+        "When these goals align, BI becomes more than a tool",
+        "What are the types of business intelligence"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 5,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "banner",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "banner_slot": "hero",
+          "bg_treatment": "centered-overview-hero",
+          "cta": "Get Started",
+          "pattern_notes": "Centered hero: eyebrow A Complete Overview + h1 + lead + Get Started (.cta-btn.act-btn) + hero image. Live: what-is-business-intelligence.html"
+        },
+        {
+          "type": "brands",
+          "class": "za-brandsCounts",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "pattern_notes": "Trusted brands marquee + 16K Customers / 3M Users counters. SKIP composing when ★ Trusted Brands pipeline inject is on."
+        },
+        {
+          "type": "nav-tabs",
+          "class": "tab-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "pattern_notes": "Horizontal scrollspy .tab-btn row (Introduction · How it works · Comparison · Benefits · Goals of BI · Companies using BI · Use Cases). NOT .tabsection article TOC — do not nest body sections inside."
+        },
+        {
+          "type": "intro",
+          "class": "question-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "overview",
+          "pattern_notes": "Split .left-wrap copy + .right-wrap illustration — What is Business Intelligence? definition block"
+        },
+        {
+          "type": "cta",
+          "class": "pre-banner",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "banner_slot": "mid-cta",
+          "bg_treatment": "inline-demo-band",
+          "cta": "Book a demo",
+          "pattern_notes": "h2 Want to see how BI looks in action? Explore an interactive BI demo → Book a demo (.book-btn)"
+        },
+        {
+          "type": "sticky-stack",
+          "class": "sticky-card-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "how-it-works",
+          "repeat_from_brief": true,
+          "block_count": 5,
+          "layout": "sticky-scroll-cards",
+          "pattern_notes": "How does BI work — .scroll-card ×5 (Connect · Prepare · Analyze · Instant insights · Share). Copy BI process steps from brief."
+        },
+        {
+          "type": "comparison",
+          "class": "comparison-table-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "comparison",
+          "layout": "traditional-vs-modern",
+          "pattern_notes": "Traditional BI vs Modern BI 3-col table (Aspect | Traditional | Modern) + closing title-desc"
+        },
+        {
+          "type": "benefits",
+          "class": "box-icon-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "benefits",
+          "repeat_from_brief": true,
+          "block_count": 6,
+          "pattern_notes": ".content-main > .card ×N benefit cards from brief (decision making, efficiency, customer insights, revenue, risk, competitive…)"
+        },
+        {
+          "type": "testimonials",
+          "class": "testimonials-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "placeholder_only": true,
+          "pattern_notes": "PLACEHOLDER ONLY — emit header shell: h2 Hear from our happy customers + See all testimonials link + empty .zwc-nav-scroll-section. DO NOT append .zwc-nav-box cards, quotes, names, or photos. Comment: <!-- TODO: INSERT TESTIMONIALS HERE -->. Brief may say Customer testimony."
+        },
+        {
+          "type": "goals",
+          "class": "progress-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "goals-of-bi",
+          "repeat_from_brief": true,
+          "block_count": 5,
+          "layout": "accordion-goals",
+          "pattern_notes": "Broad goals accordion ONLY — Unify data · Empower every team · Faster decisions · Innovation · Transparent culture. Do NOT append Writer 'Separate banner for this' line here."
+        },
+        {
+          "type": "cta",
+          "class": "pre-banner",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "banner_slot": "goals-banner",
+          "bg_treatment": "prezoho-placeholder-banner",
+          "id": "goals-align-banner",
+          "pattern_notes": "MANDATORY sibling <section class=\"pre-banner\" id=\"goals-align-banner\"> when brief says 'Separate banner for this:' — h2 text only over prezoho placeholder background (background-image: url(https://prezohoweb.zoho.com/); cover/center + /* TODO */). NEVER solid red. NEVER nest inside .progress-section."
+        },
+        {
+          "type": "use-cases",
+          "class": "use-cases-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "companies-using-bi",
+          "repeat_from_brief": true,
+          "block_count": 6,
+          "pattern_notes": "How companies use BI — card/list rows from brief (data analysis, KPIs, planning, customer intelligence, predictive, workforce)"
+        },
+        {
+          "type": "industry-tabs",
+          "class": "features-tabs-section",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "id": "use-cases",
+          "repeat_from_brief": true,
+          "block_count": 6,
+          "layout": "vertical-feature-tabs",
+          "pattern_notes": "Industrial use cases — tab list (Retail · Finance · Healthcare · Manufacturing · Education · Government) + panels with illustration"
+        },
+        {
+          "type": "cta",
+          "class": "pre-banner",
+          "best": "Business-Intelligence",
+          "source_type": "reference",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "end-banner-pool",
+          "id": "conclusion",
+          "cta": "Start your BI journey today",
+          "pattern_notes": "Empower your business with intelligent insights. + Start your BI journey today (.cta-btn.act-btn). Prefer end-banner colour from state.similarity.end_banner."
+        },
+        {
+          "type": "faq",
+          "class": "faq-section",
+          "best": "Executive-Dashboards",
+          "source_type": "reference",
+          "child_class": "z-accordian",
+          "repeat_from_brief": true,
+          "block_count": 5,
+          "pattern_notes": "FAQ AFTER closing CTA — never inside .tab-section. 5 questions from brief."
+        }
+      ],
+      "cta_strings_required": [
+        "Get Started",
+        "Book a demo",
+        "Start your BI journey today",
+        "See all testimonials"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "Get Started" },
+        "mid-cta": { "primary": "Book a demo", "primary_class": "book-btn" },
+        "closing-cta": { "primary": "Start your BI journey today" }
+      },
+      "output_inventory_checks": {
+        "required_classes": [
+          "banner",
+          "tab-section",
+          "question-section",
+          "sticky-card-section",
+          "comparison-table-section",
+          "box-icon-section",
+          "testimonials-section",
+          "progress-section",
+          "use-cases-section",
+          "features-tabs-section",
+          "pre-banner",
+          "faq-section"
+        ],
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "require_what_is_bi_type_scale": true,
+        "require_testimonials_placeholder": true,
+        "require_goals_align_banner": true
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container h1 { font-size: 42px; line-height: 50.4px; }",
+        ".page-container h2 { font-size: 32px; line-height: 40px; margin: 0 0 15px; }",
+        ".page-container h3 { font-size: 24px; line-height: 31.2px; margin-bottom: 10px; }",
+        ".page-container p, .page-container li { font-size: 17px; line-height: 27.2px; }",
+        ".page-container p { margin: 0 0 20px; }",
+        ".page-container .title-desc, .page-container p.title-desc { font-size: 20px; line-height: 32px; width: 80%; }",
+        ".p-90 { padding: 90px 0; }",
+        "#goals-align-banner.pre-banner { background-image: url('https://prezohoweb.zoho.com/'); background-size: cover; background-position: center; }",
+        ".testimonials-section .content-wrap a { color: var(--primary-btn-color); }",
+        ".testimonials-section .content-wrap a .arrow { border-color: var(--primary-btn-color); }"
+      ],
+      "css_gold_snippet": "z_workflow/gold-snippets/what-is-bi-type-scale.css",
+      "css_gold_url": "https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/39804.css",
+      "gold_standard_outputs": [
+        "output/what-is-business-intelligence-lp-3"
+      ],
+      "primary_reference": "Business-Intelligence",
+      "primary_url": "https://www.zoho.com/analytics/what-is-business-intelligence.html",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "firebird-db-landing": {
+      "description": "Legacy Firebird-style DB connector LP — live firebird.html BEM (NOT Athena zbanner/zconnecting). Peach hero split, red za-features band, 4× zdashboard media rows, 3-card za-analyze, za-bottom closing.",
+      "brief_signals": [
+        "Firebird",
+        "What is Firebird?",
+        "firebird.html",
+        "Unleash the power of your Firebird data with Zoho Analytics",
+        "Maximize your Firebird data with the collaboration of Zoho Analytics",
+        "Analyze your Firebird data even deeper with these features of Zoho Analytics",
+        "Data Visualization and Reporting",
+        "Enhanced Business Intelligence",
+        "Scalability and Flexibility",
+        "Analytics made Simple, Results Made Powerful",
+        "Data Import",
+        "Data Preparation",
+        "Data Blending",
+        "Live Connect"
+      ],
+      "writer_page_hints": "1-page Writer · ~2200 chars. Layout gold = firebird.html (29667.css). Do NOT match Athena database-connector-landing (missing Incremental fetch / Zia Insights / Predictive / Conversational).",
+      "expected_page_count": 1,
+      "required_strings": [
+        "What is Firebird?",
+        "Unleash the power of your Firebird data with Zoho Analytics",
+        "Maximize your Firebird data with the collaboration of Zoho Analytics",
+        "Data Import",
+        "Data Preparation",
+        "Data Blending",
+        "Live Connect",
+        "Analyze your Firebird data even deeper with these features of Zoho Analytics",
+        "Data Visualization and Reporting",
+        "Enhanced Business Intelligence",
+        "Scalability and Flexibility",
+        "Analytics made Simple, Results Made Powerful"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 0,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "za-banner-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/firebird.html",
+          "banner_slot": "hero",
+          "bg_treatment": "peach-hero #fef2f2",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Live: .za-banner-section.zcommon-section > .za-banner-box flex — .za-banner-cont (h1 + What-is definition as lead p + .cta-btn.act-btn) + .za-banner-img (563×467 placeholder). Peach #fef2f2. No Athena zbanner logos row."
+        },
+        {
+          "type": "value-band",
+          "class": "za-features-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "pattern_notes": "Red #d83d3e rounded 20px band width 95%. h2 Maximize… + .za-feature-title lead. ::before peach bridge from hero."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "id": "data-import",
+          "pattern_notes": "h2 Data import + desc + .zdashboard-img media placeholder. No Athena strong subtitle line."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section zdb2",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "id": "data-preparation",
+          "pattern_notes": "Row 2 MUST add zdb2. Data preparation."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "id": "data-blending",
+          "pattern_notes": "Data blending."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section zdb2",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "id": "live-connect",
+          "pattern_notes": "Row 4 MUST add zdb2. Live Connect."
+        },
+        {
+          "type": "features",
+          "class": "za-analyze-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "block_count": 3,
+          "pattern_notes": "3-card ul>li — img 479×280 + h3 + p from brief (Visualization · Enhanced BI · Scalability). NOT Athena .zconnecting-section."
+        },
+        {
+          "type": "cta",
+          "class": "za-bottom-section",
+          "best": "webtemplate/firebird",
+          "source_type": "webtemplate",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "end-banner-pool",
+          "id": "conclusion",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "h2 Analytics made Simple… + lead Use Zoho Analytics… + CTA. Style #conclusion via end-banner pool (add .pre-banner-section)."
+        }
+      ],
+      "cta_strings_required": [
+        "ACCESS ZOHO ANALYTICS"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "ACCESS ZOHO ANALYTICS" },
+        "closing-cta": { "primary": "ACCESS ZOHO ANALYTICS" }
+      },
+      "output_inventory_checks": {
+        "required_classes": [
+          "za-banner-section",
+          "za-features-section",
+          "zdashboard-section",
+          "za-analyze-section",
+          "za-bottom-section"
+        ],
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "selectors": {
+          "zdashboard_section": { "selector": ".zdashboard-section", "min": 4 },
+          "za_analyze_li": { "selector": ".za-analyze-section li", "min": 3 }
+        }
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }",
+        ".za-banner-section { background: #fef2f2; }",
+        ".za-features-section { background: #d83d3e; color: #fff; }",
+        ".page-container .za-features-section .za-feature-title { font-size: 26px; line-height: 40px; }",
+        ".zdashboard-section .zdashboard-box { flex-direction: column; align-items: center; text-align: center; }",
+        ".zdashboard-title h2 { font-size: 32px; line-height: 42px; text-align: center; }"
+      ],
+      "css_gold_snippet": "z_workflow/gold-snippets/firebird-db-type-scale.css",
+      "css_gold_snippets": [
+        "z_workflow/gold-snippets/firebird-db-type-scale.css"
+      ],
+      "live_gold_url": "https://www.zoho.com/analytics/firebird.html",
+      "live_css": "29667.css",
+      "gold_standard_outputs": [
+        "output/firebird"
+      ],
+      "primary_reference": "Reference-Site/agent-reference/Firebird",
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "database-connector-landing": {
+      "description": "Database connector product landing (SQLite, Athena, Redshift, Cubrid, …) — Athena-layout gold: hero, trusted brands, What is DB?, value together, 4× Data Import/Prep/Live Connect/Blending zigzags, key features grid, optional competitor comparison, testimony, learn-more resources, closing CTA",
+      "brief_signals": [
+        "SQLite Database landing page",
+        "amazon-athena.html",
+        "What is SQLite?",
+        "What is Amazon Athena?",
+        "How does Zoho Analytics and SQLite bring value together?",
+        "How does Zoho Analytics and Amazon Athena bring value together?",
+        "Data Import",
+        "Data Preparation",
+        "Live Connect",
+        "Data Blending",
+        "Bring in data into Zoho Analytics effortlessly",
+        "Enrich the quality of your business decisions",
+        "Set up a live connection with your database",
+        "Unified analytics for your daily business apps",
+        "Key features that help SQLite database users make smarter decisions",
+        "Key features that help Amazon Athena users to make smarter decisions",
+        "Incremental fetch",
+        "Incremental Fetch",
+        "Zia Insights",
+        "Zia insights",
+        "Predictive Analytics",
+        "Conversational Analytics",
+        "ACCESS ZOHO ANALYTICS",
+        "TRUSTED BY GREAT BRANDS",
+        "CUSTOMER TESTIMONY",
+        "LEARN MORE ABOUT ZOHO ANALYTICS",
+        "Start exploring your SQLite data",
+        "Supercharge your SQLite data"
+      ],
+      "writer_page_hints": "1-page DOCX · ~4150 chars (SQLite draft). Writer marks Layout = amazon-athena.html. Compose Athena BEM; skip zcomparison-section when brief has no competitor table (live sqlite.html also omits it). ★ Trusted Brands / CUSTOMER TESTIMONY / LEARN MORE are placeholder markers in brief.",
+      "expected_page_count": 1,
+      "required_strings": [
+        "Data Import",
+        "Data Preparation",
+        "Live Connect",
+        "Data Blending",
+        "Bring in data into Zoho Analytics effortlessly",
+        "Enrich the quality of your business decisions",
+        "Set up a live connection with your database",
+        "Unified analytics for your daily business apps",
+        "Incremental fetch",
+        "Zia Insights",
+        "Predictive Analytics",
+        "Conversational Analytics"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 0,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "zbanner-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/amazon-athena.html",
+          "banner_slot": "hero",
+          "bg_treatment": "zbanner-hero",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Live Athena: .zbanner-section — product logos + h1 + lead + .cta-btn.act-btn. Brief CTA label ACCESS ZOHO ANALYTICS (live often Sign up for free — prefer brief). Hero image: prezoho + TODO."
+        },
+        {
+          "type": "brands",
+          "class": "trust-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "pattern_notes": "Trusted by great brands heading. SKIP composing when ★ Trusted Brands pipeline inject is on — brief marker <TRUSTED BY GREAT BRANDS>."
+        },
+        {
+          "type": "brands-counts",
+          "class": "tbrand-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "pattern_notes": "Customer / Users / Reports counters row (live Athena: 14K / 2M / 50M). SKIP when trusted-brands inject covers counters."
+        },
+        {
+          "type": "intro",
+          "class": "zvalue-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "what-is-db",
+          "pattern_notes": "What is {Database}? — centered definition block from brief (SQLite / Athena / …)."
+        },
+        {
+          "type": "value",
+          "class": "zvalue-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "value-together",
+          "pattern_notes": "How does Zoho Analytics and {DB} bring value together? — copy + optional dual product logos (prezoho)."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "data-import",
+          "layout": "title-desc-plus-media",
+          "pattern_notes": "Row 1 (no zdb2): <strong>Data Import</strong> + h2 Bring in data… + desc + .zdashboard-img media (video/img placeholder). Structure: .zdashboard-box.dsp-flx.justify-space > .zdashboard-title + .zdashboard-desc, then .zdashboard-img."
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section zdb2",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "data-preparation",
+          "layout": "title-desc-plus-media-alt",
+          "pattern_notes": "Row 2 MUST add class zdb2 (alternate zigzag). <strong>Data Preparation</strong> + Enrich the quality…"
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "live-connect",
+          "layout": "title-desc-plus-media",
+          "pattern_notes": "Row 3 (no zdb2): <strong>Live Connect</strong> + Set up a live connection…"
+        },
+        {
+          "type": "capability",
+          "class": "zdashboard-section zdb2",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "id": "data-blending",
+          "layout": "title-desc-plus-media-alt",
+          "pattern_notes": "Row 4 MUST add class zdb2. <strong>Data Blending</strong> + Unified analytics…"
+        },
+        {
+          "type": "features",
+          "class": "zconnecting-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 4,
+          "pattern_notes": "Key features grid — 4 cards. Icons are IMAGES on live (h4::before sprite/PNG), NOT text — scaffold MUST emit visible <img class=\"zconnecting-icon\" src=\"https://prezohoweb.zoho.com/\"> + TODO above each h4. Markup: .zconnecting-list (Incremental / Predictive / Conversational) + .ziaicon-list (Zia Insights). h4 classes: .zicon-safer · (none for Zia) · .zicon-forecast · .zicon-share."
+        },
+        {
+          "type": "comparison",
+          "class": "zcomparison-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "optional": true,
+          "layout": "2-column comparison table",
+          "pattern_notes": "OPTIONAL — only when brief has a competitor comparison (e.g. Amazon QuickSight and Zoho Analytics). SQLite Writer draft has NONE — SKIP this section (matches live sqlite.html)."
+        },
+        {
+          "type": "testimonials",
+          "class": "ztesti-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "placeholder_only": true,
+          "pattern_notes": "MANDATORY when brief says CUSTOMER TESTIMONY. Emit VISIBLE shell: h2 Our Customer love us + .ztesti-box > .ztesti-cust-details (.ztesti-pic img prezoho + strong/p TODOs) + .ztesti-cust-desc h4 TODO quote. Include <!-- TODO: INSERT TESTIMONIALS HERE -->. Do NOT invent real quotes/names. Never leave an empty section that collapses to zero height."
+        },
+        {
+          "type": "resources",
+          "class": "zresrc-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "repeat_from_brief": true,
+          "block_count": 4,
+          "pattern_notes": "BOX CARD layout (not flat columns). COPY CSS from z_workflow/gold-snippets/database-connector-zresrc-cards.css. Markup: .zresrc-box[.zresrc-box--4 if 4 items] > .zresrc-list ×N. Each .zresrc-list MUST be a card: padding 35px · border-radius 12px · box-shadow 0 0 20px rgba(208,208,208,.23) · background #fff. Content: icon <img class=\"zresrc-icon\" prezoho+TODO> + h4 + optional p from brief + <a class=\"learn-more-cta\">Learn more</a> (blue #03a9f5 underline + ::after chevron). Athena live = 3 cards; SQLite brief = 4 → add .zresrc-box--4. Do NOT invent descriptions when brief only lists titles."
+        },
+        {
+          "type": "cta",
+          "class": "zbottom-section",
+          "best": "webtemplate/amazon-athena",
+          "source_type": "webtemplate",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "end-banner-pool",
+          "id": "conclusion",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Closing band: h2 from brief (Start exploring your SQLite data…) + .cta-btn.act-btn. Live Athena uses .zbottom-section (often a div) — emit <section class=\"zbottom-section\" id=\"conclusion\">. Style from state.similarity.end_banner — never plain white."
+        }
+      ],
+      "cta_strings_required": [
+        "ACCESS ZOHO ANALYTICS"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "ACCESS ZOHO ANALYTICS" },
+        "closing-cta": { "primary": "ACCESS ZOHO ANALYTICS" }
+      },
+      "output_inventory_checks": {
+        "required_classes": [
+          "zbanner-section",
+          "zvalue-section",
+          "zdashboard-section",
+          "zconnecting-section",
+          "ztesti-section",
+          "zresrc-section",
+          "zbottom-section",
+          "learn-more-cta"
+        ],
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "require_database_connector_type_scale": true,
+        "require_database_connector_zresrc_cards": true,
+        "require_database_connector_feature_icons": true,
+        "require_testimonials_placeholder": true,
+        "selectors": {
+          "zdashboard_section": { "selector": ".zdashboard-section", "min": 4 },
+          "zconnecting_feature": { "selector": ".zconnecting-section h4", "min": 4 },
+          "zresrc_list": { "selector": ".zresrc-list", "min": 3 },
+          "learn_more_cta": { "selector": ".learn-more-cta", "min": 3 },
+          "zconnecting_icon": { "selector": ".zconnecting-icon", "min": 4 }
+        }
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }",
+        ".page-container h1 { font-size: 50px; line-height: 60px; }",
+        ".page-container h2 { font-size: 36px; line-height: 45px; }",
+        ".page-container p, .page-container li { font-size: 17px; line-height: 27.2px; }",
+        ".zconnecting-list h4, .ziaicon-list h4 { font-size: 23px; line-height: 32.2px; }",
+        ".zresrc-list { padding: 35px; border-radius: 12px; background: #fff; box-shadow: 0 0 20px rgba(208, 208, 208, 0.23); }",
+        ".zresrc-list h4 { font-size: 21px; line-height: 29.4px; }",
+        ".learn-more-cta { color: #03a9f5; border-bottom: 1.6px solid #03a9f5; }"
+      ],
+      "primary_reference": "webtemplate/amazon-athena",
+      "primary_url": "https://www.zoho.com/analytics/amazon-athena.html",
+      "css_gold_url": "https://www.zohowebstatic.com/sites/zweb/css/translation/analytics/27735.css",
+      "css_gold_snippet": "z_workflow/gold-snippets/database-connector-type-scale.css",
+      "css_gold_snippets": [
+        "z_workflow/gold-snippets/database-connector-type-scale.css",
+        "z_workflow/gold-snippets/database-connector-zresrc-cards.css"
+      ],
+      "alternate_live_url": "https://www.zoho.com/analytics/sqlite.html",
+      "gold_standard_outputs": [
+        "output/sqlite-db-page-draft-2"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "app-connector-landing": {
+      "description": "Business-app / SaaS connector landings (Shopify, HubSpot, Stripe, …) — live Shopify gold: hero, trusted brands, native-app pitch, why-choose accordion + dashboards, key-features grid, optional related connectors, testimony, ratings, how-tos, closing CTA. NOT database-connector (Athena/SQLite).",
+      "brief_signals": [
+        "Shopify Analytics Page",
+        "Shopify Analytics",
+        "shopify-advanced-analytics.html",
+        "Maximize your Shopify store",
+        "Try our native Shopify analytics",
+        "Why choose Zoho Analytics for your Shopify store",
+        "Maximize your sales",
+        "Analyze order transactions",
+        "Optimize your inventory",
+        "Monitor sales trend",
+        "Advanced Shopify analytics - Key features",
+        "Visual analysis",
+        "Collaborative analytics",
+        "Data blending",
+        "Augmented analytics",
+        "Embedded analytics",
+        "Your Shopify data, transformed into actionable insights",
+        "Join Zoho Analytics today",
+        "100+ ready-made Shopify reports",
+        "Customer testimony",
+        "Rated the best",
+        "Solutions/How-tos"
+      ],
+      "writer_page_hints": "1-page Writer draft · ~3500+ chars. Layout gold = shopify-advanced-analytics.html. Placeholders: Trusted by great brands · Customer testimony · Rated the best · Solutions/How-tos. Do NOT match database-connector-landing (Data blending alone is not enough). ★ Trusted Brands inject variant=branding-section (NOT za-brandsCounts marquee).",
+      "expected_page_count": 1,
+      "trusted_brands_inject": {
+        "variant": "branding-section",
+        "heading": "TRUSTED BY GREAT BRANDS",
+        "bem": "branding-section",
+        "gold_url": "https://www.zoho.com/analytics/shopify-advanced-analytics.html",
+        "notes": "Same branding-section layout as mobile-apps (bc1 counter + bc2 logos). Skip composing when inject is on."
+      },
+      "required_strings": [
+        "Maximize your Shopify store",
+        "Try our native Shopify analytics",
+        "Why choose Zoho Analytics for your Shopify store",
+        "Maximize your sales",
+        "Analyze order transactions",
+        "Optimize your inventory",
+        "Monitor sales trend",
+        "Advanced Shopify analytics - Key features",
+        "Visual analysis",
+        "Data blending",
+        "Join Zoho Analytics today"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 0,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "header-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/shopify-advanced-analytics.html",
+          "banner_slot": "hero",
+          "bg_treatment": "header-hero",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Live umain screenshots: CENTERED .header-section.banner-shown — h1+lead+ACCESS ZOHO ANALYTICS (no signup column). BELOW .header-banner-slider.slide-wrap > .hb-slider > img. MUST include .header-banner-slider::after cream→white transition. ❌ Do NOT use split signup form for scaffold."
+        },
+        {
+          "type": "brands",
+          "class": "branding-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "pattern_notes": "TRUSTED BY GREAT BRANDS. Gold: .branding-logos max 880px · table wrap · bc1 220px pink card · bc2 pad-left 60px · float 20% logo sprites · dual .ec counters (22 Thousand / 4 Million) rotate 2s · scroll .line-animated → scaleEffect on logos. SKIP composing when ★ Trusted Brands pipeline inject is on — brief marker <Trusted by great brands>."
+        },
+        {
+          "type": "app-pitch",
+          "class": "common-section shopify-banner-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "id": "native-app",
+          "cta": "Get the app now",
+          "pattern_notes": "Gold 5919.css: content-wrap pad 40px 150px 40px 170px · h2 30px #f1dc05 · absolute .act-btn.apps-link black pill top:10 right:40 · 2-col .sbs-list-wrap + sprite check ::before · .saa-icon1–4 float zodd/zeven. ❌ Not .sbs-head flex · ❌ Not red CTA below list."
+        },
+        {
+          "type": "why-choose",
+          "class": "common-section feature-accordian-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "id": "why-choose",
+          "layout": "feature-accordion",
+          "repeat_from_brief": true,
+          "pattern_notes": "Why choose… intro + accordion tabs ×N from brief (Shopify draft = 4: Maximize sales · Analyze orders · Optimize inventory · Monitor sales trend). Each tab: title + desc + dashboard img placeholder. Live JS accordion."
+        },
+        {
+          "type": "features",
+          "class": "common-section zcollaborate-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "id": "key-features",
+          "repeat_from_brief": true,
+          "cta": "Explore more features",
+          "pattern_notes": "Advanced … Key features — 6 cards. CTA is OUTLINED black border button (.outline-btn), not red act-btn — matches live EXPLORE MORE FEATURES."
+        },
+        {
+          "type": "connectors",
+          "class": "common-section connectors-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "pattern_notes": "ALWAYS compose for Shopify: left intro (icon + Other related connectors + VIEW MORE CONNECTORS outline btn) · right pastel cards Zoho Inventory / CRM / Survey. Writer shows connector placeholders."
+        },
+        {
+          "type": "testimonials",
+          "class": "common-section testimonial-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "placeholder_only": true,
+          "pattern_notes": "PLACEHOLDER when brief has <Customer testimony> — shell only + <!-- TODO: INSERT TESTIMONIALS HERE -->. Do not invent quotes."
+        },
+        {
+          "type": "recognition",
+          "class": "common-section trust-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "placeholder_only": true,
+          "pattern_notes": "Rated the best — SKIP or placeholder when brief has <Rated the best> / report slider inject."
+        },
+        {
+          "type": "how-tos",
+          "class": "how-tosec-wrap",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "placeholder_only": true,
+          "pattern_notes": "Solutions / How-Tos — PLACEHOLDER when brief has <Solutions/How-tos>. Cards with icon + title TODOs."
+        },
+        {
+          "type": "cta",
+          "class": "bottom-section",
+          "best": "webtemplate/shopify-advanced-analytics",
+          "source_type": "webtemplate",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "end-banner-pool",
+          "id": "conclusion",
+          "cta": "Sign up for free",
+          "pattern_notes": "Closing: Your Shopify data… Join Zoho Analytics today! + Sign up for free. Style via end-banner pool — never plain white."
+        }
+      ],
+      "cta_strings_required": [
+        "ACCESS ZOHO ANALYTICS",
+        "Get The App Now",
+        "Explore more features",
+        "View more connectors"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "ACCESS ZOHO ANALYTICS" },
+        "native-app": { "primary": "Get The App Now" },
+        "key-features": { "primary": "Explore more features" },
+        "closing-cta": { "primary": "ACCESS ZOHO ANALYTICS" }
+      },
+      "output_inventory_checks": {
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "require_distinct_hero_closing_bg": true,
+        "selectors": {
+          "feature_accordion": { "selector": ".feature-accordian-section", "min": 1 },
+          "key_feature_cards": { "selector": ".zcollaborate-section h3, .zcollaborate-section h4", "min": 6 },
+          "connectors_section": { "selector": ".connectors-section", "min": 1 },
+          "closing_bottom": { "selector": ".bottom-section#conclusion, #conclusion.bottom-section, .bottom-section", "min": 1 }
+        }
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }"
+      ],
+      "primary_reference": "webtemplate/shopify-advanced-analytics",
+      "primary_url": "https://www.zoho.com/analytics/shopify-advanced-analytics.html",
+      "gold_standard_outputs": [
+        "output/shopify-analytics-page-draft-8"
+      ],
+      "playbook": "z_workflow/writer-drop-playbook.md"
+    },
+    "mobile-apps-landing": {
+      "description": "Zoho Analytics Mobile Apps main page — hero peach banner, native-intro, feature accordion ×N, dual product cards (Mobile BI + Dashboards), testimony placeholder, closing CTA. Gold live: mobile-apps.html. NOT database-connector-landing (Zia Insights alone is not enough).",
+      "brief_signals": [
+        "ZA BI APP Main Page",
+        "ZOHO ANALYTICS MOBILE APPS",
+        "ZOHO ANALYTICS MOBILE APPS (MAIN PAGE)",
+        "Enjoy the complete native approach",
+        "Enjoy the complete native approach with the all new Zoho Analytics",
+        "mobile-apps.html",
+        "Experience the truly native",
+        "Experience the truly native mobile BI apps",
+        "Here's what makes the Zoho Analytics Mobile apps stand out",
+        "Customized dashboard layout",
+        "Zia Insights",
+        "Smart filters and drill-downs",
+        "Favorites and recent views",
+        "Enhanced security",
+        "Performance and compatibility",
+        "Zoho Analytics - Mobile BI App",
+        "Zoho Analytics - Dashboards App",
+        "Mobile BI App",
+        "Dashboards App",
+        "App store",
+        "Google Play store",
+        "Analyze your data on-the-move",
+        "Analyze your data on-the-move, with Zoho Analytics mobile apps",
+        "Access Zoho Analytics",
+        "iOS and Android",
+        "TESTIMONY"
+      ],
+      "writer_page_hints": "1-page Writer draft · ~3000 chars. Layout gold = mobile-apps.html (29675.css + zanalytics_solutions.css). Do NOT match database-connector-landing just because brief mentions Zia Insights / conversational analytics. When ★ Trusted Brands is on, inject uses branding-section (NOT za-brandsCounts marquee) — skip composing .branding-section. DO compose .testimonial-section placeholder + .trust-section ratings (Rated the best) — COPY z_workflow/gold-snippets/mobile-apps-trust-ratings.css. Accordion item count follows brief (often 6; live currently shows 4).",
+      "expected_page_count": 1,
+      "trusted_brands_inject": {
+        "variant": "branding-section",
+        "heading": "TRUSTED BY GREAT BRANDS",
+        "bem": "branding-section",
+        "gold_url": "https://www.zoho.com/analytics/mobile-apps.html",
+        "notes": "Counter LEFT (.bc1 pink card, dual rotate 22K/4M) + logo grid RIGHT (.bc2). Do NOT inject marquee .za-brandsCounts for this archetype."
+      },
+      "required_strings": [
+        "Enjoy the complete native approach",
+        "Experience the truly native",
+        "Customized dashboard layout",
+        "Zia Insights",
+        "Smart filters and drill-downs",
+        "Favorites and recent views",
+        "Enhanced security",
+        "Performance and compatibility",
+        "Mobile BI App",
+        "Dashboards App",
+        "Analyze your data on-the-move",
+        "Access Zoho Analytics"
+      ],
+      "section_inventory_checks": {
+        "min_faq": 0,
+        "require_testimonials_heading": false,
+        "require_see_all_testimonials": false,
+        "require_dresner": false,
+        "require_how_it_works": false
+      },
+      "section_order": [
+        {
+          "type": "hero",
+          "class": "header-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "banner_slot": "hero",
+          "bg_treatment": "peach-hero #fef2f2",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Live: centered .header-section on #fef2f2 — h1 48 + bold lead 17/700 + ACCESS ZOHO ANALYTICS · device/dashboard image below. content-wrap max 1170px. Signup column hidden."
+        },
+        {
+          "type": "brands",
+          "class": "branding-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "pattern_notes": "★ Trusted Brands inject variant=branding-section ONLY. SKIP composing. Live: h2 TRUSTED BY GREAT BRANDS · .branding-wrap table · .bc1 220px pink counter (22 Thousand / 4 Million rotate) · .bc2 logo grid. ❌ Never inject .za-brandsCounts marquee for this archetype."
+        },
+        {
+          "type": "native-intro",
+          "class": "feature-common-title",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "pattern_notes": "Experience the truly native… — centered h2 38 + lead 17 + bold standout line. pad 60px 15px 70px."
+        },
+        {
+          "type": "feature-accordion",
+          "class": "common-section feature-accordian-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "layout": "feature-accordion",
+          "repeat_from_brief": true,
+          "pattern_notes": "zrow-wrap-accordian · LEFT .image-part tabs-nav-list h3×N · RIGHT .cont-part tabs-stage images. Brief usually 6 features (live may show 4) — instantiate from brief. pad-bottom 100px. h3 active #3b81d3."
+        },
+        {
+          "type": "product-apps",
+          "class": "third-party-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "repeat_from_brief": true,
+          "pattern_notes": "bg #faf7f4 · pad 110/125 · .party-flex-wrap · 2× .party-flex-inner (Mobile BI mint #f7fff5 + Dashboards teal #f5fffd) · ol checks · .za-link Read more · .apps-download-links-wrap App Store/Play. Omit .party-hd when brief has no 'Analytics on the move' header."
+        },
+        {
+          "type": "testimonials",
+          "class": "common-section testimonial-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "placeholder_only": true,
+          "pattern_notes": "PLACEHOLDER gold: <h2 class=\"testi-title\">Hear it from our customers</h2> as SIBLING above <section class=\"testimonial-section\"> (not inside). Inside: peach .slider-icon at left:-140px top:-110px + <!-- TODO: INSERT TESTIMONIALS HERE -->. Do not invent Brad Kline quote. CSS: gold-snippets/mobile-apps-trust-ratings.css."
+        },
+        {
+          "type": "ratings",
+          "class": "common-section trust-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "pattern_notes": "Rated the best — FULL live float 33.33% .rating-table 3×3 (finance-online · trust-radius · pc · get-app · capterra · google-play · app-store · softeware-suggest · gatner). COPY z_workflow/gold-snippets/mobile-apps-trust-ratings.css. Star fill via .content-wrap.animated on scroll. ❌ Never CSS-grid on .rating-table."
+        },
+        {
+          "type": "cta",
+          "class": "bottom-section",
+          "best": "webtemplate/mobile-apps",
+          "source_type": "webtemplate",
+          "source_url": "https://www.zoho.com/analytics/mobile-apps.html",
+          "banner_slot": "closing-cta",
+          "bg_treatment": "end-banner-pool",
+          "id": "conclusion",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "pattern_notes": "Analyze your data on-the-move… + ACCESS ZOHO ANALYTICS. Live pad 90px 0 centered. Style via end-banner pool (EB-02 flat ok)."
+        }
+      ],
+      "cta_strings_required": [
+        "ACCESS ZOHO ANALYTICS"
+      ],
+      "cta_banner_map": {
+        "hero": { "primary": "ACCESS ZOHO ANALYTICS" },
+        "closing-cta": { "primary": "ACCESS ZOHO ANALYTICS" }
+      },
+      "output_inventory_checks": {
+        "require_cta_visibility_override": true,
+        "require_brand_cta_token": true,
+        "require_zoho_placeholder": true,
+        "require_nav_placeholder": true,
+        "require_footer_placeholder": true,
+        "selectors": {
+          "feature_accordion": { "selector": ".feature-accordian-section", "min": 1 },
+          "product_apps": { "selector": ".third-party-section", "min": 1 },
+          "testimonials": { "selector": ".testimonial-section", "min": 1 },
+          "ratings": { "selector": ".trust-section .rating-table", "min": 1 },
+          "closing_bottom": { "selector": ".bottom-section#conclusion, #conclusion.bottom-section, .bottom-section", "min": 1 }
+        }
+      },
+      "mandatory_css": [
+        ":root { --color-brand-cta: #e42527; --primary-btn-color: #e42527; }",
+        ".page-container .cta-btn.act-btn { display: inline-block; visibility: visible; opacity: 1; background: var(--primary-btn-color); color: #fff; }",
+        ".page-container button:focus, .page-container button:focus-visible, .page-container a.act-btn:focus, .page-container a.act-btn:focus-visible, .page-container a.cta-btn:focus, .page-container a.cta-btn:focus-visible { outline: none; box-shadow: none; }"
+      ],
+      "css_gold_snippet": "z_workflow/gold-snippets/mobile-apps-trust-ratings.css",
+      "css_gold_snippets": [
+        "z_workflow/gold-snippets/mobile-apps-trust-ratings.css"
+      ],
+      "primary_reference": "webtemplate/mobile-apps",
+      "primary_url": "https://www.zoho.com/analytics/mobile-apps.html",
+      "gold_standard_outputs": ["output/za-bi-app-main-page-10"],
       "playbook": "z_workflow/writer-drop-playbook.md"
     }
   }
