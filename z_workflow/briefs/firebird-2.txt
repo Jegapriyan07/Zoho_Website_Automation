@@ -1,0 +1,26 @@
+Firebird
+
+#### FIREBIRD
+#### Unleash the power of your Firebird data with Zoho Analytics
+What is Firebird?
+Firebird is a free and open-source relational database management system (RDBMS),  recognized for its robust capabilities, outstanding efficiency, and trustworthiness . Its lean design is renowned for being suitable for both embedded applications and large-scale implementations.
+#### Maximize your Firebird data with the collaboration of Zoho Analytics
+By enhancing Firebird's capabilities with a range of advanced analytics tools created, Zoho Analytics uncovers valuable insights from unprocessed data.
+Data Import
+Zoho Analytics can seamlessly import data from Firebird and other data sources, enabling easy extraction and integration for analysis.
+Data Preparation
+Unlock the potential of your Firebird data with the help of Zoho Analytics' in-built data preparation tool. Enrich, cleanse, and transform your data for better analysis.
+Data Blending
+Combine data from multiple sources and create meaningful reports and dashboards. Blend data in various ways based on your data source, and get your data analysed effortlessly.
+Live Connect
+The Live Connect feature in Zoho Analytics helps you to create reports and dashboards  with real-time data from Firebird without actually storing your data in Zoho Analytics. Your reports will be updated automatically when your data updates.
+#### Analyze your Firebird data even deeper with these features of Zoho Analytics
+Data Visualization and Reporting
+With powerful data visualization and reporting capabilities, Zoho Analytics can create interactive and understandable reports and dashboards, and can track Key Performance Indicators (KPIs).
+Enhanced Business Intelligence
+Zoho Analytics can enhance your Firebird data with its advanced AI capabilities by performing complex tasks like predictive analysis, what-if analysis and forecast future trends under a minute.
+Scalability and Flexibility
+Both Zoho Analytics and Firebird are scalable solutions that can grow with your business. This feature ensures that your business can extract value from their data as the business grows.
+Analytics made Simple, Results Made Powerful
+Use Zoho Analytics to enhance your Firebird data now
+Rated the best

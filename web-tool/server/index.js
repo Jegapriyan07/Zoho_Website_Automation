@@ -10,7 +10,7 @@ const BUILD_ID = String(Date.now());
 const INDEX_HTML_PATH = path.join(config.publicDir, 'index.html');
 
 app.disable('x-powered-by');
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '6mb' }));
 app.use(loadUser);
 
 registerAuthRoutes(app);
@@ -36,7 +36,7 @@ app.use(express.static(config.publicDir, {
 app.get('/', (req, res) => sendSpaIndex(res));
 
 app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api') || req.path.startsWith('/auth') || req.path.startsWith('/preview')) {
+  if (req.path.startsWith('/api') || req.path.startsWith('/auth') || req.path.startsWith('/preview') || req.path.startsWith('/source')) {
     return next();
   }
   sendSpaIndex(res);

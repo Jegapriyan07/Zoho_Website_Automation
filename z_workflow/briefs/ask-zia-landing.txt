@@ -1,0 +1,170 @@
+# Ask Zia — AI Powered Data Analytics Landing Page
+Source: https://www.zoho.com/analytics/zia/
+Page type: Conversational analytics / AI assistant product landing
+Title tag: AI Powered Data Analytics Software | Ask Zia - Zoho Analytics
+Meta description: Zoho Analytics is augmented with AI capabilities through Zia, our AI-powered data analytical assistant. Use Ask Zia natural language processing, Zia Insights, and generative AI.
+
+--- PAGE 2 ---
+
+## PAGE 1 — Hero
+Eyebrow / category
+Conversational analytics
+H1
+# AI powered Data Analytics with Zia
+Hero body
+Zoho Analytics is augmented with AI capabilities through Zia, our AI-powered data analytical assistant. Use Ask Zia's natural language processing to access critical business insights in seconds, Zia Insights for automated insights, and more.
+Primary CTA
+Sign up for free
+Hero visual note
+[Image placeholder: Ask Zia conversational UI / chat interface mockup]
+TODO: replace with final hero asset
+
+--- PAGE 3 ---
+
+## PAGE 2 — Here is how we can help you
+## Here is how we can help you
+Icon row / capability chips (6 items)
+Conversational analysis
+Natural language questions to KPIs and visualizations
+[Icon placeholder]
+Build business metrics
+Anyone can get insights regardless of querying skills
+[Icon placeholder]
+Smart interpretation
+Smart suggestions; best-suited visualizations
+[Icon placeholder]
+Predictive analysis
+Forecast trends and plan ahead
+[Icon placeholder]
+AI driven smart insights
+Automated narrative insights from your data
+[Icon placeholder]
+Generative AI
+ChatGPT / GPT-4 integrated for analytics tasks
+[Icon placeholder]
+
+--- PAGE 4 ---
+
+## PAGE 3 — Ask Zia feature sections
+## Ask Zia questions, get insights
+Ask Zia is a conversational AI assistant within Zoho Analytics, and she's here to help you go from raw data to actionable insights in seconds. Start a conversation with Zia, ask her anything, get meaningful insights as KPIs and powerful visualizations, and quickly arrive at critical business decisions. Your insights are now just a chat away!
+[Image placeholder: Ask Zia chat to visualization]
+TODO: replace with final asset
+## Build business metrics
+Ask Zia puts the power of data in the hands of people. From CTOs to support agents, anyone can get actionable insights in seconds, regardless of their querying skills. Whether it is sales, marketing, or finance, Zia understands all your data and gives you 360° visibility into your business.
+[Image placeholder: metrics / KPI cards]
+TODO: replace with final asset
+## Smart interpretation
+Ask Zia provides smart suggestions, eliminates ambiguities and typos to create the best-suited visualizations based on your data. You can directly add these KPIs to any of your existing dashboards or build a new one from scratch.
+[Image placeholder: smart suggestions / chart selection]
+TODO: replace with final asset
+## Predictive analysis
+Ask Zia anything about future trends, predict scenarios, and plan ahead of time with smart forecasting. Arrive at data-driven, smart decisions and future proof your business with powerful insights.
+[Image placeholder: forecast / predictive chart]
+TODO: replace with final asset
+
+--- PAGE 5 ---
+
+## PAGE 4 — Zia Insights
+## Zia Insights
+Insights don't have to be a needle in the haystack anymore. Save time gathering insights, and focus on turning those insights into action with our all new Zia insights.
+## AI-driven automated Insights
+Zia, with her deep understanding of your data, can now provide actionable insights in the form of easily understandable narratives about important trends in your data. Leverage the power of AI and unearth hidden insights that would otherwise be impossible or time-consuming to find in a single click.
+[Image placeholder: Zia Insights narrative panel]
+TODO: replace with final asset
+
+--- PAGE 6 ---
+
+## PAGE 5 — Generative AI and Analyze on the go
+## Generative AI
+Zia is integrated with OpenAI's ChatGPT, and you can experience the power of GPT-4 seamlessly from within Zoho Analytics. Be it finding a public dataset and importing it into Zoho Analytics, creating formulas and generating SQL queries by just asking in natural language, or getting synonym suggestions for table column names, Zia's generative AI capabilities can help you solve a myriad of analytics tasks in pretty quick time.
+CTA / link
+Learn more
+[Image placeholder: Generative AI / ChatGPT in Zoho Analytics]
+TODO: replace with final asset
+## Analyze on the go
+Zia is now available on your mobile device as an immersive chat-like interface. Carry your insights wherever you go, analyze on the move, and get powerful, real-time insights at your fingertip – anytime, anywhere.
+[Image placeholder: mobile Ask Zia chat UI]
+TODO: replace with final asset
+
+--- PAGE 7 ---
+
+## PAGE 6 — Zia understands your business functions
+## Zia understands your business functions
+Zia understands data from popular business apps along with the domain lingo to offer contextual interactions and insights for you
+App / integration logos
+Zoho SalesIQ
+Zoho CRM
+Zoho Books
+Zoho Analytics
+QuickBooks
+Google Ads
+Zoho Desk
+More integrations
+[Logo strip placeholder — TODO: replace with final brand marks]
+
+--- PAGE 8 ---
+
+## PAGE 7 — What our customer says
+## What our customer says
+Testimonial quote
+"The Ask Zia and Zia Insights features are also cool. I can ask for a specific agent name for their quarterly or monthly performance and get to see if their sales numbers are trending up or down, and from which geographic area their sales are coming from. I can also dive into why they can't close deals in other areas and try to replicate the successful ones. From Zia insights, I get which agent is doing the most amount of business and who is doing the least, and I can give their manager an update along with actionable insights—like which specific salesperson has a better understanding of customers on the coast rather than the mountains. These insights give a clear picture of the performance of all our sales reps, and we had this discovery within minutes because of Zia Insights."
+John Sheldon
+Business Intelligence Manager, Renu Energy Solutions
+Read more
+[Customer photo / logo placeholder — TODO]
+
+--- PAGE 9 ---
+
+## PAGE 8 — Solutions / How-Tos
+## Solutions / How-Tos
+Getting started with Ask Zia
+Watch the video
+[Video thumbnail / icon placeholder — TODO]
+How to train Zia
+Watch the video
+[Video thumbnail / icon placeholder — TODO]
+Zia with ChatGPT
+Watch the video
+[Video thumbnail / icon placeholder — TODO]
+
+--- PAGE 10 ---
+
+## PAGE 9 — Frequently Asked Questions
+## Frequently Asked Questions
+### How do I get started with Zia?
+In Zoho Analytics, click the "Ask Zia" button on the left navigation bar and ask your questions to Zia.
+### Is my data safe with Zia?
+Yes. More than 60 million users trust Zoho. We have a strong privacy policy and security infrastructure.
+### What languages is Zia available in?
+Right now Zia is available in English and Spanish (available in beta).
+### Where can I learn more about Zia?
+You can refer to our help documentation to learn more about Zia.
+
+--- PAGE 11 ---
+
+## PAGE 10 — Closing banner / CTA
+## Ready to explore AI-powered analytics with Zia?
+Start asking questions in natural language, uncover automated insights, and put generative AI to work inside Zoho Analytics.
+Primary CTA
+Sign up for free
+Secondary CTA (optional)
+Learn more about Ask Zia
+
+--- PAGE 12 ---
+
+## Implementation notes (for Web Page Builder)
+Sections required (in order)
+1. Hero — Conversational analytics eyebrow + H1 + body + Sign up for free CTA + hero visual
+2. Help-you strip — 6 capability icons (conversational, metrics, smart interpretation, predictive, smart insights, generative AI)
+3. Feature zigzag / stacked blocks — Ask Zia questions; Build business metrics; Smart interpretation; Predictive analysis
+4. Zia Insights intro + AI-driven automated Insights block
+5. Generative AI block + Learn more CTA
+6. Analyze on the go (mobile) block
+7. Business apps / integrations logo strip + More integrations
+8. Customer testimonial (John Sheldon / Renu Energy Solutions)
+9. Solutions / How-Tos video cards (3)
+10. FAQ accordion (4 questions)
+11. Closing CTA banner — Sign up for free
+Do not invent copy beyond this brief. Use placeholder images with TODO comments. Nav/footer are template slots only.
+Live reference: https://www.zoho.com/analytics/zia/

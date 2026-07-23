@@ -1,6 +1,8 @@
 // Zoho Web Page Builder — SPA client
 const appEl = document.getElementById('app');
 
+const CODE_FILES = ['index.html', 'style.css', 'script.js'];
+
 const state = {
   auth: null,
   writerSession: null,
@@ -16,7 +18,18 @@ const state = {
   reviseOpen: false,
   reviseScope: 'general',
   building: false,
-  selectedTemplate: null  // null = auto-detect, or a template id string
+  selectedTemplate: null,  // null = auto-detect, or a template id string
+  codeEditor: {
+    open: false,
+    runId: null,
+    activeFile: 'index.html',
+    contents: {},
+    originals: {},
+    loading: false,
+    saving: false,
+    status: '',
+    error: ''
+  }
 };
 
 // ── Template catalogue ─────────────────────────────────────────
@@ -457,8 +470,16 @@ function renderShell() {
         <div class="thread-list" id="thread-list"></div>
       </aside>
       <main class="main"><div class="main-inner" id="main-inner"></div></main>
-    </div>`;
-  document.getElementById('new-build').onclick = () => { closeStream(); state.view = 'new'; state.activeRunId = null; renderMain(); renderThreads(); };
+    </div>
+    <div id="code-editor-root"></div>`;
+  document.getElementById('new-build').onclick = () => {
+    closeCodeEditor();
+    closeStream();
+    state.view = 'new';
+    state.activeRunId = null;
+    renderMain();
+    renderThreads();
+  };
   document.getElementById('logout').onclick = async () => { await api('/auth/logout', { method: 'POST' }); location.reload(); };
   renderLoginPromptBanner();
   renderThreads();
@@ -793,6 +814,9 @@ function renderNewBuild(el) {
 
 // ── Open a run (live or replay) ────────────────
 async function openRun(id) {
+  if (state.codeEditor.open && state.codeEditor.runId !== id) {
+    if (!closeCodeEditor()) return;
+  }
   closeStream();
   state.view = 'run';
   state.activeRunId = id;
@@ -949,7 +973,7 @@ function renderPhase(g) {
     body += `<ol class="blueprint-list">${(d.blueprint.sections || []).map((s, i) => `<li><span class="num">${i + 1}.</span> ${esc(s)}</li>`).join('')}</ol>`;
   }
   if (d.files_written) {
-    body += `<div class="files">${(d.files_written.files || []).map((f) => `<div class="file-row"><span>${esc(f.file)}</span><span>${fmtBytes(f.bytes)}</span></div>`).join('')}</div>`;
+    body += `<div class="files">${(d.files_written.files || []).map((f) => `<button type="button" class="file-row file-open" data-file="${esc(f.file)}"><span>${esc(f.file)}</span><span>${fmtBytes(f.bytes)}</span></button>`).join('')}</div>`;
   }
   if (d.validate_output_ok) body += `<div style="font-size:13px;color:var(--green)">✓ validate:output passed</div>`;
   if (g.logs.length) {
@@ -977,9 +1001,18 @@ function renderHardStop(ev) {
 
 function renderOutputCard(ev) {
   const url = ev.payload.preview_url;
+  const runId = state.run?.id;
   return `<div class="output-card">
-    <div><div style="font-weight:600">Page generated</div><div style="color:var(--muted);font-size:12px">${esc(ev.payload.output_path)}</div></div>
-    <a class="oc-open" href="${esc(url)}" target="_blank">Open page ↗</a>
+    <div>
+      <div style="font-weight:600">Page generated</div>
+      <div style="color:var(--muted);font-size:12px">${esc(ev.payload.output_path)}</div>
+      <div class="output-files-hint">index.html · style.css · script.js + team source CSS — ZIP matches in-tool preview</div>
+    </div>
+    <div class="oc-actions">
+      <button type="button" class="oc-secondary" id="open-code" data-run="${esc(runId)}">Edit code</button>
+      <a class="oc-secondary" href="/api/runs/${esc(runId)}/download.zip" download>Download ZIP</a>
+      <a class="oc-open" href="${esc(url)}" target="_blank">Open page ↗</a>
+    </div>
   </div>`;
 }
 
@@ -1003,6 +1036,8 @@ function renderReview(run, previewUrl) {
          <button class="revise-btn" id="revise">Revise ▾</button>
          <span class="review-note">Round ${run.revise_rounds || 0}</span>`}
     <div class="review-bar-end">
+      <button type="button" class="revise-btn" id="open-code-review">Edit code</button>
+      <a class="revise-btn" href="/api/runs/${esc(run.id)}/download.zip" download>Download ZIP</a>
       ${openBtn}
       ${approved ? `<button class="revise-btn" id="revise">Revise again ▾</button>` : ''}
     </div>
@@ -1073,6 +1108,208 @@ function wireRun(run) {
     openRun._opened?.clear?.();
     renderRun(document.getElementById('main-inner'));
   };
+
+  const openCode = document.getElementById('open-code');
+  if (openCode) openCode.onclick = () => openCodeEditor(run.id);
+  const openCodeReview = document.getElementById('open-code-review');
+  if (openCodeReview) openCodeReview.onclick = () => openCodeEditor(run.id);
+  document.querySelectorAll('.file-open').forEach((btn) => {
+    btn.onclick = () => openCodeEditor(run.id, btn.dataset.file);
+  });
+}
+
+// ── In-tool code editor (HTML / CSS / JS) ──────
+function isCodeDirty() {
+  const ed = state.codeEditor;
+  return CODE_FILES.some((f) => (ed.contents[f] ?? '') !== (ed.originals[f] ?? ''));
+}
+
+function closeCodeEditor({ force = false } = {}) {
+  if (!force && state.codeEditor.open && isCodeDirty()) {
+    if (!confirm('You have unsaved changes. Close anyway?')) return false;
+  }
+  state.codeEditor.open = false;
+  state.codeEditor.runId = null;
+  state.codeEditor.contents = {};
+  state.codeEditor.originals = {};
+  state.codeEditor.status = '';
+  state.codeEditor.error = '';
+  renderCodeEditor();
+  return true;
+}
+
+async function openCodeEditor(runId, fileName = 'index.html', { forceReload = false } = {}) {
+  const startFile = CODE_FILES.includes(fileName) ? fileName : 'index.html';
+  if (state.codeEditor.open && state.codeEditor.runId === runId && !forceReload) {
+    state.codeEditor.activeFile = startFile;
+    renderCodeEditor();
+    return;
+  }
+  if (state.codeEditor.open && state.codeEditor.runId !== runId && isCodeDirty()) {
+    if (!confirm('You have unsaved changes. Switch build anyway?')) return;
+  }
+  state.codeEditor = {
+    open: true,
+    runId,
+    activeFile: startFile,
+    contents: {},
+    originals: {},
+    loading: true,
+    saving: false,
+    status: '',
+    error: ''
+  };
+  renderCodeEditor();
+  try {
+    const results = await Promise.all(
+      CODE_FILES.map(async (name) => {
+        try {
+          const data = await api(`/api/runs/${runId}/files/${encodeURIComponent(name)}`);
+          return { name, content: data.content ?? '', ok: true };
+        } catch {
+          return { name, content: '', ok: false };
+        }
+      })
+    );
+    if (state.codeEditor.runId !== runId) return;
+    for (const r of results) {
+      state.codeEditor.contents[r.name] = r.content;
+      state.codeEditor.originals[r.name] = r.content;
+    }
+    const missing = results.filter((r) => !r.ok).map((r) => r.name);
+    state.codeEditor.loading = false;
+    state.codeEditor.error = missing.length
+      ? `Missing on disk: ${missing.join(', ')} (save will create them)`
+      : '';
+    renderCodeEditor();
+  } catch (err) {
+    state.codeEditor.loading = false;
+    state.codeEditor.error = err.data?.message || err.message || 'Failed to load files';
+    renderCodeEditor();
+  }
+}
+
+function renderCodeEditor() {
+  const root = document.getElementById('code-editor-root');
+  if (!root) return;
+  const ed = state.codeEditor;
+  if (!ed.open) {
+    root.innerHTML = '';
+    return;
+  }
+  const run = state.runs.find((r) => r.id === ed.runId) || state.run;
+  const title = run?.page_title || run?.slug || 'Generated page';
+  const dirty = isCodeDirty();
+  const active = ed.activeFile;
+  const content = ed.contents[active] ?? '';
+
+  root.innerHTML = `
+    <div class="code-editor-overlay" role="dialog" aria-modal="true" aria-label="Edit generated code">
+      <div class="code-editor-panel">
+        <div class="code-editor-head">
+          <div>
+            <div class="code-editor-title">Edit code</div>
+            <div class="code-editor-sub">${esc(title)} · editable in tool</div>
+          </div>
+          <div class="code-editor-head-actions">
+            <a class="oc-secondary" href="/api/runs/${esc(ed.runId)}/download.zip" download>Download ZIP</a>
+            ${getPreviewUrl(run) ? `<a class="oc-secondary" href="${esc(getPreviewUrl(run))}" target="_blank">Preview ↗</a>` : ''}
+            <button type="button" class="code-close" id="code-close" title="Close">✕</button>
+          </div>
+        </div>
+        <div class="code-tabs">
+          ${CODE_FILES.map((f) => {
+            const isDirty = (ed.contents[f] ?? '') !== (ed.originals[f] ?? '');
+            return `<button type="button" class="code-tab${f === active ? ' active' : ''}${isDirty ? ' dirty' : ''}" data-file="${f}">${f}${isDirty ? ' •' : ''}</button>`;
+          }).join('')}
+        </div>
+        <div class="code-editor-body">
+          ${ed.loading
+            ? '<div class="code-loading">Loading files…</div>'
+            : '<textarea id="code-textarea" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>'}
+        </div>
+        <div class="code-editor-foot">
+          <div class="code-status">
+            ${ed.error ? `<span class="code-err">${esc(ed.error)}</span>` : ''}
+            ${ed.status ? `<span class="code-ok">${esc(ed.status)}</span>` : ''}
+            ${!ed.error && !ed.status ? `<span class="code-muted">${dirty ? 'Unsaved changes' : 'All changes saved'} · ${active}</span>` : ''}
+          </div>
+          <div class="code-foot-actions">
+            <button type="button" class="revise-btn" id="code-reload" ${ed.loading || ed.saving ? 'disabled' : ''}>Reload</button>
+            <button type="button" class="accept-btn" id="code-save" ${ed.loading || ed.saving || !dirty ? 'disabled' : ''}>
+              ${ed.saving ? 'Saving…' : 'Save changes'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById('code-close').onclick = () => closeCodeEditor();
+  document.querySelectorAll('.code-tab').forEach((tab) => {
+    tab.onclick = () => {
+      const ta = document.getElementById('code-textarea');
+      if (ta) state.codeEditor.contents[state.codeEditor.activeFile] = ta.value;
+      state.codeEditor.activeFile = tab.dataset.file;
+      state.codeEditor.status = '';
+      renderCodeEditor();
+    };
+  });
+  const ta = document.getElementById('code-textarea');
+  if (ta) {
+    ta.value = content;
+    ta.oninput = () => {
+      state.codeEditor.contents[state.codeEditor.activeFile] = ta.value;
+      state.codeEditor.status = '';
+      const foot = root.querySelector('.code-status');
+      if (foot && !state.codeEditor.error) {
+        foot.innerHTML = `<span class="code-muted">${isCodeDirty() ? 'Unsaved changes' : 'All changes saved'} · ${state.codeEditor.activeFile}</span>`;
+      }
+      const saveBtn = document.getElementById('code-save');
+      if (saveBtn) saveBtn.disabled = !isCodeDirty() || state.codeEditor.saving;
+      document.querySelectorAll('.code-tab').forEach((tab) => {
+        const f = tab.dataset.file;
+        const d = (state.codeEditor.contents[f] ?? '') !== (state.codeEditor.originals[f] ?? '');
+        tab.classList.toggle('dirty', d);
+        tab.textContent = d ? `${f} •` : f;
+      });
+    };
+  }
+  document.getElementById('code-reload').onclick = async () => {
+    if (isCodeDirty() && !confirm('Discard unsaved changes and reload from disk?')) return;
+    await openCodeEditor(ed.runId, ed.activeFile, { forceReload: true });
+  };
+  document.getElementById('code-save').onclick = () => saveCodeEditor();
+}
+
+async function saveCodeEditor() {
+  const ed = state.codeEditor;
+  if (!ed.open || !ed.runId || ed.saving) return;
+  const ta = document.getElementById('code-textarea');
+  if (ta) ed.contents[ed.activeFile] = ta.value;
+
+  const dirtyFiles = CODE_FILES.filter((f) => (ed.contents[f] ?? '') !== (ed.originals[f] ?? ''));
+  if (!dirtyFiles.length) return;
+
+  ed.saving = true;
+  ed.error = '';
+  ed.status = '';
+  renderCodeEditor();
+  try {
+    for (const name of dirtyFiles) {
+      await api(`/api/runs/${ed.runId}/files/${encodeURIComponent(name)}`, {
+        method: 'PUT',
+        body: { content: ed.contents[name] ?? '' }
+      });
+      ed.originals[name] = ed.contents[name] ?? '';
+    }
+    ed.saving = false;
+    ed.status = `Saved ${dirtyFiles.join(', ')}`;
+    renderCodeEditor();
+  } catch (err) {
+    ed.saving = false;
+    ed.error = err.data?.message || err.message || 'Save failed';
+    renderCodeEditor();
+  }
 }
 
 boot();

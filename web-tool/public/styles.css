@@ -844,18 +844,186 @@ input:focus {
   gap: 14px;
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
 }
-.output-card .oc-open {
+.output-files-hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+.oc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.output-card .oc-open,
+.oc-secondary {
   padding: 10px 16px;
-  background: var(--accent-grad);
-  color: #fff;
-  border: 0;
   border-radius: var(--radius);
   font-family: var(--zf-primary-semibold);
   text-decoration: none;
   transition: filter 0.15s;
+  border: 0;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.output-card .oc-open {
+  background: var(--accent-grad);
+  color: #fff;
 }
 .output-card .oc-open:hover { filter: brightness(1.05); color: #fff; }
+.oc-secondary {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.oc-secondary:hover { filter: brightness(0.98); color: var(--text); }
+
+.file-row.file-open {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  appearance: none;
+}
+.file-row.file-open:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ── In-tool code editor ────────────────────── */
+.code-editor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 24px;
+}
+.code-editor-panel {
+  width: min(1100px, 100%);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.code-editor-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-3);
+}
+.code-editor-title {
+  font-family: var(--zf-primary-bold);
+  font-size: 16px;
+}
+.code-editor-sub {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+.code-editor-head-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.code-close {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--muted);
+}
+.code-close:hover { color: var(--text); }
+.code-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 10px 14px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.code-tab {
+  border: 1px solid transparent;
+  border-bottom: 0;
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.code-tab:hover { color: var(--text); background: var(--bg-3); }
+.code-tab.active {
+  color: var(--text);
+  background: var(--bg-3);
+  border-color: var(--border);
+  font-family: var(--zf-primary-semibold);
+}
+.code-tab.dirty { color: var(--amber, #b45309); }
+.code-editor-body {
+  flex: 1;
+  min-height: 0;
+  background: #0f172a;
+}
+.code-editor-body textarea {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 260px);
+  border: 0;
+  resize: none;
+  padding: 16px 18px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: var(--mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  outline: none;
+  tab-size: 2;
+}
+.code-loading {
+  color: #94a3b8;
+  padding: 24px;
+  font-size: 13px;
+}
+.code-editor-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-3);
+  flex-wrap: wrap;
+}
+.code-foot-actions {
+  display: flex;
+  gap: 8px;
+}
+.code-status { font-size: 12px; }
+.code-muted { color: var(--muted); }
+.code-ok { color: var(--green); }
+.code-err { color: var(--brand-red); }
+
+@media (max-width: 720px) {
+  .code-editor-overlay { padding: 0; }
+  .code-editor-panel { border-radius: 0; width: 100%; }
+  .code-editor-body textarea { min-height: calc(100vh - 220px); }
+}
 
 .review-bar .oc-open,
 .review-bar .review-open {

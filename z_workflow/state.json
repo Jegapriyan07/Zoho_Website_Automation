@@ -1,9 +1,9 @@
 {
-  "run_id": "run_firebird_20260720",
-  "page_slug": "firebird",
+  "run_id": "run_P6nzmgZPlVJF",
+  "page_slug": "firebird-2",
   "writer_url": "https://writer.zoho.in/writer/open/gis7f8867983c608d40ae9d1d942d77f3e561",
   "writer_brief": {
-    "raw_content_file": "z_workflow/briefs/firebird.txt",
+    "raw_content_file": "z_workflow/briefs/firebird-2.txt",
     "page_title": "Firebird",
     "page_type": "firebird-db-landing",
     "product_name": "Zoho Analytics",
@@ -25,18 +25,37 @@
     "char_count": 2251,
     "source": "writer_api",
     "source_url": "https://writer.zoho.in/writer/open/gis7f8867983c608d40ae9d1d942d77f3e561",
-    "notes": "Web Page Builder misclassified as Athena database-connector-landing (shared Data Import/Prep/Live Connect/Blending). Correct gold is live firebird.html (29667.css) — za-banner / za-features / za-analyze / za-bottom. Skip Athena Incremental fetch · Zia Insights · resources · testimony."
+    "notes": "Web Page Builder misclassified as Athena database-connector-landing (shared Data Import/Prep/Live Connect/Blending). Correct gold is live firebird.html (29667.css) — za-banner / za-features / za-analyze / za-bottom. Skip Athena Incremental fetch · Zia Insights · resources · testimony.",
+    "inventory": {
+      "step_count": 0,
+      "step_numbers": [],
+      "faq_count": 0,
+      "page_markers": [],
+      "image_placeholder_count": 0,
+      "has_testimonials_heading": false,
+      "has_see_all_testimonials": false,
+      "has_dresner": false,
+      "has_how_it_works": false,
+      "rating_platforms": [],
+      "char_count": 2251,
+      "example_row_count": 0,
+      "example_row_missing": [],
+      "impl_step_count": 0,
+      "impl_step_missing": [],
+      "feature_block_count": 0,
+      "feature_block_missing": [],
+      "persona_block_count": 0,
+      "persona_block_missing": [],
+      "benefit_block_count": 0,
+      "benefit_block_missing": [],
+      "customer_story_count": 0,
+      "customer_story_missing": []
+    }
   },
   "similarity": {
     "structure_mode": "compose",
     "archetype": "firebird-db-landing",
-    "primary_source": "webtemplate/firebird",
-    "primary_source_url": "https://www.zoho.com/analytics/firebird.html",
-    "end_banner": {
-      "id": "EB-07",
-      "name": "soft-mint",
-      "bg_treatment": "soft-mint-closing"
-    },
+    "primary_source": "Firebird",
     "source_map": [
       {
         "brief_section": "hero",
@@ -102,16 +121,200 @@
         "cta": "ACCESS ZOHO ANALYTICS",
         "layout_style": "Analytics made Simple… + lead + ACCESS CTA"
       }
-    ]
+    ],
+    "end_banner": {
+      "id": "EB-07",
+      "name": "soft-mint",
+      "label": "Soft mint / cool green wash",
+      "bg_treatment": "soft-mint-closing",
+      "html_modifier": "",
+      "text_color": "dark",
+      "reference": "Reference-Site/Generative-ai",
+      "webtemplate_examples": [
+        "https://www.zoho.com/analytics/auto-reporting-tool.html"
+      ],
+      "css_markers": [
+        "#e7f6f1",
+        "#d4efe8"
+      ],
+      "css_skeleton": "background-color: #e7f6f1;\nbackground-image:\n  radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16) 0, transparent 50%),\n  radial-gradient(circle at 10% 100%, rgba(6, 95, 70, 0.08) 0, transparent 45%);\npadding: 90px 0;\ntext-align: center;",
+      "html_note": "",
+      "pool": [
+        "EB-07",
+        "EB-02",
+        "EB-04",
+        "EB-01"
+      ]
+    }
+  },
+  "phase_1": {
+    "status": "complete",
+    "design_tokens": {
+      "--color-primary": "#d83d3e",
+      "--color-secondary": "#fef2f2",
+      "--color-brand-cta": "#e42527",
+      "--primary-btn-color": "#e42527",
+      "hero_bg": "#fef2f2",
+      "value_band_bg": "#d83d3e",
+      "value_band_radius": "20px",
+      "value_band_width": "95%",
+      "closing_bg": "#e7f6f1",
+      "end_banner": "EB-07 soft-mint",
+      "type_scale": "firebird-db-type-scale (h1 50/60 · h2 32/42 · feature-title 26/40 · closing h2 46/56)",
+      "fonts": "var(--zf-primary-bold) / var(--zf-primary-regular)",
+      "breakpoints": [
+        1240,
+        1080,
+        991,
+        767,
+        565,
+        480,
+        350
+      ]
+    },
+    "team_flavour": "Peach hero split + red rounded value band + centered Firebird capability stacks (not Athena side-by-side), soft-mint EB-07 closing."
+  },
+  "phase_2": {
+    "status": "complete",
+    "webpage_blueprint": {
+      "page_slug": "firebird-2",
+      "archetype": "firebird-db-landing",
+      "structure_mode": "compose",
+      "sections": [
+        {
+          "brief_section": "hero",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "za-banner-section",
+          "repeat_count": 1,
+          "layout_style": "peach split — h1 + What-is lead + ACCESS CTA · img 563×467",
+          "bg_treatment": "peach-hero #fef2f2",
+          "banner_slot": "hero",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "copy": {
+            "h1": "Unleash the power of your Firebird data with Zoho Analytics",
+            "lead": "Firebird is a free and open-source relational database management system (RDBMS), recognized for its robust capabilities, outstanding efficiency, and trustworthiness . Its lean design is renowned for being suitable for both embedded applications and large-scale implementations."
+          },
+          "adaptation_notes": "Live firebird BEM; no Athena zbanner logos row."
+        },
+        {
+          "brief_section": "value-band",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "za-features-section",
+          "repeat_count": 1,
+          "layout_style": "red 95% rounded band · h2 + .za-feature-title",
+          "bg_treatment": "#d83d3e",
+          "copy": {
+            "h2": "Maximize your Firebird data with the collaboration of Zoho Analytics",
+            "lead": "By enhancing Firebird's capabilities with a range of advanced analytics tools created, Zoho Analytics uncovers valuable insights from unprocessed data."
+          },
+          "adaptation_notes": "::before peach bridge from hero; feature-title 26/40."
+        },
+        {
+          "brief_section": "data-import",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "zdashboard-section",
+          "id": "data-import",
+          "repeat_count": 1,
+          "layout_style": "centered title + desc + media",
+          "copy": {
+            "h2": "Data import",
+            "body": "Zoho Analytics can seamlessly import data from Firebird and other data sources, enabling easy extraction and integration for analysis."
+          },
+          "adaptation_notes": "Centered stack — not Athena side-by-side."
+        },
+        {
+          "brief_section": "data-preparation",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "zdashboard-section zdb2",
+          "id": "data-preparation",
+          "repeat_count": 1,
+          "layout_style": "alt zdb2 centered stack",
+          "copy": {
+            "h2": "Data preparation",
+            "body": "Unlock the potential of your Firebird data with the help of Zoho Analytics' in-built data preparation tool. Enrich, cleanse, and transform your data for better analysis."
+          },
+          "adaptation_notes": "Row 2 MUST include zdb2."
+        },
+        {
+          "brief_section": "data-blending",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "zdashboard-section",
+          "id": "data-blending",
+          "repeat_count": 1,
+          "layout_style": "centered title + desc + media",
+          "copy": {
+            "h2": "Data blending",
+            "body": "Combine data from multiple sources and create meaningful reports and dashboards. Blend data in various ways based on your data source, and get your data analysed effortlessly."
+          }
+        },
+        {
+          "brief_section": "live-connect",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "zdashboard-section zdb2",
+          "id": "live-connect",
+          "repeat_count": 1,
+          "layout_style": "alt zdb2 centered stack",
+          "copy": {
+            "h2": "Live Connect",
+            "body": "The Live Connect feature in Zoho Analytics helps you to create reports and dashboards with real-time data from Firebird without actually storing your data in Zoho Analytics. Your reports will be updated automatically when your data updates."
+          },
+          "adaptation_notes": "Row 4 MUST include zdb2."
+        },
+        {
+          "brief_section": "analyze-features",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "za-analyze-section",
+          "repeat_count": 3,
+          "layout_style": "3-card ul>li img 479×280 + h3 + p",
+          "copy": {
+            "h2": "Analyze your Firebird data even deeper with these features of Zoho Analytics",
+            "cards": [
+              {
+                "h3": "Data Visualization and Reporting",
+                "p": "With powerful data visualization and reporting capabilities, Zoho Analytics can create interactive and understandable reports and dashboards, and can track Key Performance Indicators (KPIs)."
+              },
+              {
+                "h3": "Enhanced Business Intelligence",
+                "p": "Zoho Analytics can enhance your Firebird data with its advanced AI capabilities by performing complex tasks like predictive analysis, what-if analysis and forecast future trends under a minute."
+              },
+              {
+                "h3": "Scalability and Flexibility",
+                "p": "Both Zoho Analytics and Firebird are scalable solutions that can grow with your business. This feature ensures that your business can extract value from their data as the business grows."
+              }
+            ]
+          },
+          "adaptation_notes": "NOT Athena .zconnecting-section."
+        },
+        {
+          "brief_section": "closing-cta",
+          "source_site": "webtemplate/firebird",
+          "source_section_id": "za-bottom-section",
+          "id": "conclusion",
+          "repeat_count": 1,
+          "layout_style": "centered h2 + lead + ACCESS CTA",
+          "bg_treatment": "EB-07 soft-mint-closing",
+          "banner_slot": "closing-cta",
+          "cta": "ACCESS ZOHO ANALYTICS",
+          "copy": {
+            "h2": "Analytics made Simple, Results Made Powerful",
+            "lead": "Use Zoho Analytics to enhance your Firebird data now"
+          },
+          "adaptation_notes": "Add .pre-banner-section; dark text on #e7f6f1 mint wash."
+        }
+      ]
+    }
   },
   "phase_6": {
-    "output_dir": "output/firebird",
-    "revise_rounds": 1,
-    "notes": "firebird-db-landing GOLD · live firebird.html · EB-07 · firebird-db-type-scale.css · promoted agent-reference/Firebird",
-    "promoted": true,
-    "promoted_at": "2026-07-20T11:10:07.482Z",
-    "reference_folder": "Firebird",
-    "reference_path": "agent-reference/Firebird",
-    "reference_origin": "agent"
+    "status": "complete",
+    "output_dir": "output/firebird-2",
+    "output_path": "output/firebird-2/",
+    "revise_rounds": 0,
+    "approved": true,
+    "notes": "firebird-db-landing compose · gold output/firebird · EB-07 soft-mint · firebird-db-type-scale.css · CTA ACCESS ZOHO ANALYTICS on hero + closing only"
+  },
+  "build_options": {
+    "trusted_brands": false,
+    "report_slider": false,
+    "end_banner_id": "EB-07"
   }
 }

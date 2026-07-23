@@ -1,0 +1,31 @@
+{
+  "extracted_at": "2026-07-20T11:39:40.697Z",
+  "source_file": "C:\\Users\\jegap\\AppData\\Local\\Temp\\zwpb-writer-api\\writer-gis7f8867983c608d40ae9d1d942d77f3e561-1784547580439.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\build-mrt5jwfl.txt",
+  "extraction_method": "writer_api",
+  "page_count": 1,
+  "merged_length": 2240,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 0,
+    "page_markers": [],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 2251
+  },
+  "archetype_guess": "firebird-db-landing",
+  "writer_doc_title": "Firebird",
+  "source_url": "https://writer.zoho.in/writer/open/gis7f8867983c608d40ae9d1d942d77f3e561",
+  "document_id": "gis7f8867983c608d40ae9d1d942d77f3e561"
+}

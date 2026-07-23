@@ -1,0 +1,41 @@
+{
+  "extracted_at": "2026-07-21T09:39:48.446Z",
+  "source_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\ask-zia-landing.docx",
+  "output_file": "C:\\Users\\jegap\\Downloads\\Web-pages (1)\\Web-pages\\z_workflow\\briefs\\ask-zia-landing.txt",
+  "extraction_method": "docx",
+  "page_count": 12,
+  "merged_length": 8333,
+  "footer_chars": null,
+  "per_page_lengths": [],
+  "quality": {
+    "warnings": [],
+    "errors": []
+  },
+  "inventory": {
+    "step_count": 0,
+    "step_numbers": [],
+    "faq_count": 5,
+    "page_markers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "image_placeholder_count": 0,
+    "has_testimonials_heading": false,
+    "has_see_all_testimonials": false,
+    "has_dresner": false,
+    "has_how_it_works": false,
+    "rating_platforms": [],
+    "char_count": 8334
+  },
+  "archetype_guess": "database-connector-landing",
+  "writer_doc_title": "ask-zia-landing"
+}
